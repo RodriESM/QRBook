@@ -1,0 +1,2903 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Google.Cloud.ErrorReporting.V1Beta1</name>
+    </assembly>
+    <members>
+        <member name="T:Google.Cloud.ErrorReporting.V1Beta1.CommonReflection">
+            <summary>Holder for reflection information generated from google/devtools/clouderrorreporting/v1beta1/common.proto</summary>
+        </member>
+        <member name="P:Google.Cloud.ErrorReporting.V1Beta1.CommonReflection.Descriptor">
+            <summary>File descriptor for google/devtools/clouderrorreporting/v1beta1/common.proto</summary>
+        </member>
+        <member name="T:Google.Cloud.ErrorReporting.V1Beta1.ErrorGroup">
+            <summary>
+            Description of a group of similar error events.
+            </summary>
+        </member>
+        <member name="F:Google.Cloud.ErrorReporting.V1Beta1.ErrorGroup.NameFieldNumber">
+            <summary>Field number for the "name" field.</summary>
+        </member>
+        <member name="P:Google.Cloud.ErrorReporting.V1Beta1.ErrorGroup.Name">
+            <summary>
+            The group resource name.
+            Example: &lt;code>projects/my-project-123/groups/my-groupid&lt;/code>
+            </summary>
+        </member>
+        <member name="F:Google.Cloud.ErrorReporting.V1Beta1.ErrorGroup.GroupIdFieldNumber">
+            <summary>Field number for the "group_id" field.</summary>
+        </member>
+        <member name="P:Google.Cloud.ErrorReporting.V1Beta1.ErrorGroup.GroupId">
+            <summary>
+            Group IDs are unique for a given project. If the same kind of error
+            occurs in different service contexts, it will receive the same group ID.
+            </summary>
+        </member>
+        <member name="F:Google.Cloud.ErrorReporting.V1Beta1.ErrorGroup.TrackingIssuesFieldNumber">
+            <summary>Field number for the "tracking_issues" field.</summary>
+        </member>
+        <member name="P:Google.Cloud.ErrorReporting.V1Beta1.ErrorGroup.TrackingIssues">
+            <summary>
+            Associated tracking issues.
+            </summary>
+        </member>
+        <member name="P:Google.Cloud.ErrorReporting.V1Beta1.ErrorGroup.GroupName">
+            <summary>
+            <see cref="P:Google.Cloud.ErrorReporting.V1Beta1.ErrorGroup.GroupName"/>-typed view over the <see cref="P:Google.Cloud.ErrorReporting.V1Beta1.ErrorGroup.Name"/> resource name property.
+            </summary>
+        </member>
+        <member name="T:Google.Cloud.ErrorReporting.V1Beta1.TrackingIssue">
+            <summary>
+            Information related to tracking the progress on resolving the error.
+            </summary>
+        </member>
+        <member name="F:Google.Cloud.ErrorReporting.V1Beta1.TrackingIssue.UrlFieldNumber">
+            <summary>Field number for the "url" field.</summary>
+        </member>
+        <member name="P:Google.Cloud.ErrorReporting.V1Beta1.TrackingIssue.Url">
+            <summary>
+            A URL pointing to a related entry in an issue tracking system.
+            Example: https://github.com/user/project/issues/4
+            </summary>
+        </member>
+        <member name="T:Google.Cloud.ErrorReporting.V1Beta1.ErrorEvent">
+            <summary>
+            An error event which is returned by the Error Reporting system.
+            </summary>
+        </member>
+        <member name="F:Google.Cloud.ErrorReporting.V1Beta1.ErrorEvent.EventTimeFieldNumber">
+            <summary>Field number for the "event_time" field.</summary>
+        </member>
+        <member name="P:Google.Cloud.ErrorReporting.V1Beta1.ErrorEvent.EventTime">
+            <summary>
+            Time when the event occurred as provided in the error report.
+            If the report did not contain a timestamp, the time the error was received
+            by the Error Reporting system is used.
+            </summary>
+        </member>
+        <member name="F:Google.Cloud.ErrorReporting.V1Beta1.ErrorEvent.ServiceContextFieldNumber">
+            <summary>Field number for the "service_context" field.</summary>
+        </member>
+        <member name="P:Google.Cloud.ErrorReporting.V1Beta1.ErrorEvent.ServiceContext">
+            <summary>
+            The `ServiceContext` for which this error was reported.
+            </summary>
+        </member>
+        <member name="F:Google.Cloud.ErrorReporting.V1Beta1.ErrorEvent.MessageFieldNumber">
+            <summary>Field number for the "message" field.</summary>
+        </member>
+        <member name="P:Google.Cloud.ErrorReporting.V1Beta1.ErrorEvent.Message">
+            <summary>
+            The stack trace that was reported or logged by the service.
+            </summary>
+        </member>
+        <member name="F:Google.Cloud.ErrorReporting.V1Beta1.ErrorEvent.ContextFieldNumber">
+            <summary>Field number for the "context" field.</summary>
+        </member>
+        <member name="P:Google.Cloud.ErrorReporting.V1Beta1.ErrorEvent.Context">
+            <summary>
+            Data about the context in which the error occurred.
+            </summary>
+        </member>
+        <member name="T:Google.Cloud.ErrorReporting.V1Beta1.ServiceContext">
+            <summary>
+            Describes a running service that sends errors.
+            Its version changes over time and multiple versions can run in parallel.
+            </summary>
+        </member>
+        <member name="F:Google.Cloud.ErrorReporting.V1Beta1.ServiceContext.ServiceFieldNumber">
+            <summary>Field number for the "service" field.</summary>
+        </member>
+        <member name="P:Google.Cloud.ErrorReporting.V1Beta1.ServiceContext.Service">
+             <summary>
+             An identifier of the service, such as the name of the
+             executable, job, or Google App Engine service name. This field is expected
+             to have a low number of values that are relatively stable over time, as
+             opposed to `version`, which can be changed whenever new code is deployed.
+            
+             Contains the service name for error reports extracted from Google
+             App Engine logs or `default` if the App Engine default service is used.
+             </summary>
+        </member>
+        <member name="F:Google.Cloud.ErrorReporting.V1Beta1.ServiceContext.VersionFieldNumber">
+            <summary>Field number for the "version" field.</summary>
+        </member>
+        <member name="P:Google.Cloud.ErrorReporting.V1Beta1.ServiceContext.Version">
+            <summary>
+            Represents the source code version that the developer provided,
+            which could represent a version label or a Git SHA-1 hash, for example.
+            </summary>
+        </member>
+        <member name="F:Google.Cloud.ErrorReporting.V1Beta1.ServiceContext.ResourceTypeFieldNumber">
+            <summary>Field number for the "resource_type" field.</summary>
+        </member>
+        <member name="P:Google.Cloud.ErrorReporting.V1Beta1.ServiceContext.ResourceType">
+             <summary>
+             Type of the MonitoredResource. List of possible values:
+             https://cloud.google.com/monitoring/api/resources
+            
+             Value is set automatically for incoming errors and must not be set when
+             reporting errors.
+             </summary>
+        </member>
+        <member name="T:Google.Cloud.ErrorReporting.V1Beta1.ErrorContext">
+            <summary>
+            A description of the context in which an error occurred.
+            This data should be provided by the application when reporting an error,
+            unless the
+            error report has been generated automatically from Google App Engine logs.
+            </summary>
+        </member>
+        <member name="F:Google.Cloud.ErrorReporting.V1Beta1.ErrorContext.HttpRequestFieldNumber">
+            <summary>Field number for the "http_request" field.</summary>
+        </member>
+        <member name="P:Google.Cloud.ErrorReporting.V1Beta1.ErrorContext.HttpRequest">
+            <summary>
+            The HTTP request which was processed when the error was
+            triggered.
+            </summary>
+        </member>
+        <member name="F:Google.Cloud.ErrorReporting.V1Beta1.ErrorContext.UserFieldNumber">
+            <summary>Field number for the "user" field.</summary>
+        </member>
+        <member name="P:Google.Cloud.ErrorReporting.V1Beta1.ErrorContext.User">
+            <summary>
+            The user who caused or was affected by the crash.
+            This can be a user ID, an email address, or an arbitrary token that
+            uniquely identifies the user.
+            When sending an error report, leave this field empty if the user was not
+            logged in. In this case the
+            Error Reporting system will use other data, such as remote IP address, to
+            distinguish affected users. See `affected_users_count` in
+            `ErrorGroupStats`.
+            </summary>
+        </member>
+        <member name="F:Google.Cloud.ErrorReporting.V1Beta1.ErrorContext.ReportLocationFieldNumber">
+            <summary>Field number for the "report_location" field.</summary>
+        </member>
+        <member name="P:Google.Cloud.ErrorReporting.V1Beta1.ErrorContext.ReportLocation">
+            <summary>
+            The location in the source code where the decision was made to
+            report the error, usually the place where it was logged.
+            For a logged exception this would be the source line where the
+            exception is logged, usually close to the place where it was
+            caught. This value is in contrast to `Exception.cause_location`,
+            which describes the source line where the exception was thrown.
+            </summary>
+        </member>
+        <member name="T:Google.Cloud.ErrorReporting.V1Beta1.HttpRequestContext">
+            <summary>
+            HTTP request data that is related to a reported error.
+            This data should be provided by the application when reporting an error,
+            unless the
+            error report has been generated automatically from Google App Engine logs.
+            </summary>
+        </member>
+        <member name="F:Google.Cloud.ErrorReporting.V1Beta1.HttpRequestContext.MethodFieldNumber">
+            <summary>Field number for the "method" field.</summary>
+        </member>
+        <member name="P:Google.Cloud.ErrorReporting.V1Beta1.HttpRequestContext.Method">
+            <summary>
+            The type of HTTP request, such as `GET`, `POST`, etc.
+            </summary>
+        </member>
+        <member name="F:Google.Cloud.ErrorReporting.V1Beta1.HttpRequestContext.UrlFieldNumber">
+            <summary>Field number for the "url" field.</summary>
+        </member>
+        <member name="P:Google.Cloud.ErrorReporting.V1Beta1.HttpRequestContext.Url">
+            <summary>
+            The URL of the request.
+            </summary>
+        </member>
+        <member name="F:Google.Cloud.ErrorReporting.V1Beta1.HttpRequestContext.UserAgentFieldNumber">
+            <summary>Field number for the "user_agent" field.</summary>
+        </member>
+        <member name="P:Google.Cloud.ErrorReporting.V1Beta1.HttpRequestContext.UserAgent">
+            <summary>
+            The user agent information that is provided with the request.
+            </summary>
+        </member>
+        <member name="F:Google.Cloud.ErrorReporting.V1Beta1.HttpRequestContext.ReferrerFieldNumber">
+            <summary>Field number for the "referrer" field.</summary>
+        </member>
+        <member name="P:Google.Cloud.ErrorReporting.V1Beta1.HttpRequestContext.Referrer">
+            <summary>
+            The referrer information that is provided with the request.
+            </summary>
+        </member>
+        <member name="F:Google.Cloud.ErrorReporting.V1Beta1.HttpRequestContext.ResponseStatusCodeFieldNumber">
+            <summary>Field number for the "response_status_code" field.</summary>
+        </member>
+        <member name="P:Google.Cloud.ErrorReporting.V1Beta1.HttpRequestContext.ResponseStatusCode">
+            <summary>
+            The HTTP response status code for the request.
+            </summary>
+        </member>
+        <member name="F:Google.Cloud.ErrorReporting.V1Beta1.HttpRequestContext.RemoteIpFieldNumber">
+            <summary>Field number for the "remote_ip" field.</summary>
+        </member>
+        <member name="P:Google.Cloud.ErrorReporting.V1Beta1.HttpRequestContext.RemoteIp">
+            <summary>
+            The IP address from which the request originated.
+            This can be IPv4, IPv6, or a token which is derived from the
+            IP address, depending on the data that has been provided
+            in the error report.
+            </summary>
+        </member>
+        <member name="T:Google.Cloud.ErrorReporting.V1Beta1.SourceLocation">
+            <summary>
+            Indicates a location in the source code of the service for which
+            errors are reported.
+            This data should be provided by the application when reporting an error,
+            unless the error report has been generated automatically from Google App
+            Engine logs. All fields are optional.
+            </summary>
+        </member>
+        <member name="F:Google.Cloud.ErrorReporting.V1Beta1.SourceLocation.FilePathFieldNumber">
+            <summary>Field number for the "file_path" field.</summary>
+        </member>
+        <member name="P:Google.Cloud.ErrorReporting.V1Beta1.SourceLocation.FilePath">
+            <summary>
+            The source code filename, which can include a truncated relative
+            path, or a full path from a production machine.
+            </summary>
+        </member>
+        <member name="F:Google.Cloud.ErrorReporting.V1Beta1.SourceLocation.LineNumberFieldNumber">
+            <summary>Field number for the "line_number" field.</summary>
+        </member>
+        <member name="P:Google.Cloud.ErrorReporting.V1Beta1.SourceLocation.LineNumber">
+            <summary>
+            1-based. 0 indicates that the line number is unknown.
+            </summary>
+        </member>
+        <member name="F:Google.Cloud.ErrorReporting.V1Beta1.SourceLocation.FunctionNameFieldNumber">
+            <summary>Field number for the "function_name" field.</summary>
+        </member>
+        <member name="P:Google.Cloud.ErrorReporting.V1Beta1.SourceLocation.FunctionName">
+            <summary>
+            Human-readable name of a function or method.
+            The value can include optional context like the class or package name.
+            For example, `my.package.MyClass.method` in case of Java.
+            </summary>
+        </member>
+        <member name="T:Google.Cloud.ErrorReporting.V1Beta1.ErrorGroupServiceReflection">
+            <summary>Holder for reflection information generated from google/devtools/clouderrorreporting/v1beta1/error_group_service.proto</summary>
+        </member>
+        <member name="P:Google.Cloud.ErrorReporting.V1Beta1.ErrorGroupServiceReflection.Descriptor">
+            <summary>File descriptor for google/devtools/clouderrorreporting/v1beta1/error_group_service.proto</summary>
+        </member>
+        <member name="T:Google.Cloud.ErrorReporting.V1Beta1.GetGroupRequest">
+            <summary>
+            A request to return an individual group.
+            </summary>
+        </member>
+        <member name="F:Google.Cloud.ErrorReporting.V1Beta1.GetGroupRequest.GroupNameFieldNumber">
+            <summary>Field number for the "group_name" field.</summary>
+        </member>
+        <member name="P:Google.Cloud.ErrorReporting.V1Beta1.GetGroupRequest.GroupName">
+             <summary>
+             [Required] The group resource name. Written as
+             &lt;code>projects/&lt;var>projectID&lt;/var>/groups/&lt;var>group_name&lt;/var>&lt;/code>.
+             Call
+             &lt;a href="/error-reporting/reference/rest/v1beta1/projects.groupStats/list">
+             &lt;code>groupStats.list&lt;/code>&lt;/a> to return a list of groups belonging to
+             this project.
+            
+             Example: &lt;code>projects/my-project-123/groups/my-group&lt;/code>
+             </summary>
+        </member>
+        <member name="P:Google.Cloud.ErrorReporting.V1Beta1.GetGroupRequest.GroupNameAsGroupName">
+            <summary>
+            <see cref="P:Google.Cloud.ErrorReporting.V1Beta1.GetGroupRequest.GroupName"/>-typed view over the <see cref="P:Google.Cloud.ErrorReporting.V1Beta1.GetGroupRequest.GroupName"/> resource name property.
+            </summary>
+        </member>
+        <member name="T:Google.Cloud.ErrorReporting.V1Beta1.UpdateGroupRequest">
+            <summary>
+            A request to replace the existing data for the given group.
+            </summary>
+        </member>
+        <member name="F:Google.Cloud.ErrorReporting.V1Beta1.UpdateGroupRequest.GroupFieldNumber">
+            <summary>Field number for the "group" field.</summary>
+        </member>
+        <member name="P:Google.Cloud.ErrorReporting.V1Beta1.UpdateGroupRequest.Group">
+            <summary>
+            [Required] The group which replaces the resource on the server.
+            </summary>
+        </member>
+        <member name="T:Google.Cloud.ErrorReporting.V1Beta1.ErrorGroupServiceSettings">
+            <summary>
+            Settings for a <see cref="T:Google.Cloud.ErrorReporting.V1Beta1.ErrorGroupServiceClient"/>.
+            </summary>
+        </member>
+        <member name="M:Google.Cloud.ErrorReporting.V1Beta1.ErrorGroupServiceSettings.GetDefault">
+            <summary>
+            Get a new instance of the default <see cref="T:Google.Cloud.ErrorReporting.V1Beta1.ErrorGroupServiceSettings"/>.
+            </summary>
+            <returns>
+            A new instance of the default <see cref="T:Google.Cloud.ErrorReporting.V1Beta1.ErrorGroupServiceSettings"/>.
+            </returns>
+        </member>
+        <member name="M:Google.Cloud.ErrorReporting.V1Beta1.ErrorGroupServiceSettings.#ctor">
+            <summary>
+            Constructs a new <see cref="T:Google.Cloud.ErrorReporting.V1Beta1.ErrorGroupServiceSettings"/> object with default settings.
+            </summary>
+        </member>
+        <member name="P:Google.Cloud.ErrorReporting.V1Beta1.ErrorGroupServiceSettings.IdempotentRetryFilter">
+            <summary>
+            The filter specifying which RPC <see cref="T:Grpc.Core.StatusCode"/>s are eligible for retry
+            for "Idempotent" <see cref="T:Google.Cloud.ErrorReporting.V1Beta1.ErrorGroupServiceClient"/> RPC methods.
+            </summary>
+            <remarks>
+            The eligible RPC <see cref="T:Grpc.Core.StatusCode"/>s for retry for "Idempotent" RPC methods are:
+            <list type="bullet">
+            <item><description><see cref="F:Grpc.Core.StatusCode.DeadlineExceeded"/></description></item>
+            <item><description><see cref="F:Grpc.Core.StatusCode.Unavailable"/></description></item>
+            </list>
+            </remarks>
+        </member>
+        <member name="P:Google.Cloud.ErrorReporting.V1Beta1.ErrorGroupServiceSettings.NonIdempotentRetryFilter">
+            <summary>
+            The filter specifying which RPC <see cref="T:Grpc.Core.StatusCode"/>s are eligible for retry
+            for "NonIdempotent" <see cref="T:Google.Cloud.ErrorReporting.V1Beta1.ErrorGroupServiceClient"/> RPC methods.
+            </summary>
+            <remarks>
+            The eligible RPC <see cref="T:Grpc.Core.StatusCode"/>s for retry for "NonIdempotent" RPC methods are:
+            <list type="bullet">
+            <item><description><see cref="F:Grpc.Core.StatusCode.Unavailable"/></description></item>
+            </list>
+            </remarks>
+        </member>
+        <member name="M:Google.Cloud.ErrorReporting.V1Beta1.ErrorGroupServiceSettings.GetDefaultRetryBackoff">
+            <summary>
+            "Default" retry backoff for <see cref="T:Google.Cloud.ErrorReporting.V1Beta1.ErrorGroupServiceClient"/> RPC methods.
+            </summary>
+            <returns>
+            The "Default" retry backoff for <see cref="T:Google.Cloud.ErrorReporting.V1Beta1.ErrorGroupServiceClient"/> RPC methods.
+            </returns>
+            <remarks>
+            The "Default" retry backoff for <see cref="T:Google.Cloud.ErrorReporting.V1Beta1.ErrorGroupServiceClient"/> RPC methods is defined as:
+            <list type="bullet">
+            <item><description>Initial delay: 100 milliseconds</description></item>
+            <item><description>Maximum delay: 60000 milliseconds</description></item>
+            <item><description>Delay multiplier: 1.3</description></item>
+            </list>
+            </remarks>
+        </member>
+        <member name="M:Google.Cloud.ErrorReporting.V1Beta1.ErrorGroupServiceSettings.GetDefaultTimeoutBackoff">
+            <summary>
+            "Default" timeout backoff for <see cref="T:Google.Cloud.ErrorReporting.V1Beta1.ErrorGroupServiceClient"/> RPC methods.
+            </summary>
+            <returns>
+            The "Default" timeout backoff for <see cref="T:Google.Cloud.ErrorReporting.V1Beta1.ErrorGroupServiceClient"/> RPC methods.
+            </returns>
+            <remarks>
+            The "Default" timeout backoff for <see cref="T:Google.Cloud.ErrorReporting.V1Beta1.ErrorGroupServiceClient"/> RPC methods is defined as:
+            <list type="bullet">
+            <item><description>Initial timeout: 20000 milliseconds</description></item>
+            <item><description>Timeout multiplier: 1.0</description></item>
+            <item><description>Maximum timeout: 20000 milliseconds</description></item>
+            </list>
+            </remarks>
+        </member>
+        <member name="P:Google.Cloud.ErrorReporting.V1Beta1.ErrorGroupServiceSettings.GetGroupSettings">
+            <summary>
+            <see cref="T:Google.Api.Gax.Grpc.CallSettings"/> for synchronous and asynchronous calls to
+            <c>ErrorGroupServiceClient.GetGroup</c> and <c>ErrorGroupServiceClient.GetGroupAsync</c>.
+            </summary>
+            <remarks>
+            The default <c>ErrorGroupServiceClient.GetGroup</c> and
+            <c>ErrorGroupServiceClient.GetGroupAsync</c> <see cref="T:Google.Api.Gax.Grpc.RetrySettings"/> are:
+            <list type="bullet">
+            <item><description>Initial retry delay: 100 milliseconds</description></item>
+            <item><description>Retry delay multiplier: 1.3</description></item>
+            <item><description>Retry maximum delay: 60000 milliseconds</description></item>
+            <item><description>Initial timeout: 20000 milliseconds</description></item>
+            <item><description>Timeout multiplier: 1.0</description></item>
+            <item><description>Timeout maximum delay: 20000 milliseconds</description></item>
+            </list>
+            Retry will be attempted on the following response status codes:
+            <list>
+            <item><description><see cref="F:Grpc.Core.StatusCode.DeadlineExceeded"/></description></item>
+            <item><description><see cref="F:Grpc.Core.StatusCode.Unavailable"/></description></item>
+            </list>
+            Default RPC expiration is 600000 milliseconds.
+            </remarks>
+        </member>
+        <member name="P:Google.Cloud.ErrorReporting.V1Beta1.ErrorGroupServiceSettings.UpdateGroupSettings">
+            <summary>
+            <see cref="T:Google.Api.Gax.Grpc.CallSettings"/> for synchronous and asynchronous calls to
+            <c>ErrorGroupServiceClient.UpdateGroup</c> and <c>ErrorGroupServiceClient.UpdateGroupAsync</c>.
+            </summary>
+            <remarks>
+            The default <c>ErrorGroupServiceClient.UpdateGroup</c> and
+            <c>ErrorGroupServiceClient.UpdateGroupAsync</c> <see cref="T:Google.Api.Gax.Grpc.RetrySettings"/> are:
+            <list type="bullet">
+            <item><description>Initial retry delay: 100 milliseconds</description></item>
+            <item><description>Retry delay multiplier: 1.3</description></item>
+            <item><description>Retry maximum delay: 60000 milliseconds</description></item>
+            <item><description>Initial timeout: 20000 milliseconds</description></item>
+            <item><description>Timeout multiplier: 1.0</description></item>
+            <item><description>Timeout maximum delay: 20000 milliseconds</description></item>
+            </list>
+            Retry will be attempted on the following response status codes:
+            <list>
+            <item><description><see cref="F:Grpc.Core.StatusCode.DeadlineExceeded"/></description></item>
+            <item><description><see cref="F:Grpc.Core.StatusCode.Unavailable"/></description></item>
+            </list>
+            Default RPC expiration is 600000 milliseconds.
+            </remarks>
+        </member>
+        <member name="M:Google.Cloud.ErrorReporting.V1Beta1.ErrorGroupServiceSettings.Clone">
+            <summary>
+            Creates a deep clone of this object, with all the same property values.
+            </summary>
+            <returns>A deep clone of this <see cref="T:Google.Cloud.ErrorReporting.V1Beta1.ErrorGroupServiceSettings"/> object.</returns>
+        </member>
+        <member name="T:Google.Cloud.ErrorReporting.V1Beta1.ErrorGroupServiceClient">
+            <summary>
+            ErrorGroupService client wrapper, for convenient use.
+            </summary>
+        </member>
+        <member name="P:Google.Cloud.ErrorReporting.V1Beta1.ErrorGroupServiceClient.DefaultEndpoint">
+            <summary>
+            The default endpoint for the ErrorGroupService service, which is a host of "clouderrorreporting.googleapis.com" and a port of 443.
+            </summary>
+        </member>
+        <member name="P:Google.Cloud.ErrorReporting.V1Beta1.ErrorGroupServiceClient.DefaultScopes">
+            <summary>
+            The default ErrorGroupService scopes.
+            </summary>
+            <remarks>
+            The default ErrorGroupService scopes are:
+            <list type="bullet">
+            <item><description>"https://www.googleapis.com/auth/cloud-platform"</description></item>
+            </list>
+            </remarks>
+        </member>
+        <member name="M:Google.Cloud.ErrorReporting.V1Beta1.ErrorGroupServiceClient.CreateAsync(Google.Api.Gax.Grpc.ServiceEndpoint,Google.Cloud.ErrorReporting.V1Beta1.ErrorGroupServiceSettings)">
+            <summary>
+            Asynchronously creates a <see cref="T:Google.Cloud.ErrorReporting.V1Beta1.ErrorGroupServiceClient"/>, applying defaults for all unspecified settings,
+            and creating a channel connecting to the given endpoint with application default credentials where
+            necessary.
+            </summary>
+            <param name="endpoint">Optional <see cref="T:Google.Api.Gax.Grpc.ServiceEndpoint"/>.</param>
+            <param name="settings">Optional <see cref="T:Google.Cloud.ErrorReporting.V1Beta1.ErrorGroupServiceSettings"/>.</param>
+            <returns>The task representing the created <see cref="T:Google.Cloud.ErrorReporting.V1Beta1.ErrorGroupServiceClient"/>.</returns>
+        </member>
+        <member name="M:Google.Cloud.ErrorReporting.V1Beta1.ErrorGroupServiceClient.Create(Google.Api.Gax.Grpc.ServiceEndpoint,Google.Cloud.ErrorReporting.V1Beta1.ErrorGroupServiceSettings)">
+            <summary>
+            Synchronously creates a <see cref="T:Google.Cloud.ErrorReporting.V1Beta1.ErrorGroupServiceClient"/>, applying defaults for all unspecified settings,
+            and creating a channel connecting to the given endpoint with application default credentials where
+            necessary.
+            </summary>
+            <param name="endpoint">Optional <see cref="T:Google.Api.Gax.Grpc.ServiceEndpoint"/>.</param>
+            <param name="settings">Optional <see cref="T:Google.Cloud.ErrorReporting.V1Beta1.ErrorGroupServiceSettings"/>.</param>
+            <returns>The created <see cref="T:Google.Cloud.ErrorReporting.V1Beta1.ErrorGroupServiceClient"/>.</returns>
+        </member>
+        <member name="M:Google.Cloud.ErrorReporting.V1Beta1.ErrorGroupServiceClient.Create(Grpc.Core.Channel,Google.Cloud.ErrorReporting.V1Beta1.ErrorGroupServiceSettings)">
+            <summary>
+            Creates a <see cref="T:Google.Cloud.ErrorReporting.V1Beta1.ErrorGroupServiceClient"/> which uses the specified channel for remote operations.
+            </summary>
+            <param name="channel">The <see cref="T:Grpc.Core.Channel"/> for remote operations. Must not be null.</param>
+            <param name="settings">Optional <see cref="T:Google.Cloud.ErrorReporting.V1Beta1.ErrorGroupServiceSettings"/>.</param>
+            <returns>The created <see cref="T:Google.Cloud.ErrorReporting.V1Beta1.ErrorGroupServiceClient"/>.</returns>
+        </member>
+        <member name="M:Google.Cloud.ErrorReporting.V1Beta1.ErrorGroupServiceClient.ShutdownDefaultChannelsAsync">
+            <summary>
+            Shuts down any channels automatically created by <see cref="M:Google.Cloud.ErrorReporting.V1Beta1.ErrorGroupServiceClient.Create(Google.Api.Gax.Grpc.ServiceEndpoint,Google.Cloud.ErrorReporting.V1Beta1.ErrorGroupServiceSettings)"/>
+            and <see cref="M:Google.Cloud.ErrorReporting.V1Beta1.ErrorGroupServiceClient.CreateAsync(Google.Api.Gax.Grpc.ServiceEndpoint,Google.Cloud.ErrorReporting.V1Beta1.ErrorGroupServiceSettings)"/>. Channels which weren't automatically
+            created are not affected.
+            </summary>
+            <remarks>After calling this method, further calls to <see cref="M:Google.Cloud.ErrorReporting.V1Beta1.ErrorGroupServiceClient.Create(Google.Api.Gax.Grpc.ServiceEndpoint,Google.Cloud.ErrorReporting.V1Beta1.ErrorGroupServiceSettings)"/>
+            and <see cref="M:Google.Cloud.ErrorReporting.V1Beta1.ErrorGroupServiceClient.CreateAsync(Google.Api.Gax.Grpc.ServiceEndpoint,Google.Cloud.ErrorReporting.V1Beta1.ErrorGroupServiceSettings)"/> will create new channels, which could
+            in turn be shut down by another call to this method.</remarks>
+            <returns>A task representing the asynchronous shutdown operation.</returns>
+        </member>
+        <member name="P:Google.Cloud.ErrorReporting.V1Beta1.ErrorGroupServiceClient.GrpcClient">
+            <summary>
+            The underlying gRPC ErrorGroupService client.
+            </summary>
+        </member>
+        <member name="M:Google.Cloud.ErrorReporting.V1Beta1.ErrorGroupServiceClient.GetGroupAsync(Google.Cloud.ErrorReporting.V1Beta1.GroupName,Google.Api.Gax.Grpc.CallSettings)">
+             <summary>
+             Get the specified group.
+             </summary>
+             <param name="groupName">
+             [Required] The group resource name. Written as
+             &lt;code&gt;projects/&lt;var&gt;projectID&lt;/var&gt;/groups/&lt;var&gt;group_name&lt;/var&gt;&lt;/code&gt;.
+             Call
+             &lt;a href="/error-reporting/reference/rest/v1beta1/projects.groupStats/list"&gt;
+             &lt;code&gt;groupStats.list&lt;/code&gt;&lt;/a&gt; to return a list of groups belonging to
+             this project.
+            
+             Example: &lt;code&gt;projects/my-project-123/groups/my-group&lt;/code&gt;
+             </param>
+             <param name="callSettings">
+             If not null, applies overrides to this RPC call.
+             </param>
+             <returns>
+             A Task containing the RPC response.
+             </returns>
+        </member>
+        <member name="M:Google.Cloud.ErrorReporting.V1Beta1.ErrorGroupServiceClient.GetGroupAsync(Google.Cloud.ErrorReporting.V1Beta1.GroupName,System.Threading.CancellationToken)">
+             <summary>
+             Get the specified group.
+             </summary>
+             <param name="groupName">
+             [Required] The group resource name. Written as
+             &lt;code&gt;projects/&lt;var&gt;projectID&lt;/var&gt;/groups/&lt;var&gt;group_name&lt;/var&gt;&lt;/code&gt;.
+             Call
+             &lt;a href="/error-reporting/reference/rest/v1beta1/projects.groupStats/list"&gt;
+             &lt;code&gt;groupStats.list&lt;/code&gt;&lt;/a&gt; to return a list of groups belonging to
+             this project.
+            
+             Example: &lt;code&gt;projects/my-project-123/groups/my-group&lt;/code&gt;
+             </param>
+             <param name="cancellationToken">
+             A <see cref="T:System.Threading.CancellationToken"/> to use for this RPC.
+             </param>
+             <returns>
+             A Task containing the RPC response.
+             </returns>
+        </member>
+        <member name="M:Google.Cloud.ErrorReporting.V1Beta1.ErrorGroupServiceClient.GetGroup(Google.Cloud.ErrorReporting.V1Beta1.GroupName,Google.Api.Gax.Grpc.CallSettings)">
+             <summary>
+             Get the specified group.
+             </summary>
+             <param name="groupName">
+             [Required] The group resource name. Written as
+             &lt;code&gt;projects/&lt;var&gt;projectID&lt;/var&gt;/groups/&lt;var&gt;group_name&lt;/var&gt;&lt;/code&gt;.
+             Call
+             &lt;a href="/error-reporting/reference/rest/v1beta1/projects.groupStats/list"&gt;
+             &lt;code&gt;groupStats.list&lt;/code&gt;&lt;/a&gt; to return a list of groups belonging to
+             this project.
+            
+             Example: &lt;code&gt;projects/my-project-123/groups/my-group&lt;/code&gt;
+             </param>
+             <param name="callSettings">
+             If not null, applies overrides to this RPC call.
+             </param>
+             <returns>
+             The RPC response.
+             </returns>
+        </member>
+        <member name="M:Google.Cloud.ErrorReporting.V1Beta1.ErrorGroupServiceClient.GetGroupAsync(Google.Cloud.ErrorReporting.V1Beta1.GetGroupRequest,Google.Api.Gax.Grpc.CallSettings)">
+            <summary>
+            Get the specified group.
+            </summary>
+            <param name="request">
+            The request object containing all of the parameters for the API call.
+            </param>
+            <param name="callSettings">
+            If not null, applies overrides to this RPC call.
+            </param>
+            <returns>
+            A Task containing the RPC response.
+            </returns>
+        </member>
+        <member name="M:Google.Cloud.ErrorReporting.V1Beta1.ErrorGroupServiceClient.GetGroup(Google.Cloud.ErrorReporting.V1Beta1.GetGroupRequest,Google.Api.Gax.Grpc.CallSettings)">
+            <summary>
+            Get the specified group.
+            </summary>
+            <param name="request">
+            The request object containing all of the parameters for the API call.
+            </param>
+            <param name="callSettings">
+            If not null, applies overrides to this RPC call.
+            </param>
+            <returns>
+            The RPC response.
+            </returns>
+        </member>
+        <member name="M:Google.Cloud.ErrorReporting.V1Beta1.ErrorGroupServiceClient.UpdateGroupAsync(Google.Cloud.ErrorReporting.V1Beta1.ErrorGroup,Google.Api.Gax.Grpc.CallSettings)">
+            <summary>
+            Replace the data for the specified group.
+            Fails if the group does not exist.
+            </summary>
+            <param name="group">
+            [Required] The group which replaces the resource on the server.
+            </param>
+            <param name="callSettings">
+            If not null, applies overrides to this RPC call.
+            </param>
+            <returns>
+            A Task containing the RPC response.
+            </returns>
+        </member>
+        <member name="M:Google.Cloud.ErrorReporting.V1Beta1.ErrorGroupServiceClient.UpdateGroupAsync(Google.Cloud.ErrorReporting.V1Beta1.ErrorGroup,System.Threading.CancellationToken)">
+            <summary>
+            Replace the data for the specified group.
+            Fails if the group does not exist.
+            </summary>
+            <param name="group">
+            [Required] The group which replaces the resource on the server.
+            </param>
+            <param name="cancellationToken">
+            A <see cref="T:System.Threading.CancellationToken"/> to use for this RPC.
+            </param>
+            <returns>
+            A Task containing the RPC response.
+            </returns>
+        </member>
+        <member name="M:Google.Cloud.ErrorReporting.V1Beta1.ErrorGroupServiceClient.UpdateGroup(Google.Cloud.ErrorReporting.V1Beta1.ErrorGroup,Google.Api.Gax.Grpc.CallSettings)">
+            <summary>
+            Replace the data for the specified group.
+            Fails if the group does not exist.
+            </summary>
+            <param name="group">
+            [Required] The group which replaces the resource on the server.
+            </param>
+            <param name="callSettings">
+            If not null, applies overrides to this RPC call.
+            </param>
+            <returns>
+            The RPC response.
+            </returns>
+        </member>
+        <member name="M:Google.Cloud.ErrorReporting.V1Beta1.ErrorGroupServiceClient.UpdateGroupAsync(Google.Cloud.ErrorReporting.V1Beta1.UpdateGroupRequest,Google.Api.Gax.Grpc.CallSettings)">
+            <summary>
+            Replace the data for the specified group.
+            Fails if the group does not exist.
+            </summary>
+            <param name="request">
+            The request object containing all of the parameters for the API call.
+            </param>
+            <param name="callSettings">
+            If not null, applies overrides to this RPC call.
+            </param>
+            <returns>
+            A Task containing the RPC response.
+            </returns>
+        </member>
+        <member name="M:Google.Cloud.ErrorReporting.V1Beta1.ErrorGroupServiceClient.UpdateGroup(Google.Cloud.ErrorReporting.V1Beta1.UpdateGroupRequest,Google.Api.Gax.Grpc.CallSettings)">
+            <summary>
+            Replace the data for the specified group.
+            Fails if the group does not exist.
+            </summary>
+            <param name="request">
+            The request object containing all of the parameters for the API call.
+            </param>
+            <param name="callSettings">
+            If not null, applies overrides to this RPC call.
+            </param>
+            <returns>
+            The RPC response.
+            </returns>
+        </member>
+        <member name="T:Google.Cloud.ErrorReporting.V1Beta1.ErrorGroupServiceClientImpl">
+            <summary>
+            ErrorGroupService client wrapper implementation, for convenient use.
+            </summary>
+        </member>
+        <member name="M:Google.Cloud.ErrorReporting.V1Beta1.ErrorGroupServiceClientImpl.#ctor(Google.Cloud.ErrorReporting.V1Beta1.ErrorGroupService.ErrorGroupServiceClient,Google.Cloud.ErrorReporting.V1Beta1.ErrorGroupServiceSettings)">
+            <summary>
+            Constructs a client wrapper for the ErrorGroupService service, with the specified gRPC client and settings.
+            </summary>
+            <param name="grpcClient">The underlying gRPC client.</param>
+            <param name="settings">The base <see cref="T:Google.Cloud.ErrorReporting.V1Beta1.ErrorGroupServiceSettings"/> used within this client </param>
+        </member>
+        <member name="P:Google.Cloud.ErrorReporting.V1Beta1.ErrorGroupServiceClientImpl.GrpcClient">
+            <summary>
+            The underlying gRPC ErrorGroupService client.
+            </summary>
+        </member>
+        <member name="M:Google.Cloud.ErrorReporting.V1Beta1.ErrorGroupServiceClientImpl.GetGroupAsync(Google.Cloud.ErrorReporting.V1Beta1.GetGroupRequest,Google.Api.Gax.Grpc.CallSettings)">
+            <summary>
+            Get the specified group.
+            </summary>
+            <param name="request">
+            The request object containing all of the parameters for the API call.
+            </param>
+            <param name="callSettings">
+            If not null, applies overrides to this RPC call.
+            </param>
+            <returns>
+            A Task containing the RPC response.
+            </returns>
+        </member>
+        <member name="M:Google.Cloud.ErrorReporting.V1Beta1.ErrorGroupServiceClientImpl.GetGroup(Google.Cloud.ErrorReporting.V1Beta1.GetGroupRequest,Google.Api.Gax.Grpc.CallSettings)">
+            <summary>
+            Get the specified group.
+            </summary>
+            <param name="request">
+            The request object containing all of the parameters for the API call.
+            </param>
+            <param name="callSettings">
+            If not null, applies overrides to this RPC call.
+            </param>
+            <returns>
+            The RPC response.
+            </returns>
+        </member>
+        <member name="M:Google.Cloud.ErrorReporting.V1Beta1.ErrorGroupServiceClientImpl.UpdateGroupAsync(Google.Cloud.ErrorReporting.V1Beta1.UpdateGroupRequest,Google.Api.Gax.Grpc.CallSettings)">
+            <summary>
+            Replace the data for the specified group.
+            Fails if the group does not exist.
+            </summary>
+            <param name="request">
+            The request object containing all of the parameters for the API call.
+            </param>
+            <param name="callSettings">
+            If not null, applies overrides to this RPC call.
+            </param>
+            <returns>
+            A Task containing the RPC response.
+            </returns>
+        </member>
+        <member name="M:Google.Cloud.ErrorReporting.V1Beta1.ErrorGroupServiceClientImpl.UpdateGroup(Google.Cloud.ErrorReporting.V1Beta1.UpdateGroupRequest,Google.Api.Gax.Grpc.CallSettings)">
+            <summary>
+            Replace the data for the specified group.
+            Fails if the group does not exist.
+            </summary>
+            <param name="request">
+            The request object containing all of the parameters for the API call.
+            </param>
+            <param name="callSettings">
+            If not null, applies overrides to this RPC call.
+            </param>
+            <returns>
+            The RPC response.
+            </returns>
+        </member>
+        <member name="T:Google.Cloud.ErrorReporting.V1Beta1.ErrorGroupService">
+            <summary>
+            Service for retrieving and updating individual error groups.
+            </summary>
+        </member>
+        <member name="P:Google.Cloud.ErrorReporting.V1Beta1.ErrorGroupService.Descriptor">
+            <summary>Service descriptor</summary>
+        </member>
+        <member name="T:Google.Cloud.ErrorReporting.V1Beta1.ErrorGroupService.ErrorGroupServiceBase">
+            <summary>Base class for server-side implementations of ErrorGroupService</summary>
+        </member>
+        <member name="M:Google.Cloud.ErrorReporting.V1Beta1.ErrorGroupService.ErrorGroupServiceBase.GetGroup(Google.Cloud.ErrorReporting.V1Beta1.GetGroupRequest,Grpc.Core.ServerCallContext)">
+            <summary>
+            Get the specified group.
+            </summary>
+            <param name="request">The request received from the client.</param>
+            <param name="context">The context of the server-side call handler being invoked.</param>
+            <returns>The response to send back to the client (wrapped by a task).</returns>
+        </member>
+        <member name="M:Google.Cloud.ErrorReporting.V1Beta1.ErrorGroupService.ErrorGroupServiceBase.UpdateGroup(Google.Cloud.ErrorReporting.V1Beta1.UpdateGroupRequest,Grpc.Core.ServerCallContext)">
+            <summary>
+            Replace the data for the specified group.
+            Fails if the group does not exist.
+            </summary>
+            <param name="request">The request received from the client.</param>
+            <param name="context">The context of the server-side call handler being invoked.</param>
+            <returns>The response to send back to the client (wrapped by a task).</returns>
+        </member>
+        <member name="T:Google.Cloud.ErrorReporting.V1Beta1.ErrorGroupService.ErrorGroupServiceClient">
+            <summary>Client for ErrorGroupService</summary>
+        </member>
+        <member name="M:Google.Cloud.ErrorReporting.V1Beta1.ErrorGroupService.ErrorGroupServiceClient.#ctor(Grpc.Core.Channel)">
+            <summary>Creates a new client for ErrorGroupService</summary>
+            <param name="channel">The channel to use to make remote calls.</param>
+        </member>
+        <member name="M:Google.Cloud.ErrorReporting.V1Beta1.ErrorGroupService.ErrorGroupServiceClient.#ctor(Grpc.Core.CallInvoker)">
+            <summary>Creates a new client for ErrorGroupService that uses a custom <c>CallInvoker</c>.</summary>
+            <param name="callInvoker">The callInvoker to use to make remote calls.</param>
+        </member>
+        <member name="M:Google.Cloud.ErrorReporting.V1Beta1.ErrorGroupService.ErrorGroupServiceClient.#ctor">
+            <summary>Protected parameterless constructor to allow creation of test doubles.</summary>
+        </member>
+        <member name="M:Google.Cloud.ErrorReporting.V1Beta1.ErrorGroupService.ErrorGroupServiceClient.#ctor(Grpc.Core.ClientBase.ClientBaseConfiguration)">
+            <summary>Protected constructor to allow creation of configured clients.</summary>
+            <param name="configuration">The client configuration.</param>
+        </member>
+        <member name="M:Google.Cloud.ErrorReporting.V1Beta1.ErrorGroupService.ErrorGroupServiceClient.GetGroup(Google.Cloud.ErrorReporting.V1Beta1.GetGroupRequest,Grpc.Core.Metadata,System.Nullable{System.DateTime},System.Threading.CancellationToken)">
+            <summary>
+            Get the specified group.
+            </summary>
+            <param name="request">The request to send to the server.</param>
+            <param name="headers">The initial metadata to send with the call. This parameter is optional.</param>
+            <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
+            <param name="cancellationToken">An optional token for canceling the call.</param>
+            <returns>The response received from the server.</returns>
+        </member>
+        <member name="M:Google.Cloud.ErrorReporting.V1Beta1.ErrorGroupService.ErrorGroupServiceClient.GetGroup(Google.Cloud.ErrorReporting.V1Beta1.GetGroupRequest,Grpc.Core.CallOptions)">
+            <summary>
+            Get the specified group.
+            </summary>
+            <param name="request">The request to send to the server.</param>
+            <param name="options">The options for the call.</param>
+            <returns>The response received from the server.</returns>
+        </member>
+        <member name="M:Google.Cloud.ErrorReporting.V1Beta1.ErrorGroupService.ErrorGroupServiceClient.GetGroupAsync(Google.Cloud.ErrorReporting.V1Beta1.GetGroupRequest,Grpc.Core.Metadata,System.Nullable{System.DateTime},System.Threading.CancellationToken)">
+            <summary>
+            Get the specified group.
+            </summary>
+            <param name="request">The request to send to the server.</param>
+            <param name="headers">The initial metadata to send with the call. This parameter is optional.</param>
+            <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
+            <param name="cancellationToken">An optional token for canceling the call.</param>
+            <returns>The call object.</returns>
+        </member>
+        <member name="M:Google.Cloud.ErrorReporting.V1Beta1.ErrorGroupService.ErrorGroupServiceClient.GetGroupAsync(Google.Cloud.ErrorReporting.V1Beta1.GetGroupRequest,Grpc.Core.CallOptions)">
+            <summary>
+            Get the specified group.
+            </summary>
+            <param name="request">The request to send to the server.</param>
+            <param name="options">The options for the call.</param>
+            <returns>The call object.</returns>
+        </member>
+        <member name="M:Google.Cloud.ErrorReporting.V1Beta1.ErrorGroupService.ErrorGroupServiceClient.UpdateGroup(Google.Cloud.ErrorReporting.V1Beta1.UpdateGroupRequest,Grpc.Core.Metadata,System.Nullable{System.DateTime},System.Threading.CancellationToken)">
+            <summary>
+            Replace the data for the specified group.
+            Fails if the group does not exist.
+            </summary>
+            <param name="request">The request to send to the server.</param>
+            <param name="headers">The initial metadata to send with the call. This parameter is optional.</param>
+            <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
+            <param name="cancellationToken">An optional token for canceling the call.</param>
+            <returns>The response received from the server.</returns>
+        </member>
+        <member name="M:Google.Cloud.ErrorReporting.V1Beta1.ErrorGroupService.ErrorGroupServiceClient.UpdateGroup(Google.Cloud.ErrorReporting.V1Beta1.UpdateGroupRequest,Grpc.Core.CallOptions)">
+            <summary>
+            Replace the data for the specified group.
+            Fails if the group does not exist.
+            </summary>
+            <param name="request">The request to send to the server.</param>
+            <param name="options">The options for the call.</param>
+            <returns>The response received from the server.</returns>
+        </member>
+        <member name="M:Google.Cloud.ErrorReporting.V1Beta1.ErrorGroupService.ErrorGroupServiceClient.UpdateGroupAsync(Google.Cloud.ErrorReporting.V1Beta1.UpdateGroupRequest,Grpc.Core.Metadata,System.Nullable{System.DateTime},System.Threading.CancellationToken)">
+            <summary>
+            Replace the data for the specified group.
+            Fails if the group does not exist.
+            </summary>
+            <param name="request">The request to send to the server.</param>
+            <param name="headers">The initial metadata to send with the call. This parameter is optional.</param>
+            <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
+            <param name="cancellationToken">An optional token for canceling the call.</param>
+            <returns>The call object.</returns>
+        </member>
+        <member name="M:Google.Cloud.ErrorReporting.V1Beta1.ErrorGroupService.ErrorGroupServiceClient.UpdateGroupAsync(Google.Cloud.ErrorReporting.V1Beta1.UpdateGroupRequest,Grpc.Core.CallOptions)">
+            <summary>
+            Replace the data for the specified group.
+            Fails if the group does not exist.
+            </summary>
+            <param name="request">The request to send to the server.</param>
+            <param name="options">The options for the call.</param>
+            <returns>The call object.</returns>
+        </member>
+        <member name="M:Google.Cloud.ErrorReporting.V1Beta1.ErrorGroupService.ErrorGroupServiceClient.NewInstance(Grpc.Core.ClientBase.ClientBaseConfiguration)">
+            <summary>Creates a new instance of client from given <c>ClientBaseConfiguration</c>.</summary>
+        </member>
+        <member name="M:Google.Cloud.ErrorReporting.V1Beta1.ErrorGroupService.BindService(Google.Cloud.ErrorReporting.V1Beta1.ErrorGroupService.ErrorGroupServiceBase)">
+            <summary>Creates service definition that can be registered with a server</summary>
+            <param name="serviceImpl">An object implementing the server-side handling logic.</param>
+        </member>
+        <member name="T:Google.Cloud.ErrorReporting.V1Beta1.ErrorStatsServiceReflection">
+            <summary>Holder for reflection information generated from google/devtools/clouderrorreporting/v1beta1/error_stats_service.proto</summary>
+        </member>
+        <member name="P:Google.Cloud.ErrorReporting.V1Beta1.ErrorStatsServiceReflection.Descriptor">
+            <summary>File descriptor for google/devtools/clouderrorreporting/v1beta1/error_stats_service.proto</summary>
+        </member>
+        <member name="T:Google.Cloud.ErrorReporting.V1Beta1.TimedCountAlignment">
+            <summary>
+            Specifies how the time periods of error group counts are aligned.
+            </summary>
+        </member>
+        <member name="F:Google.Cloud.ErrorReporting.V1Beta1.TimedCountAlignment.ErrorCountAlignmentUnspecified">
+            <summary>
+            No alignment specified.
+            </summary>
+        </member>
+        <member name="F:Google.Cloud.ErrorReporting.V1Beta1.TimedCountAlignment.AlignmentEqualRounded">
+            <summary>
+            The time periods shall be consecutive, have width equal to the
+            requested duration, and be aligned at the `alignment_time` provided in
+            the request.
+            The `alignment_time` does not have to be inside the query period but
+            even if it is outside, only time periods are returned which overlap
+            with the query period.
+            A rounded alignment will typically result in a
+            different size of the first or the last time period.
+            </summary>
+        </member>
+        <member name="F:Google.Cloud.ErrorReporting.V1Beta1.TimedCountAlignment.AlignmentEqualAtEnd">
+            <summary>
+            The time periods shall be consecutive, have width equal to the
+            requested duration, and be aligned at the end of the requested time
+            period. This can result in a different size of the
+            first time period.
+            </summary>
+        </member>
+        <member name="T:Google.Cloud.ErrorReporting.V1Beta1.ErrorGroupOrder">
+            <summary>
+            A sorting order of error groups.
+            </summary>
+        </member>
+        <member name="F:Google.Cloud.ErrorReporting.V1Beta1.ErrorGroupOrder.GroupOrderUnspecified">
+            <summary>
+            No group order specified.
+            </summary>
+        </member>
+        <member name="F:Google.Cloud.ErrorReporting.V1Beta1.ErrorGroupOrder.CountDesc">
+            <summary>
+            Total count of errors in the given time window in descending order.
+            </summary>
+        </member>
+        <member name="F:Google.Cloud.ErrorReporting.V1Beta1.ErrorGroupOrder.LastSeenDesc">
+            <summary>
+            Timestamp when the group was last seen in the given time window
+            in descending order.
+            </summary>
+        </member>
+        <member name="F:Google.Cloud.ErrorReporting.V1Beta1.ErrorGroupOrder.CreatedDesc">
+            <summary>
+            Timestamp when the group was created in descending order.
+            </summary>
+        </member>
+        <member name="F:Google.Cloud.ErrorReporting.V1Beta1.ErrorGroupOrder.AffectedUsersDesc">
+            <summary>
+            Number of affected users in the given time window in descending order.
+            </summary>
+        </member>
+        <member name="T:Google.Cloud.ErrorReporting.V1Beta1.ListGroupStatsRequest">
+            <summary>
+            Specifies a set of `ErrorGroupStats` to return.
+            </summary>
+        </member>
+        <member name="F:Google.Cloud.ErrorReporting.V1Beta1.ListGroupStatsRequest.ProjectNameFieldNumber">
+            <summary>Field number for the "project_name" field.</summary>
+        </member>
+        <member name="P:Google.Cloud.ErrorReporting.V1Beta1.ListGroupStatsRequest.ProjectName">
+             <summary>
+             [Required] The resource name of the Google Cloud Platform project. Written
+             as &lt;code>projects/&lt;/code> plus the
+             &lt;a href="https://support.google.com/cloud/answer/6158840">Google Cloud
+             Platform project ID&lt;/a>.
+            
+             Example: &lt;code>projects/my-project-123&lt;/code>.
+             </summary>
+        </member>
+        <member name="F:Google.Cloud.ErrorReporting.V1Beta1.ListGroupStatsRequest.GroupIdFieldNumber">
+            <summary>Field number for the "group_id" field.</summary>
+        </member>
+        <member name="P:Google.Cloud.ErrorReporting.V1Beta1.ListGroupStatsRequest.GroupId">
+            <summary>
+            [Optional] List all &lt;code>ErrorGroupStats&lt;/code> with these IDs.
+            </summary>
+        </member>
+        <member name="F:Google.Cloud.ErrorReporting.V1Beta1.ListGroupStatsRequest.ServiceFilterFieldNumber">
+            <summary>Field number for the "service_filter" field.</summary>
+        </member>
+        <member name="P:Google.Cloud.ErrorReporting.V1Beta1.ListGroupStatsRequest.ServiceFilter">
+            <summary>
+            [Optional] List only &lt;code>ErrorGroupStats&lt;/code> which belong to a service
+            context that matches the filter.
+            Data for all service contexts is returned if this field is not specified.
+            </summary>
+        </member>
+        <member name="F:Google.Cloud.ErrorReporting.V1Beta1.ListGroupStatsRequest.TimeRangeFieldNumber">
+            <summary>Field number for the "time_range" field.</summary>
+        </member>
+        <member name="P:Google.Cloud.ErrorReporting.V1Beta1.ListGroupStatsRequest.TimeRange">
+            <summary>
+            [Optional] List data for the given time range.
+            If not set a default time range is used. The field time_range_begin
+            in the response will specify the beginning of this time range.
+            Only &lt;code>ErrorGroupStats&lt;/code> with a non-zero count in the given time
+            range are returned, unless the request contains an explicit group_id list.
+            If a group_id list is given, also &lt;code>ErrorGroupStats&lt;/code> with zero
+            occurrences are returned.
+            </summary>
+        </member>
+        <member name="F:Google.Cloud.ErrorReporting.V1Beta1.ListGroupStatsRequest.TimedCountDurationFieldNumber">
+            <summary>Field number for the "timed_count_duration" field.</summary>
+        </member>
+        <member name="P:Google.Cloud.ErrorReporting.V1Beta1.ListGroupStatsRequest.TimedCountDuration">
+            <summary>
+            [Optional] The preferred duration for a single returned `TimedCount`.
+            If not set, no timed counts are returned.
+            </summary>
+        </member>
+        <member name="F:Google.Cloud.ErrorReporting.V1Beta1.ListGroupStatsRequest.AlignmentFieldNumber">
+            <summary>Field number for the "alignment" field.</summary>
+        </member>
+        <member name="P:Google.Cloud.ErrorReporting.V1Beta1.ListGroupStatsRequest.Alignment">
+            <summary>
+            [Optional] The alignment of the timed counts to be returned.
+            Default is `ALIGNMENT_EQUAL_AT_END`.
+            </summary>
+        </member>
+        <member name="F:Google.Cloud.ErrorReporting.V1Beta1.ListGroupStatsRequest.AlignmentTimeFieldNumber">
+            <summary>Field number for the "alignment_time" field.</summary>
+        </member>
+        <member name="P:Google.Cloud.ErrorReporting.V1Beta1.ListGroupStatsRequest.AlignmentTime">
+            <summary>
+            [Optional] Time where the timed counts shall be aligned if rounded
+            alignment is chosen. Default is 00:00 UTC.
+            </summary>
+        </member>
+        <member name="F:Google.Cloud.ErrorReporting.V1Beta1.ListGroupStatsRequest.OrderFieldNumber">
+            <summary>Field number for the "order" field.</summary>
+        </member>
+        <member name="P:Google.Cloud.ErrorReporting.V1Beta1.ListGroupStatsRequest.Order">
+            <summary>
+            [Optional] The sort order in which the results are returned.
+            Default is `COUNT_DESC`.
+            </summary>
+        </member>
+        <member name="F:Google.Cloud.ErrorReporting.V1Beta1.ListGroupStatsRequest.PageSizeFieldNumber">
+            <summary>Field number for the "page_size" field.</summary>
+        </member>
+        <member name="P:Google.Cloud.ErrorReporting.V1Beta1.ListGroupStatsRequest.PageSize">
+            <summary>
+            [Optional] The maximum number of results to return per response.
+            Default is 20.
+            </summary>
+        </member>
+        <member name="F:Google.Cloud.ErrorReporting.V1Beta1.ListGroupStatsRequest.PageTokenFieldNumber">
+            <summary>Field number for the "page_token" field.</summary>
+        </member>
+        <member name="P:Google.Cloud.ErrorReporting.V1Beta1.ListGroupStatsRequest.PageToken">
+            <summary>
+            [Optional] A `next_page_token` provided by a previous response. To view
+            additional results, pass this token along with the identical query
+            parameters as the first request.
+            </summary>
+        </member>
+        <member name="P:Google.Cloud.ErrorReporting.V1Beta1.ListGroupStatsRequest.ProjectNameAsProjectName">
+            <summary>
+            <see cref="P:Google.Cloud.ErrorReporting.V1Beta1.ListGroupStatsRequest.ProjectName"/>-typed view over the <see cref="P:Google.Cloud.ErrorReporting.V1Beta1.ListGroupStatsRequest.ProjectName"/> resource name property.
+            </summary>
+        </member>
+        <member name="T:Google.Cloud.ErrorReporting.V1Beta1.ListGroupStatsResponse">
+            <summary>
+            Contains a set of requested error group stats.
+            </summary>
+        </member>
+        <member name="F:Google.Cloud.ErrorReporting.V1Beta1.ListGroupStatsResponse.ErrorGroupStatsFieldNumber">
+            <summary>Field number for the "error_group_stats" field.</summary>
+        </member>
+        <member name="P:Google.Cloud.ErrorReporting.V1Beta1.ListGroupStatsResponse.ErrorGroupStats">
+            <summary>
+            The error group stats which match the given request.
+            </summary>
+        </member>
+        <member name="F:Google.Cloud.ErrorReporting.V1Beta1.ListGroupStatsResponse.NextPageTokenFieldNumber">
+            <summary>Field number for the "next_page_token" field.</summary>
+        </member>
+        <member name="P:Google.Cloud.ErrorReporting.V1Beta1.ListGroupStatsResponse.NextPageToken">
+            <summary>
+            If non-empty, more results are available.
+            Pass this token, along with the same query parameters as the first
+            request, to view the next page of results.
+            </summary>
+        </member>
+        <member name="F:Google.Cloud.ErrorReporting.V1Beta1.ListGroupStatsResponse.TimeRangeBeginFieldNumber">
+            <summary>Field number for the "time_range_begin" field.</summary>
+        </member>
+        <member name="P:Google.Cloud.ErrorReporting.V1Beta1.ListGroupStatsResponse.TimeRangeBegin">
+            <summary>
+            The timestamp specifies the start time to which the request was restricted.
+            The start time is set based on the requested time range. It may be adjusted
+            to a later time if a project has exceeded the storage quota and older data
+            has been deleted.
+            </summary>
+        </member>
+        <member name="M:Google.Cloud.ErrorReporting.V1Beta1.ListGroupStatsResponse.GetEnumerator">
+            <summary>
+            Returns an enumerator that iterates through the resources in this response.
+            </summary>
+        </member>
+        <member name="M:Google.Cloud.ErrorReporting.V1Beta1.ListGroupStatsResponse.System#Collections#IEnumerable#GetEnumerator">
+            <inheritdoc/>
+        </member>
+        <member name="T:Google.Cloud.ErrorReporting.V1Beta1.ErrorGroupStats">
+            <summary>
+            Data extracted for a specific group based on certain filter criteria,
+            such as a given time period and/or service filter.
+            </summary>
+        </member>
+        <member name="F:Google.Cloud.ErrorReporting.V1Beta1.ErrorGroupStats.GroupFieldNumber">
+            <summary>Field number for the "group" field.</summary>
+        </member>
+        <member name="P:Google.Cloud.ErrorReporting.V1Beta1.ErrorGroupStats.Group">
+            <summary>
+            Group data that is independent of the filter criteria.
+            </summary>
+        </member>
+        <member name="F:Google.Cloud.ErrorReporting.V1Beta1.ErrorGroupStats.CountFieldNumber">
+            <summary>Field number for the "count" field.</summary>
+        </member>
+        <member name="P:Google.Cloud.ErrorReporting.V1Beta1.ErrorGroupStats.Count">
+            <summary>
+            Approximate total number of events in the given group that match
+            the filter criteria.
+            </summary>
+        </member>
+        <member name="F:Google.Cloud.ErrorReporting.V1Beta1.ErrorGroupStats.AffectedUsersCountFieldNumber">
+            <summary>Field number for the "affected_users_count" field.</summary>
+        </member>
+        <member name="P:Google.Cloud.ErrorReporting.V1Beta1.ErrorGroupStats.AffectedUsersCount">
+            <summary>
+            Approximate number of affected users in the given group that
+            match the filter criteria.
+            Users are distinguished by data in the `ErrorContext` of the
+            individual error events, such as their login name or their remote
+            IP address in case of HTTP requests.
+            The number of affected users can be zero even if the number of
+            errors is non-zero if no data was provided from which the
+            affected user could be deduced.
+            Users are counted based on data in the request
+            context that was provided in the error report. If more users are
+            implicitly affected, such as due to a crash of the whole service,
+            this is not reflected here.
+            </summary>
+        </member>
+        <member name="F:Google.Cloud.ErrorReporting.V1Beta1.ErrorGroupStats.TimedCountsFieldNumber">
+            <summary>Field number for the "timed_counts" field.</summary>
+        </member>
+        <member name="P:Google.Cloud.ErrorReporting.V1Beta1.ErrorGroupStats.TimedCounts">
+             <summary>
+             Approximate number of occurrences over time.
+             Timed counts returned by ListGroups are guaranteed to be:
+            
+             - Inside the requested time interval
+             - Non-overlapping, and
+             - Ordered by ascending time.
+             </summary>
+        </member>
+        <member name="F:Google.Cloud.ErrorReporting.V1Beta1.ErrorGroupStats.FirstSeenTimeFieldNumber">
+            <summary>Field number for the "first_seen_time" field.</summary>
+        </member>
+        <member name="P:Google.Cloud.ErrorReporting.V1Beta1.ErrorGroupStats.FirstSeenTime">
+            <summary>
+            Approximate first occurrence that was ever seen for this group
+            and which matches the given filter criteria, ignoring the
+            time_range that was specified in the request.
+            </summary>
+        </member>
+        <member name="F:Google.Cloud.ErrorReporting.V1Beta1.ErrorGroupStats.LastSeenTimeFieldNumber">
+            <summary>Field number for the "last_seen_time" field.</summary>
+        </member>
+        <member name="P:Google.Cloud.ErrorReporting.V1Beta1.ErrorGroupStats.LastSeenTime">
+            <summary>
+            Approximate last occurrence that was ever seen for this group and
+            which matches the given filter criteria, ignoring the time_range
+            that was specified in the request.
+            </summary>
+        </member>
+        <member name="F:Google.Cloud.ErrorReporting.V1Beta1.ErrorGroupStats.AffectedServicesFieldNumber">
+            <summary>Field number for the "affected_services" field.</summary>
+        </member>
+        <member name="P:Google.Cloud.ErrorReporting.V1Beta1.ErrorGroupStats.AffectedServices">
+            <summary>
+            Service contexts with a non-zero error count for the given filter
+            criteria. This list can be truncated if multiple services are affected.
+            Refer to `num_affected_services` for the total count.
+            </summary>
+        </member>
+        <member name="F:Google.Cloud.ErrorReporting.V1Beta1.ErrorGroupStats.NumAffectedServicesFieldNumber">
+            <summary>Field number for the "num_affected_services" field.</summary>
+        </member>
+        <member name="P:Google.Cloud.ErrorReporting.V1Beta1.ErrorGroupStats.NumAffectedServices">
+            <summary>
+            The total number of services with a non-zero error count for the given
+            filter criteria.
+            </summary>
+        </member>
+        <member name="F:Google.Cloud.ErrorReporting.V1Beta1.ErrorGroupStats.RepresentativeFieldNumber">
+            <summary>Field number for the "representative" field.</summary>
+        </member>
+        <member name="P:Google.Cloud.ErrorReporting.V1Beta1.ErrorGroupStats.Representative">
+            <summary>
+            An arbitrary event that is chosen as representative for the whole group.
+            The representative event is intended to be used as a quick preview for
+            the whole group. Events in the group are usually sufficiently similar
+            to each other such that showing an arbitrary representative provides
+            insight into the characteristics of the group as a whole.
+            </summary>
+        </member>
+        <member name="T:Google.Cloud.ErrorReporting.V1Beta1.TimedCount">
+            <summary>
+            The number of errors in a given time period.
+            All numbers are approximate since the error events are sampled
+            before counting them.
+            </summary>
+        </member>
+        <member name="F:Google.Cloud.ErrorReporting.V1Beta1.TimedCount.CountFieldNumber">
+            <summary>Field number for the "count" field.</summary>
+        </member>
+        <member name="P:Google.Cloud.ErrorReporting.V1Beta1.TimedCount.Count">
+            <summary>
+            Approximate number of occurrences in the given time period.
+            </summary>
+        </member>
+        <member name="F:Google.Cloud.ErrorReporting.V1Beta1.TimedCount.StartTimeFieldNumber">
+            <summary>Field number for the "start_time" field.</summary>
+        </member>
+        <member name="P:Google.Cloud.ErrorReporting.V1Beta1.TimedCount.StartTime">
+            <summary>
+            Start of the time period to which `count` refers (included).
+            </summary>
+        </member>
+        <member name="F:Google.Cloud.ErrorReporting.V1Beta1.TimedCount.EndTimeFieldNumber">
+            <summary>Field number for the "end_time" field.</summary>
+        </member>
+        <member name="P:Google.Cloud.ErrorReporting.V1Beta1.TimedCount.EndTime">
+            <summary>
+            End of the time period to which `count` refers (excluded).
+            </summary>
+        </member>
+        <member name="T:Google.Cloud.ErrorReporting.V1Beta1.ListEventsRequest">
+            <summary>
+            Specifies a set of error events to return.
+            </summary>
+        </member>
+        <member name="F:Google.Cloud.ErrorReporting.V1Beta1.ListEventsRequest.ProjectNameFieldNumber">
+            <summary>Field number for the "project_name" field.</summary>
+        </member>
+        <member name="P:Google.Cloud.ErrorReporting.V1Beta1.ListEventsRequest.ProjectName">
+            <summary>
+            [Required] The resource name of the Google Cloud Platform project. Written
+            as `projects/` plus the
+            [Google Cloud Platform project
+            ID](https://support.google.com/cloud/answer/6158840).
+            Example: `projects/my-project-123`.
+            </summary>
+        </member>
+        <member name="F:Google.Cloud.ErrorReporting.V1Beta1.ListEventsRequest.GroupIdFieldNumber">
+            <summary>Field number for the "group_id" field.</summary>
+        </member>
+        <member name="P:Google.Cloud.ErrorReporting.V1Beta1.ListEventsRequest.GroupId">
+            <summary>
+            [Required] The group for which events shall be returned.
+            </summary>
+        </member>
+        <member name="F:Google.Cloud.ErrorReporting.V1Beta1.ListEventsRequest.ServiceFilterFieldNumber">
+            <summary>Field number for the "service_filter" field.</summary>
+        </member>
+        <member name="P:Google.Cloud.ErrorReporting.V1Beta1.ListEventsRequest.ServiceFilter">
+            <summary>
+            [Optional] List only ErrorGroups which belong to a service context that
+            matches the filter.
+            Data for all service contexts is returned if this field is not specified.
+            </summary>
+        </member>
+        <member name="F:Google.Cloud.ErrorReporting.V1Beta1.ListEventsRequest.TimeRangeFieldNumber">
+            <summary>Field number for the "time_range" field.</summary>
+        </member>
+        <member name="P:Google.Cloud.ErrorReporting.V1Beta1.ListEventsRequest.TimeRange">
+            <summary>
+            [Optional] List only data for the given time range.
+            If not set a default time range is used. The field time_range_begin
+            in the response will specify the beginning of this time range.
+            </summary>
+        </member>
+        <member name="F:Google.Cloud.ErrorReporting.V1Beta1.ListEventsRequest.PageSizeFieldNumber">
+            <summary>Field number for the "page_size" field.</summary>
+        </member>
+        <member name="P:Google.Cloud.ErrorReporting.V1Beta1.ListEventsRequest.PageSize">
+            <summary>
+            [Optional] The maximum number of results to return per response.
+            </summary>
+        </member>
+        <member name="F:Google.Cloud.ErrorReporting.V1Beta1.ListEventsRequest.PageTokenFieldNumber">
+            <summary>Field number for the "page_token" field.</summary>
+        </member>
+        <member name="P:Google.Cloud.ErrorReporting.V1Beta1.ListEventsRequest.PageToken">
+            <summary>
+            [Optional] A `next_page_token` provided by a previous response.
+            </summary>
+        </member>
+        <member name="P:Google.Cloud.ErrorReporting.V1Beta1.ListEventsRequest.ProjectNameAsProjectName">
+            <summary>
+            <see cref="P:Google.Cloud.ErrorReporting.V1Beta1.ListEventsRequest.ProjectName"/>-typed view over the <see cref="P:Google.Cloud.ErrorReporting.V1Beta1.ListEventsRequest.ProjectName"/> resource name property.
+            </summary>
+        </member>
+        <member name="T:Google.Cloud.ErrorReporting.V1Beta1.ListEventsResponse">
+            <summary>
+            Contains a set of requested error events.
+            </summary>
+        </member>
+        <member name="F:Google.Cloud.ErrorReporting.V1Beta1.ListEventsResponse.ErrorEventsFieldNumber">
+            <summary>Field number for the "error_events" field.</summary>
+        </member>
+        <member name="P:Google.Cloud.ErrorReporting.V1Beta1.ListEventsResponse.ErrorEvents">
+            <summary>
+            The error events which match the given request.
+            </summary>
+        </member>
+        <member name="F:Google.Cloud.ErrorReporting.V1Beta1.ListEventsResponse.NextPageTokenFieldNumber">
+            <summary>Field number for the "next_page_token" field.</summary>
+        </member>
+        <member name="P:Google.Cloud.ErrorReporting.V1Beta1.ListEventsResponse.NextPageToken">
+            <summary>
+            If non-empty, more results are available.
+            Pass this token, along with the same query parameters as the first
+            request, to view the next page of results.
+            </summary>
+        </member>
+        <member name="F:Google.Cloud.ErrorReporting.V1Beta1.ListEventsResponse.TimeRangeBeginFieldNumber">
+            <summary>Field number for the "time_range_begin" field.</summary>
+        </member>
+        <member name="P:Google.Cloud.ErrorReporting.V1Beta1.ListEventsResponse.TimeRangeBegin">
+            <summary>
+            The timestamp specifies the start time to which the request was restricted.
+            </summary>
+        </member>
+        <member name="M:Google.Cloud.ErrorReporting.V1Beta1.ListEventsResponse.GetEnumerator">
+            <summary>
+            Returns an enumerator that iterates through the resources in this response.
+            </summary>
+        </member>
+        <member name="M:Google.Cloud.ErrorReporting.V1Beta1.ListEventsResponse.System#Collections#IEnumerable#GetEnumerator">
+            <inheritdoc/>
+        </member>
+        <member name="T:Google.Cloud.ErrorReporting.V1Beta1.QueryTimeRange">
+            <summary>
+            Requests might be rejected or the resulting timed count durations might be
+            adjusted for lower durations.
+            </summary>
+        </member>
+        <member name="F:Google.Cloud.ErrorReporting.V1Beta1.QueryTimeRange.PeriodFieldNumber">
+            <summary>Field number for the "period" field.</summary>
+        </member>
+        <member name="P:Google.Cloud.ErrorReporting.V1Beta1.QueryTimeRange.Period">
+            <summary>
+            Restricts the query to the specified time range.
+            </summary>
+        </member>
+        <member name="T:Google.Cloud.ErrorReporting.V1Beta1.QueryTimeRange.Types">
+            <summary>Container for nested types declared in the QueryTimeRange message type.</summary>
+        </member>
+        <member name="T:Google.Cloud.ErrorReporting.V1Beta1.QueryTimeRange.Types.Period">
+            <summary>
+            The supported time ranges.
+            </summary>
+        </member>
+        <member name="F:Google.Cloud.ErrorReporting.V1Beta1.QueryTimeRange.Types.Period.Unspecified">
+            <summary>
+            Do not use.
+            </summary>
+        </member>
+        <member name="F:Google.Cloud.ErrorReporting.V1Beta1.QueryTimeRange.Types.Period._1Hour">
+            <summary>
+            Retrieve data for the last hour.
+            Recommended minimum timed count duration: 1 min.
+            </summary>
+        </member>
+        <member name="F:Google.Cloud.ErrorReporting.V1Beta1.QueryTimeRange.Types.Period._6Hours">
+            <summary>
+            Retrieve data for the last 6 hours.
+            Recommended minimum timed count duration: 10 min.
+            </summary>
+        </member>
+        <member name="F:Google.Cloud.ErrorReporting.V1Beta1.QueryTimeRange.Types.Period._1Day">
+            <summary>
+            Retrieve data for the last day.
+            Recommended minimum timed count duration: 1 hour.
+            </summary>
+        </member>
+        <member name="F:Google.Cloud.ErrorReporting.V1Beta1.QueryTimeRange.Types.Period._1Week">
+            <summary>
+            Retrieve data for the last week.
+            Recommended minimum timed count duration: 6 hours.
+            </summary>
+        </member>
+        <member name="F:Google.Cloud.ErrorReporting.V1Beta1.QueryTimeRange.Types.Period._30Days">
+            <summary>
+            Retrieve data for the last 30 days.
+            Recommended minimum timed count duration: 1 day.
+            </summary>
+        </member>
+        <member name="T:Google.Cloud.ErrorReporting.V1Beta1.ServiceContextFilter">
+            <summary>
+            Specifies criteria for filtering a subset of service contexts.
+            The fields in the filter correspond to the fields in `ServiceContext`.
+            Only exact, case-sensitive matches are supported.
+            If a field is unset or empty, it matches arbitrary values.
+            </summary>
+        </member>
+        <member name="F:Google.Cloud.ErrorReporting.V1Beta1.ServiceContextFilter.ServiceFieldNumber">
+            <summary>Field number for the "service" field.</summary>
+        </member>
+        <member name="P:Google.Cloud.ErrorReporting.V1Beta1.ServiceContextFilter.Service">
+            <summary>
+            [Optional] The exact value to match against
+            [`ServiceContext.service`](/error-reporting/reference/rest/v1beta1/ServiceContext#FIELDS.service).
+            </summary>
+        </member>
+        <member name="F:Google.Cloud.ErrorReporting.V1Beta1.ServiceContextFilter.VersionFieldNumber">
+            <summary>Field number for the "version" field.</summary>
+        </member>
+        <member name="P:Google.Cloud.ErrorReporting.V1Beta1.ServiceContextFilter.Version">
+            <summary>
+            [Optional] The exact value to match against
+            [`ServiceContext.version`](/error-reporting/reference/rest/v1beta1/ServiceContext#FIELDS.version).
+            </summary>
+        </member>
+        <member name="F:Google.Cloud.ErrorReporting.V1Beta1.ServiceContextFilter.ResourceTypeFieldNumber">
+            <summary>Field number for the "resource_type" field.</summary>
+        </member>
+        <member name="P:Google.Cloud.ErrorReporting.V1Beta1.ServiceContextFilter.ResourceType">
+            <summary>
+            [Optional] The exact value to match against
+            [`ServiceContext.resource_type`](/error-reporting/reference/rest/v1beta1/ServiceContext#FIELDS.resource_type).
+            </summary>
+        </member>
+        <member name="T:Google.Cloud.ErrorReporting.V1Beta1.DeleteEventsRequest">
+            <summary>
+            Deletes all events in the project.
+            </summary>
+        </member>
+        <member name="F:Google.Cloud.ErrorReporting.V1Beta1.DeleteEventsRequest.ProjectNameFieldNumber">
+            <summary>Field number for the "project_name" field.</summary>
+        </member>
+        <member name="P:Google.Cloud.ErrorReporting.V1Beta1.DeleteEventsRequest.ProjectName">
+            <summary>
+            [Required] The resource name of the Google Cloud Platform project. Written
+            as `projects/` plus the
+            [Google Cloud Platform project
+            ID](https://support.google.com/cloud/answer/6158840).
+            Example: `projects/my-project-123`.
+            </summary>
+        </member>
+        <member name="P:Google.Cloud.ErrorReporting.V1Beta1.DeleteEventsRequest.ProjectNameAsProjectName">
+            <summary>
+            <see cref="P:Google.Cloud.ErrorReporting.V1Beta1.DeleteEventsRequest.ProjectName"/>-typed view over the <see cref="P:Google.Cloud.ErrorReporting.V1Beta1.DeleteEventsRequest.ProjectName"/> resource name property.
+            </summary>
+        </member>
+        <member name="T:Google.Cloud.ErrorReporting.V1Beta1.DeleteEventsResponse">
+            <summary>
+            Response message for deleting error events.
+            </summary>
+        </member>
+        <member name="T:Google.Cloud.ErrorReporting.V1Beta1.ErrorStatsServiceSettings">
+            <summary>
+            Settings for a <see cref="T:Google.Cloud.ErrorReporting.V1Beta1.ErrorStatsServiceClient"/>.
+            </summary>
+        </member>
+        <member name="M:Google.Cloud.ErrorReporting.V1Beta1.ErrorStatsServiceSettings.GetDefault">
+            <summary>
+            Get a new instance of the default <see cref="T:Google.Cloud.ErrorReporting.V1Beta1.ErrorStatsServiceSettings"/>.
+            </summary>
+            <returns>
+            A new instance of the default <see cref="T:Google.Cloud.ErrorReporting.V1Beta1.ErrorStatsServiceSettings"/>.
+            </returns>
+        </member>
+        <member name="M:Google.Cloud.ErrorReporting.V1Beta1.ErrorStatsServiceSettings.#ctor">
+            <summary>
+            Constructs a new <see cref="T:Google.Cloud.ErrorReporting.V1Beta1.ErrorStatsServiceSettings"/> object with default settings.
+            </summary>
+        </member>
+        <member name="P:Google.Cloud.ErrorReporting.V1Beta1.ErrorStatsServiceSettings.IdempotentRetryFilter">
+            <summary>
+            The filter specifying which RPC <see cref="T:Grpc.Core.StatusCode"/>s are eligible for retry
+            for "Idempotent" <see cref="T:Google.Cloud.ErrorReporting.V1Beta1.ErrorStatsServiceClient"/> RPC methods.
+            </summary>
+            <remarks>
+            The eligible RPC <see cref="T:Grpc.Core.StatusCode"/>s for retry for "Idempotent" RPC methods are:
+            <list type="bullet">
+            <item><description><see cref="F:Grpc.Core.StatusCode.DeadlineExceeded"/></description></item>
+            <item><description><see cref="F:Grpc.Core.StatusCode.Unavailable"/></description></item>
+            </list>
+            </remarks>
+        </member>
+        <member name="P:Google.Cloud.ErrorReporting.V1Beta1.ErrorStatsServiceSettings.NonIdempotentRetryFilter">
+            <summary>
+            The filter specifying which RPC <see cref="T:Grpc.Core.StatusCode"/>s are eligible for retry
+            for "NonIdempotent" <see cref="T:Google.Cloud.ErrorReporting.V1Beta1.ErrorStatsServiceClient"/> RPC methods.
+            </summary>
+            <remarks>
+            The eligible RPC <see cref="T:Grpc.Core.StatusCode"/>s for retry for "NonIdempotent" RPC methods are:
+            <list type="bullet">
+            <item><description><see cref="F:Grpc.Core.StatusCode.Unavailable"/></description></item>
+            </list>
+            </remarks>
+        </member>
+        <member name="M:Google.Cloud.ErrorReporting.V1Beta1.ErrorStatsServiceSettings.GetDefaultRetryBackoff">
+            <summary>
+            "Default" retry backoff for <see cref="T:Google.Cloud.ErrorReporting.V1Beta1.ErrorStatsServiceClient"/> RPC methods.
+            </summary>
+            <returns>
+            The "Default" retry backoff for <see cref="T:Google.Cloud.ErrorReporting.V1Beta1.ErrorStatsServiceClient"/> RPC methods.
+            </returns>
+            <remarks>
+            The "Default" retry backoff for <see cref="T:Google.Cloud.ErrorReporting.V1Beta1.ErrorStatsServiceClient"/> RPC methods is defined as:
+            <list type="bullet">
+            <item><description>Initial delay: 100 milliseconds</description></item>
+            <item><description>Maximum delay: 60000 milliseconds</description></item>
+            <item><description>Delay multiplier: 1.3</description></item>
+            </list>
+            </remarks>
+        </member>
+        <member name="M:Google.Cloud.ErrorReporting.V1Beta1.ErrorStatsServiceSettings.GetDefaultTimeoutBackoff">
+            <summary>
+            "Default" timeout backoff for <see cref="T:Google.Cloud.ErrorReporting.V1Beta1.ErrorStatsServiceClient"/> RPC methods.
+            </summary>
+            <returns>
+            The "Default" timeout backoff for <see cref="T:Google.Cloud.ErrorReporting.V1Beta1.ErrorStatsServiceClient"/> RPC methods.
+            </returns>
+            <remarks>
+            The "Default" timeout backoff for <see cref="T:Google.Cloud.ErrorReporting.V1Beta1.ErrorStatsServiceClient"/> RPC methods is defined as:
+            <list type="bullet">
+            <item><description>Initial timeout: 20000 milliseconds</description></item>
+            <item><description>Timeout multiplier: 1.0</description></item>
+            <item><description>Maximum timeout: 20000 milliseconds</description></item>
+            </list>
+            </remarks>
+        </member>
+        <member name="P:Google.Cloud.ErrorReporting.V1Beta1.ErrorStatsServiceSettings.ListGroupStatsSettings">
+            <summary>
+            <see cref="T:Google.Api.Gax.Grpc.CallSettings"/> for synchronous and asynchronous calls to
+            <c>ErrorStatsServiceClient.ListGroupStats</c> and <c>ErrorStatsServiceClient.ListGroupStatsAsync</c>.
+            </summary>
+            <remarks>
+            The default <c>ErrorStatsServiceClient.ListGroupStats</c> and
+            <c>ErrorStatsServiceClient.ListGroupStatsAsync</c> <see cref="T:Google.Api.Gax.Grpc.RetrySettings"/> are:
+            <list type="bullet">
+            <item><description>Initial retry delay: 100 milliseconds</description></item>
+            <item><description>Retry delay multiplier: 1.3</description></item>
+            <item><description>Retry maximum delay: 60000 milliseconds</description></item>
+            <item><description>Initial timeout: 20000 milliseconds</description></item>
+            <item><description>Timeout multiplier: 1.0</description></item>
+            <item><description>Timeout maximum delay: 20000 milliseconds</description></item>
+            </list>
+            Retry will be attempted on the following response status codes:
+            <list>
+            <item><description><see cref="F:Grpc.Core.StatusCode.DeadlineExceeded"/></description></item>
+            <item><description><see cref="F:Grpc.Core.StatusCode.Unavailable"/></description></item>
+            </list>
+            Default RPC expiration is 600000 milliseconds.
+            </remarks>
+        </member>
+        <member name="P:Google.Cloud.ErrorReporting.V1Beta1.ErrorStatsServiceSettings.ListEventsSettings">
+            <summary>
+            <see cref="T:Google.Api.Gax.Grpc.CallSettings"/> for synchronous and asynchronous calls to
+            <c>ErrorStatsServiceClient.ListEvents</c> and <c>ErrorStatsServiceClient.ListEventsAsync</c>.
+            </summary>
+            <remarks>
+            The default <c>ErrorStatsServiceClient.ListEvents</c> and
+            <c>ErrorStatsServiceClient.ListEventsAsync</c> <see cref="T:Google.Api.Gax.Grpc.RetrySettings"/> are:
+            <list type="bullet">
+            <item><description>Initial retry delay: 100 milliseconds</description></item>
+            <item><description>Retry delay multiplier: 1.3</description></item>
+            <item><description>Retry maximum delay: 60000 milliseconds</description></item>
+            <item><description>Initial timeout: 20000 milliseconds</description></item>
+            <item><description>Timeout multiplier: 1.0</description></item>
+            <item><description>Timeout maximum delay: 20000 milliseconds</description></item>
+            </list>
+            Retry will be attempted on the following response status codes:
+            <list>
+            <item><description><see cref="F:Grpc.Core.StatusCode.DeadlineExceeded"/></description></item>
+            <item><description><see cref="F:Grpc.Core.StatusCode.Unavailable"/></description></item>
+            </list>
+            Default RPC expiration is 600000 milliseconds.
+            </remarks>
+        </member>
+        <member name="P:Google.Cloud.ErrorReporting.V1Beta1.ErrorStatsServiceSettings.DeleteEventsSettings">
+            <summary>
+            <see cref="T:Google.Api.Gax.Grpc.CallSettings"/> for synchronous and asynchronous calls to
+            <c>ErrorStatsServiceClient.DeleteEvents</c> and <c>ErrorStatsServiceClient.DeleteEventsAsync</c>.
+            </summary>
+            <remarks>
+            The default <c>ErrorStatsServiceClient.DeleteEvents</c> and
+            <c>ErrorStatsServiceClient.DeleteEventsAsync</c> <see cref="T:Google.Api.Gax.Grpc.RetrySettings"/> are:
+            <list type="bullet">
+            <item><description>Initial retry delay: 100 milliseconds</description></item>
+            <item><description>Retry delay multiplier: 1.3</description></item>
+            <item><description>Retry maximum delay: 60000 milliseconds</description></item>
+            <item><description>Initial timeout: 20000 milliseconds</description></item>
+            <item><description>Timeout multiplier: 1.0</description></item>
+            <item><description>Timeout maximum delay: 20000 milliseconds</description></item>
+            </list>
+            Retry will be attempted on the following response status codes:
+            <list>
+            <item><description><see cref="F:Grpc.Core.StatusCode.DeadlineExceeded"/></description></item>
+            <item><description><see cref="F:Grpc.Core.StatusCode.Unavailable"/></description></item>
+            </list>
+            Default RPC expiration is 600000 milliseconds.
+            </remarks>
+        </member>
+        <member name="M:Google.Cloud.ErrorReporting.V1Beta1.ErrorStatsServiceSettings.Clone">
+            <summary>
+            Creates a deep clone of this object, with all the same property values.
+            </summary>
+            <returns>A deep clone of this <see cref="T:Google.Cloud.ErrorReporting.V1Beta1.ErrorStatsServiceSettings"/> object.</returns>
+        </member>
+        <member name="T:Google.Cloud.ErrorReporting.V1Beta1.ErrorStatsServiceClient">
+            <summary>
+            ErrorStatsService client wrapper, for convenient use.
+            </summary>
+        </member>
+        <member name="P:Google.Cloud.ErrorReporting.V1Beta1.ErrorStatsServiceClient.DefaultEndpoint">
+            <summary>
+            The default endpoint for the ErrorStatsService service, which is a host of "clouderrorreporting.googleapis.com" and a port of 443.
+            </summary>
+        </member>
+        <member name="P:Google.Cloud.ErrorReporting.V1Beta1.ErrorStatsServiceClient.DefaultScopes">
+            <summary>
+            The default ErrorStatsService scopes.
+            </summary>
+            <remarks>
+            The default ErrorStatsService scopes are:
+            <list type="bullet">
+            <item><description>"https://www.googleapis.com/auth/cloud-platform"</description></item>
+            </list>
+            </remarks>
+        </member>
+        <member name="M:Google.Cloud.ErrorReporting.V1Beta1.ErrorStatsServiceClient.CreateAsync(Google.Api.Gax.Grpc.ServiceEndpoint,Google.Cloud.ErrorReporting.V1Beta1.ErrorStatsServiceSettings)">
+            <summary>
+            Asynchronously creates a <see cref="T:Google.Cloud.ErrorReporting.V1Beta1.ErrorStatsServiceClient"/>, applying defaults for all unspecified settings,
+            and creating a channel connecting to the given endpoint with application default credentials where
+            necessary.
+            </summary>
+            <param name="endpoint">Optional <see cref="T:Google.Api.Gax.Grpc.ServiceEndpoint"/>.</param>
+            <param name="settings">Optional <see cref="T:Google.Cloud.ErrorReporting.V1Beta1.ErrorStatsServiceSettings"/>.</param>
+            <returns>The task representing the created <see cref="T:Google.Cloud.ErrorReporting.V1Beta1.ErrorStatsServiceClient"/>.</returns>
+        </member>
+        <member name="M:Google.Cloud.ErrorReporting.V1Beta1.ErrorStatsServiceClient.Create(Google.Api.Gax.Grpc.ServiceEndpoint,Google.Cloud.ErrorReporting.V1Beta1.ErrorStatsServiceSettings)">
+            <summary>
+            Synchronously creates a <see cref="T:Google.Cloud.ErrorReporting.V1Beta1.ErrorStatsServiceClient"/>, applying defaults for all unspecified settings,
+            and creating a channel connecting to the given endpoint with application default credentials where
+            necessary.
+            </summary>
+            <param name="endpoint">Optional <see cref="T:Google.Api.Gax.Grpc.ServiceEndpoint"/>.</param>
+            <param name="settings">Optional <see cref="T:Google.Cloud.ErrorReporting.V1Beta1.ErrorStatsServiceSettings"/>.</param>
+            <returns>The created <see cref="T:Google.Cloud.ErrorReporting.V1Beta1.ErrorStatsServiceClient"/>.</returns>
+        </member>
+        <member name="M:Google.Cloud.ErrorReporting.V1Beta1.ErrorStatsServiceClient.Create(Grpc.Core.Channel,Google.Cloud.ErrorReporting.V1Beta1.ErrorStatsServiceSettings)">
+            <summary>
+            Creates a <see cref="T:Google.Cloud.ErrorReporting.V1Beta1.ErrorStatsServiceClient"/> which uses the specified channel for remote operations.
+            </summary>
+            <param name="channel">The <see cref="T:Grpc.Core.Channel"/> for remote operations. Must not be null.</param>
+            <param name="settings">Optional <see cref="T:Google.Cloud.ErrorReporting.V1Beta1.ErrorStatsServiceSettings"/>.</param>
+            <returns>The created <see cref="T:Google.Cloud.ErrorReporting.V1Beta1.ErrorStatsServiceClient"/>.</returns>
+        </member>
+        <member name="M:Google.Cloud.ErrorReporting.V1Beta1.ErrorStatsServiceClient.ShutdownDefaultChannelsAsync">
+            <summary>
+            Shuts down any channels automatically created by <see cref="M:Google.Cloud.ErrorReporting.V1Beta1.ErrorStatsServiceClient.Create(Google.Api.Gax.Grpc.ServiceEndpoint,Google.Cloud.ErrorReporting.V1Beta1.ErrorStatsServiceSettings)"/>
+            and <see cref="M:Google.Cloud.ErrorReporting.V1Beta1.ErrorStatsServiceClient.CreateAsync(Google.Api.Gax.Grpc.ServiceEndpoint,Google.Cloud.ErrorReporting.V1Beta1.ErrorStatsServiceSettings)"/>. Channels which weren't automatically
+            created are not affected.
+            </summary>
+            <remarks>After calling this method, further calls to <see cref="M:Google.Cloud.ErrorReporting.V1Beta1.ErrorStatsServiceClient.Create(Google.Api.Gax.Grpc.ServiceEndpoint,Google.Cloud.ErrorReporting.V1Beta1.ErrorStatsServiceSettings)"/>
+            and <see cref="M:Google.Cloud.ErrorReporting.V1Beta1.ErrorStatsServiceClient.CreateAsync(Google.Api.Gax.Grpc.ServiceEndpoint,Google.Cloud.ErrorReporting.V1Beta1.ErrorStatsServiceSettings)"/> will create new channels, which could
+            in turn be shut down by another call to this method.</remarks>
+            <returns>A task representing the asynchronous shutdown operation.</returns>
+        </member>
+        <member name="P:Google.Cloud.ErrorReporting.V1Beta1.ErrorStatsServiceClient.GrpcClient">
+            <summary>
+            The underlying gRPC ErrorStatsService client.
+            </summary>
+        </member>
+        <member name="M:Google.Cloud.ErrorReporting.V1Beta1.ErrorStatsServiceClient.ListGroupStatsAsync(Google.Cloud.ErrorReporting.V1Beta1.ProjectName,Google.Cloud.ErrorReporting.V1Beta1.QueryTimeRange,System.String,System.Nullable{System.Int32},Google.Api.Gax.Grpc.CallSettings)">
+             <summary>
+             Lists the specified groups.
+             </summary>
+             <param name="projectName">
+             [Required] The resource name of the Google Cloud Platform project. Written
+             as &lt;code&gt;projects/&lt;/code&gt; plus the
+             &lt;a href="https://support.google.com/cloud/answer/6158840"&gt;Google Cloud
+             Platform project ID&lt;/a&gt;.
+            
+             Example: &lt;code&gt;projects/my-project-123&lt;/code&gt;.
+             </param>
+             <param name="timeRange">
+             [Optional] List data for the given time range.
+             If not set a default time range is used. The field time_range_begin
+             in the response will specify the beginning of this time range.
+             Only &lt;code&gt;ErrorGroupStats&lt;/code&gt; with a non-zero count in the given time
+             range are returned, unless the request contains an explicit group_id list.
+             If a group_id list is given, also &lt;code&gt;ErrorGroupStats&lt;/code&gt; with zero
+             occurrences are returned.
+             </param>
+             <param name="pageToken">
+             The token returned from the previous request.
+             A value of <c>null</c> or an empty string retrieves the first page.
+             </param>
+             <param name="pageSize">
+             The size of page to request. The response will not be larger than this, but may be smaller.
+             A value of <c>null</c> or 0 uses a server-defined page size.
+             </param>
+             <param name="callSettings">
+             If not null, applies overrides to this RPC call.
+             </param>
+             <returns>
+             A pageable asynchronous sequence of <see cref="T:Google.Cloud.ErrorReporting.V1Beta1.ErrorGroupStats"/> resources.
+             </returns>
+        </member>
+        <member name="M:Google.Cloud.ErrorReporting.V1Beta1.ErrorStatsServiceClient.ListGroupStats(Google.Cloud.ErrorReporting.V1Beta1.ProjectName,Google.Cloud.ErrorReporting.V1Beta1.QueryTimeRange,System.String,System.Nullable{System.Int32},Google.Api.Gax.Grpc.CallSettings)">
+             <summary>
+             Lists the specified groups.
+             </summary>
+             <param name="projectName">
+             [Required] The resource name of the Google Cloud Platform project. Written
+             as &lt;code&gt;projects/&lt;/code&gt; plus the
+             &lt;a href="https://support.google.com/cloud/answer/6158840"&gt;Google Cloud
+             Platform project ID&lt;/a&gt;.
+            
+             Example: &lt;code&gt;projects/my-project-123&lt;/code&gt;.
+             </param>
+             <param name="timeRange">
+             [Optional] List data for the given time range.
+             If not set a default time range is used. The field time_range_begin
+             in the response will specify the beginning of this time range.
+             Only &lt;code&gt;ErrorGroupStats&lt;/code&gt; with a non-zero count in the given time
+             range are returned, unless the request contains an explicit group_id list.
+             If a group_id list is given, also &lt;code&gt;ErrorGroupStats&lt;/code&gt; with zero
+             occurrences are returned.
+             </param>
+             <param name="pageToken">
+             The token returned from the previous request.
+             A value of <c>null</c> or an empty string retrieves the first page.
+             </param>
+             <param name="pageSize">
+             The size of page to request. The response will not be larger than this, but may be smaller.
+             A value of <c>null</c> or 0 uses a server-defined page size.
+             </param>
+             <param name="callSettings">
+             If not null, applies overrides to this RPC call.
+             </param>
+             <returns>
+             A pageable sequence of <see cref="T:Google.Cloud.ErrorReporting.V1Beta1.ErrorGroupStats"/> resources.
+             </returns>
+        </member>
+        <member name="M:Google.Cloud.ErrorReporting.V1Beta1.ErrorStatsServiceClient.ListGroupStatsAsync(Google.Cloud.ErrorReporting.V1Beta1.ListGroupStatsRequest,Google.Api.Gax.Grpc.CallSettings)">
+            <summary>
+            Lists the specified groups.
+            </summary>
+            <param name="request">
+            The request object containing all of the parameters for the API call.
+            </param>
+            <param name="callSettings">
+            If not null, applies overrides to this RPC call.
+            </param>
+            <returns>
+            A pageable asynchronous sequence of <see cref="T:Google.Cloud.ErrorReporting.V1Beta1.ErrorGroupStats"/> resources.
+            </returns>
+        </member>
+        <member name="M:Google.Cloud.ErrorReporting.V1Beta1.ErrorStatsServiceClient.ListGroupStats(Google.Cloud.ErrorReporting.V1Beta1.ListGroupStatsRequest,Google.Api.Gax.Grpc.CallSettings)">
+            <summary>
+            Lists the specified groups.
+            </summary>
+            <param name="request">
+            The request object containing all of the parameters for the API call.
+            </param>
+            <param name="callSettings">
+            If not null, applies overrides to this RPC call.
+            </param>
+            <returns>
+            A pageable sequence of <see cref="T:Google.Cloud.ErrorReporting.V1Beta1.ErrorGroupStats"/> resources.
+            </returns>
+        </member>
+        <member name="M:Google.Cloud.ErrorReporting.V1Beta1.ErrorStatsServiceClient.ListEventsAsync(Google.Cloud.ErrorReporting.V1Beta1.ProjectName,System.String,System.String,System.Nullable{System.Int32},Google.Api.Gax.Grpc.CallSettings)">
+            <summary>
+            Lists the specified events.
+            </summary>
+            <param name="projectName">
+            [Required] The resource name of the Google Cloud Platform project. Written
+            as `projects/` plus the
+            [Google Cloud Platform project
+            ID](https://support.google.com/cloud/answer/6158840).
+            Example: `projects/my-project-123`.
+            </param>
+            <param name="groupId">
+            [Required] The group for which events shall be returned.
+            </param>
+            <param name="pageToken">
+            The token returned from the previous request.
+            A value of <c>null</c> or an empty string retrieves the first page.
+            </param>
+            <param name="pageSize">
+            The size of page to request. The response will not be larger than this, but may be smaller.
+            A value of <c>null</c> or 0 uses a server-defined page size.
+            </param>
+            <param name="callSettings">
+            If not null, applies overrides to this RPC call.
+            </param>
+            <returns>
+            A pageable asynchronous sequence of <see cref="T:Google.Cloud.ErrorReporting.V1Beta1.ErrorEvent"/> resources.
+            </returns>
+        </member>
+        <member name="M:Google.Cloud.ErrorReporting.V1Beta1.ErrorStatsServiceClient.ListEvents(Google.Cloud.ErrorReporting.V1Beta1.ProjectName,System.String,System.String,System.Nullable{System.Int32},Google.Api.Gax.Grpc.CallSettings)">
+            <summary>
+            Lists the specified events.
+            </summary>
+            <param name="projectName">
+            [Required] The resource name of the Google Cloud Platform project. Written
+            as `projects/` plus the
+            [Google Cloud Platform project
+            ID](https://support.google.com/cloud/answer/6158840).
+            Example: `projects/my-project-123`.
+            </param>
+            <param name="groupId">
+            [Required] The group for which events shall be returned.
+            </param>
+            <param name="pageToken">
+            The token returned from the previous request.
+            A value of <c>null</c> or an empty string retrieves the first page.
+            </param>
+            <param name="pageSize">
+            The size of page to request. The response will not be larger than this, but may be smaller.
+            A value of <c>null</c> or 0 uses a server-defined page size.
+            </param>
+            <param name="callSettings">
+            If not null, applies overrides to this RPC call.
+            </param>
+            <returns>
+            A pageable sequence of <see cref="T:Google.Cloud.ErrorReporting.V1Beta1.ErrorEvent"/> resources.
+            </returns>
+        </member>
+        <member name="M:Google.Cloud.ErrorReporting.V1Beta1.ErrorStatsServiceClient.ListEventsAsync(Google.Cloud.ErrorReporting.V1Beta1.ListEventsRequest,Google.Api.Gax.Grpc.CallSettings)">
+            <summary>
+            Lists the specified events.
+            </summary>
+            <param name="request">
+            The request object containing all of the parameters for the API call.
+            </param>
+            <param name="callSettings">
+            If not null, applies overrides to this RPC call.
+            </param>
+            <returns>
+            A pageable asynchronous sequence of <see cref="T:Google.Cloud.ErrorReporting.V1Beta1.ErrorEvent"/> resources.
+            </returns>
+        </member>
+        <member name="M:Google.Cloud.ErrorReporting.V1Beta1.ErrorStatsServiceClient.ListEvents(Google.Cloud.ErrorReporting.V1Beta1.ListEventsRequest,Google.Api.Gax.Grpc.CallSettings)">
+            <summary>
+            Lists the specified events.
+            </summary>
+            <param name="request">
+            The request object containing all of the parameters for the API call.
+            </param>
+            <param name="callSettings">
+            If not null, applies overrides to this RPC call.
+            </param>
+            <returns>
+            A pageable sequence of <see cref="T:Google.Cloud.ErrorReporting.V1Beta1.ErrorEvent"/> resources.
+            </returns>
+        </member>
+        <member name="M:Google.Cloud.ErrorReporting.V1Beta1.ErrorStatsServiceClient.DeleteEventsAsync(Google.Cloud.ErrorReporting.V1Beta1.ProjectName,Google.Api.Gax.Grpc.CallSettings)">
+            <summary>
+            Deletes all error events of a given project.
+            </summary>
+            <param name="projectName">
+            [Required] The resource name of the Google Cloud Platform project. Written
+            as `projects/` plus the
+            [Google Cloud Platform project
+            ID](https://support.google.com/cloud/answer/6158840).
+            Example: `projects/my-project-123`.
+            </param>
+            <param name="callSettings">
+            If not null, applies overrides to this RPC call.
+            </param>
+            <returns>
+            A Task containing the RPC response.
+            </returns>
+        </member>
+        <member name="M:Google.Cloud.ErrorReporting.V1Beta1.ErrorStatsServiceClient.DeleteEventsAsync(Google.Cloud.ErrorReporting.V1Beta1.ProjectName,System.Threading.CancellationToken)">
+            <summary>
+            Deletes all error events of a given project.
+            </summary>
+            <param name="projectName">
+            [Required] The resource name of the Google Cloud Platform project. Written
+            as `projects/` plus the
+            [Google Cloud Platform project
+            ID](https://support.google.com/cloud/answer/6158840).
+            Example: `projects/my-project-123`.
+            </param>
+            <param name="cancellationToken">
+            A <see cref="T:System.Threading.CancellationToken"/> to use for this RPC.
+            </param>
+            <returns>
+            A Task containing the RPC response.
+            </returns>
+        </member>
+        <member name="M:Google.Cloud.ErrorReporting.V1Beta1.ErrorStatsServiceClient.DeleteEvents(Google.Cloud.ErrorReporting.V1Beta1.ProjectName,Google.Api.Gax.Grpc.CallSettings)">
+            <summary>
+            Deletes all error events of a given project.
+            </summary>
+            <param name="projectName">
+            [Required] The resource name of the Google Cloud Platform project. Written
+            as `projects/` plus the
+            [Google Cloud Platform project
+            ID](https://support.google.com/cloud/answer/6158840).
+            Example: `projects/my-project-123`.
+            </param>
+            <param name="callSettings">
+            If not null, applies overrides to this RPC call.
+            </param>
+            <returns>
+            The RPC response.
+            </returns>
+        </member>
+        <member name="M:Google.Cloud.ErrorReporting.V1Beta1.ErrorStatsServiceClient.DeleteEventsAsync(Google.Cloud.ErrorReporting.V1Beta1.DeleteEventsRequest,Google.Api.Gax.Grpc.CallSettings)">
+            <summary>
+            Deletes all error events of a given project.
+            </summary>
+            <param name="request">
+            The request object containing all of the parameters for the API call.
+            </param>
+            <param name="callSettings">
+            If not null, applies overrides to this RPC call.
+            </param>
+            <returns>
+            A Task containing the RPC response.
+            </returns>
+        </member>
+        <member name="M:Google.Cloud.ErrorReporting.V1Beta1.ErrorStatsServiceClient.DeleteEvents(Google.Cloud.ErrorReporting.V1Beta1.DeleteEventsRequest,Google.Api.Gax.Grpc.CallSettings)">
+            <summary>
+            Deletes all error events of a given project.
+            </summary>
+            <param name="request">
+            The request object containing all of the parameters for the API call.
+            </param>
+            <param name="callSettings">
+            If not null, applies overrides to this RPC call.
+            </param>
+            <returns>
+            The RPC response.
+            </returns>
+        </member>
+        <member name="T:Google.Cloud.ErrorReporting.V1Beta1.ErrorStatsServiceClientImpl">
+            <summary>
+            ErrorStatsService client wrapper implementation, for convenient use.
+            </summary>
+        </member>
+        <member name="M:Google.Cloud.ErrorReporting.V1Beta1.ErrorStatsServiceClientImpl.#ctor(Google.Cloud.ErrorReporting.V1Beta1.ErrorStatsService.ErrorStatsServiceClient,Google.Cloud.ErrorReporting.V1Beta1.ErrorStatsServiceSettings)">
+            <summary>
+            Constructs a client wrapper for the ErrorStatsService service, with the specified gRPC client and settings.
+            </summary>
+            <param name="grpcClient">The underlying gRPC client.</param>
+            <param name="settings">The base <see cref="T:Google.Cloud.ErrorReporting.V1Beta1.ErrorStatsServiceSettings"/> used within this client </param>
+        </member>
+        <member name="P:Google.Cloud.ErrorReporting.V1Beta1.ErrorStatsServiceClientImpl.GrpcClient">
+            <summary>
+            The underlying gRPC ErrorStatsService client.
+            </summary>
+        </member>
+        <member name="M:Google.Cloud.ErrorReporting.V1Beta1.ErrorStatsServiceClientImpl.ListGroupStatsAsync(Google.Cloud.ErrorReporting.V1Beta1.ListGroupStatsRequest,Google.Api.Gax.Grpc.CallSettings)">
+            <summary>
+            Lists the specified groups.
+            </summary>
+            <param name="request">
+            The request object containing all of the parameters for the API call.
+            </param>
+            <param name="callSettings">
+            If not null, applies overrides to this RPC call.
+            </param>
+            <returns>
+            A pageable asynchronous sequence of <see cref="T:Google.Cloud.ErrorReporting.V1Beta1.ErrorGroupStats"/> resources.
+            </returns>
+        </member>
+        <member name="M:Google.Cloud.ErrorReporting.V1Beta1.ErrorStatsServiceClientImpl.ListGroupStats(Google.Cloud.ErrorReporting.V1Beta1.ListGroupStatsRequest,Google.Api.Gax.Grpc.CallSettings)">
+            <summary>
+            Lists the specified groups.
+            </summary>
+            <param name="request">
+            The request object containing all of the parameters for the API call.
+            </param>
+            <param name="callSettings">
+            If not null, applies overrides to this RPC call.
+            </param>
+            <returns>
+            A pageable sequence of <see cref="T:Google.Cloud.ErrorReporting.V1Beta1.ErrorGroupStats"/> resources.
+            </returns>
+        </member>
+        <member name="M:Google.Cloud.ErrorReporting.V1Beta1.ErrorStatsServiceClientImpl.ListEventsAsync(Google.Cloud.ErrorReporting.V1Beta1.ListEventsRequest,Google.Api.Gax.Grpc.CallSettings)">
+            <summary>
+            Lists the specified events.
+            </summary>
+            <param name="request">
+            The request object containing all of the parameters for the API call.
+            </param>
+            <param name="callSettings">
+            If not null, applies overrides to this RPC call.
+            </param>
+            <returns>
+            A pageable asynchronous sequence of <see cref="T:Google.Cloud.ErrorReporting.V1Beta1.ErrorEvent"/> resources.
+            </returns>
+        </member>
+        <member name="M:Google.Cloud.ErrorReporting.V1Beta1.ErrorStatsServiceClientImpl.ListEvents(Google.Cloud.ErrorReporting.V1Beta1.ListEventsRequest,Google.Api.Gax.Grpc.CallSettings)">
+            <summary>
+            Lists the specified events.
+            </summary>
+            <param name="request">
+            The request object containing all of the parameters for the API call.
+            </param>
+            <param name="callSettings">
+            If not null, applies overrides to this RPC call.
+            </param>
+            <returns>
+            A pageable sequence of <see cref="T:Google.Cloud.ErrorReporting.V1Beta1.ErrorEvent"/> resources.
+            </returns>
+        </member>
+        <member name="M:Google.Cloud.ErrorReporting.V1Beta1.ErrorStatsServiceClientImpl.DeleteEventsAsync(Google.Cloud.ErrorReporting.V1Beta1.DeleteEventsRequest,Google.Api.Gax.Grpc.CallSettings)">
+            <summary>
+            Deletes all error events of a given project.
+            </summary>
+            <param name="request">
+            The request object containing all of the parameters for the API call.
+            </param>
+            <param name="callSettings">
+            If not null, applies overrides to this RPC call.
+            </param>
+            <returns>
+            A Task containing the RPC response.
+            </returns>
+        </member>
+        <member name="M:Google.Cloud.ErrorReporting.V1Beta1.ErrorStatsServiceClientImpl.DeleteEvents(Google.Cloud.ErrorReporting.V1Beta1.DeleteEventsRequest,Google.Api.Gax.Grpc.CallSettings)">
+            <summary>
+            Deletes all error events of a given project.
+            </summary>
+            <param name="request">
+            The request object containing all of the parameters for the API call.
+            </param>
+            <param name="callSettings">
+            If not null, applies overrides to this RPC call.
+            </param>
+            <returns>
+            The RPC response.
+            </returns>
+        </member>
+        <member name="T:Google.Cloud.ErrorReporting.V1Beta1.ErrorStatsService">
+            <summary>
+            An API for retrieving and managing error statistics as well as data for
+            individual events.
+            </summary>
+        </member>
+        <member name="P:Google.Cloud.ErrorReporting.V1Beta1.ErrorStatsService.Descriptor">
+            <summary>Service descriptor</summary>
+        </member>
+        <member name="T:Google.Cloud.ErrorReporting.V1Beta1.ErrorStatsService.ErrorStatsServiceBase">
+            <summary>Base class for server-side implementations of ErrorStatsService</summary>
+        </member>
+        <member name="M:Google.Cloud.ErrorReporting.V1Beta1.ErrorStatsService.ErrorStatsServiceBase.ListGroupStats(Google.Cloud.ErrorReporting.V1Beta1.ListGroupStatsRequest,Grpc.Core.ServerCallContext)">
+            <summary>
+            Lists the specified groups.
+            </summary>
+            <param name="request">The request received from the client.</param>
+            <param name="context">The context of the server-side call handler being invoked.</param>
+            <returns>The response to send back to the client (wrapped by a task).</returns>
+        </member>
+        <member name="M:Google.Cloud.ErrorReporting.V1Beta1.ErrorStatsService.ErrorStatsServiceBase.ListEvents(Google.Cloud.ErrorReporting.V1Beta1.ListEventsRequest,Grpc.Core.ServerCallContext)">
+            <summary>
+            Lists the specified events.
+            </summary>
+            <param name="request">The request received from the client.</param>
+            <param name="context">The context of the server-side call handler being invoked.</param>
+            <returns>The response to send back to the client (wrapped by a task).</returns>
+        </member>
+        <member name="M:Google.Cloud.ErrorReporting.V1Beta1.ErrorStatsService.ErrorStatsServiceBase.DeleteEvents(Google.Cloud.ErrorReporting.V1Beta1.DeleteEventsRequest,Grpc.Core.ServerCallContext)">
+            <summary>
+            Deletes all error events of a given project.
+            </summary>
+            <param name="request">The request received from the client.</param>
+            <param name="context">The context of the server-side call handler being invoked.</param>
+            <returns>The response to send back to the client (wrapped by a task).</returns>
+        </member>
+        <member name="T:Google.Cloud.ErrorReporting.V1Beta1.ErrorStatsService.ErrorStatsServiceClient">
+            <summary>Client for ErrorStatsService</summary>
+        </member>
+        <member name="M:Google.Cloud.ErrorReporting.V1Beta1.ErrorStatsService.ErrorStatsServiceClient.#ctor(Grpc.Core.Channel)">
+            <summary>Creates a new client for ErrorStatsService</summary>
+            <param name="channel">The channel to use to make remote calls.</param>
+        </member>
+        <member name="M:Google.Cloud.ErrorReporting.V1Beta1.ErrorStatsService.ErrorStatsServiceClient.#ctor(Grpc.Core.CallInvoker)">
+            <summary>Creates a new client for ErrorStatsService that uses a custom <c>CallInvoker</c>.</summary>
+            <param name="callInvoker">The callInvoker to use to make remote calls.</param>
+        </member>
+        <member name="M:Google.Cloud.ErrorReporting.V1Beta1.ErrorStatsService.ErrorStatsServiceClient.#ctor">
+            <summary>Protected parameterless constructor to allow creation of test doubles.</summary>
+        </member>
+        <member name="M:Google.Cloud.ErrorReporting.V1Beta1.ErrorStatsService.ErrorStatsServiceClient.#ctor(Grpc.Core.ClientBase.ClientBaseConfiguration)">
+            <summary>Protected constructor to allow creation of configured clients.</summary>
+            <param name="configuration">The client configuration.</param>
+        </member>
+        <member name="M:Google.Cloud.ErrorReporting.V1Beta1.ErrorStatsService.ErrorStatsServiceClient.ListGroupStats(Google.Cloud.ErrorReporting.V1Beta1.ListGroupStatsRequest,Grpc.Core.Metadata,System.Nullable{System.DateTime},System.Threading.CancellationToken)">
+            <summary>
+            Lists the specified groups.
+            </summary>
+            <param name="request">The request to send to the server.</param>
+            <param name="headers">The initial metadata to send with the call. This parameter is optional.</param>
+            <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
+            <param name="cancellationToken">An optional token for canceling the call.</param>
+            <returns>The response received from the server.</returns>
+        </member>
+        <member name="M:Google.Cloud.ErrorReporting.V1Beta1.ErrorStatsService.ErrorStatsServiceClient.ListGroupStats(Google.Cloud.ErrorReporting.V1Beta1.ListGroupStatsRequest,Grpc.Core.CallOptions)">
+            <summary>
+            Lists the specified groups.
+            </summary>
+            <param name="request">The request to send to the server.</param>
+            <param name="options">The options for the call.</param>
+            <returns>The response received from the server.</returns>
+        </member>
+        <member name="M:Google.Cloud.ErrorReporting.V1Beta1.ErrorStatsService.ErrorStatsServiceClient.ListGroupStatsAsync(Google.Cloud.ErrorReporting.V1Beta1.ListGroupStatsRequest,Grpc.Core.Metadata,System.Nullable{System.DateTime},System.Threading.CancellationToken)">
+            <summary>
+            Lists the specified groups.
+            </summary>
+            <param name="request">The request to send to the server.</param>
+            <param name="headers">The initial metadata to send with the call. This parameter is optional.</param>
+            <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
+            <param name="cancellationToken">An optional token for canceling the call.</param>
+            <returns>The call object.</returns>
+        </member>
+        <member name="M:Google.Cloud.ErrorReporting.V1Beta1.ErrorStatsService.ErrorStatsServiceClient.ListGroupStatsAsync(Google.Cloud.ErrorReporting.V1Beta1.ListGroupStatsRequest,Grpc.Core.CallOptions)">
+            <summary>
+            Lists the specified groups.
+            </summary>
+            <param name="request">The request to send to the server.</param>
+            <param name="options">The options for the call.</param>
+            <returns>The call object.</returns>
+        </member>
+        <member name="M:Google.Cloud.ErrorReporting.V1Beta1.ErrorStatsService.ErrorStatsServiceClient.ListEvents(Google.Cloud.ErrorReporting.V1Beta1.ListEventsRequest,Grpc.Core.Metadata,System.Nullable{System.DateTime},System.Threading.CancellationToken)">
+            <summary>
+            Lists the specified events.
+            </summary>
+            <param name="request">The request to send to the server.</param>
+            <param name="headers">The initial metadata to send with the call. This parameter is optional.</param>
+            <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
+            <param name="cancellationToken">An optional token for canceling the call.</param>
+            <returns>The response received from the server.</returns>
+        </member>
+        <member name="M:Google.Cloud.ErrorReporting.V1Beta1.ErrorStatsService.ErrorStatsServiceClient.ListEvents(Google.Cloud.ErrorReporting.V1Beta1.ListEventsRequest,Grpc.Core.CallOptions)">
+            <summary>
+            Lists the specified events.
+            </summary>
+            <param name="request">The request to send to the server.</param>
+            <param name="options">The options for the call.</param>
+            <returns>The response received from the server.</returns>
+        </member>
+        <member name="M:Google.Cloud.ErrorReporting.V1Beta1.ErrorStatsService.ErrorStatsServiceClient.ListEventsAsync(Google.Cloud.ErrorReporting.V1Beta1.ListEventsRequest,Grpc.Core.Metadata,System.Nullable{System.DateTime},System.Threading.CancellationToken)">
+            <summary>
+            Lists the specified events.
+            </summary>
+            <param name="request">The request to send to the server.</param>
+            <param name="headers">The initial metadata to send with the call. This parameter is optional.</param>
+            <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
+            <param name="cancellationToken">An optional token for canceling the call.</param>
+            <returns>The call object.</returns>
+        </member>
+        <member name="M:Google.Cloud.ErrorReporting.V1Beta1.ErrorStatsService.ErrorStatsServiceClient.ListEventsAsync(Google.Cloud.ErrorReporting.V1Beta1.ListEventsRequest,Grpc.Core.CallOptions)">
+            <summary>
+            Lists the specified events.
+            </summary>
+            <param name="request">The request to send to the server.</param>
+            <param name="options">The options for the call.</param>
+            <returns>The call object.</returns>
+        </member>
+        <member name="M:Google.Cloud.ErrorReporting.V1Beta1.ErrorStatsService.ErrorStatsServiceClient.DeleteEvents(Google.Cloud.ErrorReporting.V1Beta1.DeleteEventsRequest,Grpc.Core.Metadata,System.Nullable{System.DateTime},System.Threading.CancellationToken)">
+            <summary>
+            Deletes all error events of a given project.
+            </summary>
+            <param name="request">The request to send to the server.</param>
+            <param name="headers">The initial metadata to send with the call. This parameter is optional.</param>
+            <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
+            <param name="cancellationToken">An optional token for canceling the call.</param>
+            <returns>The response received from the server.</returns>
+        </member>
+        <member name="M:Google.Cloud.ErrorReporting.V1Beta1.ErrorStatsService.ErrorStatsServiceClient.DeleteEvents(Google.Cloud.ErrorReporting.V1Beta1.DeleteEventsRequest,Grpc.Core.CallOptions)">
+            <summary>
+            Deletes all error events of a given project.
+            </summary>
+            <param name="request">The request to send to the server.</param>
+            <param name="options">The options for the call.</param>
+            <returns>The response received from the server.</returns>
+        </member>
+        <member name="M:Google.Cloud.ErrorReporting.V1Beta1.ErrorStatsService.ErrorStatsServiceClient.DeleteEventsAsync(Google.Cloud.ErrorReporting.V1Beta1.DeleteEventsRequest,Grpc.Core.Metadata,System.Nullable{System.DateTime},System.Threading.CancellationToken)">
+            <summary>
+            Deletes all error events of a given project.
+            </summary>
+            <param name="request">The request to send to the server.</param>
+            <param name="headers">The initial metadata to send with the call. This parameter is optional.</param>
+            <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
+            <param name="cancellationToken">An optional token for canceling the call.</param>
+            <returns>The call object.</returns>
+        </member>
+        <member name="M:Google.Cloud.ErrorReporting.V1Beta1.ErrorStatsService.ErrorStatsServiceClient.DeleteEventsAsync(Google.Cloud.ErrorReporting.V1Beta1.DeleteEventsRequest,Grpc.Core.CallOptions)">
+            <summary>
+            Deletes all error events of a given project.
+            </summary>
+            <param name="request">The request to send to the server.</param>
+            <param name="options">The options for the call.</param>
+            <returns>The call object.</returns>
+        </member>
+        <member name="M:Google.Cloud.ErrorReporting.V1Beta1.ErrorStatsService.ErrorStatsServiceClient.NewInstance(Grpc.Core.ClientBase.ClientBaseConfiguration)">
+            <summary>Creates a new instance of client from given <c>ClientBaseConfiguration</c>.</summary>
+        </member>
+        <member name="M:Google.Cloud.ErrorReporting.V1Beta1.ErrorStatsService.BindService(Google.Cloud.ErrorReporting.V1Beta1.ErrorStatsService.ErrorStatsServiceBase)">
+            <summary>Creates service definition that can be registered with a server</summary>
+            <param name="serviceImpl">An object implementing the server-side handling logic.</param>
+        </member>
+        <member name="T:Google.Cloud.ErrorReporting.V1Beta1.ReportErrorsServiceReflection">
+            <summary>Holder for reflection information generated from google/devtools/clouderrorreporting/v1beta1/report_errors_service.proto</summary>
+        </member>
+        <member name="P:Google.Cloud.ErrorReporting.V1Beta1.ReportErrorsServiceReflection.Descriptor">
+            <summary>File descriptor for google/devtools/clouderrorreporting/v1beta1/report_errors_service.proto</summary>
+        </member>
+        <member name="T:Google.Cloud.ErrorReporting.V1Beta1.ReportErrorEventRequest">
+            <summary>
+            A request for reporting an individual error event.
+            </summary>
+        </member>
+        <member name="F:Google.Cloud.ErrorReporting.V1Beta1.ReportErrorEventRequest.ProjectNameFieldNumber">
+            <summary>Field number for the "project_name" field.</summary>
+        </member>
+        <member name="P:Google.Cloud.ErrorReporting.V1Beta1.ReportErrorEventRequest.ProjectName">
+            <summary>
+            [Required] The resource name of the Google Cloud Platform project. Written
+            as `projects/` plus the
+            [Google Cloud Platform project ID](https://support.google.com/cloud/answer/6158840).
+            Example: `projects/my-project-123`.
+            </summary>
+        </member>
+        <member name="F:Google.Cloud.ErrorReporting.V1Beta1.ReportErrorEventRequest.EventFieldNumber">
+            <summary>Field number for the "event" field.</summary>
+        </member>
+        <member name="P:Google.Cloud.ErrorReporting.V1Beta1.ReportErrorEventRequest.Event">
+            <summary>
+            [Required] The error event to be reported.
+            </summary>
+        </member>
+        <member name="P:Google.Cloud.ErrorReporting.V1Beta1.ReportErrorEventRequest.ProjectNameAsProjectName">
+            <summary>
+            <see cref="P:Google.Cloud.ErrorReporting.V1Beta1.ReportErrorEventRequest.ProjectName"/>-typed view over the <see cref="P:Google.Cloud.ErrorReporting.V1Beta1.ReportErrorEventRequest.ProjectName"/> resource name property.
+            </summary>
+        </member>
+        <member name="T:Google.Cloud.ErrorReporting.V1Beta1.ReportErrorEventResponse">
+            <summary>
+            Response for reporting an individual error event.
+            Data may be added to this message in the future.
+            </summary>
+        </member>
+        <member name="T:Google.Cloud.ErrorReporting.V1Beta1.ReportedErrorEvent">
+            <summary>
+            An error event which is reported to the Error Reporting system.
+            </summary>
+        </member>
+        <member name="F:Google.Cloud.ErrorReporting.V1Beta1.ReportedErrorEvent.EventTimeFieldNumber">
+            <summary>Field number for the "event_time" field.</summary>
+        </member>
+        <member name="P:Google.Cloud.ErrorReporting.V1Beta1.ReportedErrorEvent.EventTime">
+            <summary>
+            [Optional] Time when the event occurred.
+            If not provided, the time when the event was received by the
+            Error Reporting system will be used.
+            </summary>
+        </member>
+        <member name="F:Google.Cloud.ErrorReporting.V1Beta1.ReportedErrorEvent.ServiceContextFieldNumber">
+            <summary>Field number for the "service_context" field.</summary>
+        </member>
+        <member name="P:Google.Cloud.ErrorReporting.V1Beta1.ReportedErrorEvent.ServiceContext">
+            <summary>
+            [Required] The service context in which this error has occurred.
+            </summary>
+        </member>
+        <member name="F:Google.Cloud.ErrorReporting.V1Beta1.ReportedErrorEvent.MessageFieldNumber">
+            <summary>Field number for the "message" field.</summary>
+        </member>
+        <member name="P:Google.Cloud.ErrorReporting.V1Beta1.ReportedErrorEvent.Message">
+            <summary>
+            [Required] A message describing the error. The message can contain an
+            exception stack in one of the supported programming languages and formats.
+            In that case, the message is parsed and detailed exception information
+            is returned when retrieving the error event again.
+            </summary>
+        </member>
+        <member name="F:Google.Cloud.ErrorReporting.V1Beta1.ReportedErrorEvent.ContextFieldNumber">
+            <summary>Field number for the "context" field.</summary>
+        </member>
+        <member name="P:Google.Cloud.ErrorReporting.V1Beta1.ReportedErrorEvent.Context">
+            <summary>
+            [Optional] A description of the context in which the error occurred.
+            </summary>
+        </member>
+        <member name="T:Google.Cloud.ErrorReporting.V1Beta1.ReportErrorsServiceSettings">
+            <summary>
+            Settings for a <see cref="T:Google.Cloud.ErrorReporting.V1Beta1.ReportErrorsServiceClient"/>.
+            </summary>
+        </member>
+        <member name="M:Google.Cloud.ErrorReporting.V1Beta1.ReportErrorsServiceSettings.GetDefault">
+            <summary>
+            Get a new instance of the default <see cref="T:Google.Cloud.ErrorReporting.V1Beta1.ReportErrorsServiceSettings"/>.
+            </summary>
+            <returns>
+            A new instance of the default <see cref="T:Google.Cloud.ErrorReporting.V1Beta1.ReportErrorsServiceSettings"/>.
+            </returns>
+        </member>
+        <member name="M:Google.Cloud.ErrorReporting.V1Beta1.ReportErrorsServiceSettings.#ctor">
+            <summary>
+            Constructs a new <see cref="T:Google.Cloud.ErrorReporting.V1Beta1.ReportErrorsServiceSettings"/> object with default settings.
+            </summary>
+        </member>
+        <member name="P:Google.Cloud.ErrorReporting.V1Beta1.ReportErrorsServiceSettings.IdempotentRetryFilter">
+            <summary>
+            The filter specifying which RPC <see cref="T:Grpc.Core.StatusCode"/>s are eligible for retry
+            for "Idempotent" <see cref="T:Google.Cloud.ErrorReporting.V1Beta1.ReportErrorsServiceClient"/> RPC methods.
+            </summary>
+            <remarks>
+            The eligible RPC <see cref="T:Grpc.Core.StatusCode"/>s for retry for "Idempotent" RPC methods are:
+            <list type="bullet">
+            <item><description><see cref="F:Grpc.Core.StatusCode.DeadlineExceeded"/></description></item>
+            <item><description><see cref="F:Grpc.Core.StatusCode.Unavailable"/></description></item>
+            </list>
+            </remarks>
+        </member>
+        <member name="P:Google.Cloud.ErrorReporting.V1Beta1.ReportErrorsServiceSettings.NonIdempotentRetryFilter">
+            <summary>
+            The filter specifying which RPC <see cref="T:Grpc.Core.StatusCode"/>s are eligible for retry
+            for "NonIdempotent" <see cref="T:Google.Cloud.ErrorReporting.V1Beta1.ReportErrorsServiceClient"/> RPC methods.
+            </summary>
+            <remarks>
+            The eligible RPC <see cref="T:Grpc.Core.StatusCode"/>s for retry for "NonIdempotent" RPC methods are:
+            <list type="bullet">
+            <item><description><see cref="F:Grpc.Core.StatusCode.Unavailable"/></description></item>
+            </list>
+            </remarks>
+        </member>
+        <member name="M:Google.Cloud.ErrorReporting.V1Beta1.ReportErrorsServiceSettings.GetDefaultRetryBackoff">
+            <summary>
+            "Default" retry backoff for <see cref="T:Google.Cloud.ErrorReporting.V1Beta1.ReportErrorsServiceClient"/> RPC methods.
+            </summary>
+            <returns>
+            The "Default" retry backoff for <see cref="T:Google.Cloud.ErrorReporting.V1Beta1.ReportErrorsServiceClient"/> RPC methods.
+            </returns>
+            <remarks>
+            The "Default" retry backoff for <see cref="T:Google.Cloud.ErrorReporting.V1Beta1.ReportErrorsServiceClient"/> RPC methods is defined as:
+            <list type="bullet">
+            <item><description>Initial delay: 100 milliseconds</description></item>
+            <item><description>Maximum delay: 60000 milliseconds</description></item>
+            <item><description>Delay multiplier: 1.3</description></item>
+            </list>
+            </remarks>
+        </member>
+        <member name="M:Google.Cloud.ErrorReporting.V1Beta1.ReportErrorsServiceSettings.GetDefaultTimeoutBackoff">
+            <summary>
+            "Default" timeout backoff for <see cref="T:Google.Cloud.ErrorReporting.V1Beta1.ReportErrorsServiceClient"/> RPC methods.
+            </summary>
+            <returns>
+            The "Default" timeout backoff for <see cref="T:Google.Cloud.ErrorReporting.V1Beta1.ReportErrorsServiceClient"/> RPC methods.
+            </returns>
+            <remarks>
+            The "Default" timeout backoff for <see cref="T:Google.Cloud.ErrorReporting.V1Beta1.ReportErrorsServiceClient"/> RPC methods is defined as:
+            <list type="bullet">
+            <item><description>Initial timeout: 20000 milliseconds</description></item>
+            <item><description>Timeout multiplier: 1.0</description></item>
+            <item><description>Maximum timeout: 20000 milliseconds</description></item>
+            </list>
+            </remarks>
+        </member>
+        <member name="P:Google.Cloud.ErrorReporting.V1Beta1.ReportErrorsServiceSettings.ReportErrorEventSettings">
+            <summary>
+            <see cref="T:Google.Api.Gax.Grpc.CallSettings"/> for synchronous and asynchronous calls to
+            <c>ReportErrorsServiceClient.ReportErrorEvent</c> and <c>ReportErrorsServiceClient.ReportErrorEventAsync</c>.
+            </summary>
+            <remarks>
+            The default <c>ReportErrorsServiceClient.ReportErrorEvent</c> and
+            <c>ReportErrorsServiceClient.ReportErrorEventAsync</c> <see cref="T:Google.Api.Gax.Grpc.RetrySettings"/> are:
+            <list type="bullet">
+            <item><description>Initial retry delay: 100 milliseconds</description></item>
+            <item><description>Retry delay multiplier: 1.3</description></item>
+            <item><description>Retry maximum delay: 60000 milliseconds</description></item>
+            <item><description>Initial timeout: 20000 milliseconds</description></item>
+            <item><description>Timeout multiplier: 1.0</description></item>
+            <item><description>Timeout maximum delay: 20000 milliseconds</description></item>
+            </list>
+            Retry will be attempted on the following response status codes:
+            <list>
+            <item><description><see cref="F:Grpc.Core.StatusCode.Unavailable"/></description></item>
+            </list>
+            Default RPC expiration is 600000 milliseconds.
+            </remarks>
+        </member>
+        <member name="M:Google.Cloud.ErrorReporting.V1Beta1.ReportErrorsServiceSettings.Clone">
+            <summary>
+            Creates a deep clone of this object, with all the same property values.
+            </summary>
+            <returns>A deep clone of this <see cref="T:Google.Cloud.ErrorReporting.V1Beta1.ReportErrorsServiceSettings"/> object.</returns>
+        </member>
+        <member name="T:Google.Cloud.ErrorReporting.V1Beta1.ReportErrorsServiceClient">
+            <summary>
+            ReportErrorsService client wrapper, for convenient use.
+            </summary>
+        </member>
+        <member name="P:Google.Cloud.ErrorReporting.V1Beta1.ReportErrorsServiceClient.DefaultEndpoint">
+            <summary>
+            The default endpoint for the ReportErrorsService service, which is a host of "clouderrorreporting.googleapis.com" and a port of 443.
+            </summary>
+        </member>
+        <member name="P:Google.Cloud.ErrorReporting.V1Beta1.ReportErrorsServiceClient.DefaultScopes">
+            <summary>
+            The default ReportErrorsService scopes.
+            </summary>
+            <remarks>
+            The default ReportErrorsService scopes are:
+            <list type="bullet">
+            <item><description>"https://www.googleapis.com/auth/cloud-platform"</description></item>
+            </list>
+            </remarks>
+        </member>
+        <member name="M:Google.Cloud.ErrorReporting.V1Beta1.ReportErrorsServiceClient.CreateAsync(Google.Api.Gax.Grpc.ServiceEndpoint,Google.Cloud.ErrorReporting.V1Beta1.ReportErrorsServiceSettings)">
+            <summary>
+            Asynchronously creates a <see cref="T:Google.Cloud.ErrorReporting.V1Beta1.ReportErrorsServiceClient"/>, applying defaults for all unspecified settings,
+            and creating a channel connecting to the given endpoint with application default credentials where
+            necessary.
+            </summary>
+            <param name="endpoint">Optional <see cref="T:Google.Api.Gax.Grpc.ServiceEndpoint"/>.</param>
+            <param name="settings">Optional <see cref="T:Google.Cloud.ErrorReporting.V1Beta1.ReportErrorsServiceSettings"/>.</param>
+            <returns>The task representing the created <see cref="T:Google.Cloud.ErrorReporting.V1Beta1.ReportErrorsServiceClient"/>.</returns>
+        </member>
+        <member name="M:Google.Cloud.ErrorReporting.V1Beta1.ReportErrorsServiceClient.Create(Google.Api.Gax.Grpc.ServiceEndpoint,Google.Cloud.ErrorReporting.V1Beta1.ReportErrorsServiceSettings)">
+            <summary>
+            Synchronously creates a <see cref="T:Google.Cloud.ErrorReporting.V1Beta1.ReportErrorsServiceClient"/>, applying defaults for all unspecified settings,
+            and creating a channel connecting to the given endpoint with application default credentials where
+            necessary.
+            </summary>
+            <param name="endpoint">Optional <see cref="T:Google.Api.Gax.Grpc.ServiceEndpoint"/>.</param>
+            <param name="settings">Optional <see cref="T:Google.Cloud.ErrorReporting.V1Beta1.ReportErrorsServiceSettings"/>.</param>
+            <returns>The created <see cref="T:Google.Cloud.ErrorReporting.V1Beta1.ReportErrorsServiceClient"/>.</returns>
+        </member>
+        <member name="M:Google.Cloud.ErrorReporting.V1Beta1.ReportErrorsServiceClient.Create(Grpc.Core.Channel,Google.Cloud.ErrorReporting.V1Beta1.ReportErrorsServiceSettings)">
+            <summary>
+            Creates a <see cref="T:Google.Cloud.ErrorReporting.V1Beta1.ReportErrorsServiceClient"/> which uses the specified channel for remote operations.
+            </summary>
+            <param name="channel">The <see cref="T:Grpc.Core.Channel"/> for remote operations. Must not be null.</param>
+            <param name="settings">Optional <see cref="T:Google.Cloud.ErrorReporting.V1Beta1.ReportErrorsServiceSettings"/>.</param>
+            <returns>The created <see cref="T:Google.Cloud.ErrorReporting.V1Beta1.ReportErrorsServiceClient"/>.</returns>
+        </member>
+        <member name="M:Google.Cloud.ErrorReporting.V1Beta1.ReportErrorsServiceClient.ShutdownDefaultChannelsAsync">
+            <summary>
+            Shuts down any channels automatically created by <see cref="M:Google.Cloud.ErrorReporting.V1Beta1.ReportErrorsServiceClient.Create(Google.Api.Gax.Grpc.ServiceEndpoint,Google.Cloud.ErrorReporting.V1Beta1.ReportErrorsServiceSettings)"/>
+            and <see cref="M:Google.Cloud.ErrorReporting.V1Beta1.ReportErrorsServiceClient.CreateAsync(Google.Api.Gax.Grpc.ServiceEndpoint,Google.Cloud.ErrorReporting.V1Beta1.ReportErrorsServiceSettings)"/>. Channels which weren't automatically
+            created are not affected.
+            </summary>
+            <remarks>After calling this method, further calls to <see cref="M:Google.Cloud.ErrorReporting.V1Beta1.ReportErrorsServiceClient.Create(Google.Api.Gax.Grpc.ServiceEndpoint,Google.Cloud.ErrorReporting.V1Beta1.ReportErrorsServiceSettings)"/>
+            and <see cref="M:Google.Cloud.ErrorReporting.V1Beta1.ReportErrorsServiceClient.CreateAsync(Google.Api.Gax.Grpc.ServiceEndpoint,Google.Cloud.ErrorReporting.V1Beta1.ReportErrorsServiceSettings)"/> will create new channels, which could
+            in turn be shut down by another call to this method.</remarks>
+            <returns>A task representing the asynchronous shutdown operation.</returns>
+        </member>
+        <member name="P:Google.Cloud.ErrorReporting.V1Beta1.ReportErrorsServiceClient.GrpcClient">
+            <summary>
+            The underlying gRPC ReportErrorsService client.
+            </summary>
+        </member>
+        <member name="M:Google.Cloud.ErrorReporting.V1Beta1.ReportErrorsServiceClient.ReportErrorEventAsync(Google.Cloud.ErrorReporting.V1Beta1.ProjectName,Google.Cloud.ErrorReporting.V1Beta1.ReportedErrorEvent,Google.Api.Gax.Grpc.CallSettings)">
+             <summary>
+             Report an individual error event.
+            
+             This endpoint accepts &lt;strong&gt;either&lt;/strong&gt; an OAuth token,
+             &lt;strong&gt;or&lt;/strong&gt; an
+             &lt;a href="https://support.google.com/cloud/answer/6158862"&gt;API key&lt;/a&gt;
+             for authentication. To use an API key, append it to the URL as the value of
+             a `key` parameter. For example:
+             &lt;pre&gt;POST https://clouderrorreporting.googleapis.com/v1beta1/projects/example-project/events:report?key=123ABC456&lt;/pre&gt;
+             </summary>
+             <param name="projectName">
+             [Required] The resource name of the Google Cloud Platform project. Written
+             as `projects/` plus the
+             [Google Cloud Platform project ID](https://support.google.com/cloud/answer/6158840).
+             Example: `projects/my-project-123`.
+             </param>
+             <param name="event">
+             [Required] The error event to be reported.
+             </param>
+             <param name="callSettings">
+             If not null, applies overrides to this RPC call.
+             </param>
+             <returns>
+             A Task containing the RPC response.
+             </returns>
+        </member>
+        <member name="M:Google.Cloud.ErrorReporting.V1Beta1.ReportErrorsServiceClient.ReportErrorEventAsync(Google.Cloud.ErrorReporting.V1Beta1.ProjectName,Google.Cloud.ErrorReporting.V1Beta1.ReportedErrorEvent,System.Threading.CancellationToken)">
+             <summary>
+             Report an individual error event.
+            
+             This endpoint accepts &lt;strong&gt;either&lt;/strong&gt; an OAuth token,
+             &lt;strong&gt;or&lt;/strong&gt; an
+             &lt;a href="https://support.google.com/cloud/answer/6158862"&gt;API key&lt;/a&gt;
+             for authentication. To use an API key, append it to the URL as the value of
+             a `key` parameter. For example:
+             &lt;pre&gt;POST https://clouderrorreporting.googleapis.com/v1beta1/projects/example-project/events:report?key=123ABC456&lt;/pre&gt;
+             </summary>
+             <param name="projectName">
+             [Required] The resource name of the Google Cloud Platform project. Written
+             as `projects/` plus the
+             [Google Cloud Platform project ID](https://support.google.com/cloud/answer/6158840).
+             Example: `projects/my-project-123`.
+             </param>
+             <param name="event">
+             [Required] The error event to be reported.
+             </param>
+             <param name="cancellationToken">
+             A <see cref="T:System.Threading.CancellationToken"/> to use for this RPC.
+             </param>
+             <returns>
+             A Task containing the RPC response.
+             </returns>
+        </member>
+        <member name="M:Google.Cloud.ErrorReporting.V1Beta1.ReportErrorsServiceClient.ReportErrorEvent(Google.Cloud.ErrorReporting.V1Beta1.ProjectName,Google.Cloud.ErrorReporting.V1Beta1.ReportedErrorEvent,Google.Api.Gax.Grpc.CallSettings)">
+             <summary>
+             Report an individual error event.
+            
+             This endpoint accepts &lt;strong&gt;either&lt;/strong&gt; an OAuth token,
+             &lt;strong&gt;or&lt;/strong&gt; an
+             &lt;a href="https://support.google.com/cloud/answer/6158862"&gt;API key&lt;/a&gt;
+             for authentication. To use an API key, append it to the URL as the value of
+             a `key` parameter. For example:
+             &lt;pre&gt;POST https://clouderrorreporting.googleapis.com/v1beta1/projects/example-project/events:report?key=123ABC456&lt;/pre&gt;
+             </summary>
+             <param name="projectName">
+             [Required] The resource name of the Google Cloud Platform project. Written
+             as `projects/` plus the
+             [Google Cloud Platform project ID](https://support.google.com/cloud/answer/6158840).
+             Example: `projects/my-project-123`.
+             </param>
+             <param name="event">
+             [Required] The error event to be reported.
+             </param>
+             <param name="callSettings">
+             If not null, applies overrides to this RPC call.
+             </param>
+             <returns>
+             The RPC response.
+             </returns>
+        </member>
+        <member name="M:Google.Cloud.ErrorReporting.V1Beta1.ReportErrorsServiceClient.ReportErrorEventAsync(Google.Cloud.ErrorReporting.V1Beta1.ReportErrorEventRequest,Google.Api.Gax.Grpc.CallSettings)">
+             <summary>
+             Report an individual error event.
+            
+             This endpoint accepts &lt;strong&gt;either&lt;/strong&gt; an OAuth token,
+             &lt;strong&gt;or&lt;/strong&gt; an
+             &lt;a href="https://support.google.com/cloud/answer/6158862"&gt;API key&lt;/a&gt;
+             for authentication. To use an API key, append it to the URL as the value of
+             a `key` parameter. For example:
+             &lt;pre&gt;POST https://clouderrorreporting.googleapis.com/v1beta1/projects/example-project/events:report?key=123ABC456&lt;/pre&gt;
+             </summary>
+             <param name="request">
+             The request object containing all of the parameters for the API call.
+             </param>
+             <param name="callSettings">
+             If not null, applies overrides to this RPC call.
+             </param>
+             <returns>
+             A Task containing the RPC response.
+             </returns>
+        </member>
+        <member name="M:Google.Cloud.ErrorReporting.V1Beta1.ReportErrorsServiceClient.ReportErrorEvent(Google.Cloud.ErrorReporting.V1Beta1.ReportErrorEventRequest,Google.Api.Gax.Grpc.CallSettings)">
+             <summary>
+             Report an individual error event.
+            
+             This endpoint accepts &lt;strong&gt;either&lt;/strong&gt; an OAuth token,
+             &lt;strong&gt;or&lt;/strong&gt; an
+             &lt;a href="https://support.google.com/cloud/answer/6158862"&gt;API key&lt;/a&gt;
+             for authentication. To use an API key, append it to the URL as the value of
+             a `key` parameter. For example:
+             &lt;pre&gt;POST https://clouderrorreporting.googleapis.com/v1beta1/projects/example-project/events:report?key=123ABC456&lt;/pre&gt;
+             </summary>
+             <param name="request">
+             The request object containing all of the parameters for the API call.
+             </param>
+             <param name="callSettings">
+             If not null, applies overrides to this RPC call.
+             </param>
+             <returns>
+             The RPC response.
+             </returns>
+        </member>
+        <member name="T:Google.Cloud.ErrorReporting.V1Beta1.ReportErrorsServiceClientImpl">
+            <summary>
+            ReportErrorsService client wrapper implementation, for convenient use.
+            </summary>
+        </member>
+        <member name="M:Google.Cloud.ErrorReporting.V1Beta1.ReportErrorsServiceClientImpl.#ctor(Google.Cloud.ErrorReporting.V1Beta1.ReportErrorsService.ReportErrorsServiceClient,Google.Cloud.ErrorReporting.V1Beta1.ReportErrorsServiceSettings)">
+            <summary>
+            Constructs a client wrapper for the ReportErrorsService service, with the specified gRPC client and settings.
+            </summary>
+            <param name="grpcClient">The underlying gRPC client.</param>
+            <param name="settings">The base <see cref="T:Google.Cloud.ErrorReporting.V1Beta1.ReportErrorsServiceSettings"/> used within this client </param>
+        </member>
+        <member name="P:Google.Cloud.ErrorReporting.V1Beta1.ReportErrorsServiceClientImpl.GrpcClient">
+            <summary>
+            The underlying gRPC ReportErrorsService client.
+            </summary>
+        </member>
+        <member name="M:Google.Cloud.ErrorReporting.V1Beta1.ReportErrorsServiceClientImpl.ReportErrorEventAsync(Google.Cloud.ErrorReporting.V1Beta1.ReportErrorEventRequest,Google.Api.Gax.Grpc.CallSettings)">
+             <summary>
+             Report an individual error event.
+            
+             This endpoint accepts &lt;strong&gt;either&lt;/strong&gt; an OAuth token,
+             &lt;strong&gt;or&lt;/strong&gt; an
+             &lt;a href="https://support.google.com/cloud/answer/6158862"&gt;API key&lt;/a&gt;
+             for authentication. To use an API key, append it to the URL as the value of
+             a `key` parameter. For example:
+             &lt;pre&gt;POST https://clouderrorreporting.googleapis.com/v1beta1/projects/example-project/events:report?key=123ABC456&lt;/pre&gt;
+             </summary>
+             <param name="request">
+             The request object containing all of the parameters for the API call.
+             </param>
+             <param name="callSettings">
+             If not null, applies overrides to this RPC call.
+             </param>
+             <returns>
+             A Task containing the RPC response.
+             </returns>
+        </member>
+        <member name="M:Google.Cloud.ErrorReporting.V1Beta1.ReportErrorsServiceClientImpl.ReportErrorEvent(Google.Cloud.ErrorReporting.V1Beta1.ReportErrorEventRequest,Google.Api.Gax.Grpc.CallSettings)">
+             <summary>
+             Report an individual error event.
+            
+             This endpoint accepts &lt;strong&gt;either&lt;/strong&gt; an OAuth token,
+             &lt;strong&gt;or&lt;/strong&gt; an
+             &lt;a href="https://support.google.com/cloud/answer/6158862"&gt;API key&lt;/a&gt;
+             for authentication. To use an API key, append it to the URL as the value of
+             a `key` parameter. For example:
+             &lt;pre&gt;POST https://clouderrorreporting.googleapis.com/v1beta1/projects/example-project/events:report?key=123ABC456&lt;/pre&gt;
+             </summary>
+             <param name="request">
+             The request object containing all of the parameters for the API call.
+             </param>
+             <param name="callSettings">
+             If not null, applies overrides to this RPC call.
+             </param>
+             <returns>
+             The RPC response.
+             </returns>
+        </member>
+        <member name="T:Google.Cloud.ErrorReporting.V1Beta1.ReportErrorsService">
+            <summary>
+            An API for reporting error events.
+            </summary>
+        </member>
+        <member name="P:Google.Cloud.ErrorReporting.V1Beta1.ReportErrorsService.Descriptor">
+            <summary>Service descriptor</summary>
+        </member>
+        <member name="T:Google.Cloud.ErrorReporting.V1Beta1.ReportErrorsService.ReportErrorsServiceBase">
+            <summary>Base class for server-side implementations of ReportErrorsService</summary>
+        </member>
+        <member name="M:Google.Cloud.ErrorReporting.V1Beta1.ReportErrorsService.ReportErrorsServiceBase.ReportErrorEvent(Google.Cloud.ErrorReporting.V1Beta1.ReportErrorEventRequest,Grpc.Core.ServerCallContext)">
+             <summary>
+             Report an individual error event.
+            
+             This endpoint accepts &lt;strong>either&lt;/strong> an OAuth token,
+             &lt;strong>or&lt;/strong> an
+             &lt;a href="https://support.google.com/cloud/answer/6158862">API key&lt;/a>
+             for authentication. To use an API key, append it to the URL as the value of
+             a `key` parameter. For example:
+             &lt;pre>POST https://clouderrorreporting.googleapis.com/v1beta1/projects/example-project/events:report?key=123ABC456&lt;/pre>
+             </summary>
+             <param name="request">The request received from the client.</param>
+             <param name="context">The context of the server-side call handler being invoked.</param>
+             <returns>The response to send back to the client (wrapped by a task).</returns>
+        </member>
+        <member name="T:Google.Cloud.ErrorReporting.V1Beta1.ReportErrorsService.ReportErrorsServiceClient">
+            <summary>Client for ReportErrorsService</summary>
+        </member>
+        <member name="M:Google.Cloud.ErrorReporting.V1Beta1.ReportErrorsService.ReportErrorsServiceClient.#ctor(Grpc.Core.Channel)">
+            <summary>Creates a new client for ReportErrorsService</summary>
+            <param name="channel">The channel to use to make remote calls.</param>
+        </member>
+        <member name="M:Google.Cloud.ErrorReporting.V1Beta1.ReportErrorsService.ReportErrorsServiceClient.#ctor(Grpc.Core.CallInvoker)">
+            <summary>Creates a new client for ReportErrorsService that uses a custom <c>CallInvoker</c>.</summary>
+            <param name="callInvoker">The callInvoker to use to make remote calls.</param>
+        </member>
+        <member name="M:Google.Cloud.ErrorReporting.V1Beta1.ReportErrorsService.ReportErrorsServiceClient.#ctor">
+            <summary>Protected parameterless constructor to allow creation of test doubles.</summary>
+        </member>
+        <member name="M:Google.Cloud.ErrorReporting.V1Beta1.ReportErrorsService.ReportErrorsServiceClient.#ctor(Grpc.Core.ClientBase.ClientBaseConfiguration)">
+            <summary>Protected constructor to allow creation of configured clients.</summary>
+            <param name="configuration">The client configuration.</param>
+        </member>
+        <member name="M:Google.Cloud.ErrorReporting.V1Beta1.ReportErrorsService.ReportErrorsServiceClient.ReportErrorEvent(Google.Cloud.ErrorReporting.V1Beta1.ReportErrorEventRequest,Grpc.Core.Metadata,System.Nullable{System.DateTime},System.Threading.CancellationToken)">
+             <summary>
+             Report an individual error event.
+            
+             This endpoint accepts &lt;strong>either&lt;/strong> an OAuth token,
+             &lt;strong>or&lt;/strong> an
+             &lt;a href="https://support.google.com/cloud/answer/6158862">API key&lt;/a>
+             for authentication. To use an API key, append it to the URL as the value of
+             a `key` parameter. For example:
+             &lt;pre>POST https://clouderrorreporting.googleapis.com/v1beta1/projects/example-project/events:report?key=123ABC456&lt;/pre>
+             </summary>
+             <param name="request">The request to send to the server.</param>
+             <param name="headers">The initial metadata to send with the call. This parameter is optional.</param>
+             <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
+             <param name="cancellationToken">An optional token for canceling the call.</param>
+             <returns>The response received from the server.</returns>
+        </member>
+        <member name="M:Google.Cloud.ErrorReporting.V1Beta1.ReportErrorsService.ReportErrorsServiceClient.ReportErrorEvent(Google.Cloud.ErrorReporting.V1Beta1.ReportErrorEventRequest,Grpc.Core.CallOptions)">
+             <summary>
+             Report an individual error event.
+            
+             This endpoint accepts &lt;strong>either&lt;/strong> an OAuth token,
+             &lt;strong>or&lt;/strong> an
+             &lt;a href="https://support.google.com/cloud/answer/6158862">API key&lt;/a>
+             for authentication. To use an API key, append it to the URL as the value of
+             a `key` parameter. For example:
+             &lt;pre>POST https://clouderrorreporting.googleapis.com/v1beta1/projects/example-project/events:report?key=123ABC456&lt;/pre>
+             </summary>
+             <param name="request">The request to send to the server.</param>
+             <param name="options">The options for the call.</param>
+             <returns>The response received from the server.</returns>
+        </member>
+        <member name="M:Google.Cloud.ErrorReporting.V1Beta1.ReportErrorsService.ReportErrorsServiceClient.ReportErrorEventAsync(Google.Cloud.ErrorReporting.V1Beta1.ReportErrorEventRequest,Grpc.Core.Metadata,System.Nullable{System.DateTime},System.Threading.CancellationToken)">
+             <summary>
+             Report an individual error event.
+            
+             This endpoint accepts &lt;strong>either&lt;/strong> an OAuth token,
+             &lt;strong>or&lt;/strong> an
+             &lt;a href="https://support.google.com/cloud/answer/6158862">API key&lt;/a>
+             for authentication. To use an API key, append it to the URL as the value of
+             a `key` parameter. For example:
+             &lt;pre>POST https://clouderrorreporting.googleapis.com/v1beta1/projects/example-project/events:report?key=123ABC456&lt;/pre>
+             </summary>
+             <param name="request">The request to send to the server.</param>
+             <param name="headers">The initial metadata to send with the call. This parameter is optional.</param>
+             <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
+             <param name="cancellationToken">An optional token for canceling the call.</param>
+             <returns>The call object.</returns>
+        </member>
+        <member name="M:Google.Cloud.ErrorReporting.V1Beta1.ReportErrorsService.ReportErrorsServiceClient.ReportErrorEventAsync(Google.Cloud.ErrorReporting.V1Beta1.ReportErrorEventRequest,Grpc.Core.CallOptions)">
+             <summary>
+             Report an individual error event.
+            
+             This endpoint accepts &lt;strong>either&lt;/strong> an OAuth token,
+             &lt;strong>or&lt;/strong> an
+             &lt;a href="https://support.google.com/cloud/answer/6158862">API key&lt;/a>
+             for authentication. To use an API key, append it to the URL as the value of
+             a `key` parameter. For example:
+             &lt;pre>POST https://clouderrorreporting.googleapis.com/v1beta1/projects/example-project/events:report?key=123ABC456&lt;/pre>
+             </summary>
+             <param name="request">The request to send to the server.</param>
+             <param name="options">The options for the call.</param>
+             <returns>The call object.</returns>
+        </member>
+        <member name="M:Google.Cloud.ErrorReporting.V1Beta1.ReportErrorsService.ReportErrorsServiceClient.NewInstance(Grpc.Core.ClientBase.ClientBaseConfiguration)">
+            <summary>Creates a new instance of client from given <c>ClientBaseConfiguration</c>.</summary>
+        </member>
+        <member name="M:Google.Cloud.ErrorReporting.V1Beta1.ReportErrorsService.BindService(Google.Cloud.ErrorReporting.V1Beta1.ReportErrorsService.ReportErrorsServiceBase)">
+            <summary>Creates service definition that can be registered with a server</summary>
+            <param name="serviceImpl">An object implementing the server-side handling logic.</param>
+        </member>
+        <member name="T:Google.Cloud.ErrorReporting.V1Beta1.ProjectName">
+            <summary>
+            Resource name for the 'project' resource.
+            </summary>
+        </member>
+        <member name="M:Google.Cloud.ErrorReporting.V1Beta1.ProjectName.Parse(System.String)">
+            <summary>
+            Parses the given project resource name in string form into a new
+            <see cref="T:Google.Cloud.ErrorReporting.V1Beta1.ProjectName"/> instance.
+            </summary>
+            <param name="projectName">The project resource name in string form. Must not be <c>null</c>.</param>
+            <returns>The parsed <see cref="T:Google.Cloud.ErrorReporting.V1Beta1.ProjectName"/> if successful.</returns>
+        </member>
+        <member name="M:Google.Cloud.ErrorReporting.V1Beta1.ProjectName.TryParse(System.String,Google.Cloud.ErrorReporting.V1Beta1.ProjectName@)">
+            <summary>
+            Tries to parse the given project resource name in string form into a new
+            <see cref="T:Google.Cloud.ErrorReporting.V1Beta1.ProjectName"/> instance.
+            </summary>
+            <remarks>
+            This method still throws <see cref="T:System.ArgumentNullException"/> if <paramref name="projectName"/> is null,
+            as this would usually indicate a programming error rather than a data error.
+            </remarks>
+            <param name="projectName">The project resource name in string form. Must not be <c>null</c>.</param>
+            <param name="result">When this method returns, the parsed <see cref="T:Google.Cloud.ErrorReporting.V1Beta1.ProjectName"/>,
+            or <c>null</c> if parsing fails.</param>
+            <returns><c>true</c> if the name was parsed succssfully; <c>false</c> otherwise.</returns>
+        </member>
+        <member name="M:Google.Cloud.ErrorReporting.V1Beta1.ProjectName.#ctor(System.String)">
+            <summary>
+            Constructs a new instance of the <see cref="T:Google.Cloud.ErrorReporting.V1Beta1.ProjectName"/> resource name class
+            from its component parts.
+            </summary>
+            <param name="projectId">The project ID. Must not be <c>null</c>.</param>
+        </member>
+        <member name="P:Google.Cloud.ErrorReporting.V1Beta1.ProjectName.ProjectId">
+            <summary>
+            The project ID. Never <c>null</c>.
+            </summary>
+        </member>
+        <member name="P:Google.Cloud.ErrorReporting.V1Beta1.ProjectName.Kind">
+            <inheritdoc />
+        </member>
+        <member name="M:Google.Cloud.ErrorReporting.V1Beta1.ProjectName.ToString">
+            <inheritdoc />
+        </member>
+        <member name="M:Google.Cloud.ErrorReporting.V1Beta1.ProjectName.GetHashCode">
+            <inheritdoc />
+        </member>
+        <member name="M:Google.Cloud.ErrorReporting.V1Beta1.ProjectName.Equals(System.Object)">
+            <inheritdoc />
+        </member>
+        <member name="M:Google.Cloud.ErrorReporting.V1Beta1.ProjectName.Equals(Google.Cloud.ErrorReporting.V1Beta1.ProjectName)">
+            <inheritdoc />
+        </member>
+        <member name="M:Google.Cloud.ErrorReporting.V1Beta1.ProjectName.op_Equality(Google.Cloud.ErrorReporting.V1Beta1.ProjectName,Google.Cloud.ErrorReporting.V1Beta1.ProjectName)">
+            <inheritdoc />
+        </member>
+        <member name="M:Google.Cloud.ErrorReporting.V1Beta1.ProjectName.op_Inequality(Google.Cloud.ErrorReporting.V1Beta1.ProjectName,Google.Cloud.ErrorReporting.V1Beta1.ProjectName)">
+            <inheritdoc />
+        </member>
+        <member name="T:Google.Cloud.ErrorReporting.V1Beta1.GroupName">
+            <summary>
+            Resource name for the 'group' resource.
+            </summary>
+        </member>
+        <member name="M:Google.Cloud.ErrorReporting.V1Beta1.GroupName.Parse(System.String)">
+            <summary>
+            Parses the given group resource name in string form into a new
+            <see cref="T:Google.Cloud.ErrorReporting.V1Beta1.GroupName"/> instance.
+            </summary>
+            <param name="groupName">The group resource name in string form. Must not be <c>null</c>.</param>
+            <returns>The parsed <see cref="T:Google.Cloud.ErrorReporting.V1Beta1.GroupName"/> if successful.</returns>
+        </member>
+        <member name="M:Google.Cloud.ErrorReporting.V1Beta1.GroupName.TryParse(System.String,Google.Cloud.ErrorReporting.V1Beta1.GroupName@)">
+            <summary>
+            Tries to parse the given group resource name in string form into a new
+            <see cref="T:Google.Cloud.ErrorReporting.V1Beta1.GroupName"/> instance.
+            </summary>
+            <remarks>
+            This method still throws <see cref="T:System.ArgumentNullException"/> if <paramref name="groupName"/> is null,
+            as this would usually indicate a programming error rather than a data error.
+            </remarks>
+            <param name="groupName">The group resource name in string form. Must not be <c>null</c>.</param>
+            <param name="result">When this method returns, the parsed <see cref="T:Google.Cloud.ErrorReporting.V1Beta1.GroupName"/>,
+            or <c>null</c> if parsing fails.</param>
+            <returns><c>true</c> if the name was parsed succssfully; <c>false</c> otherwise.</returns>
+        </member>
+        <member name="M:Google.Cloud.ErrorReporting.V1Beta1.GroupName.#ctor(System.String,System.String)">
+            <summary>
+            Constructs a new instance of the <see cref="T:Google.Cloud.ErrorReporting.V1Beta1.GroupName"/> resource name class
+            from its component parts.
+            </summary>
+            <param name="projectId">The project ID. Must not be <c>null</c>.</param>
+            <param name="groupId">The group ID. Must not be <c>null</c>.</param>
+        </member>
+        <member name="P:Google.Cloud.ErrorReporting.V1Beta1.GroupName.ProjectId">
+            <summary>
+            The project ID. Never <c>null</c>.
+            </summary>
+        </member>
+        <member name="P:Google.Cloud.ErrorReporting.V1Beta1.GroupName.GroupId">
+            <summary>
+            The group ID. Never <c>null</c>.
+            </summary>
+        </member>
+        <member name="P:Google.Cloud.ErrorReporting.V1Beta1.GroupName.Kind">
+            <inheritdoc />
+        </member>
+        <member name="M:Google.Cloud.ErrorReporting.V1Beta1.GroupName.ToString">
+            <inheritdoc />
+        </member>
+        <member name="M:Google.Cloud.ErrorReporting.V1Beta1.GroupName.GetHashCode">
+            <inheritdoc />
+        </member>
+        <member name="M:Google.Cloud.ErrorReporting.V1Beta1.GroupName.Equals(System.Object)">
+            <inheritdoc />
+        </member>
+        <member name="M:Google.Cloud.ErrorReporting.V1Beta1.GroupName.Equals(Google.Cloud.ErrorReporting.V1Beta1.GroupName)">
+            <inheritdoc />
+        </member>
+        <member name="M:Google.Cloud.ErrorReporting.V1Beta1.GroupName.op_Equality(Google.Cloud.ErrorReporting.V1Beta1.GroupName,Google.Cloud.ErrorReporting.V1Beta1.GroupName)">
+            <inheritdoc />
+        </member>
+        <member name="M:Google.Cloud.ErrorReporting.V1Beta1.GroupName.op_Inequality(Google.Cloud.ErrorReporting.V1Beta1.GroupName,Google.Cloud.ErrorReporting.V1Beta1.GroupName)">
+            <inheritdoc />
+        </member>
+    </members>
+</doc>
