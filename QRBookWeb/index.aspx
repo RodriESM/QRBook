@@ -7,12 +7,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 <meta lang="es" />
     <title>QRBook Inicio</title>
-    <style type="text/css">
-        .auto-style1 {
-            width: 1253px;
-            height: 350px;
-        }
-    </style>
+    <link rel="stylesheet" href="./style.css" type="text/css" media="all" />
 </head>
 <body>
     <form id="form1" runat="server">
