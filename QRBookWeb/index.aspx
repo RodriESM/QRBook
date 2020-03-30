@@ -11,11 +11,15 @@
 </head>
 <body>
     <form id="form1" runat="server">
+
         <div>
-             <img alt="Libros"  src="img/HeaderBackground3.jpg" height="400px" width="100%"/>
+            <img class="Logo" alt="Logo" src="img/Logo-removebg-preview.png" />
         </div>
-    </form>
-    
+
+        <div class="Top-Libros">
+             <img class="Top-Libros-img" alt="Libros"  src="img/HeaderBackground3.jpg"/>
+        </div>
        
+    </form>
 </body>
 </html>

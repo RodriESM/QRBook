@@ -1,4 +1,22 @@
-﻿body {
+﻿* {
+    padding: 0px;
+    margin: 0px;
+}
+body {
     
 }
 
+.Top-Libros {
+    line-height: 0;
+    font-size: 0;
+}
+
+.Top-Libros-img {
+    height:400px;
+    width:100%;
+}
+.Logo{
+    position:absolute;
+    margin-left:20px;
+    margin-top:35px;
+}
