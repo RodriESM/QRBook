@@ -16,9 +16,10 @@
 <body>
     <form id="form1" runat="server">
         <div>
+             <img alt="Libros"  src="img/HeaderBackground3.jpg" height="400px" width="100%"/>
         </div>
     </form>
-    <p>
-        <img alt="Libros" class="auto-style1" src="img/HeaderBackground3.jpg" /></p>
+    
+       
 </body>
 </html>
