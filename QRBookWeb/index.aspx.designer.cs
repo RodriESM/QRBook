@@ -7,11 +7,13 @@
 // </generado automáticamente>
 //------------------------------------------------------------------------------
 
-namespace QRBookWeb {
-    
-    
-    public partial class index {
-        
+namespace QRBookWeb
+{
+
+
+    public partial class index
+    {
+
         /// <summary>
         /// Control form1.
         /// </summary>

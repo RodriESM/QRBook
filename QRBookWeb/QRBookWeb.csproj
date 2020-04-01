@@ -304,7 +304,7 @@
     <Compile Include="index.aspx.designer.cs">
       <DependentUpon>index.aspx</DependentUpon>
     </Compile>
-    <Compile Include="login.aspx.cs">
+     <Compile Include="login.aspx.cs">
       <DependentUpon>login.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
@@ -316,7 +316,7 @@
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Providers\ApplicationOAuthProvider.cs" />
-    <Compile Include="registro.aspx.cs">
+     <Compile Include="registro.aspx.cs">
       <DependentUpon>registro.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
@@ -329,17 +329,24 @@
   <ItemGroup>
     <Content Include="Areas\HelpPage\HelpPage.css" />
     <Content Include="assets\css\estilos.css" />
+    <Content Include="filtro.js" />
+    <Content Include="img\iconbook.png" />
+    <Content Include="jquery.js" />
+    <Content Include="main.js" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
+    <Content Include="img\Logo.png" />
     <Content Include="img\HeaderBackground3.jpg" />
+    <Content Include="img\ivan.jpg" />
     <Content Include="img\Logo-removebg-preview.png" />
     <Content Include="img\Logo.jpg" />
-    <Content Include="img\Logo.png" />
     <Content Include="img\LogoQRBook.png" />
     <Content Include="img\QRImg.jpg" />
+    <Content Include="img\quique.jpg" />
+    <Content Include="img\rodri.jpeg" />
     <Content Include="index.aspx" />
     <Content Include="login.aspx" />
     <Content Include="registro.aspx" />

@@ -126,7 +126,6 @@ F:\GitHub\QRBookWeb\QRBookWeb\bin\Microsoft.Owin.Security.Google.xml
 F:\GitHub\QRBookWeb\QRBookWeb\bin\Microsoft.Owin.Security.Twitter.xml
 F:\GitHub\QRBookWeb\QRBookWeb\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
 F:\GitHub\QRBookWeb\QRBookWeb\bin\System.Web.Http.Owin.xml
-F:\GitHub\QRBookWeb\QRBookWeb\obj\Debug\QRBookWeb.csprojAssemblyReference.cache
 F:\GitHub\QRBookWeb\QRBookWeb\obj\Debug\QRBookWeb.csproj.CoreCompileInputs.cache
 F:\GitHub\QRBookWeb\QRBookWeb\obj\Debug\QRBookWeb.csproj.CopyComplete
 F:\GitHub\QRBookWeb\QRBookWeb\obj\Debug\QRBookWeb.dll
