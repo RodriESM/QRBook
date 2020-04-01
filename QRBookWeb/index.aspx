@@ -35,9 +35,9 @@
         <!--CABECERA-->
         <header>
             <nav id="nav">
-                <div class="contenedor-nav">
+                <div class="contenedor-nav ">
                     <div class="logo">
-                        <img alt="logo" src="img/Logo-removebg-preview.png" width="100px"/>
+                        <img alt="logo" src="img/Logo.png" width="100px"/>
                     </div>
                     <div class="enlaces" id="enlaces">
                         <a href="#" id="enlace-inicio" class="btn-header">Inicio</a>
@@ -161,7 +161,7 @@
         <footer>
             <div class="footer contenedor">
             <div class="marca-logo">
-                <img src="img/logo.png" alt="">
+                <img src="img/logo.png" alt="logo-footer" width="100px">
             </div>
             <div class="iconos">
                 <i class="fab fa-youtube"></i>

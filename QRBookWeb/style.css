@@ -1,7 +1,7 @@
 ﻿:root {
-    --color1: rgb(219,144,.5);
-    --color2: rgba(23, 180, 83, 0.877);
-    --color3: rgba(11,194,211, 0.623);
+    --color1: rgb(65,170,168, .45);
+    --color2: rgba(81,218,207, .46);
+    --color3: rgba(210,250,251, .45);
     --fondo: #f2f2f2;
     --titulos: 33px;
     --margenes: 60px;
@@ -95,7 +95,7 @@ img {
 header {
     width: 100%;
     height: 600px;
-    background: linear-gradient(to bottom, rgba(211,135,20, .6), rgba(29,241,171, .6), rgba(7,109,150, .45) ), url(img/fondo.jpg);
+    background: linear-gradient(to bottom, rgba(65,170,168, .45), rgba(81,218,207, .46), rgba(210,250,251, .45) ), url(img/HeaderBackground3.jpg);
     background-attachment: fixed;
     background-position: center;
     background-size: cover;
@@ -109,7 +109,7 @@ nav {
 
 .nav1 {
     background: transparent;
-    height: 80px;
+    height: 90px;
     color: #fff;
 }
 
@@ -121,21 +121,21 @@ nav {
 
 .contenedor-nav {
     display: flex;
-    margin: auto;
-    width: 90%;
+    margin:auto;
+    width: 100%;
     justify-content: space-between;
     align-items: center;
-    max-width: 1000px;
+    max-width: 1920px;
     height: inherit;
     overflow: hidden;
 }
 
 nav .enlaces a {
-    display: inline-block;
+    display: inline-flex;
     padding: 5px 0;
     margin-right: 17px;
     font-size: 17px;
-    font-weight: 300;
+    font-weight: 500;
     text-decoration: none;
     border-bottom: 3px solid transparent;
     color: inherit;
@@ -147,7 +147,7 @@ nav .enlaces a {
     }
 
 .logo, .logo img {
-    height: 80px;
+    width: 100px;
 }
 
 .icono {
@@ -170,7 +170,7 @@ nav .enlaces a {
 
     .textos > h1 {
         font-size: 80px;
-        ;
+        
     }
 
     .textos > h2 {
@@ -184,10 +184,11 @@ nav .enlaces a {
     margin: auto;
     padding: var(--margenes) 0;
     width: 90%;
-    max-width: 1000px;
+    max-width: 1920px;
     text-align: center;
     overflow: hidden;
 }
+
 
     .contenedor h3 {
         font-size: var(--titulos);
@@ -219,10 +220,10 @@ nav .enlaces a {
 }
 
 .content-card {
-    width: 31%;
+    width: 33%;
     box-shadow: 0 0 6px 0 rgba(0,0,0,.5);
     overflow: hidden;
-    height: 400px;
+    height: 600px;
 }
 
 .people {
@@ -242,8 +243,14 @@ nav .enlaces a {
 }
 
 .about {
-    background: url(img/teclado.jpg);
+    background: url(img/about.jpg) -106px, -105px no-repeat;
     height: auto;
+    /*
+     Si la queremos centrada..
+        width:80%;
+    display: block;
+    margin: auto;
+    */
 }
 
 .servicios {
@@ -341,7 +348,7 @@ footer {
 }
 
     .marca-logo img {
-        width: 100%;
+        width: 100px;
     }
 
 .iconos {
