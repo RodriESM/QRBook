@@ -1,9 +1,10 @@
 ﻿:root {
     /*Colores textos*/
-    --color1: rgb(0,0,0);
+    --color1: rgb(255,255,255);
     --color2: rgba(81,218,207, .46);
     --color3: rgba(210,250,251, .45);
     --fondo: #f2f2f2;
+    --nav2:rgb(55,59,60, .50);
     --titulos: 33px;
     --margenes: 60px;
     --espacios: 10px;
@@ -115,7 +116,7 @@ nav {
 }
 
 .nav2 {
-    background: var(--fondo);
+    background: var(--nav2);
     height: 100px;
     color: #000;
 }
@@ -451,6 +452,6 @@ footer p {
 }
 
 #trabajo{
-        background: url(img/about.jpg) -106px, -105px no-repeat;
+        background: url(img/imagen-trabajo.jpg) 10px,10px no-repeat;
         width: 100%;
 }
