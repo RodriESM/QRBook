@@ -1,4 +1,5 @@
 ﻿:root {
+    /*Colores textos*/
     --color1: rgb(65,170,168, .45);
     --color2: rgba(81,218,207, .46);
     --color3: rgba(210,250,251, .45);
@@ -95,7 +96,7 @@ img {
 header {
     width: 100%;
     height: 600px;
-    background: linear-gradient(to bottom, rgba(65,170,168, .45), rgba(81,218,207, .46), rgba(210,250,251, .45) ), url(img/HeaderBackground3.jpg);
+    background:  url(img/HeaderBackground3.jpg);
     background-attachment: fixed;
     background-position: center;
     background-size: cover;
@@ -243,7 +244,6 @@ nav .enlaces a {
 }
 
 .about {
-    background: url(img/about.jpg) -106px, -105px no-repeat;
     height: auto;
     /*
      Si la queremos centrada..
@@ -338,7 +338,8 @@ nav .enlaces a {
 /* Footer */
 
 footer {
-    background: url(img/teclado.jpg);
+    background: linear-gradient(to top, rgb(124,185,207) 0%, rgb(30,107,130) 25%, rgb(102,109,112) 100%);
+
 }
 
 .marca-logo {
@@ -443,4 +444,9 @@ footer p {
     .iconos {
         margin: auto;
     }
+}
+
+#trabajo{
+        background: url(img/about.jpg) -106px, -105px no-repeat;
+        width: 100%;
 }
