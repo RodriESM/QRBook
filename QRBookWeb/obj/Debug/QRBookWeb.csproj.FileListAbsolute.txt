@@ -263,4 +263,3 @@ D:\Proyeto\QRBookWeb\QRBookWeb\obj\Debug\QRBookWeb.csproj.CoreCompileInputs.cach
 D:\Proyeto\QRBookWeb\QRBookWeb\obj\Debug\QRBookWeb.csproj.CopyComplete
 D:\Proyeto\QRBookWeb\QRBookWeb\obj\Debug\QRBookWeb.dll
 D:\Proyeto\QRBookWeb\QRBookWeb\obj\Debug\QRBookWeb.pdb
-F:\GitHub\QRBookWeb\QRBookWeb\obj\Debug\QRBookWeb.csprojAssemblyReference.cache
