@@ -112,13 +112,13 @@ nav {
 .nav1 {
     background: transparent;
     height: 90px;
-    color: #fff;
+    color: #000;
 }
 
 .nav2 {
     background: var(--nav2);
     height: 100px;
-    color: #000;
+    color: #fff;
 }
 
 .contenedor-nav {
@@ -467,4 +467,26 @@ footer p {
 
 #trabajo p{
     color: white;
+}
+
+/*Botones*/
+.btn-registro{
+    background: transparent;
+    border-radius: 10px;
+    position: center;
+    margin: auto;
+    padding: 5px;
+    color: white;
+    border-top: none;
+    border-color: #1498a4;
+}
+
+.btn-inicio{
+    background: url("img/backgroundposible.jpg");
+    border-radius: 5px;
+    position: center;
+    margin: auto;
+    padding: 5px;
+    color: white;
+    border-color: #1498a4;
 }
