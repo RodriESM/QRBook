@@ -1,10 +1,11 @@
 body {
     font-family: Arial, Helvetica, sans-serif;
     margin: 0;
-   background: url(../../img/HeaderBackground3.jpg);
+    background: url(../../img/backgroundposible.jpg);
     background-size: cover;
     background-attachment: fixed;
 }
+
 * {
     box-sizing: border-box;
 }
@@ -88,32 +89,68 @@ p{
 }
 
 
+/* Preloader */
+.hidden {
+    overflow: hidden;
+}
 
+.centrado {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    background: #000;
+    z-index: 100;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
+@keyframes ldio-hetvfw5zgq {
+    0%
 
+{
+    background: #bbcedd
+}
 
+12.5% {
+    background: #bbcedd
+}
 
+12.625% {
+    background: #85a2b6
+}
 
+100% {
+    background: #85a2b6
+}
 
+}
 
+.ldio-hetvfw5zgq div {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    background: #85a2b6;
+    animation: ldio-hetvfw5zgq 1s linear infinite;
+}
 
+.loadingio-spinner-blocks-a73ijrg8fkr {
+    width: 200px;
+    height: 200px;
+    display: inline-block;
+    overflow: hidden;
+    background: none;
+}
 
+.ldio-hetvfw5zgq {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transform: translateZ(0) scale(1);
+    backface-visibility: hidden;
+    transform-origin: 0 0; /* see note above */
+}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    .ldio-hetvfw5zgq div {
+        box-sizing: content-box;
+    }

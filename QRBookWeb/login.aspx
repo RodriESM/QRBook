@@ -11,7 +11,23 @@
 <link rel="stylesheet" href="assets/css/estilos.css">
 </head>
 
-<body>
+<body class="hidden">
+    <!--PRECARGA-->
+    <div class="centrado" id="onload">
+            <div class="loadingio-spinner-blocks-a73ijrg8fkr">
+                <div class="ldio-hetvfw5zgq">
+                    <div style='left: 38px; top: 38px; animation-delay: 0s'></div>
+                    <div style='left: 80px; top: 38px; animation-delay: 0.125s'></div>
+                    <div style='left: 122px; top: 38px; animation-delay: 0.25s'></div>
+                    <div style='left: 38px; top: 80px; animation-delay: 0.875s'></div>
+                    <div style='left: 122px; top: 80px; animation-delay: 0.375s'></div>
+                    <div style='left: 38px; top: 122px; animation-delay: 0.75s'></div>
+                    <div style='left: 80px; top: 122px; animation-delay: 0.625s'></div>
+                    <div style='left: 122px; top: 122px; animation-delay: 0.5s'></div>
+                </div>
+            </div>
+        </div>
+
     <div>
         <img class="Logo" alt="Logo" src="img/Logo.png" />
     </div>
@@ -38,7 +54,9 @@
          <p>Al registrarte, aceptas nuestras Condiciones de uso y Política de privacidad.</p>
          <p>¿No tienes una cuenta? <a class="link" href="registro.aspx">Registrate </a></p>
      </div>
-
+        <script src="main.js"></script>
+        <script src="jquery.js"></script>
+        <script src="filtro.js"></script>
     </form>
 </body>
 
