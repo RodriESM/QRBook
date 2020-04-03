@@ -151,6 +151,62 @@ p{
     transform-origin: 0 0; /* see note above */
 }
 
-    .ldio-hetvfw5zgq div {
-        box-sizing: content-box;
+.ldio-hetvfw5zgq div {
+    box-sizing: content-box;
+}
+
+/*Nav*/
+nav {
+    width: 100%;
+    position: fixed;
+    box-shadow: 0 0 10px 0 rgba(0,0,0,.5)
+}
+
+.nav1 {
+    background: transparent;
+    height: 90px;
+    color: #fff;
+}
+
+.nav2 {
+    background: var(--nav2);
+    height: 100px;
+    color: #000;
+}
+
+.contenedor-nav {
+    display: flex;
+    margin:auto;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1920px;
+    height: inherit;
+    overflow: hidden;
+}
+
+nav .enlaces a {
+    display: inline-flex;
+    padding: 5px 0;
+    margin-right: 17px;
+    font-size: 17px;
+    font-weight: 500;
+    text-decoration: none;
+    border-bottom: 3px solid transparent;
+    color: inherit;
+}
+
+    nav .enlaces a:hover {
+        border-bottom: 3px solid #1498a4;
+        transition: 0.6s;
     }
+
+.logo, .logo img {
+    width: 100px;
+}
+
+.icono {
+    display: none;
+    font-size: 24px;
+    padding: 23.5px 20px;
+}

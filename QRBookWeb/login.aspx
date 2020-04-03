@@ -28,17 +28,34 @@
             </div>
         </div>
 
-    <div>
-        <img class="Logo" alt="Logo" src="img/Logo.png" />
-    </div>
+
+<!--CABECERA-->
+        <header>
+            <a name="Inicio"/>
+            <nav id="nav">
+                <div class="contenedor-nav ">
+                    <div class="logo">
+                        <img alt="logo" src="img/Logo.png" width="100px"/>
+                    </div>
+                    <div class="enlaces" id="enlaces">
+                        <a href="#Inicio" id="enlace-inicio" class="btn-header">Inicio</a>
+                        <a href="#Informacion" id="enlace-info" class="btn-header">Información</a>
+                        <a href="#Desarrollo" id="enlace-app" class="btn-header">Desarrollo</a>
+                        <a href="#Equipo" id="enlace-equipo" class="btn-header">Conocenos</a>
+                       <!--<a href="#" id="enlace-contacto" class="btn-header">Inicio</a>--> 
+                    </div>
+                    <div class="icono" id="open">
+                        <span>&#9776;</span>
+                    </div>
+                </div>
+            </nav>
+        </header>
+
 
     <form id="form1" runat="server" class="formulario">
-    
     <h1>Login</h1>
      <div class="contenedor">
      
-     
-         
          <div class="input-contenedor">
          <i class="fas fa-envelope icon"></i>
          <input type="text" placeholder="Correo Electronico">
