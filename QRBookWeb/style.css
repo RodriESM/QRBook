@@ -194,14 +194,14 @@ nav .enlaces a {
 
     .contenedor h3 {
         font-size: var(--titulos);
-        color: var(--color1);
+        color: rgb(0,0,0);
         margin-bottom: var(--espacios);
     }
 
     .contenedor p {
         font-size: var(--subtitulos);
         font-weight: 300;
-        color: var(--color1);
+        color: rgb(0,0,0);
     }
 
 .after::after {
@@ -211,7 +211,7 @@ nav .enlaces a {
     margin-top: var(--espacios);
     width: 100px;
     height: 2px;
-    background: var(--color1);
+    background: var(--nav2);
     margin-bottom: var(--espacios-contenido);
 }
 
@@ -270,6 +270,8 @@ nav .enlaces a {
 
     .caja-servicios > h4 {
         margin-bottom: var(--espacios);
+        color:rgb(0,0,0);
+
     }
 
     .caja-servicios > p {
@@ -334,6 +336,7 @@ nav .enlaces a {
     .textos-work h4 {
         line-height: 30px;
         font-weight: 300;
+        color: white;
     }
 
 /* Footer */
@@ -453,5 +456,15 @@ footer p {
 
 #trabajo{
         background: url(img/imagen-trabajo.jpg) 10px,10px no-repeat;
-        width: 100%;
+        width: auto;
+        background-position: center;
+        background-size: cover;
+}
+
+#trabajo h3{
+    color:white;
+}
+
+#trabajo p{
+    color: white;
 }

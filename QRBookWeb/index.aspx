@@ -66,7 +66,7 @@
         	<a name="Informacion"/>
             <div class="contenedor">
                 <h3>Nuestra aplicación</h3>
-                <p class="after">Una forma nueva de ver los libros</p>
+                <p class="after">Una nueva forma de ver los libros</p>
                 <div class="servicios">
                     <div class="caja-servicios">
                         <img src="img/iconbook.png" alt="">
@@ -74,12 +74,12 @@
                         <p>Lorem ipsum dolor sit amet consectetur.</p>
                     </div>
                     <div class="caja-servicios">
-                        <img src="img/responsive.png" alt="">
+                        <img src="img/iconbook.png" alt="">
                         <h4>Creativos y asombrosos</h4>
                         <p>Lorem ipsum dolor sit amet consectetur.</p>
                     </div>
                     <div class="caja-servicios">
-                        <img src="img/efectos.png" alt="">
+                        <img src="img/iconbook.png" alt="">
                         <h4>Creativos y asombrosos</h4>
                         <p>Lorem ipsum dolor sit amet consectetur.</p>
                     </div>
@@ -91,7 +91,7 @@
         <section class="work contenedor" id="trabajo">
         	<a name="Desarrollo"/>
             <h3>Nuestro trabajo</h3>
-            <p class="after">Hacemos de algo simple algo extraordinario</p>
+            <p class="after" >Hacemos de algo simple algo extraordinario</p>
             <div class="botones-work">
                 <ul>
                     <li class="filter" data-nombre='marketing'>Marketing</li>
@@ -129,8 +129,7 @@
          <!--SECCION DE PERFILES-->
            <section class="team contenedor" id="equipo">
            	<a name="Equipo"/>
-            <h3>Nuestro equipo</h3>
-            <p class="after">Nuestro equipo</p>
+            <h3 class="after">Nuestro equipo</h3>
             <div class="card">
                 <div class="content-card">
                     <div class="people">
@@ -175,7 +174,7 @@
                 <i class="fab fa-facebook-square"></i>
                 <i class="fab fa-github"></i>
             </div>
-            <p>La pasión e innovación es lo que nos distingue del resto</p>
+            <p style="color: white">La pasión e innovación es lo que nos distingue del resto</p>
         </div>
         </footer>
         <script src="main.js"></script>
