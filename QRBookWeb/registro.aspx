@@ -42,8 +42,8 @@
                         <a href="index.aspx#Informacion" id="enlace-info" class="btn-header">Información</a>
                         <a href="index.aspx#Desarrollo" id="enlace-app" class="btn-header">Desarrollo</a>
                         <a href="index.aspx#Equipo" id="enlace-equipo" class="btn-header">Conocenos</a>
-                        <input class="btn-registro" type="button" onclick="location.href='registro.html';" value="Registro" />
-                        <input class="btn-inicio" type="button" onclick="location.href='login.html';" value="Inicio de sesion" />
+                        <input class="btn-registro" type="button" onclick="location.href='registro.aspx';" value="Registro" />
+                        <input class="btn-inicio" type="button" onclick="location.href='login.aspx';" value="Inicio de sesion" />
                        <!--<a href="#" id="enlace-contacto" class="btn-header">Inicio</a>--> 
                     </div>
                     <div class="icono" id="open">
