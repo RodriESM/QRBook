@@ -38,10 +38,10 @@
                         <img alt="logo" src="img/Logo.png" width="100px"/>
                     </div>
                     <div class="enlaces" id="enlaces">
-                        <a href="#Inicio" id="enlace-inicio" class="btn-header">Inicio</a>
-                        <a href="#Informacion" id="enlace-info" class="btn-header">Información</a>
-                        <a href="#Desarrollo" id="enlace-app" class="btn-header">Desarrollo</a>
-                        <a href="#Equipo" id="enlace-equipo" class="btn-header">Conocenos</a>
+                        <a href="index.html#Inicio" id="enlace-inicio" class="btn-header">Inicio</a>
+                        <a href="index.html#Informacion" id="enlace-info" class="btn-header">Información</a>
+                        <a href="index.html#Desarrollo" id="enlace-app" class="btn-header">Desarrollo</a>
+                        <a href="index.html#Equipo" id="enlace-equipo" class="btn-header">Conocenos</a>
                        <!--<a href="#" id="enlace-contacto" class="btn-header">Inicio</a>--> 
                     </div>
                     <div class="icono" id="open">
