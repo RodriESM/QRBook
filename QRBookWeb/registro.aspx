@@ -51,7 +51,7 @@
             </nav>
         </header>
 
-
+<div class="separacion">
     <form id="form1" runat="server" class="formulario">
     
     <h1>Registrate</h1>
@@ -83,6 +83,7 @@
         <script src="jquery.js"></script>
         <script src="filtro.js"></script>
     </form>
+</div>
 </body>
 
 </html>

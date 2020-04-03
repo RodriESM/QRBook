@@ -15,7 +15,7 @@ body {
 }
 .formulario{
     background: #fff;
-    margin-top: 150px;
+    position: relative;
     padding: 3px;
 }
 h1{
@@ -157,8 +157,9 @@ p{
 
 /*Nav*/
 nav {
+    /*Si lo ponemos flex se junta con el LOGIN*/
+    position: relative;
     width: 100%;
-    position: fixed;
     box-shadow: 0 0 10px 0 rgba(0,0,0,.5)
 }
 
@@ -209,4 +210,8 @@ nav .enlaces a {
     display: none;
     font-size: 24px;
     padding: 23.5px 20px;
+}
+
+.separacion{
+    margin-top: 10%;
 }
