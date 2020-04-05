@@ -165,13 +165,13 @@ nav {
 
 .nav1 {
     background: transparent;
-    height: 90px;
+    height: 100px;
     color: #fff;
 }
 
 .nav2 {
     background: var(--nav2);
-    height: 100px;
+    height: 110px;
     color: #000;
 }
 
@@ -204,6 +204,8 @@ nav .enlaces a {
 
 .logo, .logo img {
     width: 100px;
+    margin-left: 5%;
+    margin-top: 5%;
 }
 
 .icono {
