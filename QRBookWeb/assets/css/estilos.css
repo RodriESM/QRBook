@@ -239,3 +239,81 @@ nav .enlaces a {
     color: white;
     border-color: #1498a4;
 }
+
+/*Icono de menú cuando se hace pequeño*/
+@media screen and (max-width: 700px) {
+    .nav2 {
+        color: #fff;
+    }
+
+    .icono {
+        display: block;
+        cursor: pointer;
+    }
+
+    .enlaces {
+        position: fixed;
+        top: 80px;
+        background: #2c3e50;
+        left: 0;
+        height: 100%;
+        transition: 1s;
+        width: 0;
+        overflow: hidden;
+    }
+
+        .enlaces a {
+            display: block;
+            width: 100%;
+            height: 50px;
+            padding: 20px;
+            margin-left: 5%;
+            text-align: center;
+            background: #34495e;
+            color: #fff;
+        }
+
+    .textos > h1 {
+        font-size: 70px;
+    }
+
+    .textos > h2 {
+        font-size: 35px;
+    }
+
+    .content-card {
+        width: 48%;
+        margin-bottom: var(--margenes);
+    }
+
+    :root {
+        --margenes: 30px;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    :root {
+        --espacios-contenido: 25px;
+    }
+
+    .content-card {
+        width: 90%;
+    }
+
+    .caja-servicios {
+        width: 90%;
+        margin-bottom: var(--margenes);
+    }
+
+    .cont-work {
+        width: 85%;
+    }
+
+    .marca-logo {
+        width: 80%;
+    }
+
+    .iconos {
+        margin: auto;
+    }
+}
