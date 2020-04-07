@@ -329,10 +329,17 @@
   <ItemGroup>
     <Content Include="Areas\HelpPage\HelpPage.css" />
     <Content Include="assets\css\estilos.css" />
+    <Content Include="assets\css\style.css" />
     <Content Include="filtro.js" />
-    <Content Include="img\about.jpg" />
+    <Content Include="img\backgroundposible.jpg" />
     <Content Include="img\iconbook.png" />
-    <Content Include="img\posibleabout.png" />
+    <Content Include="img\imagen-trabajo.jpg" />
+    <Content Include="img\ivan.jpg" />
+    <Content Include="img\Logo-removebg-preview.png" />
+    <Content Include="img\Logo.png" />
+    <Content Include="img\LogoQRBook.png" />
+    <Content Include="img\quique.jpg" />
+    <Content Include="img\rodri.jpeg" />
     <Content Include="jquery.js" />
     <Content Include="main.js" />
     <Content Include="Content\bootstrap.css" />
@@ -340,15 +347,6 @@
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
-    <Content Include="img\Logo.png" />
-    <Content Include="img\HeaderBackground3.jpg" />
-    <Content Include="img\ivan.jpg" />
-    <Content Include="img\Logo-removebg-preview.png" />
-    <Content Include="img\Logo.jpg" />
-    <Content Include="img\LogoQRBook.png" />
-    <Content Include="img\QRImg.jpg" />
-    <Content Include="img\quique.jpg" />
-    <Content Include="img\rodri.jpeg" />
     <Content Include="index.aspx" />
     <Content Include="login.aspx" />
     <Content Include="registro.aspx" />
@@ -384,7 +382,6 @@
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
-    <Content Include="style.css" />
     <Content Include="Web.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -435,8 +432,7 @@
           <IISUrl>http://localhost:59422/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
-          <CustomServerUrl>
-          </CustomServerUrl>
+          <CustomServerUrl>http://35.222.48.143/</CustomServerUrl>
           <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
         </WebProjectProperties>
       </FlavorProperties>
