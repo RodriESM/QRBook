@@ -332,6 +332,9 @@
     <Content Include="assets\css\style.css" />
     <Content Include="filtro.js" />
     <Content Include="img\backgroundposible.jpg" />
+    <Content Include="img\clarosencillo.png" />
+    <Content Include="img\creativoasombroso.png" />
+    <Content Include="img\divertidoeducativo.png" />
     <Content Include="img\iconbook.png" />
     <Content Include="img\imagen-trabajo.jpg" />
     <Content Include="img\ivan.jpg" />
