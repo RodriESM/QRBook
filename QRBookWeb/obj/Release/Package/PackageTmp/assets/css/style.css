@@ -4,7 +4,8 @@
     --color2: rgba(81,218,207, .46);
     --color3: rgba(210,250,251, .45);
     --fondo: #f2f2f2;
-    --nav2:rgb(55,59,60, .50);
+    --nav2: rgb(55,59,60, .50);
+    --nav1: rgb(255,255,255, .30);
     --titulos: 33px;
     --margenes: 60px;
     --espacios: 10px;
@@ -46,24 +47,21 @@ img {
 }
 
 @keyframes ldio-hetvfw5zgq {
-    0%
+    0% {
+        background: #bbcedd
+    }
 
-{
-    background: #bbcedd
-}
+    12.5% {
+        background: #bbcedd
+    }
 
-12.5% {
-    background: #bbcedd
-}
+    12.625% {
+        background: #85a2b6
+    }
 
-12.625% {
-    background: #85a2b6
-}
-
-100% {
-    background: #85a2b6
-}
-
+    100% {
+        background: #85a2b6
+    }
 }
 
 .ldio-hetvfw5zgq div {
@@ -112,7 +110,7 @@ nav {
 }
 
 .nav1 {
-    background: transparent;
+    background: var(--nav1);
     height: 100px;
     color: #000;
 }
@@ -125,7 +123,7 @@ nav {
 
 .contenedor-nav {
     display: flex;
-    margin:auto;
+    margin: auto;
     width: 100%;
     justify-content: space-between;
     align-items: center;
@@ -177,7 +175,6 @@ nav .enlaces a {
 
     .textos > h1 {
         font-size: 80px;
-        
     }
 
     .textos > h2 {
@@ -275,8 +272,7 @@ nav .enlaces a {
 
     .caja-servicios > h4 {
         margin-bottom: var(--espacios);
-        color:rgb(0,0,0);
-
+        color: rgb(0,0,0);
     }
 
     .caja-servicios > p {
@@ -347,12 +343,10 @@ nav .enlaces a {
 /* Footer */
 
 footer {
-
-    background:linear-gradient(rgb(255,255,255,50%),rgb(0,0,0,60%)), var(--imagen-fondo) no-repeat fixed;
+    background: linear-gradient(rgb(255,255,255,50%),rgb(0,0,0,60%)), var(--imagen-fondo) no-repeat fixed;
     background-position: center;
     background-size: cover;
     background-attachment: fixed;
-
 }
 
 .marca-logo {
@@ -460,23 +454,23 @@ footer p {
     }
 }
 
-#trabajo{
-        background: var(--trabajo-img) 10px,10px no-repeat;
-        width: auto;
-        background-position: center;
-        background-size: cover;
+#trabajo {
+    background: var(--trabajo-img) 10px,10px no-repeat;
+    width: auto;
+    background-position: center;
+    background-size: cover;
 }
 
-#trabajo h3{
-    color:white;
-}
+    #trabajo h3 {
+        color: white;
+    }
 
-#trabajo p{
-    color: white;
-}
+    #trabajo p {
+        color: white;
+    }
 
 /*Botones*/
-.btn-registro{
+.btn-registro {
     background: transparent;
     border-radius: 10px;
     position: center;
@@ -487,7 +481,12 @@ footer p {
     border-color: #1498a4;
 }
 
-.btn-inicio{
+.enlaces input:hover {
+    box-shadow: 0px 0px 5px 1px black;
+    box-shadow: all;
+}
+
+.btn-inicio {
     background: url("img/backgroundposible.jpg");
     border-radius: 5px;
     position: center;
