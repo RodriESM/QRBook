@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <sitemanifest>
-  <IisApp path="F:\GitHub\QRBookWeb\QRBookWeb\obj\Release\Package\PackageTmp" />
-  <setAcl path="F:\GitHub\QRBookWeb\QRBookWeb\obj\Release\Package\PackageTmp" setAclResourceType="Directory" />
-  <setAcl path="F:\GitHub\QRBookWeb\QRBookWeb\obj\Release\Package\PackageTmp" setAclUser="anonymousAuthenticationUser" setAclResourceType="Directory" />
+  <IisApp path="D:\GitHub\ProyectoDAM2\QRBookWeb\QRBookWeb\obj\Release\Package\PackageTmp" />
+  <setAcl path="D:\GitHub\ProyectoDAM2\QRBookWeb\QRBookWeb\obj\Release\Package\PackageTmp" setAclResourceType="Directory" />
+  <setAcl path="D:\GitHub\ProyectoDAM2\QRBookWeb\QRBookWeb\obj\Release\Package\PackageTmp" setAclUser="anonymousAuthenticationUser" setAclResourceType="Directory" />
 </sitemanifest>

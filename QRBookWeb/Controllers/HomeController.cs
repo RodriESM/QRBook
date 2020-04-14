@@ -11,11 +11,15 @@ namespace QRBookWeb.Controllers
     {
         private readonly ILog _log = LogManager.GetLogger(typeof(HomeController));
 
-        public ActionResult Index()
+        /*public ActionResult Index()
         {
             _log.Debug("Home page hit!");
             ViewBag.Title = "Home Page";
             return View();
+        }*/
+        public RedirectResult Index()
+        {
+            return Redirect("/index.aspx");
         }
     }
 }

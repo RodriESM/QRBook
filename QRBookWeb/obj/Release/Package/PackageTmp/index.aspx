@@ -71,19 +71,19 @@
                 <p class="after">Una nueva forma de ver los libros</p>
                 <div class="servicios">
                     <div class="caja-servicios">
-                        <img src="img/iconbook.png" alt="">
+                        <img src="img/creativoasombroso.png" alt="">
                         <h4>Creativos y asombrosos</h4>
-                        <p>Lorem ipsum dolor sit amet consectetur.</p>
+                        <p>Puedes ver con todo detalle el mundo que siempre habías imaginado.</p>
                     </div>
                     <div class="caja-servicios">
-                        <img src="img/iconbook.png" alt="">
-                        <h4>Creativos y asombrosos</h4>
-                        <p>Lorem ipsum dolor sit amet consectetur.</p>
+                        <img src="img/divertidoeducativo.png" alt="">
+                        <h4>Divertidos y educativos</h4>
+                        <p>Divertirse y aprender de una forma más entretenida, con QRBook es posible.</p>
                     </div>
                     <div class="caja-servicios">
-                        <img src="img/iconbook.png" alt="">
-                        <h4>Creativos y asombrosos</h4>
-                        <p>Lorem ipsum dolor sit amet consectetur.</p>
+                        <img src="img/clarosencillo.png" alt="">
+                        <h4>Claro y sencillo</h4>
+                        <p>Con solamente la cámara puedes disfrutar de todo.</p>
                     </div>
                 </div>
             </div>
@@ -96,7 +96,7 @@
             <p class="after" >Hacemos de algo simple algo extraordinario</p>
             <div class="botones-work">
                 <ul>
-                    <li class="filter" data-nombre='marketing'>Marketing</li>
+                    <li class="filter" data-nombre='marketing'>Boton prueba</li>
                 </ul>
             </div>
             <div class="galeria-work">
@@ -106,7 +106,7 @@
                         <img src="img/marketing1.jpeg" alt="">
                     </div>
                     <div class="textos-work">
-                        <h4>Marketing</h4>
+                        <h4>Prueba</h4>
                     </div>
                 </div>
                 <div class="cont-work marketing">
@@ -114,7 +114,7 @@
                         <img src="img/marketing2.jpeg" alt="">
                     </div>
                     <div class="textos-work">
-                        <h4>Marketing</h4>
+                        <h4>Prueba</h4>
                     </div>
                 </div>
                 <div class="cont-work marketing">
@@ -122,7 +122,7 @@
                         <img src="img/marketing3.jpeg" alt="">
                     </div>
                     <div class="textos-work">
-                        <h4>Marketing</h4>
+                        <h4>Prueba</h4>
                     </div>
                 </div>
             </div>
@@ -172,8 +172,7 @@
                 <img src="img/logo.png" alt="logo-footer" width="100px">
             </div>
             <div class="iconos">
-                <i class="fab fa-youtube"></i>
-                <i class="fab fa-facebook-square"></i>
+                <i class="fab fa-google-play"></i>
                 <i class="fab fa-github"></i>
             </div>
             <p style="color: white">La pasión e innovación es lo que nos distingue del resto</p>
