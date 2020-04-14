@@ -13,7 +13,7 @@
     <GoogleComputeEnginePublishInstanceName>aspnet-1</GoogleComputeEnginePublishInstanceName>
     <GoogleComputeEnginePublishInstanceZone>us-central1-f</GoogleComputeEnginePublishInstanceZone>
     <GoogleComputeEnginePublishInstanceUserName>admin</GoogleComputeEnginePublishInstanceUserName>
-    <GoogleComputeEnginePublishOpenWebsite>False</GoogleComputeEnginePublishOpenWebsite>
+    <GoogleComputeEnginePublishOpenWebsite>True</GoogleComputeEnginePublishOpenWebsite>
     <GoogleComputeEnginePublishLaunchRemoteDebugger>False</GoogleComputeEnginePublishLaunchRemoteDebugger>
     <GoogleComputeEnginePublishSiteName>Default Web Site</GoogleComputeEnginePublishSiteName>
   </PropertyGroup>
