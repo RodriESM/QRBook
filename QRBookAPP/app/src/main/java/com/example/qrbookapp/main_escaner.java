@@ -1,57 +1,132 @@
 package com.example.qrbookapp;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
+import android.Manifest;
 import android.content.Intent;
 import android.content.pm.PackageManager;
-import android.os.Build;
+import android.net.Uri;
 import android.os.Bundle;
-import android.view.View;
-import android.app.Activity;
+import android.util.SparseArray;
+import android.view.SurfaceHolder;
+import android.view.SurfaceView;
+import android.widget.TextView;
 import android.widget.Toast;
-import com.blikoon.qrcodescanner.QrCodeActivity;
+import com.google.android.gms.vision.CameraSource;
+import com.google.android.gms.vision.Detector;
+import com.google.android.gms.vision.barcode.Barcode;
+import com.google.android.gms.vision.barcode.BarcodeDetector;
 
+import java.io.IOException;
 
 
 public class main_escaner extends AppCompatActivity {
 
-    private static final int REQUEST_CODE_QR_SCAN = 123;
-
+    private final int requestCodeCameraPermission=10001;
+    private CameraSource cameraSource;
+    private BarcodeDetector detector;
+    private SurfaceView cameraSurfaceView;
+    private TextView textScanResult;
+    private String lastUrl="";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_escaner);
+        cameraSurfaceView=findViewById(R.id.cameraSurfaceView);
+        textScanResult=findViewById(R.id.textScanResult);
 
-        if (ContextCompat.checkSelfPermission(getApplicationContext(), android.Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
-            if (Build.VERSION.SDK_INT > 22) {
-                if (shouldShowRequestPermissionRationale(android.Manifest.permission.CAMERA))
-                    Toast.makeText(getApplicationContext(), "Esta aplicación necesita acceder a la cámara para funcionar", Toast.LENGTH_SHORT).show();
-                requestPermissions(new String[]{android.Manifest.permission.CAMERA}, REQUEST_CODE_QR_SCAN);
+        if(ContextCompat.checkSelfPermission(
+                this,
+                Manifest.permission.CAMERA)!=PackageManager.PERMISSION_GRANTED
+        ){
+            askForCameraPermission();
+        }else{
+            setupConstrols();
+        }
+
+    }
+
+    private void setupConstrols(){
+        detector= new BarcodeDetector.Builder(this).build();
+        cameraSource=new CameraSource.Builder(this,detector).setAutoFocusEnabled(true).build();
+        cameraSurfaceView.getHolder().addCallback(surfaceCallBack);
+        detector.setProcessor(processor);
+    }
+
+    private void askForCameraPermission(){
+        String[] permisos={Manifest.permission.CAMERA};
+        ActivityCompat.requestPermissions(
+                this,
+        permisos,
+        requestCodeCameraPermission
+        );
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        if (requestCode==requestCodeCameraPermission && grantResults!=null){
+            if (grantResults[0]==PackageManager.PERMISSION_GRANTED){
+                setupConstrols();
+            }else {
+                Toast.makeText(getApplicationContext(),"Permisos denegados",Toast.LENGTH_SHORT).show();
             }
         }
     }
 
-    public void onClick(View v) {
-        Intent i = new Intent(main_escaner.this, QrCodeActivity.class);
-        startActivityForResult(i, REQUEST_CODE_QR_SCAN);
-    }
+    private SurfaceHolder.Callback surfaceCallBack=new SurfaceHolder.Callback() {
 
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-
-        if (resultCode != Activity.RESULT_OK) {
-            Toast.makeText(getApplicationContext(), "No se pudo obtener una respuesta", Toast.LENGTH_SHORT).show();
-            String resultado = data.getStringExtra("com.blikoon.qrcodescanner.error_decoding_image");
-            if (resultado != null) {
-                Toast.makeText(getApplicationContext(), "No se pudo escanear el código QR", Toast.LENGTH_SHORT).show();
-            }
-            return;
-        }
-        if (requestCode == REQUEST_CODE_QR_SCAN) {
-            if (data != null) {
-                String lectura = data.getStringExtra("com.blikoon.qrcodescanner.got_qr_scan_relult");
-                Toast.makeText(getApplicationContext(), "Leído: " + lectura, Toast.LENGTH_SHORT).show();
-
+        @Override
+        public void surfaceCreated(SurfaceHolder holder) {
+            try{
+                cameraSource.start(holder);
+            }catch (Exception e){
+                Toast.makeText(getApplicationContext(),"Algo ha ido mal",Toast.LENGTH_SHORT).show();
             }
         }
+
+        @Override
+        public void surfaceChanged(SurfaceHolder holder, int format, int width, int height) {
+
+
+        }
+
+        @Override
+        public void surfaceDestroyed(SurfaceHolder holder) {
+        cameraSource.stop();
+        }
+    };
+
+
+    private Detector.Processor processor= new Detector.Processor<Barcode>() {
+        @Override
+        public void release() {
+
+        }
+
+        @Override
+        public void receiveDetections(Detector.Detections<Barcode> detections) {
+
+            if(detections !=null && detections.getDetectedItems().size()!=0){
+               SparseArray<Barcode> qrCodes=detections.getDetectedItems();
+               Barcode code=qrCodes.valueAt(0);
+               if(code.displayValue.contains("http")||code.displayValue.contains("https") && !code.displayValue.contentEquals(lastUrl)){
+                   lastUrl=code.displayValue;
+                   Uri uri=Uri.parse(code.displayValue);
+                   Intent i=new Intent(Intent.ACTION_VIEW,uri);
+                   startActivity(i);
+               }else{
+                   textScanResult.setText(code.displayValue);
+               }
+        }else{
+                lastUrl="";
+                textScanResult.setText("");
+            }
+
     }
+
+    };
 }
