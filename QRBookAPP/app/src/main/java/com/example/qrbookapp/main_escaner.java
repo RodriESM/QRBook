@@ -30,6 +30,7 @@ public class main_escaner extends AppCompatActivity {
     private SurfaceView cameraSurfaceView;
     private TextView textScanResult;
     private String lastUrl="";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -113,7 +114,7 @@ public class main_escaner extends AppCompatActivity {
             if(detections !=null && detections.getDetectedItems().size()!=0){
                SparseArray<Barcode> qrCodes=detections.getDetectedItems();
                Barcode code=qrCodes.valueAt(0);
-               if(code.displayValue.contains("http")||code.displayValue.contains("https") && !code.displayValue.contentEquals(lastUrl)){
+               if((code.displayValue.contains("http")||code.displayValue.contains("https")) && !code.displayValue.contentEquals(lastUrl)){
                    lastUrl=code.displayValue;
                    Uri uri=Uri.parse(code.displayValue);
                    Intent i=new Intent(Intent.ACTION_VIEW,uri);
