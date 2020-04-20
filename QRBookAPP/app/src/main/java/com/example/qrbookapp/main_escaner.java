@@ -7,7 +7,6 @@ import androidx.core.content.ContextCompat;
 import android.Manifest;
 import android.content.Intent;
 import android.content.pm.PackageManager;
-import android.net.Uri;
 import android.os.Bundle;
 import android.util.SparseArray;
 import android.view.SurfaceHolder;
@@ -19,16 +18,22 @@ import com.google.android.gms.vision.Detector;
 import com.google.android.gms.vision.barcode.Barcode;
 import com.google.android.gms.vision.barcode.BarcodeDetector;
 
-import java.io.IOException;
+
 
 
 public class main_escaner extends AppCompatActivity {
 
+    //Forzamos a que nos solicite el permiso de la camara
     private final int requestCodeCameraPermission=10001;
+    //Creamos el objeto de creación de la cámara
     private CameraSource cameraSource;
+    //Creamos el objeto que detecta el código de barras
     private BarcodeDetector detector;
+    //Creamos la zona de detección del código
     private SurfaceView cameraSurfaceView;
+    //TextView donde mostramos la URL o Texto
     private TextView textScanResult;
+    //Url para comprobar que no es la misma url que la anterior y no abrir demasiadas veces la actividad.
     private String lastUrl="";
 
     @Override
@@ -38,6 +43,7 @@ public class main_escaner extends AppCompatActivity {
         cameraSurfaceView=findViewById(R.id.cameraSurfaceView);
         textScanResult=findViewById(R.id.textScanResult);
 
+        //Solicitud de permisos
         if(ContextCompat.checkSelfPermission(
                 this,
                 Manifest.permission.CAMERA)!=PackageManager.PERMISSION_GRANTED
@@ -49,6 +55,7 @@ public class main_escaner extends AppCompatActivity {
 
     }
 
+    //Iniciamos todos los controles de la cámara
     private void setupConstrols(){
         detector= new BarcodeDetector.Builder(this).build();
         cameraSource=new CameraSource.Builder(this,detector).setAutoFocusEnabled(true).build();
@@ -56,6 +63,7 @@ public class main_escaner extends AppCompatActivity {
         detector.setProcessor(processor);
     }
 
+    //Solicitamos los permisos de la cámara
     private void askForCameraPermission(){
         String[] permisos={Manifest.permission.CAMERA};
         ActivityCompat.requestPermissions(
@@ -69,15 +77,18 @@ public class main_escaner extends AppCompatActivity {
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
 
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+
+        //En el caso de que ya esten concedidos los permisos, iniciamos los controles directamente
         if (requestCode==requestCodeCameraPermission && grantResults!=null){
             if (grantResults[0]==PackageManager.PERMISSION_GRANTED){
                 setupConstrols();
-            }else {
+            }else { //En el caso de que los hayamos denegado, no nos dejará acceder mostrando un mensaje.
                 Toast.makeText(getApplicationContext(),"Permisos denegados",Toast.LENGTH_SHORT).show();
             }
         }
     }
 
+    //Muestra al usuario información sobre cambios en la deteccion de cambios de la cámara.
     private SurfaceHolder.Callback surfaceCallBack=new SurfaceHolder.Callback() {
 
         @Override
@@ -102,6 +113,8 @@ public class main_escaner extends AppCompatActivity {
     };
 
 
+    //Es un interfaz para detectar el postproceso a ejecutar tras detectar un cambio en el código de barras.
+    //An instance of a processor is associated with the detector via the setProcessor(Detector.Processor) method.
     private Detector.Processor processor= new Detector.Processor<Barcode>() {
         @Override
         public void release() {
@@ -109,15 +122,20 @@ public class main_escaner extends AppCompatActivity {
         }
 
         @Override
+        //Método al que s ele pasa una clase Detector con una colección de items detectados.
         public void receiveDetections(Detector.Detections<Barcode> detections) {
+
 
             if(detections !=null && detections.getDetectedItems().size()!=0){
                SparseArray<Barcode> qrCodes=detections.getDetectedItems();
                Barcode code=qrCodes.valueAt(0);
                if((code.displayValue.contains("http")||code.displayValue.contains("https")) && !code.displayValue.contentEquals(lastUrl)){
                    lastUrl=code.displayValue;
-                  /* Uri uri=Uri.parse(code.displayValue);
+                  /*
+                   Si queremos abrirla en el navegador por defecto usariamos este código o Script
+                   Uri uri=Uri.parse(code.displayValue);
                    Intent i=new Intent(Intent.ACTION_VIEW,uri);*/
+                  //Al querer abrirlo en otra actividad, pasamos los datos a la otra actividad de esta forma
                   Intent i=new Intent(main_escaner.this,vista_escaner.class);
                   i.putExtra("url",code.displayValue);
                    startActivity(i);
