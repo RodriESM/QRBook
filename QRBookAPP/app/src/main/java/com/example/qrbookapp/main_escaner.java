@@ -116,8 +116,10 @@ public class main_escaner extends AppCompatActivity {
                Barcode code=qrCodes.valueAt(0);
                if((code.displayValue.contains("http")||code.displayValue.contains("https")) && !code.displayValue.contentEquals(lastUrl)){
                    lastUrl=code.displayValue;
-                   Uri uri=Uri.parse(code.displayValue);
-                   Intent i=new Intent(Intent.ACTION_VIEW,uri);
+                  /* Uri uri=Uri.parse(code.displayValue);
+                   Intent i=new Intent(Intent.ACTION_VIEW,uri);*/
+                  Intent i=new Intent(main_escaner.this,vista_escaner.class);
+                  i.putExtra("url",code.displayValue);
                    startActivity(i);
                }else{
                    textScanResult.setText(code.displayValue);
