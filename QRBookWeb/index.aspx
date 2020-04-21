@@ -4,7 +4,7 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <meta http-equiv="Content-Type" content="text/html; charset="utf-8" />
+    <meta http-equiv="Content-Type" content="text/html"; charset="utf-8" />
     <meta lang="es" />
     <meta http-equiv="X-UA-Compatible" />
     <title>QRBook Inicio</title>
@@ -14,6 +14,7 @@
     <link href="/your-path-to-fontawesome/css/solid.css" rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU"
         crossorigin="anonymous">
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
 </head>
 <body class="hidden">
     <form id="form1" runat="server">
@@ -44,9 +45,9 @@
                         <a href="#Inicio" id="enlace-inicio" class="btn-header">Inicio</a>
                         <a href="#Informacion" id="enlace-info" class="btn-header">Información</a>
                         <a href="#Desarrollo" id="enlace-app" class="btn-header">Desarrollo</a>
-                        <a href="#Equipo" id="enlace-equipo" class="btn-header">Conocenos</a>
-                         <input class="btn-registro" type="button" onclick="location.href='registro.aspx';" value="Registro" />
-                        <input class="btn-inicio" type="button" onclick="location.href = 'login.aspx';" value="Inicio de sesion" style="margin-right: 15px" />
+                        <a href="#Equipo" id="enlace-equipo" class="btn-header">Conócenos</a>
+                        <input class="btn-registro" type="button" onclick="location.href = 'registro.aspx';" value="Registro" />
+                        <input class="btn-inicio" type="button" onclick="location.href = 'login.aspx';" value="Inicio de sesión" style="margin-right: 15px" />
                        <!--<a href="#" id="enlace-contacto" class="btn-header">Inicio</a>--> 
                     </div>
                     <div class="icono" id="open">
@@ -94,11 +95,14 @@
         	<a name="Desarrollo"/>
             <h3>Nuestro trabajo</h3>
             <p class="after" >Hacemos de algo simple algo extraordinario</p>
+            <!--
             <div class="botones-work">
                 <ul>
-                    <li class="filter" data-nombre='marketing'>Boton prueba</li>
+                    <input class="filter" type="button" onclick="location.href = 'index.html';" value="Inicio de sesión" style="margin-right: 15px" />
                 </ul>
             </div>
+            -->
+
             <div class="galeria-work">
                 
                 <div class="cont-work marketing">
@@ -137,30 +141,36 @@
                     <div class="people">
                         <img src="img/rodri.jpeg" alt="Rodrigo">
                     </div>
-                    <div class="texto-team">
-                        <h4>Rodrigo</h4>
-                        <p>Lorem ipsum dolor sit.</p>
-                    </div>
+                   
                 </div>
                 <div class="content-card">
                     <div class="people">
                         <img src="img/ivan.jpg" alt="Iván">
                     </div>
-                    <div class="texto-team">
-                        <h4>Iván</h4>
-                        <p>Lorem ipsum dolor sit.</p>
-                    </div>
+                    
                 </div>
                 <div class="content-card">
                     <div class="people">
                         <img src="img/quique.jpg" alt="Enrique">
                     </div>
-                    <div class="texto-team">
-                        <h4>Enrique</h4>
-                        <p>Lorem ipsum dolor sit.</p>
-                    </div>
+                    
                 </div>
             </div>
+            <div class="descripciones">
+            	<div class="texto-team">
+                    <h4>Rodrigo</h4>
+                    <p>Técnico Superior en Sistemas de Telecomunicaciones e Informáticos. Amante de la tecnología, la música y los viajes.</p>
+                </div>
+                <div class="texto-team">
+                    <h4>Iván</h4>
+                    <p>Lorem ipsum dolor sit.</p>
+                </div>
+                <div class="texto-team">
+                    <h4>Enrique</h4>
+                    <p>Lorem ipsum dolor sit.</p>
+                </div>
+            </div>
+             
         </section>
 
         </main>
