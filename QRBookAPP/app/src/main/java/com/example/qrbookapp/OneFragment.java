@@ -1,5 +1,6 @@
 package com.example.qrbookapp;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.Nullable;
@@ -13,23 +14,26 @@ import android.widget.TextView;
 
 public class OneFragment extends Fragment {
     View view;
-    TextView txtTitle;
-    String title;
+    Class clase;
+    int referencia = 0;
 
-    public OneFragment() {
+    public OneFragment(Class clase) {
+        this.clase=clase;
+    }
 
+    public OneFragment(int referencia) {
+        this.referencia=referencia;
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
-        view = inflater.inflate(R.layout.fragment_one, container, false);
-        txtTitle = (TextView)view.findViewById(R.id.txtTitle);
-
-        if (getArguments() != null){
-            title = getArguments().getString("title");
+        if(clase!=null) {
+            Intent intent = new Intent(getActivity(), clase);
+            getActivity().startActivity(intent);
+        }else{
+            view = inflater.inflate(referencia, container, false);
         }
-        txtTitle.setText(title);
 
         return view;
     }

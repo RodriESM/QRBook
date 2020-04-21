@@ -4,12 +4,13 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <TextView
-        android:layout_width="match_parent"
+    <View
+        android:id="@+id/contenedor"
         android:layout_height="match_parent"
-        android:text="New Text"
-        android:gravity="center"
-        android:textSize="20dp"
-        android:id="@+id/txtTitle"/>
+        android:layout_width="match_parent">
+
+    </View>
+
+
 
 </LinearLayout>

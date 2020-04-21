@@ -24,16 +24,16 @@ public class InicioActivity extends AppCompatActivity {
         tabLayout = (TabLayout)findViewById(R.id.tabs);
         tabLayout.setupWithViewPager(viewPager);
         tabIcons();
-        iconColor(tabLayout.getTabAt(tabLayout.getSelectedTabPosition()),"#3b5998");
+        //iconColor(tabLayout.getTabAt(tabLayout.getSelectedTabPosition()),"#3b5998");
         tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
-                iconColor(tab, "#3b5998");
+                //iconColor(tab, "#3b5998");
             }
 
             @Override
             public void onTabUnselected(TabLayout.Tab tab) {
-                iconColor(tab, "#E0E0E0");
+                //iconColor(tab, "#E0E0E0");
             }
 
             @Override
@@ -55,17 +55,24 @@ public class InicioActivity extends AppCompatActivity {
 
     private void loadViewPager(ViewPager viewPager){
         ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
-        adapter.addFragment((newInstance("Home")));
-        adapter.addFragment((newInstance("Friends")));
-        adapter.addFragment((newInstance("Notifications")));
-        adapter.addFragment((newInstance("Settings")));
+        adapter.addFragment((newInstance(main_escaner.class)));
+        adapter.addFragment((newInstance(R.layout.activity_main)));
+        adapter.addFragment((newInstance(R.layout.activity_registro)));
+        adapter.addFragment((newInstance(R.layout.activity_vista_escaner)));
         viewPager.setAdapter(adapter);
     }
 
-    private OneFragment newInstance(String title){
+    private OneFragment newInstance(Class clase){
         Bundle bundle = new Bundle();
-        bundle.putString("title", title);
-        OneFragment fragment = new OneFragment();
+        OneFragment fragment = new OneFragment(clase);
+        fragment.setArguments(bundle);
+
+        return fragment;
+    }
+
+    private OneFragment newInstance(int clase){
+        Bundle bundle = new Bundle();
+        OneFragment fragment = new OneFragment(clase);
         fragment.setArguments(bundle);
 
         return fragment;
