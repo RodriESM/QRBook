@@ -530,3 +530,13 @@ F:\GitHub\QRBook\QRBookWeb\obj\Debug\QRBookWeb.csproj.CoreCompileInputs.cache
 F:\GitHub\QRBook\QRBookWeb\obj\Debug\QRBookWeb.csproj.CopyComplete
 F:\GitHub\QRBook\QRBookWeb\obj\Debug\QRBookWeb.dll
 F:\GitHub\QRBook\QRBookWeb\obj\Debug\QRBookWeb.pdb
+F:\GitHub\QRBook\QRBookWeb\bin\MySqlConnector.dll
+F:\GitHub\QRBook\QRBookWeb\bin\System.Buffers.dll
+F:\GitHub\QRBook\QRBookWeb\bin\System.Memory.dll
+F:\GitHub\QRBook\QRBookWeb\bin\System.Runtime.CompilerServices.Unsafe.dll
+F:\GitHub\QRBook\QRBookWeb\bin\System.Threading.Tasks.Extensions.dll
+F:\GitHub\QRBook\QRBookWeb\bin\MySqlConnector.xml
+F:\GitHub\QRBook\QRBookWeb\bin\System.Buffers.xml
+F:\GitHub\QRBook\QRBookWeb\bin\System.Memory.xml
+F:\GitHub\QRBook\QRBookWeb\bin\System.Runtime.CompilerServices.Unsafe.xml
+F:\GitHub\QRBook\QRBookWeb\bin\System.Threading.Tasks.Extensions.xml

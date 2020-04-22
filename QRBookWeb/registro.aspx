@@ -81,9 +81,9 @@
          <p>¿Ya tienes una cuenta? <a class="link" href="login.aspx">Iniciar Sesion</a></p>
      </div>
 
-        <script src="main.js"></script>
-        <script src="jquery.js"></script>
-        <script src="filtro.js"></script>
+        <script src="assets/js/main.js"></script>
+        <script src="assets/js/jquery.js"></script>
+        <script src="assets/js/filtro.js"></script>
     </form>
 </div>
 </body>

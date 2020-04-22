@@ -188,9 +188,9 @@
             <p style="color: white">La pasión e innovación es lo que nos distingue del resto</p>
         </div>
         </footer>
-        <script src="main.js"></script>
-        <script src="jquery.js"></script>
-        <script src="filtro.js"></script>
+        <script src="assets/js/main.js"></script>
+        <script src="assets/js/jquery.js"></script>
+        <script src="assets/js/filtro.js"></script>
     </form>
 </body>
 </html>

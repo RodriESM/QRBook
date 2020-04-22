@@ -346,7 +346,7 @@
     <Content Include="Areas\HelpPage\HelpPage.css" />
     <Content Include="assets\css\estilos.css" />
     <Content Include="assets\css\style.css" />
-    <Content Include="filtro.js" />
+    <Content Include="assets\js\filtro.js" />
     <Content Include="img\backgroundposible.jpg" />
     <Content Include="img\clarosencillo.png" />
     <Content Include="img\creativoasombroso.png" />
@@ -359,8 +359,8 @@
     <Content Include="img\LogoQRBook.png" />
     <Content Include="img\quique.jpg" />
     <Content Include="img\rodri.jpeg" />
-    <Content Include="jquery.js" />
-    <Content Include="main.js" />
+    <Content Include="assets\js\jquery.js" />
+    <Content Include="assets\js\main.js" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="favicon.ico" />
