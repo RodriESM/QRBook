@@ -69,7 +69,7 @@
          <input type="password" placeholder="Contraseña">
          
          </div>
-         <input type="submit" value="Login" class="button">
+         <asp:Button class="button" runat="server" Text="Iniciar sesión"/>
          <p>Al registrarte, aceptas nuestras Condiciones de uso y Política de privacidad.</p>
          <p>¿No tienes una cuenta? <a class="link" href="registro.aspx">Registrate </a></p>
      </div>
