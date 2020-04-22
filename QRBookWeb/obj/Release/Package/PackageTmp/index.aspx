@@ -163,11 +163,11 @@
                 </div>
                 <div class="texto-team">
                     <h4>Iván</h4>
-                    <p>Lorem ipsum dolor sit.</p>
+                    <p>Estudiante de Grado Superior de Desarrollo de Multiplataforma. Fanático del cine antiguo y acompañante de la música.</p>
                 </div>
                 <div class="texto-team">
                     <h4>Enrique</h4>
-                    <p>Lorem ipsum dolor sit.</p>
+                    <p>Técnico Superior de Desarrollo de Aplicaciones Web. Jugador de billar americano, cubos de rubik, pelo largo.</p>
                 </div>
             </div>
              
