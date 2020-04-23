@@ -540,3 +540,10 @@ F:\GitHub\QRBook\QRBookWeb\bin\System.Buffers.xml
 F:\GitHub\QRBook\QRBookWeb\bin\System.Memory.xml
 F:\GitHub\QRBook\QRBookWeb\bin\System.Runtime.CompilerServices.Unsafe.xml
 F:\GitHub\QRBook\QRBookWeb\bin\System.Threading.Tasks.Extensions.xml
+F:\GitHub\QRBook\QRBookWeb\bin\MySql.Web.dll
+F:\GitHub\QRBook\QRBookWeb\bin\MySql.Data.dll
+F:\GitHub\QRBook\QRBookWeb\bin\BouncyCastle.Crypto.dll
+F:\GitHub\QRBook\QRBookWeb\bin\Ubiety.Dns.Core.dll
+F:\GitHub\QRBook\QRBookWeb\bin\Renci.SshNet.dll
+F:\GitHub\QRBook\QRBookWeb\bin\MySql.Web.xml
+F:\GitHub\QRBook\QRBookWeb\bin\MySql.Data.xml

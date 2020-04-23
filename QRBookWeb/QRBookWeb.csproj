@@ -126,14 +126,7 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
-    <Reference Include="MySql.Data, Version=8.0.18.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>.\MySql.Data.dll</HintPath>
-    </Reference>
-    <Reference Include="MySql.Web, Version=8.0.18.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>.\MySql.Web.dll</HintPath>
-    </Reference>
+    <Reference Include="MySql.Web, Version=8.0.19.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
     <Reference Include="MySqlConnector, Version=0.64.0.0, Culture=neutral, PublicKeyToken=d33d3e53aa5f8c92, processorArchitecture=MSIL">
       <HintPath>packages\MySqlConnector.0.64.0\lib\net45\MySqlConnector.dll</HintPath>
     </Reference>
@@ -355,6 +348,7 @@
     <Content Include="Areas\HelpPage\HelpPage.css" />
     <Content Include="assets\css\estilos.css" />
     <Content Include="assets\css\style.css" />
+    <Content Include="assets\cs\Conexion a SSL.txt" />
     <Content Include="assets\js\filtro.js" />
     <Content Include="img\backgroundposible.jpg" />
     <Content Include="img\clarosencillo.png" />
@@ -403,6 +397,9 @@
     <Content Include="Areas\HelpPage\Views\Help\Api.cshtml" />
     <Content Include="assets\cs\client-cert.pfx" />
     <Content Include="assets\cs\client-key.pfx" />
+    <Content Include="assets\cs\server-ca.pem" />
+    <Content Include="assets\cs\client-cert.pem" />
+    <Content Include="assets\cs\client-key.pem" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />

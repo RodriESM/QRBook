@@ -1,5 +1,7 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Web;
 
@@ -12,14 +14,19 @@ namespace QRBookWeb.assets.cs
         DataSet datos = new DataSet();
         MySqlDataAdapter adapter = new MySqlDataAdapter();
 
-        private void Conectar(object sender, EventArgs e)
+        public void CONECTAR()
             {
             DBCon=new MySqlConnection();
-            DBCon.ConnectionString="Server=localhost; Database=TiendaLibros; Uid=root; Pwd=system ; CertificateFile = @C:/Path/To/client.pfx ; CACertificateFile = C:/Path/To/server-ca.pem; SslMode = MySqlSslMode.VerifyCA; ";
+            DBCon.ConnectionString= "Server=35.195.6.185; Database=strong-minutia-271120:europe-west1:qr-book-r31; Uid=user; Pwd=QrBo0o0/< ; CertificateFile = @client.pfx ; CACertificateFile = server-ca.pem; SslMode = MySqlSslMode.VerifyCA";
             DBCon.Open();
             }
 
-        private void BtnObtenerLibros_Click(object sender, EventArgs e)
+        public void CERRAR()
+        {
+            DBCon.Close();
+        }
+        /*
+        public void BtnObtenerLibros_Click(object sender, EventArgs e)
             {
             MySqlCommand command;
             command=new MySqlCommand();
@@ -35,7 +42,7 @@ namespace QRBookWeb.assets.cs
             DataTable tablagv1 = datos.Tables["Libros"];
             dgvMostrar.DataSource=tablagv1;
 
-            }
+            }*/
 
         }
     }
