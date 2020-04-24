@@ -6,16 +6,19 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using Google.Cloud.Firestore;
+using Microsoft.Owin.Security.Google;
 
 namespace QRBookWeb
 {
     public partial class registro : System.Web.UI.Page
     {
         Conexion cs = new Conexion();
+        //Conexion a FireStore
+        //FirestoreDb db = FirestoreDb.Create();
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            
         }
 
         protected void Unnamed1_Click(object sender, EventArgs e) {

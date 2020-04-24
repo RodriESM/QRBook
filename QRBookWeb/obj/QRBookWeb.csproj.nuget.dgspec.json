@@ -1,0 +1,89 @@
+{
+  "format": 1,
+  "restore": {
+    "F:\\GitHub\\QRBook\\QRBookWeb\\QRBookWeb.csproj": {}
+  },
+  "projects": {
+    "F:\\GitHub\\QRBook\\QRBookWeb\\QRBookWeb.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "F:\\GitHub\\QRBook\\QRBookWeb\\QRBookWeb.csproj",
+        "projectName": "QRBookWeb",
+        "projectPath": "F:\\GitHub\\QRBook\\QRBookWeb\\QRBookWeb.csproj",
+        "packagesPath": "C:\\Users\\Rodri\\.nuget\\packages\\",
+        "outputPath": "F:\\GitHub\\QRBook\\QRBookWeb\\obj\\",
+        "projectStyle": "PackageReference",
+        "skipContentFileWrite": true,
+        "fallbackFolders": [
+          "C:\\Microsoft\\Xamarin\\NuGet\\"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\Rodri\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net452"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net452": {
+            "projectReferences": {}
+          }
+        }
+      },
+      "frameworks": {
+        "net452": {
+          "dependencies": {
+            "Firebase.Auth": {
+              "target": "Package",
+              "version": "[1.0.0, )"
+            },
+            "FirebaseAdmin": {
+              "target": "Package",
+              "version": "[1.11.0, )"
+            },
+            "FirebaseAuthNet": {
+              "target": "Package",
+              "version": "[1.0.1, )"
+            },
+            "FirebaseAuthentication.net": {
+              "target": "Package",
+              "version": "[3.4.0, )"
+            },
+            "FirebaseTokenGenerator": {
+              "target": "Package",
+              "version": "[2.0.0, )"
+            },
+            "Google.Apis.Auth": {
+              "target": "Package",
+              "version": "[1.45.0, )"
+            },
+            "Google.Cloud.Firestore": {
+              "target": "Package",
+              "version": "[1.1.0, )"
+            },
+            "firebase-simple-login": {
+              "target": "Package",
+              "version": "[1.6.4, )"
+            }
+          }
+        }
+      },
+      "runtimes": {
+        "win": {
+          "#import": []
+        },
+        "win-x64": {
+          "#import": []
+        },
+        "win-x86": {
+          "#import": []
+        }
+      }
+    }
+  }
+}
