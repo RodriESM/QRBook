@@ -18,12 +18,14 @@ namespace QRBookWeb.assets.cs
         //Nos da la ruta del proyecto
         string ruta = AppDomain.CurrentDomain.BaseDirectory + "assets/cs/server-ca.pem";
 
- 
-        public void CONECTAR()
-            {
+        public MySqlConnection CONECTAR() {
+            //string ruta = AppDomain.CurrentDomain.BaseDirectory + "assets/cs/server-ca.pem";
+            System.Diagnostics.Debug.WriteLine(AppDomain.CurrentDomain.BaseDirectory + "assets/cs/server-ca.pem");
             DBCon = new MySqlConnection("Server=35.195.6.185; Database=QrBook; Uid=user; Pwd=user;SslCa=" + ruta + ";SslMode = VerifyCA; ");
             DBCon.Open();
-            }
+
+            return DBCon;
+        }
 
         public void CERRAR()
         {

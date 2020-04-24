@@ -1,4 +1,5 @@
-﻿using QRBookWeb.assets.cs;
+﻿using MySql.Data.MySqlClient;
+using QRBookWeb.assets.cs;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,10 +18,24 @@ namespace QRBookWeb
             
         }
 
-        protected void Unnamed1_Click(object sender, EventArgs e)
-        {
-            cs.CONECTAR();
-            MsgBox("Hola, estas conectado", this.Page, this);
+        protected void Unnamed1_Click(object sender, EventArgs e) {
+
+            if (String.IsNullOrEmpty(usuario.Value) || String.IsNullOrEmpty(correo.Value) || String.IsNullOrEmpty(pass.Value)) {
+                MsgBox("Faltan campos por rellenar", this.Page, this);
+            } else {
+                try {
+                    MySqlConnection DBCon = cs.CONECTAR();
+                    string ins = "insert into USUARIO (CORREO, USUARIO, PASSWORD) VALUES ('" + correo.Value + "', '" + usuario.Value + "', '" + pass.Value + "')";
+                    MySqlCommand insert = new MySqlCommand(ins, DBCon);
+                    insert.ExecuteNonQuery();
+                    MsgBox("Te has registrado!!!!!!!", this.Page, this);
+                } catch (MySqlException ex) {
+                    MsgBox("El correo electronico o el nombre de usuario ya existen", this.Page, this);
+                } finally {
+                    cs.CERRAR();
+                }
+            }
+
         }
 
         public void MsgBox(String ex, Page pg, Object obj)

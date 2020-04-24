@@ -61,19 +61,19 @@
      
      <div class="input-contenedor">
          <i class="fas fa-user icon"></i>
-         <input type="text" placeholder="Nombre Completo">
+         <input type="text" id="usuario" placeholder="Nombre de Usuario" runat="server">
          
          </div>
          
          <div class="input-contenedor">
          <i class="fas fa-envelope icon"></i>
-         <input type="text" placeholder="Correo Electronico">
+         <input type="text" id="correo" placeholder="Correo Electronico" runat="server">
          
          </div>
          
          <div class="input-contenedor">
         <i class="fas fa-key icon"></i>
-         <input type="password" placeholder="Contraseña">
+         <input type="password" id="pass" placeholder="Contraseña" runat="server">
          
          </div>
          <asp:Button class="button" runat="server" Text="Registrate" OnClick="Unnamed1_Click"/>
