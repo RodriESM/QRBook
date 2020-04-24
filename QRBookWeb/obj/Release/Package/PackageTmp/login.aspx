@@ -69,13 +69,13 @@
          <input type="password" placeholder="Contraseña">
          
          </div>
-         <input type="submit" value="Login" class="button">
+         <asp:Button class="button" runat="server" Text="Iniciar sesión"/>
          <p>Al registrarte, aceptas nuestras Condiciones de uso y Política de privacidad.</p>
          <p>¿No tienes una cuenta? <a class="link" href="registro.aspx">Registrate </a></p>
      </div>
-        <script src="main.js"></script>
-        <script src="jquery.js"></script>
-        <script src="filtro.js"></script>
+        <script src="assets/js/main.js"></script>
+        <script src="assets/js/jquery.js"></script>
+        <script src="assets/js/filtro.js"></script>
     </form>
     </div>
 </body>

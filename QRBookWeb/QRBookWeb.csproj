@@ -35,6 +35,10 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <PublishDatabaseSettings>
+      <Objects>
+      </Objects>
+    </PublishDatabaseSettings>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -371,8 +375,6 @@
     <Content Include="Global.asax" />
     <Content Include="index.aspx" />
     <Content Include="login.aspx" />
-    <Content Include="MySql.Data.dll" />
-    <Content Include="MySql.Web.dll" />
     <Content Include="registro.aspx" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />

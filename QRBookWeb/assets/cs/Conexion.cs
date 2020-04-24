@@ -1,4 +1,5 @@
-﻿using MySql.Data.MySqlClient;
+﻿
+using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -8,16 +9,16 @@ using System.Web;
 namespace QRBookWeb.assets.cs
     {
     public class Conexion
-        {
+    {
 
+        
         MySqlConnection DBCon;
         DataSet datos = new DataSet();
         MySqlDataAdapter adapter = new MySqlDataAdapter();
 
         public void CONECTAR()
             {
-            DBCon=new MySqlConnection();
-            DBCon.ConnectionString= "Server=35.195.6.185; Database=strong-minutia-271120:europe-west1:qr-book-r31; Uid=user; Pwd=QrBo0o0/< ; CertificateFile = @client.pfx ; CACertificateFile = server-ca.pem; SslMode = MySqlSslMode.VerifyCA";
+            DBCon=new MySqlConnection("Server=35.195.6.185; Database=QrBook; Uid=user; Pwd=user;SslCa=server-ca.pem;SslMode = VerifyCA; ");
             DBCon.Open();
             }
 
