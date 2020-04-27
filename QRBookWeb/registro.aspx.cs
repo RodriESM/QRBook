@@ -35,9 +35,10 @@ namespace QRBookWeb
                     string ins = "insert into USUARIO (CORREO, USUARIO, PASSWORD) VALUES ('" + correo.Value + "', '" + usuario.Value + "', '" + pass.Value + "')";
                     MySqlCommand insert = new MySqlCommand(ins, DBCon);
                     insert.ExecuteNonQuery();
-                    hr.MsgBox("Te has registrado!!!!!!!", this.Page, this);
-                    //hr.Redirect("login.aspx");
-                    Response.Redirect("/login.aspx");
+                    //hr.MsgBox("Te has registrado!!!!!!!", this.Page, this);
+
+                    //Con QueryStrings, puedes mandar informacion en la propia ruta, y recogerla en la nueva pagina
+                    Response.Redirect("/login.aspx?Desde=Registro");
 
                 }
                 catch (MySqlException ex)
@@ -53,7 +54,6 @@ namespace QRBookWeb
 
         protected void InicioSesion_Click(object sender, EventArgs e)
         {
-            hr.Redirect("login.aspx");
         }
     }
 }
