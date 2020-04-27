@@ -36,7 +36,8 @@ namespace QRBookWeb
                     MySqlCommand insert = new MySqlCommand(ins, DBCon);
                     insert.ExecuteNonQuery();
                     hr.MsgBox("Te has registrado!!!!!!!", this.Page, this);
-                    hr.Redirect("login.aspx");
+                    //hr.Redirect("login.aspx");
+                    Response.Redirect("/login.aspx");
 
                 }
                 catch (MySqlException ex)
