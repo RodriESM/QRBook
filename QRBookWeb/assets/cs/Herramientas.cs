@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Web.Mvc;
 using System.Web.UI;
 
 namespace QRBookWeb.assets.cs
@@ -19,6 +20,11 @@ namespace QRBookWeb.assets.cs
             Type cstype = obj.GetType();
             ClientScriptManager cs = pg.ClientScript;
             cs.RegisterClientScriptBlock(cstype, s, s.ToString());
+        }
+
+        public void Redirect(String pag)
+        {
+            RedirectResult redirect = new RedirectResult(pag);
         }
     }
 }

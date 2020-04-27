@@ -6,7 +6,6 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using Google.Cloud.Firestore;
 using Microsoft.Owin.Security.Google;
 
 namespace QRBookWeb
@@ -22,33 +21,38 @@ namespace QRBookWeb
         {
         }
 
-        protected void Unnamed1_Click(object sender, EventArgs e) {
-
-            if (String.IsNullOrEmpty(usuario.Value) || String.IsNullOrEmpty(correo.Value) || String.IsNullOrEmpty(pass.Value)) {
+        protected void Registro_Click(object sender, EventArgs e)
+        {
+            if (String.IsNullOrEmpty(usuario.Value) || String.IsNullOrEmpty(correo.Value) || String.IsNullOrEmpty(pass.Value))
+            {
                 hr.MsgBox("Faltan campos por rellenar", this.Page, this);
-            } else {
-                try {
+            }
+            else
+            {
+                try
+                {
                     MySqlConnection DBCon = cs.CONECTAR();
                     string ins = "insert into USUARIO (CORREO, USUARIO, PASSWORD) VALUES ('" + correo.Value + "', '" + usuario.Value + "', '" + pass.Value + "')";
                     MySqlCommand insert = new MySqlCommand(ins, DBCon);
                     insert.ExecuteNonQuery();
                     hr.MsgBox("Te has registrado!!!!!!!", this.Page, this);
-                } catch (MySqlException ex) {
+                    hr.Redirect("login.aspx");
+
+                }
+                catch (MySqlException ex)
+                {
                     hr.MsgBox("El correo electronico o el nombre de usuario ya existen", this.Page, this);
-                } finally {
+                }
+                finally
+                {
                     cs.CERRAR();
                 }
             }
-
         }
 
-
-        protected void Unnamed2_Click(object sender, EventArgs e)
+        protected void InicioSesion_Click(object sender, EventArgs e)
         {
-            hr.MsgBox("Hola, has cerrado la conexion", this.Page, this);
-            cs.CERRAR();
-
-
+            hr.Redirect("login.aspx");
         }
     }
 }

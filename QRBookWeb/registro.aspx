@@ -76,9 +76,9 @@
          <input type="password" id="pass" placeholder="Contraseña" runat="server">
          
          </div>
-         <asp:Button class="button" runat="server" Text="Registrate" OnClick="Unnamed1_Click"/>
+         <asp:Button class="button" runat="server" Text="Registrate" OnClick="Registro_Click"/>
          <p>Al registrarte, aceptas nuestras Condiciones de uso y Política de privacidad.</p>
-         <p>¿Ya tienes una cuenta? <asp:LinkButton runat="server" class="link"  href="login.aspx" OnClick="Unnamed2_Click">Iniciar Sesión</asp:LinkButton></p>
+         <p>¿Ya tienes una cuenta? <asp:LinkButton runat="server" class="link"  href="login.aspx" OnClick="InicioSesion_Click">Iniciar Sesión</asp:LinkButton></p>
      </div>
 
         <script src="assets/js/main.js"></script>

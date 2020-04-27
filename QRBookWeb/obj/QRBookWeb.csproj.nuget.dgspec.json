@@ -36,42 +36,7 @@
         }
       },
       "frameworks": {
-        "net452": {
-          "dependencies": {
-            "Firebase.Auth": {
-              "target": "Package",
-              "version": "[1.0.0, )"
-            },
-            "FirebaseAdmin": {
-              "target": "Package",
-              "version": "[1.11.0, )"
-            },
-            "FirebaseAuthNet": {
-              "target": "Package",
-              "version": "[1.0.1, )"
-            },
-            "FirebaseAuthentication.net": {
-              "target": "Package",
-              "version": "[3.4.0, )"
-            },
-            "FirebaseTokenGenerator": {
-              "target": "Package",
-              "version": "[2.0.0, )"
-            },
-            "Google.Apis.Auth": {
-              "target": "Package",
-              "version": "[1.45.0, )"
-            },
-            "Google.Cloud.Firestore": {
-              "target": "Package",
-              "version": "[1.1.0, )"
-            },
-            "firebase-simple-login": {
-              "target": "Package",
-              "version": "[1.6.4, )"
-            }
-          }
-        }
+        "net452": {}
       },
       "runtimes": {
         "win": {

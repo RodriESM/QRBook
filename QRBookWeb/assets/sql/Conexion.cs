@@ -16,11 +16,11 @@ namespace QRBookWeb.assets.cs
         DataSet datos = new DataSet();
         MySqlDataAdapter adapter = new MySqlDataAdapter();
         //Nos da la ruta del proyecto
-        string ruta = AppDomain.CurrentDomain.BaseDirectory + "assets/cs/server-ca.pem";
+        string ruta = AppDomain.CurrentDomain.BaseDirectory + "assets/sql/server-ca.pem";
 
         public MySqlConnection CONECTAR() {
             //string ruta = AppDomain.CurrentDomain.BaseDirectory + "assets/cs/server-ca.pem";
-            System.Diagnostics.Debug.WriteLine(AppDomain.CurrentDomain.BaseDirectory + "assets/cs/server-ca.pem");
+           //System.Diagnostics.Debug.WriteLine(AppDomain.CurrentDomain.BaseDirectory + "assets/sql/server-ca.pem"); Para comprobar la ruta
             DBCon = new MySqlConnection("Server=35.195.6.185; Database=QrBook; Uid=user; Pwd=user;SslCa=" + ruta + ";SslMode = VerifyCA; ");
             DBCon.Open();
 
