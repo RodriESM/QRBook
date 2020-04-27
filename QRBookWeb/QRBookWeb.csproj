@@ -331,7 +331,8 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\SampleDirection.cs" />
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
-    <Compile Include="assets\cs\Conexion.cs" />
+    <Compile Include="assets\cs\Herramientas.cs" />
+    <Compile Include="assets\sql\Conexion.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
@@ -371,7 +372,7 @@
     <Content Include="Areas\HelpPage\HelpPage.css" />
     <Content Include="assets\css\estilos.css" />
     <Content Include="assets\css\style.css" />
-    <Content Include="assets\cs\Conexion a SSL.txt" />
+    <Content Include="assets\sql\Conexion a SSL.txt" />
     <Content Include="assets\js\filtro.js" />
     <Content Include="img\backgroundposible.jpg" />
     <Content Include="img\clarosencillo.png" />
@@ -416,11 +417,11 @@
     <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\CollectionModelDescription.cshtml" />
     <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\ApiGroup.cshtml" />
     <Content Include="Areas\HelpPage\Views\Help\Api.cshtml" />
-    <Content Include="assets\cs\client-cert.pfx" />
-    <Content Include="assets\cs\client-key.pfx" />
-    <Content Include="assets\cs\server-ca.pem" />
-    <Content Include="assets\cs\client-cert.pem" />
-    <Content Include="assets\cs\client-key.pem" />
+    <Content Include="assets\sql\client-cert.pfx" />
+    <Content Include="assets\sql\client-key.pfx" />
+    <Content Include="assets\sql\server-ca.pem" />
+    <Content Include="assets\sql\client-cert.pem" />
+    <Content Include="assets\sql\client-key.pem" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
