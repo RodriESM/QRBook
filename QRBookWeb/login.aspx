@@ -60,16 +60,16 @@
      
          <div class="input-contenedor">
          <i class="fas fa-envelope icon"></i>
-         <input type="text" placeholder="Correo Electronico">
+         <input runat="server" type="text" id="user" placeholder="Usuario o Correo Electronico">
          
          </div>
          
          <div class="input-contenedor">
         <i class="fas fa-key icon"></i>
-         <input type="password" placeholder="Contraseña">
+         <input runat="server" type="password" id="pass" placeholder="Contraseña">
          
          </div>
-         <asp:Button class="button" runat="server" Text="Iniciar sesión"/>
+         <asp:Button class="button" runat="server" Text="Iniciar sesión" OnClick="Login_Click"/>
          <p>Al registrarte, aceptas nuestras Condiciones de uso y Política de privacidad.</p>
          <p>¿No tienes una cuenta? <a class="link" href="registro.aspx">Registrate </a></p>
      </div>
