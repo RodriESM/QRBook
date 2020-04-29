@@ -283,6 +283,7 @@ namespace QRBookWeb.Areas.HelpPage
         /// <param name="value">The value.</param>
         /// <param name="type">The type.</param>
         /// <param name="mediaType">Type of the media.</param>
+        /// <returns></returns>
         [SuppressMessage("Microsoft.Design", "CA1031:DoNotCatchGeneralExceptionTypes", Justification = "The exception is recorded as InvalidSample.")]
         public virtual object WriteSampleObjectUsingFormatter(MediaTypeFormatter formatter, object value, Type type, MediaTypeHeaderValue mediaType)
         {
