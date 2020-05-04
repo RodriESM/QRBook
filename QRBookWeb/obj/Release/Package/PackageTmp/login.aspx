@@ -42,6 +42,13 @@
                         <a href="index.aspx#Informacion" id="enlace-info" class="btn-header">Información</a>
                         <a href="index.aspx#Desarrollo" id="enlace-app" class="btn-header">Desarrollo</a>
                         <a href="index.aspx#Equipo" id="enlace-equipo" class="btn-header">Conocenos</a>
+                         <div class="dropdown">
+                        <input type="image"  src="img/user-img.png" height="60px"  width="50px" id="user"  onclick="location.href = 'user.aspx';" /> 
+                          <div class="dropdown-content">
+                            <a href="user.aspx">Perfil</a>
+                            <a href="#">Salir</a>
+                          </div>
+                        </div>
                         <input class="btn-registro" type="button" onclick="location.href='registro.aspx';" value="Registro" />
                         <input class="btn-inicio" type="button" onclick="location.href = 'login.aspx';" value="Inicio de sesion" style="margin-right: 15px" />
                        <!--<a href="#" id="enlace-contacto" class="btn-header">Inicio</a>--> 
@@ -60,22 +67,24 @@
      
          <div class="input-contenedor">
          <i class="fas fa-envelope icon"></i>
-         <input type="text" placeholder="Correo Electronico">
+         <input runat="server" type="text" id="user" placeholder="Usuario o Correo Electronico">
          
          </div>
          
          <div class="input-contenedor">
         <i class="fas fa-key icon"></i>
-         <input type="password" placeholder="Contraseña">
+         <input runat="server" type="password" id="pass" placeholder="Contraseña">
          
          </div>
-         <asp:Button class="button" runat="server" Text="Iniciar sesión"/>
+         <asp:Button class="button" runat="server" Text="Iniciar sesión" OnClick="Login_Click"/>
          <p>Al registrarte, aceptas nuestras Condiciones de uso y Política de privacidad.</p>
          <p>¿No tienes una cuenta? <a class="link" href="registro.aspx">Registrate </a></p>
      </div>
         <script src="assets/js/main.js"></script>
         <script src="assets/js/jquery.js"></script>
         <script src="assets/js/filtro.js"></script>
+        <script src="assets/js/user.js"></script>
+
     </form>
     </div>
 </body>

@@ -338,6 +338,8 @@
     <Content Include="Areas\HelpPage\HelpPage.css" />
     <Content Include="assets\css\estilos.css" />
     <Content Include="assets\css\style.css" />
+    <Content Include="assets\css\user.css" />
+    <Content Include="assets\js\user.js" />
     <Content Include="assets\sql\Conexion a SSL.txt" />
     <Content Include="assets\js\filtro.js" />
     <Content Include="Content\bootstrap-theme.css" />
@@ -352,6 +354,7 @@
     <Content Include="img\iconbook.png" />
     <Content Include="img\imagen-trabajo.jpg" />
     <Content Include="img\ivan.jpg" />
+    <Content Include="img\library.png" />
     <Content Include="img\Logo-removebg-preview.png" />
     <Content Include="img\Logo.png" />
     <Content Include="img\LogoQRBook.png" />
@@ -361,6 +364,7 @@
     <Content Include="assets\js\main.js" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
+    <Content Include="img\user-img.png" />
     <Content Include="index.aspx" />
     <Content Include="login.aspx" />
     <Content Include="registro.aspx" />

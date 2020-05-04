@@ -73,6 +73,13 @@
             The default value is <see cref="P:System.Threading.CancellationToken.None"/>.</param>
             <returns>Whether the flush completed within the timeout.</returns>
         </member>
+        <member name="M:Google.Cloud.Logging.Log4Net.GoogleStackdriverAppender.Flush(System.Int32)">
+            <summary>
+            Flush locally buffered log entries to the server.
+            </summary>
+            <param name="millisecondsTimeout">The maxmimum time in milliseconds to spend waiting for the flush to complete.</param>
+            <returns>Whether the flush completed within the timeout.</returns>
+        </member>
         <member name="M:Google.Cloud.Logging.Log4Net.GoogleStackdriverAppender.Dispose">
             <summary>
             Dispose of this appender, by flushing locally buffer entries then closing the appender.
@@ -163,7 +170,7 @@
             This is usually for a very brief duration; but if there are problems connecting to Google Logging
             this local queue allows the application to continue functioning as normal, without blocking
             on log events or immediately throwing aware log entries.</para>
-            <para>Two queue types are provided:
+            <para>One queue type is provided:
             <list type="bullet">
             <item><description>
             <see cref="F:Google.Cloud.Logging.Log4Net.LocalQueueType.Memory"/>: Log entries are queued locally in memory. The maximum amount of memory and/or the maximum
@@ -171,14 +178,6 @@
             been uploaded to Google Logging, then these log entries are permanently lost. If Google Logging becomes temporarily unavailable
             then the number of log entries queued until Google Logging becomes available again will be limited by the configure maximum sizes;
             log entries in excess of this configured maximum will cause the oldest queued log entries to be permanently lost.
-            </description></item>
-            <item><description>
-            <see cref="F:Google.Cloud.Logging.Log4Net.LocalQueueType.Disk"/>: Log entries are queued locally on disk. The maximum file size and file counts can be
-            configured. If the application exits or crashes before on-disk entries have been uplaoded to Google Logging, then these log
-            entries will be uploaded to Google Logging on program re-start (assuming the logging disk location is unchanged). If Google
-            Logging becomes temporarily unavailable then the number of log entries queued until Google Logging becomes available again will
-            be limited by the configured maximum file size and maxmimum file count. Log entries in excess of this configured maximum will
-            cause the oldest queued log entries to be permanently lost.
             </description></item>
             </list>
             </para>
@@ -198,21 +197,24 @@
             Not used for file-based queueing.
             </summary>
         </member>
-        <member name="P:Google.Cloud.Logging.Log4Net.GoogleStackdriverAppender.File">
+        <member name="P:Google.Cloud.Logging.Log4Net.GoogleStackdriverAppender.CredentialFile">
             <summary>
-            The path prefix to the files that logging will be written to.
+            The file path of a service account JSON file to use for authentication.
+            Not necessary if running on GCE or GAE or if the GOOGLE_APPLICATION_CREDENTIALS environment variable has been set.
+            Must not be set if <see cref="P:Google.Cloud.Logging.Log4Net.GoogleStackdriverAppender.CredentialJson"/> is set.
             </summary>
         </member>
-        <member name="P:Google.Cloud.Logging.Log4Net.GoogleStackdriverAppender.MaxFileSize">
+        <member name="P:Google.Cloud.Logging.Log4Net.GoogleStackdriverAppender.CredentialJson">
             <summary>
-            The maximum size in bytes that each log file is allowed to reach, before being rolled over.
-            Default value is 10MB.
+            JSON credential for authentication.
+            Not necessary if running on GCE or GAE or if the GOOGLE_APPLICATION_CREDENTIALS environment variable has been set.
+            Must not be set if <see cref="P:Google.Cloud.Logging.Log4Net.GoogleStackdriverAppender.CredentialFile"/> is set.
             </summary>
         </member>
-        <member name="P:Google.Cloud.Logging.Log4Net.GoogleStackdriverAppender.MaxSizeRollBackups">
+        <member name="P:Google.Cloud.Logging.Log4Net.GoogleStackdriverAppender.UsePatternWithinCustomLabels">
             <summary>
-            The maximum number of backup files that are kept before the oldest is erased.
-            Default value is 10.
+            Enables <c>PatternLayout</c> use in custom labels. All the standard patterns documented in for Log4Net <c>PatternLayout</c>
+            are available. Custom pattern conversions are not possible.
             </summary>
         </member>
         <member name="M:Google.Cloud.Logging.Log4Net.GoogleStackdriverAppender.AddCustomLabel(Google.Cloud.Logging.Log4Net.GoogleStackdriverAppender.Label)">
@@ -308,13 +310,6 @@
             <summary>
             Queue log events in memory before sending to Cloud Logging.
             Unsent log events will be lost on program crash.
-            </summary>
-        </member>
-        <member name="F:Google.Cloud.Logging.Log4Net.LocalQueueType.Disk">
-            <summary>
-            Queue log events to disk before sending to Cloud Logging.
-            Unsent log events will be sent on next program re-start.
-            Not yet implemented.
             </summary>
         </member>
         <member name="M:Google.Cloud.Logging.Log4Net.ILogQueue.GetPreviousExecutionIdAsync">

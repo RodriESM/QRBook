@@ -45,6 +45,13 @@
                         <a href="#Inicio" id="enlace-inicio" class="btn-header">Inicio</a>
                         <a href="#Informacion" id="enlace-info" class="btn-header">Información</a>
                         <a href="#Desarrollo" id="enlace-app" class="btn-header">Desarrollo</a>
+                        <div class="dropdown">
+                        <input type="image"  src="img/user-img.png" height="60px"  width="50px" id="user"  onclick="location.href = 'user.aspx';" /> 
+                          <div class="dropdown-content">
+                            <a href="user.aspx">Perfil</a>
+                            <a href="#">Salir</a>
+                          </div>
+                        </div>
                         <a href="#Equipo" id="enlace-equipo" class="btn-header">Conócenos</a>
                         <input class="btn-registro" type="button" onclick="location.href = 'registro.aspx';" value="Registro" />
                         <input class="btn-inicio" type="button" onclick="location.href = 'login.aspx';" value="Inicio de sesión" style="margin-right: 15px" />
@@ -191,6 +198,8 @@
         <script src="assets/js/main.js"></script>
         <script src="assets/js/jquery.js"></script>
         <script src="assets/js/filtro.js"></script>
+        <script src="assets/js/user.js"></script>
+
     </form>
 </body>
 </html>

@@ -42,6 +42,13 @@
                         <a href="index.aspx#Informacion" id="enlace-info" class="btn-header">Información</a>
                         <a href="index.aspx#Desarrollo" id="enlace-app" class="btn-header">Desarrollo</a>
                         <a href="index.aspx#Equipo" id="enlace-equipo" class="btn-header">Conocenos</a>
+                         <div class="dropdown">
+                        <input type="image"  src="img/user-img.png" height="60px"  width="50px" id="user"  onclick="location.href = 'user.aspx';" /> 
+                          <div class="dropdown-content">
+                            <a href="user.aspx">Perfil</a>
+                            <a href="#">Salir</a>
+                          </div>
+                        </div>
                         <input class="btn-registro" type="button" onclick="location.href='registro.aspx';" value="Registro" />
                         <input class="btn-inicio" type="button" onclick="location.href = 'login.aspx';" value="Inicio de sesion" style="margin-right: 15px" />
                        <!--<a href="#" id="enlace-contacto" class="btn-header">Inicio</a>--> 
@@ -61,29 +68,31 @@
      
      <div class="input-contenedor">
          <i class="fas fa-user icon"></i>
-         <input type="text" placeholder="Nombre Completo">
+         <input type="text" id="usuario" placeholder="Nombre de Usuario" runat="server">
          
          </div>
          
          <div class="input-contenedor">
          <i class="fas fa-envelope icon"></i>
-         <input type="text" placeholder="Correo Electronico">
+         <input type="text" id="correo" placeholder="Correo Electronico" runat="server">
          
          </div>
          
          <div class="input-contenedor">
         <i class="fas fa-key icon"></i>
-         <input type="password" placeholder="Contraseña">
+         <input type="password" id="pass" placeholder="Contraseña" runat="server">
          
          </div>
-         <asp:Button class="button" runat="server" Text="Registrate" OnClick="Unnamed1_Click"/>
+         <asp:Button class="button" runat="server" Text="Registrate" OnClick="Registro_Click"/>
          <p>Al registrarte, aceptas nuestras Condiciones de uso y Política de privacidad.</p>
-         <p>¿Ya tienes una cuenta? <asp:LinkButton runat="server" class="link"  href="login.aspx" OnClick="Unnamed2_Click">Iniciar Sesión</asp:LinkButton></p>
+         <p>¿Ya tienes una cuenta? <asp:LinkButton runat="server" class="link"  href="login.aspx" OnClick="InicioSesion_Click">Iniciar Sesión</asp:LinkButton></p>
      </div>
 
         <script src="assets/js/main.js"></script>
         <script src="assets/js/jquery.js"></script>
         <script src="assets/js/filtro.js"></script>
+        <script src="assets/js/user.js"></script>
+
     </form>
 </div>
 </body>
