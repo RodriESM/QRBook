@@ -38,10 +38,10 @@
                         <img alt="logo" src="img/Logo.png" width="100px"/>
                     </div>
                     <div class="enlaces" id="enlaces">
-                        <a href="index.html#Inicio" id="enlace-inicio" class="btn-header">Inicio</a>
-                        <a href="index.html#Informacion" id="enlace-info" class="btn-header">Información</a>
-                        <a href="index.html#Desarrollo" id="enlace-app" class="btn-header">Desarrollo</a>
-                        <a href="index.html#Equipo" id="enlace-equipo" class="btn-header">Conocenos</a>
+                        <a href="index.aspx#Inicio" id="enlace-inicio" class="btn-header">Inicio</a>
+                        <a href="index.aspx#Informacion" id="enlace-info" class="btn-header">Información</a>
+                        <a href="index.aspx#Desarrollo" id="enlace-app" class="btn-header">Desarrollo</a>
+                        <a href="index.aspx#Equipo" id="enlace-equipo" class="btn-header">Conocenos</a>
                          <div class="dropdown">
                         <input type="image"  src="img/user-img.png" height="60px"  width="50px" id="user"  onclick="location.href = 'user.aspx';" /> 
                           <div class="dropdown-content">
