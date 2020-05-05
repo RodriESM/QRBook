@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <ImageView
+        android:id="@+id/imgUsuario"
+        android:layout_width="150dp"
+        android:layout_height="147dp"
+        android:src="@drawable/logo"
+        android:layout_gravity="center"/>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="450dp"
+        >
+        <LinearLayout
+            android:padding="25dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <EditText
+                android:id="@+id/etUsuario"
+                android:layout_width="367dp"
+                android:layout_height="39dp"
+                android:hint="Usuario"/>
+
+            <EditText
+                android:id="@+id/etNombre"
+                android:layout_marginTop="25dp"
+                android:layout_width="367dp"
+                android:layout_height="39dp"
+                android:hint="Nombre"/>
+
+
+            <EditText
+                android:id="@+id/etApellido1"
+                android:layout_marginTop="25dp"
+                android:layout_width="367dp"
+                android:layout_height="39dp"
+                android:hint="Apellido 1"/>
+
+
+            <EditText
+                android:id="@+id/etApellido2"
+                android:layout_marginTop="25dp"
+                android:layout_width="367dp"
+                android:layout_height="39dp"
+                android:hint="Apellido 2" />
+
+
+            <EditText
+                android:id="@+id/etContrasena"
+                android:layout_marginTop="25dp"
+                android:layout_width="367dp"
+                android:layout_height="39dp"
+                android:hint="Contraseña"/>
+
+            <EditText
+                android:id="@+id/etRepiteContrasena"
+                android:layout_marginTop="25dp"
+                android:layout_width="367dp"
+                android:layout_height="39dp"
+                android:hint="Repita Contraseña" />
+
+        </LinearLayout>
+
+    </ScrollView>
+
+    <Button
+        android:id="@+id/btnRealizarCambios"
+        android:layout_width="282dp"
+        android:layout_height="56dp"
+        android:text="REALIZAR CAMBIOS"
+        android:gravity="center"
+        android:layout_gravity="center"/>
+
+</LinearLayout>

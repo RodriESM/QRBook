@@ -55,10 +55,10 @@ public class InicioActivity extends AppCompatActivity {
 
     private void loadViewPager(ViewPager viewPager){
         ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
-        adapter.addFragment((newInstance(main_escaner.class)));
         adapter.addFragment((newInstance(R.layout.activity_main)));
+        adapter.addFragment((newInstance(main_escaner.class)));
         adapter.addFragment((newInstance(R.layout.activity_registro)));
-        adapter.addFragment((newInstance(R.layout.activity_vista_escaner)));
+        adapter.addFragment((newInstance(R.layout.activity_lista_libros)));
         viewPager.setAdapter(adapter);
     }
 
@@ -70,9 +70,9 @@ public class InicioActivity extends AppCompatActivity {
         return fragment;
     }
 
-    private OneFragment newInstance(int clase){
+    private OneFragment newInstance(int referencia){
         Bundle bundle = new Bundle();
-        OneFragment fragment = new OneFragment(clase);
+        OneFragment fragment = new OneFragment(referencia);
         fragment.setArguments(bundle);
 
         return fragment;
