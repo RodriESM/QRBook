@@ -10,7 +10,7 @@ public class Libros implements Serializable {
     private String editorial;
     private String sinopsis;
     private int year;
-    private URL url;
+    private String url;
 
     //TO_DO realizar una vaiable url que contenddrá la imagen del libro
 
@@ -23,7 +23,7 @@ public class Libros implements Serializable {
         this.year = year;
     }
 
-    public Libros(int isbn, String autor, String titulo, String editorial, String sinopsis, int year, URL url) {
+    public Libros(int isbn, String autor, String titulo, String editorial, String sinopsis, int year, String url) {
         this.isbn = isbn;
         this.autor = autor;
         this.titulo = titulo;
@@ -33,11 +33,11 @@ public class Libros implements Serializable {
         this.url = url;
     }
 
-    public URL getUrl() {
+    public String getUrl() {
         return url;
     }
 
-    public void setUrl(URL url) {
+    public void setUrl(String url) {
         this.url = url;
     }
 
