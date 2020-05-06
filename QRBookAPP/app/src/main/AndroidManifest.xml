@@ -17,7 +17,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.NoActionBar">
-        <activity android:name=".modificacion"></activity>
+        <activity android:name=".ListaQr"></activity>
+        <activity android:name=".modificacion" />
         <activity android:name=".LibrosCaracteristicasAmpliado" />
         <activity android:name=".ListaLibros" />
         <activity android:name=".InicioActivity" />
