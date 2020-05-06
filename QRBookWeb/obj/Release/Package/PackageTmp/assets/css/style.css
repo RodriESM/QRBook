@@ -480,6 +480,7 @@ footer p {
 
 /*Botones*/
 .btn-registro {
+    display:none;
     background: transparent;
     border-radius: 10px;
     position: center;
@@ -495,6 +496,7 @@ footer p {
 }
 
 .btn-inicio {
+    display: none;
     background: url("img/backgroundposible.jpg");
     border-radius: 5px;
     position: center;
@@ -557,9 +559,9 @@ footer p {
 }
 
 .dropdown {
-  position: static;
-  display: inline-block;
-  margin-right: 10px;
+    display: none;
+    position: static;
+    margin-right: 10px;
 }
 
 .btn:hover, .dropdown:hover .btn {
