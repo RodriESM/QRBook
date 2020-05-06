@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".QrCaracteristicasAmpliado"
+    android:orientation="vertical">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="380dp"
+        android:orientation="vertical">
+
+        <WebView
+            android:id="@+id/wvQrContenido"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+
+    </LinearLayout>
+
+
+
+        <LinearLayout
+            android:layout_marginTop="5dp"
+            android:layout_marginLeft="30dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tvNombreQrAmpliado"
+                android:layout_width="350dp"
+                android:layout_height="29dp"
+                android:background="#ddd"
+                android:text="Hola"
+                android:textColor="#000000"
+                android:textSize="15dp"
+                android:textStyle="italic|bold"/>
+
+            <TextView
+                android:id="@+id/tvDescripcionQrAmpliado"
+                android:layout_width="350dp"
+                android:layout_height="32dp"
+                android:background="#ddd"
+                android:textColor="#000000"
+                android:text="Hola"
+                android:textSize="15dp"
+                android:textStyle="italic|bold"
+                android:layout_marginTop="25dp"/>
+
+            <TextView
+                android:id="@+id/tvTipoQrAmpliado"
+                android:layout_width="350dp"
+                android:layout_height="160dp"
+                android:background="#ddd"
+                android:textColor="#000000"
+                android:text="Hola"
+                android:textSize="15dp"
+                android:textStyle="italic|bold"
+                android:layout_marginTop="25dp"/>
+
+
+
+        </LinearLayout>
+
+</LinearLayout>

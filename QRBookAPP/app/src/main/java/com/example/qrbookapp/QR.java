@@ -5,13 +5,13 @@ import java.net.URL;
 
 public class QR implements Serializable {
 
-    private URL url;
+    private String url;
     private String isbn;
     private String tipo;
     private String nombre;
     private String Descripcion;
 
-    public QR(URL url, String isbn, String tipo, String nombre, String descripcion) {
+    public QR(String url, String isbn, String tipo, String nombre, String descripcion) {
         this.url = url;
         this.isbn = isbn;
         this.tipo = tipo;
@@ -19,7 +19,7 @@ public class QR implements Serializable {
         Descripcion = descripcion;
     }
 
-    public QR(URL url, String isbn, String nombre, String descripcion) {
+    public QR(String url, String isbn, String nombre, String descripcion) {
         this.url = url;
         this.isbn = isbn;
         this.nombre = nombre;
@@ -27,11 +27,11 @@ public class QR implements Serializable {
     }
 
 
-    public URL getUrl() {
+    public String getUrl() {
         return url;
     }
 
-    public void setUrl(URL url) {
+    public void setUrl(String url) {
         this.url = url;
     }
 
