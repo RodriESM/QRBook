@@ -6,10 +6,13 @@
 
 <head runat="server">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-<title></title>
+<title>Registro</title>
 <meta name="viewport" content="width=device-width, user-scalable=yes, initial-scale=1.0, maximum-scale=3.0, minimum-scale=1.0">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" >
 <link rel="stylesheet" href="assets/css/estilos.css">
+    <script type="text/javascript">
+
+    </script>
 </head>
 
 <body class="hidden">

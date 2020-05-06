@@ -15,6 +15,13 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU"
         crossorigin="anonymous">
         <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
+    <script type="text/javascript">
+        function salir() {
+            window.localStorage.setItem('user', '0');
+            location.reload();
+        }
+
+    </script>
 </head>
 <body class="hidden">
     <form id="form1" runat="server">
@@ -50,7 +57,7 @@
                         <input type="image"  src="img/user-img.png" height="60px"  width="50px" id="user"  onclick="location.href = 'user.aspx';" /> 
                           <div class="dropdown-content">
                             <a href="user.aspx">Perfil</a>
-                            <a href="#">Salir</a>
+                            <a href="#" onclick="salir()">Salir</a>
                           </div>
                         </div>
                         <input id="registro" class="btn-registro" type="button" onclick="location.href = 'registro.aspx';" value="Registro" />

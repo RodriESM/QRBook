@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Web.Mvc;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
@@ -47,7 +48,10 @@ namespace QRBookWeb
 
                 if (encontrado) {
                     //Con QueryStrings, puedes mandar informacion en la propia ruta, y recogerla en la nueva pagina
-                    Response.Redirect("/index.aspx?Desde=Login");
+                    // Get a ClientScriptManager reference from the Page class.
+                    ClientScriptManager cs = Page.ClientScript;
+                    cs.RegisterClientScriptBlock(this.GetType(), "script", "iniciado()", true);
+                    //Response.Redirect("/index.aspx?Desde=Login");
                 } else {
                     hr.MsgBox("El usuario o contraseña son incorrectos.", this.Page, this);
                 }

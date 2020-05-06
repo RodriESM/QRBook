@@ -11,6 +11,13 @@
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" >
 <link rel="stylesheet" href="assets/css/estilos.css">
 <link rel="stylesheet" type="text/css" href="assets/css/user.css">
+    <script type="text/javascript">
+        function salir() {
+            window.localStorage.setItem('user', '0');
+            location.replace("index.aspx");
+        }
+
+    </script>
 </head>
    <body class="hidden">
       <form id="form1" runat="server">

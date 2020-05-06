@@ -5,8 +5,6 @@ let menu = document.getElementById('enlaces');
 let abrir = document.getElementById('open');
 let botones = document.getElementsByClassName('btn-header');
 let cerrado = true;
-window.localStorage.setItem('user', '0');
-
 function menus(){
     let Desplazamiento_Actual = window.pageYOffset;
 
@@ -80,14 +78,3 @@ window.addEventListener('load', function () {
         document.getElementById("inicio").style.display = "none";
     }
 });
-
-
-function iniciado() {
-    window.localStorage.setItem('user', '1');
-    location.reload();
-}
-
-function salir() {
-    window.localStorage.setItem('user', '0');
-    location.reload();
-}

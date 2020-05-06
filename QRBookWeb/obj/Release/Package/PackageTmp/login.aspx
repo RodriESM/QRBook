@@ -9,6 +9,13 @@
 <meta name="viewport" content="width=device-width, user-scalable=yes, initial-scale=1.0, maximum-scale=3.0, minimum-scale=1.0">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" >
 <link rel="stylesheet" href="assets/css/estilos.css">
+    <script type="text/javascript">
+        function iniciado() {
+            window.localStorage.setItem('user', '1');
+            location.replace("index.aspx");
+        }
+
+    </script>
 </head>
 
 <body class="hidden">
@@ -76,7 +83,7 @@
          <input runat="server" type="password" id="pass" placeholder="Contraseña">
          
          </div>
-         <asp:Button class="button" runat="server" Text="Iniciar sesión" OnClick="Login_Click"/>
+         <asp:Button id="btnLogin" class="button" runat="server" Text="Iniciar sesión" OnClick="Login_Click"/>
          <p>Al registrarte, aceptas nuestras Condiciones de uso y Política de privacidad.</p>
          <p>¿No tienes una cuenta? <a class="link" href="registro.aspx">Registrate </a></p>
      </div>

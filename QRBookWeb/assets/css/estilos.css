@@ -328,7 +328,6 @@ nav .enlaces a:hover {
     display: inline-block;
     position: relative;
     border-radius: 100%;
-    text-align: center;
 }
 
 .dropdown-content {
