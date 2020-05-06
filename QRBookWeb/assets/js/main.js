@@ -5,7 +5,8 @@ let menu = document.getElementById('enlaces');
 let abrir = document.getElementById('open');
 let botones = document.getElementsByClassName('btn-header');
 let cerrado = true;
-function menus(){
+
+function menus() {
     let Desplazamiento_Actual = window.pageYOffset;
 
     if(Desplazamiento_Actual <= 300){
@@ -72,7 +73,11 @@ window.addEventListener('load', function () {
         document.getElementById("dropdown").style.display = "none";
         document.getElementById("registro").style.display = "inline-block";
         document.getElementById("inicio").style.display = "inline-block";
-    } else {
+    } else if (window.localStorage.getItem('user')==null) {
+        document.getElementById("dropdown").style.display = "none";
+        document.getElementById("registro").style.display = "inline-block";
+        document.getElementById("inicio").style.display = "inline-block";
+    }else {
         document.getElementById("dropdown").style.display = "inline-block";
         document.getElementById("registro").style.display = "none";
         document.getElementById("inicio").style.display = "none";

@@ -14,6 +14,7 @@
     <script type="text/javascript">
         function salir() {
             window.localStorage.setItem('user', '0');
+            window.localStorage.clear();
             location.replace("index.aspx");
         }
 
@@ -52,8 +53,8 @@
                          <div class="dropdown" id="dropdown">
                         <input type="image"  src="img/user-img.png" height="60px"  width="50px" id="user"  onclick="location.href = 'user.aspx';" /> 
                           <div class="dropdown-content">
-                            <a href="user.aspx">Perfil</a>
-                            <a href="#">Salir</a>
+                            <a href="#">Perfil</a>
+                            <a onclick="salir()">Salir</a>
                           </div>
                         </div>
                         <input id="registro" class="btn-registro" type="button" onclick="location.href='registro.aspx';" value="Registro" />

@@ -18,6 +18,7 @@
     <script type="text/javascript">
         function salir() {
             window.localStorage.setItem('user', '0');
+            window.localStorage.clear();
             location.reload();
         }
 
