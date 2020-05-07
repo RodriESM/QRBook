@@ -35,10 +35,39 @@ input[type="password"]{
     padding: 10px;
     border: none;
 }
+
+.txtbox {
+    font-size: 20px;
+    width: 82%;
+    padding: 10px;
+    border: none;
+}
+
+.validador {
+    font-size: 14px;
+    width: 82%;
+    padding: 10px;
+    border: none;
+    color: #aa0000;
+    font-weight: bold;
+}
+
 .input-contenedor{
-    margin-bottom: 15px;
+    /*margin-bottom: 15px;*/
     border: 1px solid #aaa;
 }
+
+.validador-contenedor {
+    margin-bottom: 15px;
+    border: 1px solid #aaa;
+    min-height: 20px;
+}
+.validador-contenedor2 {
+    margin-bottom: 15px;
+    border: none;
+    min-height: 20px;
+}
+
 .icon{
     min-width: 50px;
     text-align: center;
@@ -58,6 +87,22 @@ input[type="password"]{
     transition-duration: 0.4s;
     box-shadow: 0 3px 8px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
 }
+
+.buttondis {
+    border: none;
+    border-color: #bbbbbb;
+    width: 100%;
+    color: white;
+    font-size: 20px;
+    background: #999999;
+    padding: 15px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    -webkit-transition-duration: 0.4s;
+    transition-duration: 0.4s;
+    box-shadow: 0 3px 8px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
+}
+
 .button:hover {
     background: #558888;
     border: none;
