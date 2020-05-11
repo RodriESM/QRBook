@@ -4,6 +4,7 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
@@ -13,9 +14,9 @@ import java.util.ArrayList;
 
 public class AdaptadorQr extends BaseAdapter {
     private Context miContexto;
-    private ArrayList<Libros> miArrayList;
+    private ArrayList<QR> miArrayList;
 
-    public AdaptadorQr(Context miContexto, ArrayList<Libros> miArrayList) {
+    public AdaptadorQr(Context miContexto, ArrayList<QR> miArrayList) {
         this.miContexto = miContexto;
         this.miArrayList = miArrayList;
     }
@@ -33,7 +34,7 @@ public class AdaptadorQr extends BaseAdapter {
     @Override
     public long getItemId(int position) {
         //TO_DO No se que id Meterle, en este caso le metere el ISBN
-        return miArrayList.get(position).getIsbn();
+        return Long.parseLong(miArrayList.get(position).getIsbn());
     }
 
 
@@ -43,13 +44,20 @@ public class AdaptadorQr extends BaseAdapter {
         LayoutInflater layoutInflater = LayoutInflater.from(miContexto);
         convertView=layoutInflater.inflate(R.layout.gridview_qr, null);
 
+
+
+
         TextView tvTituloQr= convertView.findViewById(R.id.tvTituloQr);
         WebView wvqrseleccionador =convertView.findViewById(R.id.wvqrseleccionador);
 
-        tvTituloQr.setText(miArrayList.get(position).getTitulo());
+        final WebSettings ajustesVisorWeb = wvqrseleccionador.getSettings();
+        ajustesVisorWeb.setJavaScriptEnabled(true);
+        ajustesVisorWeb.setUseWideViewPort(true);
+        ajustesVisorWeb.setLoadWithOverviewMode(true);
+
+        tvTituloQr.setText(miArrayList.get(position).getNombre());
         wvqrseleccionador.loadUrl(miArrayList.get(position).getUrl());
-        //TO_DO Hay que enlazar las imagenes con las que tenga la base de datos
-        //imgQr.setText(miArrayList.get(position).getAutor());
+
 
         return convertView;
     }

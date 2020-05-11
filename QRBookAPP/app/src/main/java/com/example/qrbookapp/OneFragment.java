@@ -29,8 +29,9 @@ public class OneFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
         if(clase!=null) {
-            Intent intent = new Intent(getActivity(), clase);
-            getActivity().startActivity(intent);
+            view = inflater.inflate(referencia, container, false);
+           /* Intent intent = new Intent(getActivity(), clase);
+            getActivity().startActivity(intent);*/
         }else{
             view = inflater.inflate(referencia, container, false);
         }

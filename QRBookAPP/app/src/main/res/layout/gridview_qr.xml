@@ -6,7 +6,7 @@
 
     <WebView
         android:id="@+id/wvqrseleccionador"
-        android:layout_width="125dp"
+        android:layout_width="200dp"
         android:layout_height="140dp"/>
     <TextView
         android:id="@+id/tvTituloQr"

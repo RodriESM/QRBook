@@ -32,7 +32,7 @@ public class AdaptadorBiblioteca extends BaseAdapter {
     @Override
     public long getItemId(int position) {
         //TO_DO No se que id Meterle, en este caso le metere el ISBN
-        return miArrayList.get(position).getIsbn();
+        return Long.parseLong(miArrayList.get(position).getIsbn());
     }
 
     @Override

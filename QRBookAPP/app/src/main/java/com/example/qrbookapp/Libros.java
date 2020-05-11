@@ -4,7 +4,7 @@ import java.io.Serializable;
 import java.net.URL;
 
 public class Libros implements Serializable {
-    private int isbn;
+    private String isbn;
     private String autor;
     private String titulo;
     private String editorial;
@@ -14,7 +14,7 @@ public class Libros implements Serializable {
 
     //TO_DO realizar una vaiable url que contenddrá la imagen del libro
 
-    public Libros(int isbn, String autor, String titulo, String editorial, String sinopsis, int year) {
+    public Libros(String isbn, String autor, String titulo, String editorial, String sinopsis, int year) {
         this.isbn = isbn;
         this.autor = autor;
         this.titulo = titulo;
@@ -23,7 +23,7 @@ public class Libros implements Serializable {
         this.year = year;
     }
 
-    public Libros(int isbn, String autor, String titulo, String editorial, String sinopsis, int year, String url) {
+    public Libros(String isbn, String autor, String titulo, String editorial, String sinopsis, int year, String url) {
         this.isbn = isbn;
         this.autor = autor;
         this.titulo = titulo;
@@ -41,11 +41,11 @@ public class Libros implements Serializable {
         this.url = url;
     }
 
-    public int getIsbn() {
+    public String getIsbn() {
         return isbn;
     }
 
-    public void setIsbn(int isbn) {
+    public void setIsbn(String isbn) {
         this.isbn = isbn;
     }
 

@@ -24,9 +24,9 @@ public class ListaLibros extends AppCompatActivity {
         ArrayList<Libros> arrayLibros= new ArrayList<>();
         gvListaLibros=findViewById(R.id.gvListaLibros);
 
-        Libros libro= new Libros(23626262,"Arthur Conan Doyle","Sherlock Holmes","anaya","El más famoso detective de todos los tiempos en una nueva aventura",1855);
-        Libros libro2= new Libros(23626262,"Miguel de Cervantes Saavedar","Don Quijote de La Mancha","anaya","El más audaz de los caballeros",1755);
-        Libros libro3= new Libros(23626262,"Dan Brown","El Codigo Da Vinci","anaya","Una aventura trepidante y llena de suspense",2002);
+        Libros libro= new Libros("23626262","Arthur Conan Doyle","Sherlock Holmes","anaya","El más famoso detective de todos los tiempos en una nueva aventura",1855);
+        Libros libro2= new Libros("23626262","Miguel de Cervantes Saavedar","Don Quijote de La Mancha","anaya","El más audaz de los caballeros",1755);
+        Libros libro3= new Libros("23626262","Dan Brown","El Codigo Da Vinci","anaya","Una aventura trepidante y llena de suspense",2002);
 
         arrayLibros.add(libro);
         arrayLibros.add(libro2);

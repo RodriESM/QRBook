@@ -2,6 +2,7 @@ package com.example.qrbookapp;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -16,7 +17,7 @@ import java.sql.Statement;
 public class RegistroActivity extends AppCompatActivity {
 
     Connection conexionMySQL;
-    Button btnSignin;
+    Button btnRegistrarse;
     private String usuario, password, ip, bdDatos;
     EditText etEmail,etPassword,etPassword2;
     private int puerto;
@@ -25,9 +26,20 @@ public class RegistroActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registro);
 
+        btnRegistrarse=findViewById(R.id.btnRegistrarse);
+
+        btnRegistrarse.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i= new Intent(RegistroActivity.this,MainActivity.class);
+                startActivity(i);
+                finish();
+            }
+        });
 
 
-        btnSignin.setOnClickListener(new View.OnClickListener() {
+
+       /* btnSignin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
@@ -54,7 +66,6 @@ public class RegistroActivity extends AppCompatActivity {
 
     }
 
-
     public void conectarBDMySQL (String usuario, String contrasena,
                                  String ip, int puerto, String bdDatos)
     {
@@ -79,6 +90,6 @@ public class RegistroActivity extends AppCompatActivity {
                             Toast.LENGTH_LONG).show();
                 }
             }
-        }
+        }*/
     }
 }

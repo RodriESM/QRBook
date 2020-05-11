@@ -48,17 +48,17 @@ public class InicioActivity extends AppCompatActivity {
     }
 
     private void tabIcons(){
-        for (int i = 0; i < 4; i++){
+        for (int i = 0; i < 2; i++){
             tabLayout.getTabAt(i).setIcon(tabIcons[i]);
         }
     }
 
     private void loadViewPager(ViewPager viewPager){
         ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
-        adapter.addFragment((newInstance(R.layout.activity_main)));
-        adapter.addFragment((newInstance(main_escaner.class)));
+        //adapter.addFragment((newInstance(R.layout.activity_lista_libros)));
         adapter.addFragment((newInstance(R.layout.activity_registro)));
         adapter.addFragment((newInstance(R.layout.activity_lista_libros)));
+        //adapter.addFragment((newInstance(ListaLibros.class)));
         viewPager.setAdapter(adapter);
     }
 

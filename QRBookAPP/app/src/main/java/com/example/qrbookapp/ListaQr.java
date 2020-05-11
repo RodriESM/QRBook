@@ -20,8 +20,17 @@ public class ListaQr extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lista_qr);
 
-        ArrayList<Libros> arrayQr= new ArrayList<>();
+        ArrayList<QR> arrayQr= new ArrayList<>();
         gvListaQr=findViewById(R.id.gvListaQr);
+
+
+        QR qr= new QR("https://www.google.com/","2515516351","Imagen","Primera Imagen","Se aprecia algo en ella");
+        QR qr2= new QR("https://www.google.com/","2515516351","Web","Segunda Imagen","Se aprecia algo en ella");
+        QR qr3= new QR("https://www.google.com/","2515516351","Video","Tercera Imagen","Se aprecia algo en ella");
+
+        arrayQr.add(qr);
+        arrayQr.add(qr2);
+        arrayQr.add(qr3);
 
 
 
