@@ -3,10 +3,13 @@ package com.example.qrbookapp;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager.widget.ViewPager;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.PorterDuff;
 import android.os.Bundle;
+import android.view.View;
 
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.tabs.TabLayout;
 
 public class InicioActivity extends AppCompatActivity {
@@ -19,6 +22,15 @@ public class InicioActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_inicio);
 
+        FloatingActionButton fab = findViewById(R.id.fab);
+
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i= new Intent(InicioActivity.this,main_escaner.class);
+                startActivity(i);
+            }
+        });
         ViewPager viewPager = (ViewPager)findViewById(R.id.viewpager);
         loadViewPager(viewPager);
         tabLayout = (TabLayout)findViewById(R.id.tabs);
