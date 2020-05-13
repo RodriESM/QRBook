@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.example.qrbookapp.Database.ConnectionClass;
@@ -27,12 +28,10 @@ public class RegistroActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registro);
-
         etEmail=findViewById(R.id.etEmail);
         etUsuario=findViewById(R.id.etUsuario);
         etPassword=findViewById(R.id.etPassword);
         etPassword2=findViewById(R.id.etPassword2);
-
 
         btnRegistrarse=findViewById(R.id.btnRegistrarse);
 
@@ -40,30 +39,35 @@ public class RegistroActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                String email= etEmail.getText().toString();
+                String email=etEmail.getText().toString();
                 String ps1= etPassword.getText().toString();
                 String ps2= etPassword2.getText().toString();
                 String usuario=etUsuario.getText().toString();
+                if (email.matches("null@[a-zA-Z_]?.[a-zA-Z]{2,3}$")){
+                    if (ps1.equals(ps2)) {
+                        try {
 
-                if (ps1.equals(ps2)) {
-                    try {
+                            Connection connection = ConnectionClass.con;
+                            PreparedStatement ps = connection.prepareStatement("INSERT INTO USUARIO(correo,password,usuario) values(?,?,?)");
+                            ps.setString(1,email);
+                            ps.setString(2,ps1);
+                            ps.setString(3,usuario);
+                            ps.executeUpdate();
+                            Intent i = new Intent(RegistroActivity.this, MainActivity.class);
+                            startActivity(i);
 
-                        Connection f = ConnectionClass.con;
-                        PreparedStatement ps = f.prepareStatement("insert into USUARIO(correo,password,usuario) values(?,?,?)");
-                        ps.setString(1,email);
-                        ps.setString(2,ps1);
-                        ps.setString(3,usuario);
-                        ps.executeUpdate();
-                        Intent i = new Intent(RegistroActivity.this, MainActivity.class);
-                        startActivity(i);
+                        }catch(com.mysql.jdbc.exceptions.jdbc4.MySQLIntegrityConstraintViolationException e){
+                            Toast.makeText(getApplicationContext(),"Nombre de usuario ya registrado",Toast.LENGTH_LONG).show();
+                        }
+                        catch (SQLException e) {
+                            e.printStackTrace();
+                        }
+                    }else{
 
-                    } catch (SQLException e) {
-                        e.printStackTrace();
+                        Toast.makeText(getApplicationContext(),"Las contraseñas introducidas no son iguales. Intentelo de nuevo",Toast.LENGTH_LONG).show();
                     }
                 }else{
-
-                    Toast.makeText(getApplicationContext(),"Las contraseñas introducidas no son iguales.Intentelo de nuevo",Toast.LENGTH_LONG);
-
+                    Toast.makeText(getApplicationContext(),"El correo no es válido. Intentelo de nuevo",Toast.LENGTH_LONG).show();
                 }
 
             }
