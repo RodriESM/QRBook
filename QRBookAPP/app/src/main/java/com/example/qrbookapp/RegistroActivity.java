@@ -43,33 +43,31 @@ public class RegistroActivity extends AppCompatActivity {
                 String ps1= etPassword.getText().toString();
                 String ps2= etPassword2.getText().toString();
                 String usuario=etUsuario.getText().toString();
-                if (email.matches("null@[a-zA-Z_]?.[a-zA-Z]{2,3}$")){
-                    if (ps1.equals(ps2)) {
-                        try {
 
-                            Connection connection = ConnectionClass.con;
-                            PreparedStatement ps = connection.prepareStatement("INSERT INTO USUARIO(correo,password,usuario) values(?,?,?)");
-                            ps.setString(1,email);
-                            ps.setString(2,ps1);
-                            ps.setString(3,usuario);
-                            ps.executeUpdate();
-                            Intent i = new Intent(RegistroActivity.this, MainActivity.class);
-                            startActivity(i);
-
-                        }catch(com.mysql.jdbc.exceptions.jdbc4.MySQLIntegrityConstraintViolationException e){
-                            Toast.makeText(getApplicationContext(),"Nombre de usuario ya registrado",Toast.LENGTH_LONG).show();
-                        }
-                        catch (SQLException e) {
-                            e.printStackTrace();
-                        }
-                    }else{
-
-                        Toast.makeText(getApplicationContext(),"Las contraseñas introducidas no son iguales. Intentelo de nuevo",Toast.LENGTH_LONG).show();
-                    }
-                }else{
+                if (!email.matches("null@[a-zA-Z_]?.[a-zA-Z]{2,3}$")){
                     Toast.makeText(getApplicationContext(),"El correo no es válido. Intentelo de nuevo",Toast.LENGTH_LONG).show();
-                }
 
+                }else if(!ps1.equals(ps2)){
+                    Toast.makeText(getApplicationContext(),"Las contraseñas introducidas no son iguales. Intentelo de nuevo",Toast.LENGTH_LONG).show();
+                }else{
+                    try {
+
+                        Connection connection = ConnectionClass.con;
+                        PreparedStatement ps = connection.prepareStatement("INSERT INTO USUARIO(correo,password,usuario) values(?,?,?)");
+                        ps.setString(1,email);
+                        ps.setString(2,ps1);
+                        ps.setString(3,usuario);
+                        ps.executeUpdate();
+                        Intent i = new Intent(RegistroActivity.this, MainActivity.class);
+                        startActivity(i);
+
+                    }catch(com.mysql.jdbc.exceptions.jdbc4.MySQLIntegrityConstraintViolationException e){
+                        Toast.makeText(getApplicationContext(),"Nombre de usuario ya registrado",Toast.LENGTH_LONG).show();
+                    }
+                    catch (SQLException e) {
+                        e.printStackTrace();
+                    }
+                }
             }
         });
 
