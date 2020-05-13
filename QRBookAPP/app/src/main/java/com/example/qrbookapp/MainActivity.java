@@ -7,8 +7,10 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.blikoon.qrcodescanner.QrCodeActivity;
+import com.example.qrbookapp.Database.ConnectionClass;
 
 public class MainActivity extends AppCompatActivity {
     Button btnLogin,btnSignin;
@@ -17,6 +19,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        new ConnectionClass().setConnection();
 
         btnLogin=findViewById(R.id.btnLogin);
         btnSignin=findViewById(R.id.btnSignin);
@@ -36,6 +39,19 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(i);
             }
         });
+
+        try {
+            if (ConnectionClass.con==null){
+                new ConnectionClass().setConnection();
+                Toast.makeText(getApplicationContext(),"No conectado",Toast.LENGTH_LONG).show();
+
+            }else{
+
+                Toast.makeText(getApplicationContext(),"Conectado",Toast.LENGTH_LONG).show();
+            }
+        }catch (Exception e){
+
+        }
     }
 
 
