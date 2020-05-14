@@ -15,9 +15,11 @@ public class ViewPagerAdapter extends FragmentPagerAdapter {
         super(fm);
     }
 
+    //Modificar para que dependiendo de la posición del tab muestre un fragment u otro
     @Override
     public Fragment getItem(int position) {
-        return fragmentList.get(position);
+
+        return new ListaLibros();
     }
 
     @Override
