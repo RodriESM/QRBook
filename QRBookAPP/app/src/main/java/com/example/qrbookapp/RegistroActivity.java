@@ -46,12 +46,10 @@ public class RegistroActivity extends AppCompatActivity {
 
                 if (!email.matches("null@[a-zA-Z_]?.[a-zA-Z]{2,3}$")){
                     Toast.makeText(getApplicationContext(),"El correo no es válido. Intentelo de nuevo",Toast.LENGTH_LONG).show();
-
                 }else if(!ps1.equals(ps2)){
                     Toast.makeText(getApplicationContext(),"Las contraseñas introducidas no son iguales. Intentelo de nuevo",Toast.LENGTH_LONG).show();
                 }else{
                     try {
-
                         Connection connection = ConnectionClass.con;
                         PreparedStatement ps = connection.prepareStatement("INSERT INTO USUARIO(correo,password,usuario) values(?,?,?)");
                         ps.setString(1,email);
