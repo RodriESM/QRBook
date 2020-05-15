@@ -148,7 +148,7 @@ public class Escaner extends AppCompatActivity {
                 textScanResult.setText("");
             }
 
-    }
+         }
 
     };
 

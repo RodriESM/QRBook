@@ -44,9 +44,9 @@ public class RegistroActivity extends AppCompatActivity {
                 String ps2= etPassword2.getText().toString();
                 String usuario=etUsuario.getText().toString();
 
-                if (!email.matches("null@[a-zA-Z_]?.[a-zA-Z]{2,3}$")){
+                if (!email.matches("^\\w+@[a-zA-Z_]+?.[a-zA-Z]{2,3}$")){
                     Toast.makeText(getApplicationContext(),"El correo no es válido. Intentelo de nuevo",Toast.LENGTH_LONG).show();
-                }else if(!ps1.equals(ps2)){
+                }else if(!ps1.equals(ps2)){ //Pass: ^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$
                     Toast.makeText(getApplicationContext(),"Las contraseñas introducidas no son iguales. Intentelo de nuevo",Toast.LENGTH_LONG).show();
                 }else{
                     try {
