@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".InicioActivity"
-    android:background=""
+    android:background="@drawable/recortebackgroundblanco"
     android:backgroundTintMode="screen"
     >
 <LinearLayout
