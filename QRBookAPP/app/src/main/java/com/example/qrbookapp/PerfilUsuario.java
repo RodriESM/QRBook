@@ -7,7 +7,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 
-public class modificacion extends AppCompatActivity {
+public class PerfilUsuario extends AppCompatActivity {
 
     EditText etUsuario,etNombre,etApellido1,etApellido2,etContrasena,etRepiteContrasena;
     ImageView imgUsuario;
@@ -16,7 +16,7 @@ public class modificacion extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_modificacion);
+        setContentView(R.layout.activity_perfil_usuario);
 
         etUsuario=findViewById(R.id.etUsuario);
         etNombre=findViewById(R.id.etNombre);
@@ -27,8 +27,5 @@ public class modificacion extends AppCompatActivity {
         imgUsuario=findViewById(R.id.imgUsuario);
         btnRealizarCambios=findViewById(R.id.btnRealizarCambios);
 
-
-        
-        
     }
 }

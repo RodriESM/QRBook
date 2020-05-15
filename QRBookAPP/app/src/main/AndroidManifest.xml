@@ -20,13 +20,13 @@
         android:theme="@style/Theme.AppCompat.NoActionBar">
         <activity android:name=".QrCaracteristicasAmpliado" />
         <activity android:name=".ListaQr" />
-        <activity android:name=".modificacion" />
+        <activity android:name=".PerfilUsuario" />
         <activity android:name=".LibrosCaracteristicasAmpliado" />
-        <activity android:name=".ListaLibros" />
+        <activity android:name=".Fragment.Fragment_ListaLibros" />
         <activity android:name=".InicioActivity" />
-        <activity android:name=".vista_escaner" />
+        <activity android:name=".EscanerVista" />
         <activity android:name=".RegistroActivity" />
-        <activity android:name=".main_escaner" />
+        <activity android:name=".Escaner" />
         <activity android:name=".MainActivity" />
         <activity android:name=".SplashScreen">
             <intent-filter>

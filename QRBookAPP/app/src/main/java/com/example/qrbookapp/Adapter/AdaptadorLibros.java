@@ -1,4 +1,4 @@
-package com.example.qrbookapp;
+package com.example.qrbookapp.Adapter;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -8,13 +8,16 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.example.qrbookapp.Class.Libro;
+import com.example.qrbookapp.R;
+
 import java.util.ArrayList;
 
-public class AdaptadorBiblioteca extends BaseAdapter {
+public class AdaptadorLibros extends BaseAdapter {
     private Context miContexto;
-    private ArrayList<Libros> miArrayList;
+    private ArrayList<Libro> miArrayList;
 
-    public AdaptadorBiblioteca(Context miContexto, ArrayList<Libros> miArrayList) {
+    public AdaptadorLibros(Context miContexto, ArrayList<Libro> miArrayList) {
         this.miContexto = miContexto;
         this.miArrayList = miArrayList;
     }
@@ -39,7 +42,7 @@ public class AdaptadorBiblioteca extends BaseAdapter {
     public View getView(int position, View convertView, ViewGroup parent) {
 
         LayoutInflater layoutInflater = LayoutInflater.from(miContexto);
-        convertView=layoutInflater.inflate(R.layout.gridview_libros, null);
+        convertView=layoutInflater.inflate(R.layout.item_libro, null);
 
         TextView tvTitulo= convertView.findViewById(R.id.tvTitulo);
         TextView  tvAutor=convertView.findViewById(R.id.tvAutor);

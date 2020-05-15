@@ -1,4 +1,4 @@
-package com.example.qrbookapp;
+package com.example.qrbookapp.Class;
 
 import java.io.Serializable;
 import java.net.URL;

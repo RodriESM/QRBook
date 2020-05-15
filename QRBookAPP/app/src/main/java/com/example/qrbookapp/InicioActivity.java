@@ -9,6 +9,8 @@ import android.graphics.PorterDuff;
 import android.os.Bundle;
 import android.view.View;
 
+import com.example.qrbookapp.Adapter.ViewPagerAdapter;
+import com.example.qrbookapp.Fragment.OneFragment;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.tabs.TabLayout;
 
@@ -27,7 +29,7 @@ public class InicioActivity extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i= new Intent(InicioActivity.this,main_escaner.class);
+                Intent i= new Intent(InicioActivity.this, Escaner.class);
                 startActivity(i);
             }
         });
@@ -67,9 +69,9 @@ public class InicioActivity extends AppCompatActivity {
 
     private void loadViewPager(ViewPager viewPager){
         ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
-        //adapter.addFragment((newInstance(R.layout.activity_lista_libros)));
+        //adapter.addFragment((newInstance(R.layout.activity_gridview_libros)));
         adapter.addFragment((newInstance(R.layout.activity_registro)));
-        adapter.addFragment((newInstance(R.layout.activity_lista_libros)));
+        adapter.addFragment((newInstance(R.layout.activity_gridview_libros)));
         //adapter.addFragment((newInstance(ListaLibros.class)));
         viewPager.setAdapter(adapter);
     }

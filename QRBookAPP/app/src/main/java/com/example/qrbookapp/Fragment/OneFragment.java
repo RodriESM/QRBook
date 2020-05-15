@@ -1,4 +1,4 @@
-package com.example.qrbookapp;
+package com.example.qrbookapp.Fragment;
 
 import android.content.Intent;
 import android.os.Bundle;

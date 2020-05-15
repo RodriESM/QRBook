@@ -9,6 +9,8 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.example.qrbookapp.Class.Libro;
+
 public class LibrosCaracteristicasAmpliado extends AppCompatActivity {
 
     TextView tvTituloAmpliado,tvAutorAmpliado,tvEditorialAmpliado,tvAnioAmpliado,tvSinopsisAmpliado;
@@ -28,7 +30,7 @@ public class LibrosCaracteristicasAmpliado extends AppCompatActivity {
         imgLibroAmpliado=findViewById(R.id.imgLibroAmpliado);
         btnQrs = findViewById(R.id.btnQrs);
 
-        Libros libroSeleccionadoAnteriormente=(Libros) getIntent().getSerializableExtra("libros");
+        Libro libroSeleccionadoAnteriormente=(Libro) getIntent().getSerializableExtra("libros");
 
         tvTituloAmpliado.setText(libroSeleccionadoAnteriormente.getTitulo());
         tvAutorAmpliado.setText(libroSeleccionadoAnteriormente.getAutor());

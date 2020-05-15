@@ -1,9 +1,9 @@
-package com.example.qrbookapp;
+package com.example.qrbookapp.Class;
 
 import java.io.Serializable;
 import java.net.URL;
 
-public class Libros implements Serializable {
+public class Libro implements Serializable {
     private String isbn;
     private String autor;
     private String titulo;
@@ -14,7 +14,7 @@ public class Libros implements Serializable {
 
     //TO_DO realizar una vaiable url que contenddrá la imagen del libro
 
-    public Libros(String isbn, String autor, String titulo, String editorial, String sinopsis, int year) {
+    public Libro(String isbn, String autor, String titulo, String editorial, String sinopsis, int year) {
         this.isbn = isbn;
         this.autor = autor;
         this.titulo = titulo;
@@ -23,7 +23,7 @@ public class Libros implements Serializable {
         this.year = year;
     }
 
-    public Libros(String isbn, String autor, String titulo, String editorial, String sinopsis, int year, String url) {
+    public Libro(String isbn, String autor, String titulo, String editorial, String sinopsis, int year, String url) {
         this.isbn = isbn;
         this.autor = autor;
         this.titulo = titulo;

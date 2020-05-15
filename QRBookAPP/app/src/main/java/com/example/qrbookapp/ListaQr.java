@@ -8,6 +8,9 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.GridView;
 
+import com.example.qrbookapp.Adapter.AdaptadorQr;
+import com.example.qrbookapp.Class.QR;
+
 import java.util.ArrayList;
 
 public class ListaQr extends AppCompatActivity {
@@ -18,7 +21,7 @@ public class ListaQr extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_lista_qr);
+        setContentView(R.layout.activity_gridview_qr);
 
         ArrayList<QR> arrayQr= new ArrayList<>();
         gvListaQr=findViewById(R.id.gvListaQr);

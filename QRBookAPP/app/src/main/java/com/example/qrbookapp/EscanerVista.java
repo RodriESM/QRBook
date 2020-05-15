@@ -7,13 +7,13 @@ import android.view.KeyEvent;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 
-public class vista_escaner extends AppCompatActivity {
+public class EscanerVista extends AppCompatActivity {
     WebView WVVista;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_vista_escaner);
+        setContentView(R.layout.activity_escaner_vista);
 
         WVVista=findViewById(R.id.WVvista);
         //De esta forma ajustamos el WebView a los marcos

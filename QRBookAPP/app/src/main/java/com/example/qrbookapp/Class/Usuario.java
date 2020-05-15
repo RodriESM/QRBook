@@ -1,9 +1,9 @@
-package com.example.qrbookapp;
+package com.example.qrbookapp.Class;
 
 import java.io.Serializable;
 import java.net.URL;
 
-public class Usuarios implements Serializable {
+public class Usuario implements Serializable {
 
     private String correo;
     private String usuario;
@@ -13,13 +13,13 @@ public class Usuarios implements Serializable {
     private String apellido2;
     private URL url;
 
-    public Usuarios(String correo, String usuario, String password) {
+    public Usuario(String correo, String usuario, String password) {
         this.correo = correo;
         this.usuario = usuario;
         this.password = password;
     }
 
-    public Usuarios(String correo, String usuario, String password, String nombre, String apellido1, String apellido2, URL url) {
+    public Usuario(String correo, String usuario, String password, String nombre, String apellido1, String apellido2, URL url) {
         this.correo = correo;
         this.usuario = usuario;
         this.password = password;
@@ -29,7 +29,7 @@ public class Usuarios implements Serializable {
         this.url = url;
     }
 
-    public Usuarios(String usuario, String password, String nombre, String apellido1, String apellido2) {
+    public Usuario(String usuario, String password, String nombre, String apellido1, String apellido2) {
         this.usuario = usuario;
         this.password = password;
         this.nombre = nombre;
@@ -37,7 +37,7 @@ public class Usuarios implements Serializable {
         this.apellido2 = apellido2;
     }
 
-    public Usuarios(String correo, URL url) {
+    public Usuario(String correo, URL url) {
         this.correo = correo;
         this.url = url;
     }

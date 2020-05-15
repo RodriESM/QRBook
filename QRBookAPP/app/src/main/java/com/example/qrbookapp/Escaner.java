@@ -22,7 +22,7 @@ import com.google.android.gms.vision.barcode.BarcodeDetector;
 
 
 
-public class main_escaner extends AppCompatActivity {
+public class Escaner extends AppCompatActivity {
 
     //Forzamos a que nos solicite el permiso de la camara
     private final int requestCodeCameraPermission=10001;
@@ -40,7 +40,7 @@ public class main_escaner extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main_escaner);
+        setContentView(R.layout.activity_escaner);
         cameraSurfaceView=findViewById(R.id.cameraSurfaceView);
         textScanResult=findViewById(R.id.textScanResult);
 
@@ -137,7 +137,7 @@ public class main_escaner extends AppCompatActivity {
                    Uri uri=Uri.parse(code.displayValue);
                    Intent i=new Intent(Intent.ACTION_VIEW,uri);*/
                   //Al querer abrirlo en otra actividad, pasamos los datos a la otra actividad de esta forma
-                  Intent i=new Intent(main_escaner.this,vista_escaner.class);
+                  Intent i=new Intent(Escaner.this, EscanerVista.class);
                   i.putExtra("url",code.displayValue);
                    startActivity(i);
                }else{

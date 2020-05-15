@@ -1,21 +1,21 @@
-package com.example.qrbookapp;
+package com.example.qrbookapp.Class;
 
 import java.io.Serializable;
 
-public class Autores implements Serializable {
+public class Autor implements Serializable {
 
     private String nombre;
     private String apellido1;
     private String apellido2;
     private String pais;
 
-    public Autores(String nombre, String apellido1, String apellido2) {
+    public Autor(String nombre, String apellido1, String apellido2) {
         this.nombre = nombre;
         this.apellido1 = apellido1;
         this.apellido2 = apellido2;
     }
 
-    public Autores(String nombre, String apellido1, String apellido2, String pais) {
+    public Autor(String nombre, String apellido1, String apellido2, String pais) {
         this.nombre = nombre;
         this.apellido1 = apellido1;
         this.apellido2 = apellido2;

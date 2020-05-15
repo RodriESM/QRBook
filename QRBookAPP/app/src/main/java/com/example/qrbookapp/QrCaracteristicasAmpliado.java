@@ -6,6 +6,8 @@ import android.os.Bundle;
 import android.webkit.WebView;
 import android.widget.TextView;
 
+import com.example.qrbookapp.Class.QR;
+
 public class QrCaracteristicasAmpliado extends AppCompatActivity {
 
     TextView tvNombreQrAmpliado,tvDescripcionQrAmpliado,tvTipoQrAmpliado;
