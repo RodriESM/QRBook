@@ -11,6 +11,7 @@ import android.view.View;
 
 import com.example.qrbookapp.Adapter.ViewPagerAdapter;
 import com.example.qrbookapp.Fragment.OneFragment;
+import com.getbase.floatingactionbutton.FloatingActionsMenu;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.tabs.TabLayout;
 
@@ -24,15 +25,26 @@ public class InicioActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_inicio);
 
-        FloatingActionButton fab = findViewById(R.id.fab);
+        com.getbase.floatingactionbutton.FloatingActionButton btnCamera = findViewById(R.id.btnCamera);
 
-        fab.setOnClickListener(new View.OnClickListener() {
+        btnCamera.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent i= new Intent(InicioActivity.this, Escaner.class);
                 startActivity(i);
             }
         });
+
+        com.getbase.floatingactionbutton.FloatingActionButton btnUser = findViewById(R.id.btnUser);
+
+        btnUser.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i= new Intent(InicioActivity.this, PerfilUsuario.class);
+                startActivity(i);
+            }
+        });
+
         ViewPager viewPager = (ViewPager)findViewById(R.id.viewpager);
         loadViewPager(viewPager);
         tabLayout = (TabLayout)findViewById(R.id.tabs);

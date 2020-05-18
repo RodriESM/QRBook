@@ -5,14 +5,16 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:background="@drawable/userperfil">
 
     <ImageView
         android:id="@+id/imgUsuario"
         android:layout_width="150dp"
         android:layout_height="147dp"
         android:src="@drawable/logo"
-        android:layout_gravity="center"/>
+        android:layout_gravity="center"
+        android:contentDescription="Foto de perfil" />
 
     <ScrollView
         android:layout_width="match_parent"
@@ -28,14 +30,17 @@
                 android:id="@+id/etUsuario"
                 android:layout_width="367dp"
                 android:layout_height="39dp"
-                android:hint="Usuario"/>
+                android:hint="Usuario"
+                android:textColorHint="#000"
+                android:autofillHints="" />
 
             <EditText
                 android:id="@+id/etNombre"
                 android:layout_marginTop="25dp"
                 android:layout_width="367dp"
                 android:layout_height="39dp"
-                android:hint="Nombre"/>
+                android:hint="Nombre"
+                android:textColorHint="#000"/>
 
 
             <EditText
@@ -43,7 +48,8 @@
                 android:layout_marginTop="25dp"
                 android:layout_width="367dp"
                 android:layout_height="39dp"
-                android:hint="Apellido 1"/>
+                android:hint="Apellido 1"
+                android:textColorHint="#000"/>
 
 
             <EditText
@@ -51,22 +57,33 @@
                 android:layout_marginTop="25dp"
                 android:layout_width="367dp"
                 android:layout_height="39dp"
-                android:hint="Apellido 2" />
+                android:hint="Apellido 2"
+                android:textColorHint="#000"/>
 
 
-            <EditText
-                android:id="@+id/etContrasena"
+            <TextView
+                android:id="@+id/tvContraseña"
+                android:text="Cambiar contraseña"
+                android:textSize="18sp"
+                android:textStyle="italic|bold"
                 android:layout_marginTop="25dp"
                 android:layout_width="367dp"
                 android:layout_height="39dp"
-                android:hint="Contraseña"/>
+                android:textColor="#000"/>
+            <EditText
+                android:id="@+id/etContrasena"
+                android:layout_width="367dp"
+                android:layout_height="39dp"
+                android:hint="Contraseña"
+                android:textColorHint="#000"/>
 
             <EditText
                 android:id="@+id/etRepiteContrasena"
                 android:layout_marginTop="25dp"
                 android:layout_width="367dp"
                 android:layout_height="39dp"
-                android:hint="Repita Contraseña" />
+                android:hint="Repetir Contraseña"
+                android:textColorHint="#000"/>
 
         </LinearLayout>
 
@@ -75,6 +92,8 @@
     <Button
         android:id="@+id/btnRealizarCambios"
         android:layout_width="282dp"
+        android:textColor="#000"
+        android:background="#4F817070"
         android:layout_height="56dp"
         android:text="REALIZAR CAMBIOS"
         android:gravity="center"

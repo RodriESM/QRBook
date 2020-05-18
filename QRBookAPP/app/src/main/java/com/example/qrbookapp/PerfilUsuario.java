@@ -3,6 +3,7 @@ package com.example.qrbookapp;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.view.KeyEvent;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -27,5 +28,13 @@ public class PerfilUsuario extends AppCompatActivity {
         imgUsuario=findViewById(R.id.imgUsuario);
         btnRealizarCambios=findViewById(R.id.btnRealizarCambios);
 
+    }
+
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if ((keyCode == KeyEvent.KEYCODE_BACK)) {
+            super.finish();
+        }
+        return super.onKeyDown(keyCode, event);
     }
 }
