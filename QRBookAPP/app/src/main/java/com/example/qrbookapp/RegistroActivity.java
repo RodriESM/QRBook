@@ -44,11 +44,16 @@ public class RegistroActivity extends AppCompatActivity {
                 String ps2= etPassword2.getText().toString();
                 String usuario=etUsuario.getText().toString();
 
-                if (!email.matches("^\\w+@[a-zA-Z_]+?.[a-zA-Z]{2,3}$")){
-                    Toast.makeText(getApplicationContext(),"El correo no es válido. Intentelo de nuevo",Toast.LENGTH_LONG).show();
-                }else if(!ps1.equals(ps2)){ //Pass: ^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$
-                    Toast.makeText(getApplicationContext(),"Las contraseñas introducidas no son iguales. Intentelo de nuevo",Toast.LENGTH_LONG).show();
-                }else{
+                if (!email.matches("^\\w+@[a-zA-Z_]+?.[a-zA-Z]{2,3}$")) {
+                    Toast.makeText(getApplicationContext(), "El correo no es válido. Intentelo de nuevo.", Toast.LENGTH_LONG).show();
+                }else if(ps1.length()<8){
+                    Toast.makeText(getApplicationContext(), "La contraseña debe tener mínimo 8 carácteres.", Toast.LENGTH_LONG).show();
+                }else if (!ps1.matches("^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)[a-zA-Z\\d]{8,}$")){
+                    Toast.makeText(getApplicationContext(), "La contraseña debe contener una letra mayúscula, minúscula y un número.", Toast.LENGTH_LONG).show();
+                }else if(!ps1.equals(ps2)) { //Pass: ^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$
+                    Toast.makeText(getApplicationContext(), "Las contraseñas introducidas no son iguales. Intentelo de nuevo.", Toast.LENGTH_LONG).show();
+                }
+                else{
                     try {
                         Connection connection = ConnectionClass.con;
                         PreparedStatement ps = connection.prepareStatement("INSERT INTO USUARIO(correo,password,usuario) values(?,?,?)");
@@ -60,7 +65,7 @@ public class RegistroActivity extends AppCompatActivity {
                         startActivity(i);
 
                     }catch(com.mysql.jdbc.exceptions.jdbc4.MySQLIntegrityConstraintViolationException e){
-                        Toast.makeText(getApplicationContext(),"Nombre de usuario ya registrado",Toast.LENGTH_LONG).show();
+                        Toast.makeText(getApplicationContext(),"Nombre de usuario ya registrado.",Toast.LENGTH_LONG).show();
                     }
                     catch (SQLException e) {
                         e.printStackTrace();
@@ -70,3 +75,4 @@ public class RegistroActivity extends AppCompatActivity {
         });
     }
 }
+
