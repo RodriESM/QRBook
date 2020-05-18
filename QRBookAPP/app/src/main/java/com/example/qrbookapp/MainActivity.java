@@ -48,7 +48,7 @@ public class MainActivity extends AppCompatActivity {
                                 Intent i = new Intent(MainActivity.this, InicioActivity.class);
                                 startActivity(i);
                             }else{
-                                Toast.makeText(MainActivity.this, "Usuario no enctronado", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(MainActivity.this, "Usuario no encontrado", Toast.LENGTH_SHORT).show();
                             }
                     }
 
