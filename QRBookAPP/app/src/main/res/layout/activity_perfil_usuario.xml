@@ -27,7 +27,7 @@
             android:orientation="vertical">
 
             <EditText
-                android:id="@+id/etUsuario"
+                android:id="@+id/etUsuarioCam"
                 android:layout_width="367dp"
                 android:layout_height="39dp"
                 android:hint="Usuario"
