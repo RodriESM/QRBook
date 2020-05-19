@@ -95,6 +95,29 @@ width: 100%;
     -webkit-box-shadow: none;
 }
 
+
+.txtinput {
+	border-left: 0;
+	border-right: 0;
+	border-top: 0;
+	border-top-style: none;
+	border-left-style: none;
+	border-right-style: none;
+	background-color: transparent;
+	border-bottom-color: #1498a4;
+	width: 50%;
+	display: inline;
+	margin-right: auto;
+}
+
+.txtinput:focus {
+	outline: none !important;
+	outline-width: 0 !important;
+	box-shadow: none;
+	-moz-box-shadow: none;
+	-webkit-box-shadow: none;
+}
+
 .button-user{
 	border: 0;
 	border-color: transparent;
@@ -115,6 +138,7 @@ width: 100%;
 	border-radius: 5px;
 	margin-left: auto;
 	margin-right: auto;
+	font-weight: bold;
 }
 
 .div-button-save{
@@ -150,6 +174,19 @@ width: 100%;
     font-size: 15px;
 
 }
+
+.txtpwd {
+	border-left: 0;
+	background-color: rgb(255,255,255,0.50);
+	border-right: 0;
+	border-top: 0;
+	width: 50%;
+	height: 3px;
+	display: inline;
+	margin-right: auto;
+	font-size: 15px;
+}
+
 
 .labelpassword p{
 	width: 40%;

@@ -67,7 +67,7 @@ abrir.addEventListener('click', function(){
 });
 
 /*Usuario oculto*/
-window.addEventListener('load', function () {
+/*window.addEventListener('load', function () {
 
     if (window.localStorage.getItem('user') == '0') {
         document.getElementById("dropdown").style.display = "none";
@@ -82,4 +82,33 @@ window.addEventListener('load', function () {
         document.getElementById("registro").style.display = "none";
         document.getElementById("inicio").style.display = "none";
     }
-});
+});*/
+
+/*window.addEventListener('load', function () {
+    var logged = true;
+    if (window.localStorage.length == 0 ||
+        window.localStorage.getItem('usuario') == "" ||
+        window.localStorage.getItem('correo') == "" ||
+        window.localStorage.getItem('password') == "") {
+
+        logged = false;
+    }
+
+
+    if (logged) {
+        document.getElementById("dropdown").style.display = "inline-block";
+        document.getElementById("registro").style.display = "none";
+        document.getElementById("inicio").style.display = "none";
+    } else {
+        document.getElementById("dropdown").style.display = "none";
+        document.getElementById("registro").style.display = "inline-block";
+        document.getElementById("inicio").style.display = "inline-block";
+    } 
+});*/
+
+/*window.addEventListener('load', function () {
+    document.getElementById("dropdown").style.display = "inline-block";
+    document.getElementById("registro").style.display = "inline-block";
+    document.getElementById("inicio").style.display = "inline-block";
+    
+});*/

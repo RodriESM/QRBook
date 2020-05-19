@@ -14,9 +14,9 @@ namespace QRBookWeb.assets.cs
 
         }
 
-        public void MsgBox(String ex, Page pg, Object obj)
-        {
-            string s = "<SCRIPT language='javascript'>alert('" + ex.Replace("\r\n", "\\n").Replace("'", "") + "'); </SCRIPT>";
+        public void MsgBox(String ex, Page pg, Object obj) {
+            //string s = "<SCRIPT language='javascript'>alert('" + ex.Replace("\r\n", "\\n").Replace("'", "") + "'); </SCRIPT>";
+            string s = "<SCRIPT language='javascript'>alert('" + ex.Replace("\n", "\\n").Replace("'", "") + "'); </SCRIPT>";
             Type cstype = obj.GetType();
             ClientScriptManager cs = pg.ClientScript;
             cs.RegisterClientScriptBlock(cstype, s, s.ToString());

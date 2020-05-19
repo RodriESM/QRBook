@@ -398,17 +398,11 @@ D:\GitHub\ProyectoDAM2\QRBookWeb\QRBookWeb\bin\System.Buffers.dll
 D:\GitHub\ProyectoDAM2\QRBookWeb\QRBookWeb\bin\System.Memory.dll
 D:\GitHub\ProyectoDAM2\QRBookWeb\QRBookWeb\bin\System.Runtime.CompilerServices.Unsafe.dll
 D:\GitHub\ProyectoDAM2\QRBookWeb\QRBookWeb\bin\System.Threading.Tasks.Extensions.dll
-D:\GitHub\ProyectoDAM2\QRBookWeb\QRBookWeb\bin\MySql.Data.dll
-D:\GitHub\ProyectoDAM2\QRBookWeb\QRBookWeb\bin\BouncyCastle.Crypto.dll
-D:\GitHub\ProyectoDAM2\QRBookWeb\QRBookWeb\bin\Ubiety.Dns.Core.dll
-D:\GitHub\ProyectoDAM2\QRBookWeb\QRBookWeb\bin\Renci.SshNet.dll
-D:\GitHub\ProyectoDAM2\QRBookWeb\QRBookWeb\bin\MySql.Web.xml
 D:\GitHub\ProyectoDAM2\QRBookWeb\QRBookWeb\bin\MySqlConnector.xml
 D:\GitHub\ProyectoDAM2\QRBookWeb\QRBookWeb\bin\System.Buffers.xml
 D:\GitHub\ProyectoDAM2\QRBookWeb\QRBookWeb\bin\System.Memory.xml
 D:\GitHub\ProyectoDAM2\QRBookWeb\QRBookWeb\bin\System.Runtime.CompilerServices.Unsafe.xml
 D:\GitHub\ProyectoDAM2\QRBookWeb\QRBookWeb\bin\System.Threading.Tasks.Extensions.xml
-D:\GitHub\ProyectoDAM2\QRBookWeb\QRBookWeb\bin\MySql.Data.xml
 F:\GitHub\QRBook\QRBookWeb\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
 F:\GitHub\QRBook\QRBookWeb\bin\roslyn\Microsoft.CodeAnalysis.dll
 F:\GitHub\QRBook\QRBookWeb\bin\roslyn\System.Collections.Immutable.dll

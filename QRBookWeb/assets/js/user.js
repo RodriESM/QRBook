@@ -1,4 +1,4 @@
-function mostrarPassword(){
+/*function mostrarPassword(){
 		var cambioNueva = document.getElementById("txtNewPassword");
 		var cambioRNueva = document.getElementById("txtRNewPassword");
 		var cambioVieja = document.getElementById("txtLastPassword");
@@ -23,7 +23,24 @@ function mostrarPassword(){
 			cambioRNueva.type = "password";
 			$('.icon').removeClass('fa fa-eye').addClass('fa fa-eye-slash');
 		}
-	} 
+} */
+
+function mostrarPassword() {
+	var cambioNueva = document.getElementById("txtNewPassword");
+	var cambioRNueva = document.getElementById("txtRNewPassword");
+	var cambioVieja = document.getElementById("txtLastPassword");
+	if (cambioVieja.type == "password") {
+		cambioVieja.type = "text";
+		cambioNueva.type = "text";
+		cambioRNueva.type = "text";
+		$('.icon').removeClass('fa fa-eye-slash').addClass('fa fa-eye');
+	} else {
+		cambioVieja.type = "password";
+		cambioNueva.type = "password";
+		cambioRNueva.type = "password";
+		$('.icon').removeClass('fa fa-eye').addClass('fa fa-eye-slash');
+	}
+} 
 	
 	
 	$(document).ready(function () {

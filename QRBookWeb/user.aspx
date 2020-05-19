@@ -12,12 +12,11 @@
 <link rel="stylesheet" href="assets/css/estilos.css">
 <link rel="stylesheet" type="text/css" href="assets/css/user.css">
     <script type="text/javascript">
-        function salir() {
+        /*function salir() {
             window.localStorage.setItem('user', '0');
             window.localStorage.clear();
             location.replace("index.aspx");
-        }
-
+        }*/
     </script>
 </head>
    <body class="hidden">
@@ -50,15 +49,16 @@
                         <a href="index.aspx#Informacion" id="enlace-info" class="btn-header">Información</a>
                         <a href="index.aspx#Desarrollo" id="enlace-app" class="btn-header">Desarrollo</a>
                         <a href="index.aspx#Equipo" id="enlace-equipo" class="btn-header">Conocenos</a>
-                         <div class="dropdown" id="dropdown">
-                        <input type="image"  src="img/user-img.png" height="60px"  width="50px" id="user"  onclick="location.href = 'user.aspx';" /> 
-                          <div class="dropdown-content">
-                            <a href="#">Perfil</a>
-                            <a onclick="salir()">Salir</a>
-                          </div>
+                        <div runat="server" class="dropdown" id="dropdown">
+                            <input type="image"  src="img/user-img.png" height="60px"  width="50px" id="user"  onclick="location.href = 'user.aspx';" /> 
+                            <div class="dropdown-content">
+                                <a href="user.aspx">Perfil</a>
+                                <!--<a href="#" onclick="salir()">Salir</a>-->
+                                <asp:LinkButton id="btnSalir" class="btn-salir" runat="server" Text="Salir" OnClick="btnSalir_Click" />
+                            </div>
                         </div>
-                        <input id="registro" class="btn-registro" type="button" onclick="location.href='registro.aspx';" value="Registro" />
-                        <input id="inicio" class="btn-inicio" type="button" onclick="location.href='login.aspx';" value="Inicio de sesion" style="margin-right: 15px" />
+                        <!-- <input id="registro" class="btn-registro" type="button" onclick="location.href='registro.aspx';" value="Registro" />
+                        <input id="inicio" class="btn-inicio" type="button" onclick="location.href='login.aspx';" value="Inicio de sesion" style="margin-right: 15px" /> -->
                        <!--<a href="#" id="enlace-contacto" class="btn-header">Inicio</a>--> 
                     </div>
                     <div class="icono" id="open">
@@ -78,8 +78,8 @@
                </div>
                <div class="row-nombre">
                   <div class="col-nombre">
-                        <h3>Nombre</h3>
-                        <p>Lore ipsum...</p>
+                        <h2 runat="server" id="usutitle">Usuario</h2>
+                        <h4 runat="server" id="nomtitle">Nombre Completo</h4>
                   </div>
                </div>
 
@@ -91,26 +91,26 @@
                            </div>
                         <!--Nobre y apellidos-->
                            <div class="col-md-6">
-                                 <label class="label"><p>Nombre*</p><input class="input" type="TextBox" name="Full-name"></label><br>
-                                 <label class="label"><p>Apellido1</p><input class="input" type="TextBox" name="Full-name"></label><br>
-                                 <label class="label"><p>Apellido2</p><input class="input" type="TextBox" name="Full-name"></label><br>
+                                 <label class="label"><p>Nombre</p><asp:TextBox ID="nom" runat="server" class="txtinput" type="TextBox" MaxLength="30"/></label><br>
+                                 <label class="label"><p>1er Apellido</p><asp:TextBox ID="ape1" runat="server" class="txtinput" type="TextBox" MaxLength="30"/></label><br>
+                                 <label class="label"><p>2º Apellido</p><asp:TextBox ID="ape2" runat="server" class="txtinput" type="TextBox" MaxLength="30"/></label><br>
                                  <!-- <asp:TextBox CssClass="form-control" ID="TextBox3" runat="server" placeholder="Full Name"></asp:TextBox> -->
                            </div>
 
                            <!--Fecha-->
                             <div class="col-md-7">
                               <div class="fecha">
-                                 <label class="label"><p>Cumpleaños</p><input type="Date" name="Fecha"></label><br>
+                                 <label class="label"><p>Cumpleaños</p><asp:TextBox ID="birth" runat="server" class="txtinput" type="date"/></label><br>
                                  <!--<asp:TextBox CssClass="form-control" ID="TextBox4" runat="server" placeholder="Password" TextMode="Date"></asp:TextBox>
                               </div>-->
                            </div>
                               <div class="tlf">
                                  <!--<asp:TextBox CssClass="form-control" ID="TextBox5" runat="server" placeholder="Contact No" TextMode="Number"></asp:TextBox>-->
-                                 <label class="label"><p>Teléfono</p><input type="tlf" name="Telefono"></label><br>
+                                 <label class="label"><p>Teléfono</p><asp:TextBox ID="tlf" runat="server" class="txtinput" type="number" max="999999999" min="1"/></label><br>
                               </div>
                                <div class="email">
                                  <!--<asp:TextBox CssClass="form-control" ID="TextBox6" runat="server" placeholder="Email ID" TextMode="Email"></asp:TextBox>-->
-                                 <label class="label"><p>Email</p><input type="Email" name="Email"></label><br>
+                                 <label class="label"><p>Email</p><asp:TextBox ID="email" runat="server" class="txtinput" type="TextBox" Enabled="false"/></label><br>
                               </div>
                            </div>
        					
@@ -118,13 +118,13 @@
                         <!--Datos de ciudad-->
                            <div class="col-md-6">
                               <div class="form-group">
-                                 <label class="label"><p>Provincia</p><input type="TextBox" name="Provincia"></label><br>
+                                 <label class="label"><p>Provincia</p><asp:TextBox ID="prov" runat="server" class="txtinput" type="TextBox" MaxLength="30"/></label><br>
                                  <!--<asp:TextBox class="form-control" ID="TextBox7" runat="server" placeholder="City"></asp:TextBox>-->
-                                 <label class="label"><p>Ciudad</p><input type="City" name="Ciudad"></label><br>
+                                 <label class="label"><p>Ciudad</p><asp:TextBox ID="city" runat="server" class="txtinput" type="TextBox" MaxLength="50"/></label><br>
                                  <!-- <asp:TextBox class="form-control" ID="TextBox8" runat="server" placeholder="Pincode" TextMode="Number"></asp:TextBox>-->
-                                 <label class="label"><p>Código postal</p><input type="CP" name="Pincode"></label><br>
+                                 <label class="label"><p>Código postal</p><asp:TextBox ID="cp" runat="server" class="txtinput" type="number" max="99999" min ="1000"/></label><br>
                                  <!-- <asp:TextBox class="form-control" ID="TextBox9" runat="server" placeholder="Pincode" TextMode="Number"></asp:TextBox>-->
-                                  <label class="label"><p>Dirección</p><input type="TextBox" name="Direccion"></label><br>
+                                  <label class="label"><p>Dirección</p><asp:TextBox ID="dir" runat="server" class="txtinput" type="TextBox" MaxLength="50"/></label><br>
                               <!--<div class="form-group">
                                  <asp:TextBox CssClass="form-control" ID="TextBox10" runat="server" placeholder="Full Address" TextMode="MultiLine" Rows="2"></asp:TextBox>-->
                                                          <!--Datos titulo credenciales-->
@@ -137,18 +137,21 @@
                          <h4 >Contraseña</h4>
                       </div><br>
 
-                        <label class="labelpassword"><p>Antigua</p><input ID="txtRNewPassword" type="Password"></label><br>
+                        <label class="labelpassword"><p>Antigua</p><asp:TextBox ID="txtLastPassword" runat="server" class="txtpwd" TextMode="Password" MaxLength="30"/></label><br>
                      
                         <!-- <asp:TextBox class="form-control" ID="TextBox11" runat="server" placeholder="Email ID" TextMode="Password" ReadOnly="True"></asp:TextBox> -->
 
-                        <label class="labelpassword"><p>Nueva</p><input ID="txtLastPassword" type="Password"></label><br>
-                        <label class="labelpassword"><p>Repetir nueva</p><input class="pwd" ID="txtNewPassword" type="password"></label><br>
+                        <label class="labelpassword"><p>Nueva</p><asp:TextBox ID="txtNewPassword" runat="server" class="txtpwd" TextMode="Password" MaxLength="30"/></label><br>
+                        <label class="labelpassword"><p>Repetir nueva</p><asp:TextBox ID="txtRNewPassword" runat="server" class="txtpwd" TextMode="Password" MaxLength="30"/></label><br>
                         <button style="float: right; margin-right:  15px;"  id="show_password" class="button-user" type="button" onmousedown="mostrarPassword()"> <i class="fa fa-eye-slash icon"></i></button>
+                        <asp:Button runat="server" style="float: left; margin-left:  15px; font-weight: bold;"  id="btnguardarpass" class="button-user" type="button" OnClick="btnguardarpass_Click" Text="  Guardar Contraseña  "/>
                         <!-- <asp:TextBox class="form-control" ID="TextBox12" runat="server" placeholder="Email ID" TextMode="Password"></asp:TextBox> -->
 
                      </div>
+
+
 						<div class="div-button-save">
-                           <button class="button-save"><b>Guardar</b></button>
+                           <asp:Button id="btnguardar" class="button-save" runat="server" Text="Guardar Datos" OnClick="btnguardar_Click"/>
                         </div>
            		</div>
 

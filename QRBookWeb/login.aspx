@@ -10,10 +10,25 @@
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" >
 <link rel="stylesheet" href="assets/css/estilos.css">
     <script type="text/javascript">
-        function iniciado() {
+        /*function iniciado(datos) {
+            //console.log("xD");
+            //console.log(datos);
+            var JSONobj = JSON.parse(datos);
+            //console.log(JSONobj);
+            window.localStorage.setItem('correo', JSONobj.correo);
+            window.localStorage.setItem('usuario', JSONobj.usuario);
+            window.localStorage.setItem('password', JSONobj.password);
+            window.localStorage.setItem('nombre', JSONobj.nombre);
+            window.localStorage.setItem('apellido1', JSONobj.apellido1);
+            window.localStorage.setItem('apellido2', JSONobj.apellido2);
+            window.localStorage.setItem('foto', JSONobj.foto);
+            location.replace("index.aspx");
+        }*/
+
+        /*function iniciado() {
             window.localStorage.setItem('user', '1');
             location.replace("index.aspx");
-        }
+        }*/
 
     </script>
 </head>
@@ -49,13 +64,13 @@
                         <a href="index.aspx#Informacion" id="enlace-info" class="btn-header">Información</a>
                         <a href="index.aspx#Desarrollo" id="enlace-app" class="btn-header">Desarrollo</a>
                         <a href="index.aspx#Equipo" id="enlace-equipo" class="btn-header">Conocenos</a>
-                         <div class="dropdown" id="dropdown">
+                         <!--<div class="dropdown" id="dropdown">
                         <input type="image"  src="img/user-img.png" height="60px"  width="50px" id="user"  onclick="location.href = 'user.aspx';" /> 
                           <div class="dropdown-content">
                             <a href="user.aspx">Perfil</a>
                             <a onclick="salir()">Salir</a>
                           </div>
-                        </div>
+                        </div> -->
                         <input id="registro" class="btn-registro" type="button" onclick="location.href='registro.aspx';" value="Registro" />
                         <input id="inicio" class="btn-inicio" type="button" onclick="location.href = 'login.aspx';" value="Inicio de sesion" style="margin-right: 15px" />
                        <!--<a href="#" id="enlace-contacto" class="btn-header">Inicio</a>--> 
@@ -74,13 +89,13 @@
      
          <div class="input-contenedor">
          <i class="fas fa-envelope icon"></i>
-         <input runat="server" type="text" id="user" placeholder="Usuario o Correo Electronico">
+         <input runat="server" type="text" id="user" placeholder="Usuario o Correo Electronico" maxlength="50">
          
          </div>
          
          <div class="input-contenedor">
         <i class="fas fa-key icon"></i>
-         <input runat="server" type="password" id="pass" placeholder="Contraseña">
+         <input runat="server" type="password" id="pass" placeholder="Contraseña" maxlength="30">
          
          </div>
          <asp:Button id="btnLogin" class="button" runat="server" Text="Iniciar sesión" OnClick="Login_Click"/>

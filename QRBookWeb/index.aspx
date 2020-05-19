@@ -16,12 +16,11 @@
         crossorigin="anonymous">
         <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
     <script type="text/javascript">
-        function salir() {
+        /*function salir() {
             window.localStorage.setItem('user', '0');
             window.localStorage.clear();
             location.reload();
-        }
-
+        }*/
     </script>
 </head>
 <body class="hidden">
@@ -54,15 +53,16 @@
                         <a href="#Informacion" id="enlace-info" class="btn-header">Información</a>
                         <a href="#Desarrollo" id="enlace-app" class="btn-header">Desarrollo</a>
                         <a href="#Equipo" id="enlace-equipo" class="btn-header">Conócenos</a>
-                         <div class="dropdown" id="dropdown">
-                        <input type="image"  src="img/user-img.png" height="60px"  width="50px" id="user"  onclick="location.href = 'user.aspx';" /> 
-                          <div class="dropdown-content">
-                            <a href="user.aspx">Perfil</a>
-                            <a href="#" onclick="salir()">Salir</a>
-                          </div>
+                        <div runat="server" class="dropdown" id="dropdown">
+                            <input type="image"  src="img/user-img.png" height="60px"  width="50px" id="user"  onclick="location.href = 'user.aspx';" /> 
+                            <div class="dropdown-content">
+                                <a href="user.aspx">Perfil</a>
+                                <!--<a href="#" onclick="salir()">Salir</a>-->
+                                <asp:LinkButton id="btnSalir" class="btn-salir" runat="server" Text="Salir" OnClick="btnSalir_Click" />
+                            </div>
                         </div>
-                        <input id="registro" class="btn-registro" type="button" onclick="location.href = 'registro.aspx';" value="Registro" />
-                        <input id="inicio" class="btn-inicio" type="button" onclick="location.href = 'login.aspx';" value="Inicio de sesión" style="margin-right: 15px" />
+                        <input runat="server" id="registro" class="btn-registro" type="button" onclick="location.href = 'registro.aspx';" value="Registro" />
+                        <input runat="server" id="inicio" class="btn-inicio" type="button" onclick="location.href = 'login.aspx';" value="Inicio de sesión" style="margin-right: 15px" />
                        <!--<a href="#" id="enlace-contacto" class="btn-header">Inicio</a>--> 
                     </div>
                     <div class="icono" id="open">

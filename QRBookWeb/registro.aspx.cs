@@ -8,6 +8,8 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using Microsoft.Owin.Security.Google;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 
 namespace QRBookWeb {
     public partial class registro : System.Web.UI.Page {
@@ -18,24 +20,42 @@ namespace QRBookWeb {
 
         protected void Page_Load(object sender, EventArgs e) {
 
-            if (IsPostBack) {
-                foreach (IValidator i in Validators) {
-                    if (i.ErrorMessage.Contains("UNTOUCHED") && !(i == reqpass || i == valpass)) {
-                        i.ErrorMessage = i.ErrorMessage.Replace("UNTOUCHED", "");
-                    }
-                }
-                Page.Validate();
-            } else {
-                foreach (IValidator i in Validators) {
-                    if (!(i == cususuario || i == cuscorreo)) {
-                        i.ErrorMessage += "UNTOUCHED";
-                    }
+            //JObject o = (JObject)Session["user"];
+
+            bool logged = false;
+            if (Session["correo"] != null) {
+                if (!String.IsNullOrEmpty(Session["correo"].ToString())) {
+                    logged = true;
                 }
             }
-            btnregistro.Enabled = false;
-            btnregistro.CssClass = "buttondis";
-            //usuario.BackColor = System.Drawing.Color.FromArgb(255,0,0);
-            //btnregistro.Enabled = false;
+
+            if (logged) {
+                Response.Redirect("/index.aspx");
+            } else {
+
+                if (IsPostBack) {
+                    foreach (IValidator i in Validators) {
+                        if (i.ErrorMessage.Contains("UNTOUCHED") && !(i == reqpass || i == valpass)) {
+                            i.ErrorMessage = i.ErrorMessage.Replace("UNTOUCHED", "");
+                        }
+                    }
+                    Page.Validate();
+                } else {
+                    foreach (IValidator i in Validators) {
+                        if (!(i == cususuario || i == cuscorreo)) {
+                            i.ErrorMessage += "UNTOUCHED";
+                        }
+                    }
+                    usuario.Focus();
+                }
+                btnregistro.Enabled = false;
+                btnregistro.CssClass = "buttondis";
+                //usuario.BackColor = System.Drawing.Color.FromArgb(255,0,0);
+                //btnregistro.Enabled = false;
+
+            }
+
+
         }
 
         protected void Registro_Click(object sender, EventArgs e) {
