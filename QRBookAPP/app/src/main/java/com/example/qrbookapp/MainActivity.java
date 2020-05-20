@@ -2,6 +2,7 @@ package com.example.qrbookapp;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -10,15 +11,26 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.blikoon.qrcodescanner.QrCodeActivity;
+import com.example.qrbookapp.Class.AccesoFichero;
 import com.example.qrbookapp.Database.ConnectionClass;
 
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
     Button btnLogin, btnSignin;
     EditText etEmail, etPassword;
+    ArrayList<String> contenidoFicheroRecordado= new ArrayList<>();
+    AccesoFichero accesoFichero = new AccesoFichero();
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,7 +43,40 @@ public class MainActivity extends AppCompatActivity {
         btnLogin = findViewById(R.id.btnLogin);
         btnSignin = findViewById(R.id.btnSignin);
 
-        btnLogin.setOnClickListener(new View.OnClickListener() {
+        //Mira en todos los fichero que contiene la aplicacion
+        final String datos []=fileList();
+        final String nombreFicheroRecordatorio="user.txt";
+
+        if (accesoFichero.archivoExisteEntreFicheros(datos,nombreFicheroRecordatorio)){
+
+            try {
+                InputStreamReader isr= new InputStreamReader(openFileInput(nombreFicheroRecordatorio));
+                BufferedReader br= new BufferedReader(isr);
+                String linea=br.readLine();
+
+                //Introducimos los datos en un array recorriendo cada linea del fichero, en la primera linea tendrá el usuario y en la segunda la contraseña
+                while(linea!=null){
+                    contenidoFicheroRecordado.add(linea);
+                    linea = br.readLine();
+                }
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+        }
+
+
+
+        if(contenidoFicheroRecordado.size()>0){
+            etEmail.setText(contenidoFicheroRecordado.get(0));
+            etPassword.setText(contenidoFicheroRecordado.get(1));
+        }
+
+
+
+            btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
@@ -50,6 +95,17 @@ public class MainActivity extends AppCompatActivity {
                             }else{
                                 Toast.makeText(MainActivity.this, "Usuario no encontrado", Toast.LENGTH_SHORT).show();
                             }
+
+                        if (!accesoFichero.archivoExisteEntreFicheros(datos,nombreFicheroRecordatorio)){
+
+                            File fichero = new File("user.txt");
+                            try {
+                                EscribirEnFichero(etEmail.getText().toString(), etPassword.getText().toString(), "user.txt");
+                            } catch (IOException e) {
+                                e.printStackTrace();
+                            }
+
+                        }
                     }
 
                 } catch (Exception e) {
@@ -66,6 +122,14 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+
+    }
+
+    public void EscribirEnFichero(String correo, String contrasena, String nombreArchivoEscribir) throws IOException {
+        OutputStreamWriter fichero= new OutputStreamWriter(openFileOutput(nombreArchivoEscribir, Activity.MODE_PRIVATE));
+        fichero.write(correo +"\n" + contrasena);
+        fichero.flush();
+        fichero.close();
 
     }
 }

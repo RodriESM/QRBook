@@ -3,6 +3,7 @@ package com.example.qrbookapp;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager.widget.ViewPager;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.PorterDuff;
@@ -10,10 +11,15 @@ import android.os.Bundle;
 import android.view.View;
 
 import com.example.qrbookapp.Adapter.ViewPagerAdapter;
+import com.example.qrbookapp.Class.AccesoFichero;
 import com.example.qrbookapp.Fragment.OneFragment;
 import com.getbase.floatingactionbutton.FloatingActionsMenu;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.tabs.TabLayout;
+
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.OutputStreamWriter;
 
 public class InicioActivity extends AppCompatActivity {
 
@@ -103,4 +109,7 @@ public class InicioActivity extends AppCompatActivity {
 
         return fragment;
     }
+
+
+
 }
