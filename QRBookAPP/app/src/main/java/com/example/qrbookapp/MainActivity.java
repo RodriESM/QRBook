@@ -15,8 +15,10 @@ import com.example.qrbookapp.Class.AccesoFichero;
 import com.example.qrbookapp.Database.ConnectionClass;
 
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
@@ -96,16 +98,13 @@ public class MainActivity extends AppCompatActivity {
                                 Toast.makeText(MainActivity.this, "Usuario no encontrado", Toast.LENGTH_SHORT).show();
                             }
 
-                        if (!accesoFichero.archivoExisteEntreFicheros(datos,nombreFicheroRecordatorio)){
-
-                            File fichero = new File("user.txt");
                             try {
-                                EscribirEnFichero(etEmail.getText().toString(), etPassword.getText().toString(), "user.txt");
+                                EscribirEnFichero(etEmail.getText().toString(), etPassword.getText().toString());
                             } catch (IOException e) {
                                 e.printStackTrace();
                             }
 
-                        }
+
                     }
 
                 } catch (Exception e) {
@@ -125,11 +124,12 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    public void EscribirEnFichero(String correo, String contrasena, String nombreArchivoEscribir) throws IOException {
-        OutputStreamWriter fichero= new OutputStreamWriter(openFileOutput(nombreArchivoEscribir, Activity.MODE_PRIVATE));
-        fichero.write(correo +"\n" + contrasena);
-        fichero.flush();
-        fichero.close();
+    public void EscribirEnFichero(String correo, String contrasena) throws IOException {
+        File fichero = new File("user.txt");
+        OutputStreamWriter osw= new OutputStreamWriter(openFileOutput("user.txt", Activity.MODE_PRIVATE));
+        osw.write(correo +"\n" + contrasena);
+        osw.flush();
+        osw.close();
 
     }
 }
