@@ -58,6 +58,7 @@ public class LibrosCaracteristicasAmpliado extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent nuevaActividad = new Intent(getApplicationContext(), ListaQr.class);
+                nuevaActividad.putExtra("info",tvIsbnAmpliado.getText().toString());
                 startActivity(nuevaActividad);
             }
         });

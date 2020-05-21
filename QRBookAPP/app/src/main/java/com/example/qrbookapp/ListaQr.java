@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.GridView;
+import android.widget.Toast;
 
 import com.example.qrbookapp.Adapter.AdaptadorQr;
 import com.example.qrbookapp.Class.QR;
@@ -25,6 +26,9 @@ public class ListaQr extends AppCompatActivity {
 
         ArrayList<QR> arrayQr= new ArrayList<>();
         gvListaQr=findViewById(R.id.gvListaQr);
+
+        Bundle bundle=getIntent().getExtras();
+        String isbn=bundle.getString("info");
 
 
         QR qr= new QR("https://www.google.com/","2515516351","Imagen","Primera Imagen","Se aprecia algo en ella");
