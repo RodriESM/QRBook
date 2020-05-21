@@ -5,13 +5,19 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.webkit.WebSettings;
 import android.widget.AdapterView;
 import android.widget.GridView;
 import android.widget.Toast;
 
 import com.example.qrbookapp.Adapter.AdaptadorQr;
 import com.example.qrbookapp.Class.QR;
+import com.example.qrbookapp.Database.ConnectionClass;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 
 public class ListaQr extends AppCompatActivity {
@@ -26,22 +32,26 @@ public class ListaQr extends AppCompatActivity {
 
         ArrayList<QR> arrayQr= new ArrayList<>();
         gvListaQr=findViewById(R.id.gvListaQr);
-
+        
         Bundle bundle=getIntent().getExtras();
         String isbn=bundle.getString("info");
 
+        try{
+            Connection con= ConnectionClass.con;
 
-        QR qr= new QR("https://www.google.com/","2515516351","Imagen","Primera Imagen","Se aprecia algo en ella");
-        QR qr2= new QR("https://www.google.com/","2515516351","Web","Segunda Imagen","Se aprecia algo en ella");
-        QR qr3= new QR("https://www.google.com/","2515516351","Video","Tercera Imagen","Se aprecia algo en ella");
+            //Obtenemos los datos de cada objeto para introducirlos en el adaptador
+            ResultSet rs = con.createStatement().executeQuery("select * from QR where ISBN like '"+isbn+"' order by PAGINA");
 
-        arrayQr.add(qr);
-        arrayQr.add(qr2);
-        arrayQr.add(qr3);
-
-
-
-        adaptadorQr=new AdaptadorQr(this,arrayQr);
+            //A partir de un resulset obtenemos los datos de la consulta lanzada a la base de datos
+            while(rs.next()){
+                QR qr=new QR(rs.getString(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getString(5));
+                arrayQr.add(qr);
+            }
+        }catch (SQLException e) {
+            e.printStackTrace();
+        }finally {
+            adaptadorQr=new AdaptadorQr(this,arrayQr);
+        }
 
         gvListaQr.setAdapter(adaptadorQr);
 
@@ -55,7 +65,6 @@ public class ListaQr extends AppCompatActivity {
 
             }
         });
-
 
     }
 }

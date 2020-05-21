@@ -10,6 +10,7 @@ public class QR implements Serializable {
     private String tipo;
     private String nombre;
     private String Descripcion;
+    private String pagina;
 
     public QR(String url, String isbn, String tipo, String nombre, String descripcion) {
         this.url = url;
@@ -19,10 +20,12 @@ public class QR implements Serializable {
         Descripcion = descripcion;
     }
 
-    public QR(String url, String isbn, String nombre, String descripcion) {
+    //He añadido la página para así poder ponerla en un texto y que el usuario pueda ver a qué hace referencia.
+    public QR(String url, String isbn, String tipo, String nombre, String descripcion,String pagina) {
         this.url = url;
         this.isbn = isbn;
         this.nombre = nombre;
+        this.pagina=pagina;
         Descripcion = descripcion;
     }
 

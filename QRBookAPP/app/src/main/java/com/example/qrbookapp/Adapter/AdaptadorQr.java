@@ -46,17 +46,14 @@ public class AdaptadorQr extends BaseAdapter {
         LayoutInflater layoutInflater = LayoutInflater.from(miContexto);
         convertView=layoutInflater.inflate(R.layout.item_qr, null);
 
-
-
-
         TextView tvTituloQr= convertView.findViewById(R.id.tvTituloQr);
         WebView wvqrseleccionador =convertView.findViewById(R.id.wvqrseleccionador);
 
         final WebSettings ajustesVisorWeb = wvqrseleccionador.getSettings();
+
         ajustesVisorWeb.setJavaScriptEnabled(true);
         ajustesVisorWeb.setUseWideViewPort(true);
         ajustesVisorWeb.setLoadWithOverviewMode(true);
-
         tvTituloQr.setText(miArrayList.get(position).getNombre());
         wvqrseleccionador.loadUrl(miArrayList.get(position).getUrl());
 
