@@ -28,6 +28,27 @@
                     android:layout_height="155dp"
                     android:layout_gravity="center"
                     android:src="@drawable/logo" />
+
+                <TextView
+                    android:paddingLeft="15sp"
+                    android:layout_width="350dp"
+                    android:layout_height="29dp"
+                    android:text="ISBN"
+                    android:textColor="#000000"
+                    android:textSize="15dp"
+                    android:textStyle="italic|bold"
+                    android:layout_marginTop="25dp"/>
+
+                <TextView
+                    android:id="@+id/tvIsbnAmpliado"
+                    android:paddingLeft="15sp"
+                    android:layout_width="350dp"
+                    android:layout_height="29dp"
+                    android:text="Hola"
+                    android:textColor="#000000"
+                    android:textSize="15dp"
+                    android:textStyle="italic"/>
+
                 <TextView
                     android:paddingLeft="15sp"
                     android:layout_width="350dp"
@@ -35,7 +56,8 @@
                     android:text="Título"
                     android:textColor="#000000"
                     android:textSize="15dp"
-                    android:textStyle="italic|bold"/>
+                    android:textStyle="italic|bold"
+                    android:layout_marginTop="25dp"/>
 
                 <TextView
                     android:id="@+id/tvTituloAmpliado"
@@ -160,9 +182,6 @@
                     android:textStyle="italic|bold"
                     android:layout_marginTop="25dp"/>
 
-
-
-
                 <TextView
                     android:id="@+id/tvSinopsisAmpliado"
                     android:layout_width="352dp"
@@ -173,27 +192,6 @@
                     android:textSize="15dp"
                     android:textStyle="italic"
                      />
-
-
-                <TextView
-                    android:paddingLeft="15sp"
-                    android:layout_width="350dp"
-                    android:layout_height="29dp"
-                    android:text="ISBN"
-                    android:textColor="#000000"
-                    android:textSize="15dp"
-                    android:textStyle="italic|bold"
-                    android:layout_marginTop="25dp"/>
-
-                <TextView
-                    android:id="@+id/tvIsbnAmpliado"
-                    android:paddingLeft="15sp"
-                    android:layout_width="350dp"
-                    android:layout_height="29dp"
-                    android:text="Hola"
-                    android:textColor="#000000"
-                    android:textSize="15dp"
-                    android:textStyle="italic"/>
 
                      <Button
                          android:id="@+id/btnQrs"

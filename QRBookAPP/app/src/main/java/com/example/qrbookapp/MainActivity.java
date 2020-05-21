@@ -88,14 +88,14 @@ public class MainActivity extends AppCompatActivity {
                         Toast.makeText(getApplicationContext(), "Error de conexión", Toast.LENGTH_LONG).show();
                     } else {
                         Connection connection = ConnectionClass.con;
-                        PreparedStatement pstUserPass = connection.prepareStatement("SELECT USUARIO from USUARIO  WHERE CORREO like'" + etEmail.getText().toString() + "' OR USUARIO like '" + etEmail.getText().toString() + "' AND PASSWORD like '" + etPassword.getText().toString() + "'");
+                        PreparedStatement pstUserPass = connection.prepareStatement("SELECT USUARIO from USUARIO  WHERE (CORREO like'" + etEmail.getText().toString() + "' OR USUARIO like '" + etEmail.getText().toString() + "') AND PASSWORD like '" + etPassword.getText().toString() + "'");
                         ResultSet rs = pstUserPass.executeQuery();
                             if (rs.next()) {
-                                Toast.makeText(MainActivity.this, "Bienvenido " + rs.getString(1), Toast.LENGTH_SHORT).show();
+                                Toast.makeText(MainActivity.this, "Bienvenido " + rs.getString(1), Toast.LENGTH_LONG).show();
                                 Intent i = new Intent(MainActivity.this, InicioActivity.class);
                                 startActivity(i);
                             }else{
-                                Toast.makeText(MainActivity.this, "Usuario no encontrado", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(MainActivity.this, "Usuario o contraseña incorrectos", Toast.LENGTH_LONG).show();
                             }
 
                             try {
