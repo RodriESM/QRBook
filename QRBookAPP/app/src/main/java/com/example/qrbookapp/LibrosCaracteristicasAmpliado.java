@@ -11,10 +11,11 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.qrbookapp.Class.Libro;
+import com.squareup.picasso.Picasso;
 
 public class LibrosCaracteristicasAmpliado extends AppCompatActivity {
 
-    TextView tvTituloAmpliado,tvAutorAmpliado,tvEditorialAmpliado,tvAnioAmpliado,tvSinopsisAmpliado;
+    TextView tvTituloAmpliado,tvAutorAmpliado,tvEditorialAmpliado,tvAnioAmpliado,tvSinopsisAmpliado,tvIdiomaAmpliado,tvGeneroAmpliado,tvIsbnAmpliado;
     ImageView imgLibroAmpliado;
     Button btnQrs;
 
@@ -28,6 +29,11 @@ public class LibrosCaracteristicasAmpliado extends AppCompatActivity {
         tvEditorialAmpliado=findViewById(R.id.tvEditorialAmpliado);
         tvAnioAmpliado=findViewById(R.id.tvAnioAmpliado);
         tvSinopsisAmpliado=findViewById(R.id.tvSinopsisAmpliado);
+
+        tvIdiomaAmpliado=findViewById(R.id.tvIdiomaAmpliado);
+        tvGeneroAmpliado=findViewById(R.id.tvGeneroAmpliado);
+        tvIsbnAmpliado=findViewById(R.id.tvIsbnAmpliado);
+
         imgLibroAmpliado=findViewById(R.id.imgLibroAmpliado);
         btnQrs = findViewById(R.id.btnQrs);
 
@@ -37,9 +43,19 @@ public class LibrosCaracteristicasAmpliado extends AppCompatActivity {
         tvAutorAmpliado.setText(libroSeleccionadoAnteriormente.getAutor());
         tvEditorialAmpliado.setText(libroSeleccionadoAnteriormente.getEditorial());
         tvAnioAmpliado.setText(String.valueOf(libroSeleccionadoAnteriormente.getYear()));
+
+        tvIdiomaAmpliado.setText(libroSeleccionadoAnteriormente.getIdioma());
+        tvGeneroAmpliado.setText(libroSeleccionadoAnteriormente.getGenero());
+        tvIsbnAmpliado.setText(libroSeleccionadoAnteriormente.getIsbn());
         //TO_DO Aqui iría la imagen pero dado que aun no se como se introducirá la dejo sin introducir
         //imgLibroAmpliado.setImageResource(libroSeleccionadoAnteriormente.);
         tvSinopsisAmpliado.setText(libroSeleccionadoAnteriormente.getSinopsis());
+
+        Picasso.get()//Context
+                .load(libroSeleccionadoAnteriormente.getPortada()) //URL/FILE
+                .into(imgLibroAmpliado);
+
+        //imgLibroAmpliado.setImageResource(Integer.parseInt(libroSeleccionadoAnteriormente.getPortada()));
 
         btnQrs.setOnClickListener(new View.OnClickListener() {
             @Override

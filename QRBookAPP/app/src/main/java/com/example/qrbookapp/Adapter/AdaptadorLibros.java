@@ -10,6 +10,7 @@ import android.widget.TextView;
 
 import com.example.qrbookapp.Class.Libro;
 import com.example.qrbookapp.R;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
@@ -50,6 +51,11 @@ public class AdaptadorLibros extends BaseAdapter {
 
         tvTitulo.setText(miArrayList.get(position).getTitulo());
         tvAutor.setText(miArrayList.get(position).getAutor());
+
+        Picasso.get() //Context
+                .load(miArrayList.get(position).getPortada()) //URL/FILE
+                .into(imgLibro);
+        //imgLibro.setImageResource(Integer.parseInt(miArrayList.get(position).getPortada()));
 
         //TO_DO Aquí habria que poner la imagenn corrrespondiente al libro pero no se donde las vamos a guardar
         //imgLibro.setImageResource(miArrayList.get(position).);

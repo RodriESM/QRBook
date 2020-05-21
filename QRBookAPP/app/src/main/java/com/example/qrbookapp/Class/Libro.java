@@ -9,37 +9,24 @@ public class Libro implements Serializable {
     private String titulo;
     private String editorial;
     private String sinopsis;
-    private int year;
-    private String url;
+    private String year;
+    private String idioma;
+    private String genero;
+    private String portada;
 
-    //TO_DO realizar una vaiable url que contenddrá la imagen del libro
-
-    public Libro(String isbn, String autor, String titulo, String editorial, String sinopsis, int year) {
+    public Libro(String isbn, String autor, String titulo, String editorial, String sinopsis, String year, String idioma, String genero, String portada) {
         this.isbn = isbn;
         this.autor = autor;
         this.titulo = titulo;
         this.editorial = editorial;
         this.sinopsis = sinopsis;
         this.year = year;
+        this.idioma = idioma;
+        this.genero = genero;
+        this.portada = portada;
     }
 
-    public Libro(String isbn, String autor, String titulo, String editorial, String sinopsis, int year, String url) {
-        this.isbn = isbn;
-        this.autor = autor;
-        this.titulo = titulo;
-        this.editorial = editorial;
-        this.sinopsis = sinopsis;
-        this.year = year;
-        this.url = url;
-    }
 
-    public String getUrl() {
-        return url;
-    }
-
-    public void setUrl(String url) {
-        this.url = url;
-    }
 
     public String getIsbn() {
         return isbn;
@@ -81,11 +68,41 @@ public class Libro implements Serializable {
         this.sinopsis = sinopsis;
     }
 
-    public int getYear() {
+    public String getYear() {
         return year;
     }
 
-    public void setYear(int year) {
+    public void setYear(String year) {
         this.year = year;
     }
+
+    public String getIdioma() {
+        return idioma;
+    }
+
+    public void setIdioma(String idioma) {
+        this.idioma = idioma;
+    }
+
+    public String getGenero() {
+        return genero;
+    }
+
+    public void setGenero(String genero) {
+        this.genero = genero;
+    }
+
+    public String getPortada() {
+        return portada;
+    }
+
+    public void setPortada(String portada) {
+        this.portada = portada;
+    }
+
+
+
+
+
+
 }

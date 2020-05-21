@@ -41,7 +41,7 @@
                     android:id="@+id/tvTituloAmpliado"
                     android:paddingLeft="15sp"
                     android:layout_width="350dp"
-                    android:layout_height="29dp"
+                    android:layout_height="33dp"
                     android:text="Hola"
                     android:textColor="#000000"
                     android:textSize="15dp"
@@ -61,7 +61,7 @@
                     android:id="@+id/tvAutorAmpliado"
                     android:paddingLeft="15sp"
                     android:layout_width="350dp"
-                    android:layout_height="32dp"
+                    android:layout_height="33dp"
                     android:textColor="#000000"
                     android:text="Hola"
                     android:textSize="15dp"
@@ -107,9 +107,51 @@
                     android:textSize="15dp"
                     android:textStyle="italic"
                     />
+
                 <TextView
                     android:paddingLeft="15sp"
                     android:layout_width="350dp"
+                    android:layout_height="29dp"
+                    android:text="Idioma"
+                    android:textColor="#000000"
+                    android:textSize="15dp"
+                    android:textStyle="italic|bold"
+                    android:layout_marginTop="25dp"/>
+
+                <TextView
+                    android:id="@+id/tvIdiomaAmpliado"
+                    android:paddingLeft="15sp"
+                    android:layout_width="350dp"
+                    android:layout_height="29dp"
+                    android:text="Hola"
+                    android:textColor="#000000"
+                    android:textSize="15dp"
+                    android:textStyle="italic"/>
+
+                <TextView
+                    android:paddingLeft="15sp"
+                    android:layout_width="350dp"
+                    android:layout_height="29dp"
+                    android:text="Genero"
+                    android:textColor="#000000"
+                    android:textSize="15dp"
+                    android:textStyle="italic|bold"
+                    android:layout_marginTop="25dp"/>
+
+                <TextView
+                    android:id="@+id/tvGeneroAmpliado"
+                    android:paddingLeft="15sp"
+                    android:layout_width="350dp"
+                    android:layout_height="29dp"
+                    android:text="Hola"
+                    android:textColor="#000000"
+                    android:textSize="15dp"
+                    android:textStyle="italic"/>
+
+
+                <TextView
+                    android:paddingLeft="15sp"
+                    android:layout_width="352dp"
                     android:layout_height="29dp"
                     android:text="Sinópsis"
                     android:textColor="#000000"
@@ -118,17 +160,40 @@
                     android:textStyle="italic|bold"
                     android:layout_marginTop="25dp"/>
 
+
+
+
                 <TextView
                     android:id="@+id/tvSinopsisAmpliado"
-                    android:paddingLeft="15sp"
-                    android:layout_width="350dp"
-                    android:layout_height="169dp"
+                    android:layout_width="352dp"
+                    android:layout_height="190dp"
                     android:background="#A9DDDDDD"
                     android:textColor="#000000"
                     android:text="Hola"
                     android:textSize="15dp"
                     android:textStyle="italic"
                      />
+
+
+                <TextView
+                    android:paddingLeft="15sp"
+                    android:layout_width="350dp"
+                    android:layout_height="29dp"
+                    android:text="ISBN"
+                    android:textColor="#000000"
+                    android:textSize="15dp"
+                    android:textStyle="italic|bold"
+                    android:layout_marginTop="25dp"/>
+
+                <TextView
+                    android:id="@+id/tvIsbnAmpliado"
+                    android:paddingLeft="15sp"
+                    android:layout_width="350dp"
+                    android:layout_height="29dp"
+                    android:text="Hola"
+                    android:textColor="#000000"
+                    android:textSize="15dp"
+                    android:textStyle="italic"/>
 
                      <Button
                          android:id="@+id/btnQrs"
