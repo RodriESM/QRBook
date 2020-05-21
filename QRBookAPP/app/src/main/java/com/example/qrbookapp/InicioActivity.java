@@ -88,8 +88,9 @@ public class InicioActivity extends AppCompatActivity {
     private void loadViewPager(ViewPager viewPager){
         ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
         //adapter.addFragment((newInstance(R.layout.activity_gridview_libros)));
-        adapter.addFragment((newInstance(R.layout.activity_registro)));
+        //Cargamos los fragment deseados al inicio, además los hemos separado en fragment distintos para dar más independencia a la app.
         adapter.addFragment((newInstance(R.layout.activity_gridview_libros)));
+        adapter.addFragment((newInstance(R.layout.activity_gridview_libros_usuario)));
         //adapter.addFragment((newInstance(ListaLibros.class)));
         viewPager.setAdapter(adapter);
     }

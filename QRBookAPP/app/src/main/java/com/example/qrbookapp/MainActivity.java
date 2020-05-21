@@ -69,8 +69,6 @@ public class MainActivity extends AppCompatActivity {
 
         }
 
-
-
         if(contenidoFicheroRecordado.size()>0){
             etEmail.setText(contenidoFicheroRecordado.get(0));
             etPassword.setText(contenidoFicheroRecordado.get(1));

@@ -151,8 +151,6 @@ public class PerfilUsuario extends AppCompatActivity {
             }
         });
 
-
-
     }
 
     @Override

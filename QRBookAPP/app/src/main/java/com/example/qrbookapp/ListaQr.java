@@ -32,7 +32,7 @@ public class ListaQr extends AppCompatActivity {
 
         ArrayList<QR> arrayQr= new ArrayList<>();
         gvListaQr=findViewById(R.id.gvListaQr);
-        
+
         Bundle bundle=getIntent().getExtras();
         String isbn=bundle.getString("info");
 
