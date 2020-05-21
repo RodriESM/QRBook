@@ -124,33 +124,42 @@ public class PerfilUsuario extends AppCompatActivity {
                  String apellido2 = etApellido2.getText().toString();
                  String contrasena = etContrasena.getText().toString();
                  String repContrasena = etRepiteContrasena.getText().toString();
+                if(contrasena.length()<8){
+                    Toast.makeText(getApplicationContext(), "La contraseña debe tener mínimo 8 carácteres.", Toast.LENGTH_LONG).show();
+                }else if (!contrasena.matches("^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)[a-zA-Z\\d]{8,}$")){
+                    Toast.makeText(getApplicationContext(), "La contraseña debe contener una letra mayúscula, minúscula y un número.", Toast.LENGTH_LONG).show();
+                }else if(!contrasena.equals(repContrasena)) { //Pass: ^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$
+                    Toast.makeText(getApplicationContext(), "Las contraseñas introducidas no son iguales. Intentelo de nuevo.", Toast.LENGTH_LONG).show();
+                }
+                else {
 
-                try {
-                    Connection connection = ConnectionClass.con;
-                    PreparedStatement ps = null;
-                    if (contrasena.equals(repContrasena)) {
-                        ps = connection.prepareStatement("update USUARIO set usuario=?,password=?,nombre=?,apellido1=?,apellido2=? where correo=?");
-
-
-                        ps.setString(1, usuario);
-                        ps.setString(2, contrasena);
-                        ps.setString(3, nombre);
-                        ps.setString(4, apellido1);
-                        ps.setString(5, apellido2);
-                        ps.setString(6, correo);
-
-                        ps.executeUpdate();
-
-                        EscribirEnFichero(correo,contrasena);
+                    try {
+                        Connection connection = ConnectionClass.con;
+                        PreparedStatement ps = null;
+                            ps = connection.prepareStatement("update USUARIO set usuario=?,password=?,nombre=?,apellido1=?,apellido2=? where correo=?");
 
 
+                            ps.setString(1, usuario);
+                            ps.setString(2, contrasena);
+                            ps.setString(3, nombre);
+                            ps.setString(4, apellido1);
+                            ps.setString(5, apellido2);
+                            ps.setString(6, correo);
+
+                            ps.executeUpdate();
+
+                            EscribirEnFichero(correo, contrasena);
+
+
+                        
+
+                    } catch (SQLException | IOException e) {
+                        e.printStackTrace();
                     }
 
-                } catch (SQLException | IOException e) {
-                    e.printStackTrace();
-                }
+                    finish();
 
-                finish();
+                }
 
             }
         });
