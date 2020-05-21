@@ -55,10 +55,7 @@ public class AdaptadorLibros extends BaseAdapter {
         Picasso.get() //Context
                 .load(miArrayList.get(position).getPortada()) //URL/FILE
                 .into(imgLibro);
-        //imgLibro.setImageResource(Integer.parseInt(miArrayList.get(position).getPortada()));
 
-        //TO_DO Aquí habria que poner la imagenn corrrespondiente al libro pero no se donde las vamos a guardar
-        //imgLibro.setImageResource(miArrayList.get(position).);
 
 
         return convertView;

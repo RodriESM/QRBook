@@ -47,21 +47,17 @@ public class LibrosCaracteristicasAmpliado extends AppCompatActivity {
         tvIdiomaAmpliado.setText(libroSeleccionadoAnteriormente.getIdioma());
         tvGeneroAmpliado.setText(libroSeleccionadoAnteriormente.getGenero());
         tvIsbnAmpliado.setText(libroSeleccionadoAnteriormente.getIsbn());
-        //TO_DO Aqui iría la imagen pero dado que aun no se como se introducirá la dejo sin introducir
-        //imgLibroAmpliado.setImageResource(libroSeleccionadoAnteriormente.);
         tvSinopsisAmpliado.setText(libroSeleccionadoAnteriormente.getSinopsis());
 
         Picasso.get()//Context
                 .load(libroSeleccionadoAnteriormente.getPortada()) //URL/FILE
                 .into(imgLibroAmpliado);
 
-        //imgLibroAmpliado.setImageResource(Integer.parseInt(libroSeleccionadoAnteriormente.getPortada()));
 
         btnQrs.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent nuevaActividad = new Intent(getApplicationContext(), ListaQr.class);
-                //Intent intentPri = new Intent().setClass(SPlashScreeeen.this, MainActivity.class);
                 startActivity(nuevaActividad);
             }
         });
