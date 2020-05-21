@@ -9,32 +9,33 @@
     android:background="@drawable/userperfil">
 
 
-    <ImageView
-        android:id="@+id/imgUsuario"
-        android:layout_width="150dp"
-        android:layout_height="147dp"
-        android:src="@drawable/logo"
-        android:layout_gravity="center"
-        android:contentDescription="Foto de perfil"/>
+
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="350dp"
-        android:layout_marginTop="10dp"
+        android:layout_height="wrap_content"
         >
         <LinearLayout
             android:padding="25dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical">
+            <ImageView
+                android:id="@+id/imgUsuario"
+                android:layout_width="150dp"
+                android:layout_height="147dp"
+                android:src="@drawable/logo"
+                android:layout_gravity="center"
+                android:contentDescription="Foto de perfil"/>
 
             <EditText
+                android:layout_marginTop="15dp"
                 android:id="@+id/etUsuarioCam"
                 android:layout_width="367dp"
                 android:layout_height="39dp"
                 android:hint="Usuario"
-                android:textColorHint="#000"
-                android:autofillHints="" />
+                android:textColor="#000"
+                android:textColorHint="#000"/>
 
             <EditText
                 android:id="@+id/etNombre"
@@ -42,6 +43,7 @@
                 android:layout_width="367dp"
                 android:layout_height="39dp"
                 android:hint="Nombre"
+                android:textColor="#000"
                 android:textColorHint="#000"/>
 
 
@@ -51,6 +53,7 @@
                 android:layout_width="367dp"
                 android:layout_height="39dp"
                 android:hint="Apellido 1"
+                android:textColor="#000"
                 android:textColorHint="#000"/>
 
 
@@ -60,6 +63,7 @@
                 android:layout_width="367dp"
                 android:layout_height="39dp"
                 android:hint="Apellido 2"
+                android:textColor="#000"
                 android:textColorHint="#000"/>
 
 
@@ -80,6 +84,7 @@
                 android:layout_height="wrap_content"
                 android:ems="10"
                 android:inputType="textPassword"
+                android:textColor="#000"
                 android:layout_marginTop="25dp"/>
 
             <EditText
@@ -88,21 +93,22 @@
                 android:layout_height="wrap_content"
                 android:ems="10"
                 android:inputType="textPassword"
+                android:textColor="#000"
                 android:layout_marginTop="25dp"/>
 
-        </LinearLayout>
 
+            <Button
+                android:id="@+id/btnRealizarCambios"
+                android:layout_width="282dp"
+                android:textColor="#000"
+                android:background="#4F817070"
+                android:layout_height="56dp"
+                android:text="REALIZAR CAMBIOS"
+                android:gravity="center"
+                android:layout_gravity="center"
+                android:layout_marginTop="50dp"/>
+
+
+            </LinearLayout>
     </ScrollView>
-
-    <Button
-        android:id="@+id/btnRealizarCambios"
-        android:layout_width="282dp"
-        android:textColor="#000"
-        android:background="#4F817070"
-        android:layout_height="56dp"
-        android:text="REALIZAR CAMBIOS"
-        android:gravity="center"
-        android:layout_gravity="center"
-        android:layout_marginTop="50dp"/>
-
 </LinearLayout>

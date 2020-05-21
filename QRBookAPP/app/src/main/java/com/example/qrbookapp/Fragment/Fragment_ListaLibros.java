@@ -45,10 +45,10 @@ public class Fragment_ListaLibros extends Fragment {
             Connection connection = ConnectionClass.con;
 
 
-            //a partir de un resulset obtenemos los datos de la consulta lanzada a la base de datos
-            ResultSet rs = connection.createStatement().executeQuery("select * from LIBRO");
+            //A partir de un resulset obtenemos los datos de la consulta lanzada a la base de datos
+            ResultSet rs = connection.createStatement().executeQuery("select * from LIBRO order by ID desc");
 
-            //recorremos todos lo libros que tenemos en la ase de datos y los introducimos en el array
+            //Recorremos todos lo libros que tenemos en la ase de datos y los introducimos en el array
             while(rs.next()){
 
                 Libro libro = new Libro(rs.getString(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getString(5),rs.getString(6),rs.getString(7),rs.getString(8),rs.getString(9));

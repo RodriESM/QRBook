@@ -76,14 +76,9 @@ public class PerfilUsuario extends AppCompatActivity {
                 e.printStackTrace();
             } catch (IOException e) {
                 e.printStackTrace();
+            }finally {
+                correo = contenidoFicheroRecordado.get(0);
             }
-
-        }
-
-
-
-        if(contenidoFicheroRecordado.size()>0){
-            correo = contenidoFicheroRecordado.get(0);
         }
 
         try {
@@ -91,14 +86,12 @@ public class PerfilUsuario extends AppCompatActivity {
             Connection connection = ConnectionClass.con;
 
 
-            //a partir de un resulset obtenemos los datos de la consulta lanzada a la base de datos
-            ResultSet rs = connection.createStatement().executeQuery("select * from USUARIO where correo like "+correo+"");
+            //A partir de un resulset obtenemos los datos de la consulta lanzada a la base de datos
+            ResultSet rs = connection.createStatement().executeQuery("select * from USUARIO where correo like '"+correo+"'");
 
             //recorremos todos lo libros que tenemos en la ase de datos y los introducimos en el array
             while(rs.next()){
-
                 usuario = new Usuario(correo,rs.getString(2),rs.getString(3),rs.getString(4),rs.getString(5),rs.getString(6));
-
             }
 
         } catch (Exception e) {
@@ -111,8 +104,6 @@ public class PerfilUsuario extends AppCompatActivity {
         etApellido2.setText(usuario.getApellido2());
         etContrasena.setText(usuario.getPassword());
         etRepiteContrasena.setText(usuario.getPassword());
-
-
 
         btnRealizarCambios.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -138,7 +129,6 @@ public class PerfilUsuario extends AppCompatActivity {
                         PreparedStatement ps = null;
                             ps = connection.prepareStatement("update USUARIO set usuario=?,password=?,nombre=?,apellido1=?,apellido2=? where correo=?");
 
-
                             ps.setString(1, usuario);
                             ps.setString(2, contrasena);
                             ps.setString(3, nombre);
@@ -149,9 +139,6 @@ public class PerfilUsuario extends AppCompatActivity {
                             ps.executeUpdate();
 
                             EscribirEnFichero(correo, contrasena);
-
-
-                        
 
                     } catch (SQLException | IOException e) {
                         e.printStackTrace();

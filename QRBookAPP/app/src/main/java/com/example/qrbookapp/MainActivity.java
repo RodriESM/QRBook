@@ -76,8 +76,6 @@ public class MainActivity extends AppCompatActivity {
             etPassword.setText(contenidoFicheroRecordado.get(1));
         }
 
-
-
             btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -88,22 +86,16 @@ public class MainActivity extends AppCompatActivity {
                         Toast.makeText(getApplicationContext(), "Error de conexión", Toast.LENGTH_LONG).show();
                     } else {
                         Connection connection = ConnectionClass.con;
-                        PreparedStatement pstUserPass = connection.prepareStatement("SELECT USUARIO from USUARIO  WHERE (CORREO like'" + etEmail.getText().toString() + "' OR USUARIO like '" + etEmail.getText().toString() + "') AND PASSWORD like '" + etPassword.getText().toString() + "'");
+                        PreparedStatement pstUserPass = connection.prepareStatement("SELECT USUARIO,CORREO from USUARIO  WHERE (CORREO like'" + etEmail.getText().toString() + "' OR USUARIO like '" + etEmail.getText().toString() + "') AND PASSWORD like '" + etPassword.getText().toString() + "'");
                         ResultSet rs = pstUserPass.executeQuery();
                             if (rs.next()) {
                                 Toast.makeText(MainActivity.this, "Bienvenido " + rs.getString(1), Toast.LENGTH_LONG).show();
+                                EscribirEnFichero(rs.getString(2), etPassword.getText().toString());
                                 Intent i = new Intent(MainActivity.this, InicioActivity.class);
                                 startActivity(i);
                             }else{
                                 Toast.makeText(MainActivity.this, "Usuario o contraseña incorrectos", Toast.LENGTH_LONG).show();
                             }
-
-                            try {
-                                EscribirEnFichero(etEmail.getText().toString(), etPassword.getText().toString());
-                            } catch (IOException e) {
-                                e.printStackTrace();
-                            }
-
 
                     }
 
@@ -130,6 +122,5 @@ public class MainActivity extends AppCompatActivity {
         osw.write(correo +"\n" + contrasena);
         osw.flush();
         osw.close();
-
     }
 }
