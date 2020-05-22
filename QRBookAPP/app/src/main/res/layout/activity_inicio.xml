@@ -22,6 +22,7 @@
             android:layout_height="wrap_content"
             android:background="@android:color/white"
             app:tabGravity="fill"
+            app:tabTextColor="#000"
             app:tabMode="fixed"
             tools:ignore="DuplicateIds" />
 

@@ -5,6 +5,7 @@ import androidx.viewpager.widget.ViewPager;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.content.res.ColorStateList;
 import android.graphics.Color;
 import android.graphics.PorterDuff;
 import android.os.Bundle;
@@ -27,7 +28,10 @@ import java.sql.SQLException;
 public class InicioActivity extends AppCompatActivity {
 
     private TabLayout tabLayout;
+    //Array de los iconos
     private int[] tabIcons = {R.drawable.library, R.drawable.user_library};
+    //Array de los títulos
+    private CharSequence Titles[]={"Novedades","Mi biblioteca"};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -109,7 +113,7 @@ public class InicioActivity extends AppCompatActivity {
     }
 
     private void loadViewPager(ViewPager viewPager){
-        ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
+        ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager(),Titles);
         //adapter.addFragment((newInstance(R.layout.activity_gridview_libros)));
         //Cargamos los fragment deseados al inicio, además los hemos separado en fragment distintos para dar más independencia a la app.
         adapter.addFragment((newInstance(R.layout.activity_gridview_libros)));

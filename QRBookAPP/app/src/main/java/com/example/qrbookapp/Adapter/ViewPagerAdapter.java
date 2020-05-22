@@ -13,9 +13,12 @@ import java.util.List;
 public class ViewPagerAdapter extends FragmentPagerAdapter {
 
     List<Fragment> fragmentList = new ArrayList<>();
+    CharSequence Titles[];
 
-    public ViewPagerAdapter(FragmentManager fm) {
+    //Pasamos el array de los títulos.
+    public ViewPagerAdapter(FragmentManager fm,CharSequence mTitles[]) {
         super(fm);
+        this.Titles=mTitles;
     }
 
     //Modificar para que dependiendo de la posición del tab muestre un fragment u otro
@@ -40,4 +43,11 @@ public class ViewPagerAdapter extends FragmentPagerAdapter {
     public void addFragment(Fragment fragment){
         fragmentList.add(fragment);
     }
+
+    //Ponemos el título que le pertenece a cada tab.
+    @Override
+    public CharSequence getPageTitle(int position) {
+        return Titles[position];
+    }
+
 }
