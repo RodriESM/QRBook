@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.KeyEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -69,9 +70,11 @@ public class MainActivity extends AppCompatActivity {
 
         }
 
-        if(contenidoFicheroRecordado.size()>0){
-            etEmail.setText(contenidoFicheroRecordado.get(0));
-            etPassword.setText(contenidoFicheroRecordado.get(1));
+        if(contenidoFicheroRecordado.size()>0) {
+            if (!contenidoFicheroRecordado.get(0).equals("")) {
+                etEmail.setText(contenidoFicheroRecordado.get(0));
+                etPassword.setText(contenidoFicheroRecordado.get(1));
+            }
         }
 
             btnLogin.setOnClickListener(new View.OnClickListener() {
@@ -120,5 +123,13 @@ public class MainActivity extends AppCompatActivity {
         osw.write(correo +"\n" + contrasena);
         osw.flush();
         osw.close();
+    }
+
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if ((keyCode == KeyEvent.KEYCODE_BACK)) {
+            super.finish();
+        }
+        return super.onKeyDown(keyCode, event);
     }
 }

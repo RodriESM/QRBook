@@ -17,6 +17,7 @@ import com.getbase.floatingactionbutton.FloatingActionsMenu;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.tabs.TabLayout;
 
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.OutputStreamWriter;
@@ -48,6 +49,20 @@ public class InicioActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent i= new Intent(InicioActivity.this, PerfilUsuario.class);
                 startActivity(i);
+            }
+        });
+
+        com.getbase.floatingactionbutton.FloatingActionButton btnCerrarSesion = findViewById(R.id.btnCerrarSesion);
+
+        btnCerrarSesion.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                try {
+                    EscribirEnFichero("","");
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+                System.exit(0);
             }
         });
 
@@ -109,6 +124,14 @@ public class InicioActivity extends AppCompatActivity {
         fragment.setArguments(bundle);
 
         return fragment;
+    }
+
+    public void EscribirEnFichero(String correo, String contrasena) throws IOException {
+        File fichero = new File("user.txt");
+        OutputStreamWriter osw= new OutputStreamWriter(openFileOutput("user.txt", Activity.MODE_PRIVATE));
+        osw.write(correo +"\n" + contrasena);
+        osw.flush();
+        osw.close();
     }
 
 

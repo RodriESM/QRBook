@@ -73,6 +73,17 @@
             app:fab_title="Escaner"
             />
 
+        <com.getbase.floatingactionbutton.FloatingActionButton
+            android:id="@+id/btnCerrarSesion"
+            android:layout_width="15dp"
+            android:layout_height="15dp"
+            app:fab_icon="@drawable/account"
+            app:fab_size="normal"
+            app:fab_colorPressed="@color/design_default_color_secondary_variant"
+            app:fab_colorNormal="@color/design_default_color_secondary"
+            app:fab_title="Escaner"
+            />
+
 
 
     </com.getbase.floatingactionbutton.FloatingActionsMenu>
