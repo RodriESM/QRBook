@@ -12,6 +12,7 @@ import android.view.View;
 
 import com.example.qrbookapp.Adapter.ViewPagerAdapter;
 import com.example.qrbookapp.Class.AccesoFichero;
+import com.example.qrbookapp.Database.ConnectionClass;
 import com.example.qrbookapp.Fragment.OneFragment;
 import com.getbase.floatingactionbutton.FloatingActionsMenu;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -21,11 +22,12 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.OutputStreamWriter;
+import java.sql.SQLException;
 
 public class InicioActivity extends AppCompatActivity {
 
     private TabLayout tabLayout;
-    private int[] tabIcons = {R.drawable.facebook, R.drawable.google, R.drawable.flashlight_turn_off, R.drawable.flashlight_turn_on};
+    private int[] tabIcons = {R.drawable.library, R.drawable.user_library};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,7 +35,6 @@ public class InicioActivity extends AppCompatActivity {
         setContentView(R.layout.activity_inicio);
 
         com.getbase.floatingactionbutton.FloatingActionButton btnCamera = findViewById(R.id.btnCamera);
-
         btnCamera.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -62,6 +63,13 @@ public class InicioActivity extends AppCompatActivity {
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
+
+                try {
+                    ConnectionClass.con.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+
                 System.exit(0);
             }
         });
