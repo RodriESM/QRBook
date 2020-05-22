@@ -1,15 +1,19 @@
 package com.example.qrbookapp.Adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.widget.BaseAdapter;
+import android.widget.Button;
 import android.widget.TextView;
 
 import com.example.qrbookapp.Class.QR;
+import com.example.qrbookapp.InicioActivity;
+import com.example.qrbookapp.QrCaracteristicasAmpliado;
 import com.example.qrbookapp.R;
 
 import java.util.ArrayList;
@@ -41,12 +45,12 @@ public class AdaptadorQr extends BaseAdapter {
 
 
     @Override
-    public View getView(int position, View convertView, ViewGroup parent) {
+    public View getView(final int position, View convertView, ViewGroup parent) {
 
         LayoutInflater layoutInflater = LayoutInflater.from(miContexto);
         convertView=layoutInflater.inflate(R.layout.item_qr, null);
 
-        TextView tvTituloQr= convertView.findViewById(R.id.tvTituloQr);
+        Button tvTituloQr= convertView.findViewById(R.id.tvTituloQr);
         WebView wvqrseleccionador =convertView.findViewById(R.id.wvqrseleccionador);
 
         final WebSettings ajustesVisorWeb = wvqrseleccionador.getSettings();
@@ -57,6 +61,18 @@ public class AdaptadorQr extends BaseAdapter {
         tvTituloQr.setText(miArrayList.get(position).getNombre());
         wvqrseleccionador.loadUrl(miArrayList.get(position).getUrl());
 
+        tvTituloQr.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i=new Intent(miContexto.getApplicationContext(), QrCaracteristicasAmpliado.class);
+                i.putExtra("descripcion",miArrayList.get(position).getDescripcion());
+                i.putExtra("isbn",miArrayList.get(position).getIsbn());
+                i.putExtra("nombre",miArrayList.get(position).getNombre());
+                i.putExtra("tipo",miArrayList.get(position).getTipo());
+                i.putExtra("url",miArrayList.get(position).getUrl());
+                miContexto.startActivity(i);
+            }
+        });
 
         return convertView;
     }

@@ -3,6 +3,8 @@ package com.example.qrbookapp;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.view.KeyEvent;
+import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.widget.TextView;
 
@@ -23,12 +25,32 @@ public class QrCaracteristicasAmpliado extends AppCompatActivity {
         tvTipoQrAmpliado = findViewById(R.id.tvTipoQrAmpliado);
         wvQrContenido = findViewById(R.id.wvQrContenido);
 
-        QR qrSeleccionado=(QR)getIntent().getSerializableExtra("qr");
+        final WebSettings ajustesVisorWeb = wvQrContenido.getSettings();
 
-        tvNombreQrAmpliado.setText(qrSeleccionado.getNombre());
-        tvDescripcionQrAmpliado.setText(qrSeleccionado.getDescripcion());
-        tvTipoQrAmpliado.setText(qrSeleccionado.getTipo());
-        wvQrContenido.loadUrl(qrSeleccionado.getUrl());
+        ajustesVisorWeb.setJavaScriptEnabled(true);
+        ajustesVisorWeb.setUseWideViewPort(true);
+        ajustesVisorWeb.setLoadWithOverviewMode(true);
+
+        QR qrSeleccionado=(QR)getIntent().getSerializableExtra("qr");
+        Bundle info=getIntent().getExtras();
+
+        String nombre=info.getString("nombre");
+        String isbn=info.getString("isbn");
+        String descripcion=info.getString("descripcion");
+        String tipo=info.getString("tipo");
+        String url=info.getString("url");
+        tvNombreQrAmpliado.setText(nombre);
+        tvDescripcionQrAmpliado.setText(descripcion);
+        tvTipoQrAmpliado.setText(tipo);
+        wvQrContenido.loadUrl(url);
 
     }
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if ((keyCode == KeyEvent.KEYCODE_BACK)) {
+            super.finish();
+        }
+        return super.onKeyDown(keyCode, event);
+    }
+
 }

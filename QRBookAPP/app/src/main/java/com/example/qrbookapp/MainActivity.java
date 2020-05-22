@@ -87,7 +87,7 @@ public class MainActivity extends AppCompatActivity {
                         PreparedStatement pstUserPass = connection.prepareStatement("SELECT USUARIO,CORREO from USUARIO  WHERE (CORREO like'" + etEmail.getText().toString() + "' OR USUARIO like '" + etEmail.getText().toString() + "') AND PASSWORD like '" + etPassword.getText().toString() + "'");
                         ResultSet rs = pstUserPass.executeQuery();
                             if (rs.next()) {
-                                Toast.makeText(MainActivity.this, "Bienvenido " + rs.getString(1), Toast.LENGTH_LONG).show();
+                                Toast.makeText(MainActivity.this, "Bienvenido " + rs.getString(1), Toast.LENGTH_SHORT).show();
                                 EscribirEnFichero(rs.getString(2), etPassword.getText().toString());
                                 Intent i = new Intent(MainActivity.this, InicioActivity.class);
                                 startActivity(i);
