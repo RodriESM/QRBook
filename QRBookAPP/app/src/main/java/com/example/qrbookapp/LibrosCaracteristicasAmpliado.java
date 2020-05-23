@@ -22,6 +22,7 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -102,11 +103,15 @@ public class LibrosCaracteristicasAmpliado extends AppCompatActivity {
             }
         }
         try {
+
+            //Conexión
             Connection connection = ConnectionClass.con;
 
             //A partir de un resulset obtenemos los datos de la consulta lanzada a la base de datos
             ResultSet rs = connection.createStatement().executeQuery("SELECT * FROM LIBRO where ISBN in (SELECT ISBN from  USUARIOLIBRO where CORREO like '"+correo+"' AND ISBN like '"+tvIsbnAmpliado.getText().toString()+"')");
             //Recorremos todos lo libros que tenemos en la ase de datos y los introducimos en el array
+
+            //Hacemos visibles o invisibles los botones.
             if(rs.next()){
                 fab.setVisibility(View.VISIBLE);
                 btnAñadir.setVisibility(View.INVISIBLE);
@@ -128,6 +133,23 @@ public class LibrosCaracteristicasAmpliado extends AppCompatActivity {
             }
         });
 
+        btnAñadir.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Connection connection = ConnectionClass.con;
+                try {
+                    PreparedStatement ps = connection.prepareStatement("INSERT INTO USUARIOLIBRO(correo,ISBN) values(?,?)");
+                    ps.setString(1,correo);
+                    ps.setString(2,tvIsbnAmpliado.getText().toString());
+                    ps.executeUpdate();
+                    Intent i=new Intent(LibrosCaracteristicasAmpliado.this,InicioActivity.class);
+                    startActivity(i);
+                    finish();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+        });
     }
     
     @Override

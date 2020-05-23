@@ -3,6 +3,7 @@ package com.example.qrbookapp.Fragment;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -76,7 +77,7 @@ public class Fragment_ListaLibros extends Fragment {
                 Intent i = new Intent(getContext(), LibrosCaracteristicasAmpliado.class);
                 i.putExtra("libros",LibroSeleccionado);
                 startActivity(i);
-
+                getActivity().finish();
             }
         });
         return rootView;
