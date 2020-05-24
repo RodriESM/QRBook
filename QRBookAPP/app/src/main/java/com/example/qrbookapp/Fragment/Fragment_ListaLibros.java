@@ -42,7 +42,7 @@ public class Fragment_ListaLibros extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         super.onCreateView(inflater, container, savedInstanceState);
-        View rootView = inflater.inflate(R.layout.activity_gridview_libros, container, false);
+        final View rootView = inflater.inflate(R.layout.activity_gridview_libros, container, false);
         ArrayList<Libro> arrayLibros= new ArrayList<>();
         //La vista donde pondremos los libros
         gvListaLibros=rootView.findViewById(R.id.gvListaLibros);
@@ -85,9 +85,9 @@ public class Fragment_ListaLibros extends Fragment {
                 getActivity().finish();
             }
         });
+
         return rootView;
     }
-
 
 }
 

@@ -152,4 +152,14 @@ public class LibrosCaracteristicasAmpliado extends AppCompatActivity {
         });
     }
 
+    //Al presionar el botón de retroceso vamos a inicio activity de nuevo y finalizamos esta actividad.
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if ((keyCode == KeyEvent.KEYCODE_BACK)) {
+           Intent i=new Intent(LibrosCaracteristicasAmpliado.this,InicioActivity.class);
+           startActivity(i);
+           finish();
+        }
+        return super.onKeyDown(keyCode, event);
+    }
 }
