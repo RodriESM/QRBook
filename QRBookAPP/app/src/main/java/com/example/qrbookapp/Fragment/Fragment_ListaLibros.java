@@ -1,11 +1,13 @@
 package com.example.qrbookapp.Fragment;
 
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,6 +19,7 @@ import com.example.qrbookapp.Adapter.AdaptadorQr;
 import com.example.qrbookapp.Class.Libro;
 import com.example.qrbookapp.Class.QR;
 import com.example.qrbookapp.Database.ConnectionClass;
+import com.example.qrbookapp.InicioActivity;
 import com.example.qrbookapp.LibrosCaracteristicasAmpliado;
 import com.example.qrbookapp.QrCaracteristicasAmpliado;
 import com.example.qrbookapp.R;
@@ -32,6 +35,8 @@ public class Fragment_ListaLibros extends Fragment {
 
     GridView gvListaLibros;
     AdaptadorLibros adaptadorLibros;
+
+
 //Método para crear el fragment
     @Nullable
     @Override
@@ -76,12 +81,13 @@ public class Fragment_ListaLibros extends Fragment {
                 Libro LibroSeleccionado=(Libro)adaptadorLibros.getItem(position);
                 Intent i = new Intent(getContext(), LibrosCaracteristicasAmpliado.class);
                 i.putExtra("libros",LibroSeleccionado);
-                startActivity(i);
+                getActivity().startActivity(i);
                 getActivity().finish();
             }
         });
         return rootView;
     }
 
- }
+
+}
 

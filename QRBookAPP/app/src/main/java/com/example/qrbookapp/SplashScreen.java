@@ -48,7 +48,6 @@ public class SplashScreen extends AppCompatActivity {
                             if(linea.equals("") || linea==null){
                                 Intent nuevaActividad = new Intent(getApplicationContext(), MainActivity.class);
                                 startActivity(nuevaActividad);
-
                             }else{
                                 Intent nuevaActividad = new Intent(getApplicationContext(), InicioActivity.class);
                                 startActivity(nuevaActividad);
@@ -61,6 +60,9 @@ public class SplashScreen extends AppCompatActivity {
                         e.printStackTrace();
                     }
 
+                }else{
+                    Intent nuevaActividad = new Intent(getApplicationContext(), MainActivity.class);
+                    startActivity(nuevaActividad);
                 }
                     finish();
             }
