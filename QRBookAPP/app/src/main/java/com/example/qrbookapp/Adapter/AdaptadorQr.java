@@ -70,6 +70,7 @@ public class AdaptadorQr extends BaseAdapter {
                 i.putExtra("nombre",miArrayList.get(position).getNombre());
                 i.putExtra("tipo",miArrayList.get(position).getTipo());
                 i.putExtra("url",miArrayList.get(position).getUrl());
+                i.putExtra("pag",miArrayList.get(position).getPagina());
                 miContexto.startActivity(i);
             }
         });

@@ -180,13 +180,12 @@ public class Escaner extends AppCompatActivity {
                 Barcode code = qrCodes.valueAt(0);
                 if ((code.displayValue.contains("http") || code.displayValue.contains("https")) && !code.displayValue.contentEquals(lastUrl)) {
                     lastUrl = code.displayValue;
-
                     ResultSet rs = null;
                     ResultSet rsgeneral = null;
 
                     try {
-                        //Revisamos que el codigo qr este en nuestra base de datos para que así solo pueda leer los QR de nuestros libros
-                        rsgeneral = connection.createStatement().executeQuery("Select * from QR where URL like'" + code.displayValue + "'");
+                        //Revisamos todos los qr de la base de datos.
+                        rsgeneral = connection.createStatement().executeQuery("select * from QR where URL like'" + code.displayValue + "'");
 
                         //
                         if (rsgeneral.next()) {
@@ -198,7 +197,6 @@ public class Escaner extends AppCompatActivity {
                                 //Recorremos todos lo libros que tenemos en la base de datos y los introducimos en el array
                                 if (rs.next()) {
 
-                                    Toast.makeText(getApplicationContext(), "Este QR ya está registrado", Toast.LENGTH_SHORT).show();
                                     Intent i = new Intent(Escaner.this, EscanerVista.class);
                                     i.putExtra("url", code.displayValue);
                                     startActivity(i);
@@ -223,23 +221,17 @@ public class Escaner extends AppCompatActivity {
 
                                 }
 
-
                             } catch (SQLException e) {
                                 e.printStackTrace();
                             }
-
-                        } else {
-
-                            Toast.makeText(getApplicationContext(),"Este QR no está disponible",Toast.LENGTH_LONG).show();
 
                         }
                     } catch (SQLException e) {
                         e.printStackTrace();
                     }
-
-
+//Revisar si nos hiciera falta...
                 } else {
-                    textScanResult.setText(code.displayValue);
+                    textScanResult.setText("Este QR no está disponible.");
                 }
             } else {
                 lastUrl = "";

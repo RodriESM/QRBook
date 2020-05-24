@@ -80,18 +80,6 @@
             app:fab_labelStyle="@color/common_google_signin_btn_text_light_pressed"
             />
 
-        <com.getbase.floatingactionbutton.FloatingActionButton
-            android:id="@+id/btnCamera"
-            android:layout_width="15dp"
-            android:layout_height="15dp"
-            app:fab_icon="@drawable/movil"
-            app:fab_size="normal"
-            app:fab_colorPressed="@color/design_default_color_secondary_variant"
-            app:fab_colorNormal="@color/design_default_color_background"
-            app:fab_title="Escaner"
-            app:fab_labelStyle="@color/common_google_signin_btn_text_light_pressed"
-            />
-
     </com.getbase.floatingactionbutton.FloatingActionsMenu>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

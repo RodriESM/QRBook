@@ -32,57 +32,57 @@
                 android:layout_width="350dp"
                 android:layout_height="29dp"
                 android:layout_marginTop="25dp"
-                android:paddingLeft="15sp"
+                android:paddingLeft="20dp"
                 android:text="ISBN"
                 android:textColor="#000000"
-                android:textSize="15dp"
+                android:textSize="15sp"
                 android:textStyle="italic|bold" />
 
             <TextView
                 android:id="@+id/tvIsbnAmpliado"
                 android:layout_width="350dp"
                 android:layout_height="29dp"
-                android:paddingLeft="15sp"
+                android:paddingLeft="20dp"
                 android:text="Hola"
                 android:textColor="#000000"
-                android:textSize="15dp"
+                android:textSize="15sp"
                 android:textStyle="italic" />
 
             <TextView
                 android:layout_width="350dp"
                 android:layout_height="29dp"
                 android:layout_marginTop="25dp"
-                android:paddingLeft="15sp"
+                android:paddingLeft="20dp"
                 android:text="Título"
                 android:textColor="#000000"
-                android:textSize="15dp"
+                android:textSize="15sp"
                 android:textStyle="italic|bold" />
 
             <TextView
                 android:id="@+id/tvTituloAmpliado"
                 android:layout_width="350dp"
                 android:layout_height="33dp"
-                android:paddingLeft="15sp"
+                android:paddingLeft="20dp"
                 android:text="Hola"
                 android:textColor="#000000"
-                android:textSize="15dp"
+                android:textSize="15sp"
                 android:textStyle="italic" />
 
             <TextView
                 android:layout_width="350dp"
                 android:layout_height="29dp"
                 android:layout_marginTop="25dp"
-                android:paddingLeft="15sp"
+                android:paddingLeft="20dp"
                 android:text="Autor"
                 android:textColor="#000000"
-                android:textSize="15dp"
+                android:textSize="15sp"
                 android:textStyle="italic|bold" />
 
             <TextView
                 android:id="@+id/tvAutorAmpliado"
                 android:layout_width="350dp"
                 android:layout_height="33dp"
-                android:paddingLeft="15sp"
+                android:paddingLeft="20dp"
                 android:text="Hola"
                 android:textColor="#000000"
                 android:textSize="15dp"
@@ -92,17 +92,17 @@
                 android:layout_width="350dp"
                 android:layout_height="29dp"
                 android:layout_marginTop="25dp"
-                android:paddingLeft="15sp"
+                android:paddingLeft="20dp"
                 android:text="Editorial"
                 android:textColor="#000000"
-                android:textSize="15dp"
+                android:textSize="15sp"
                 android:textStyle="italic|bold" />
 
             <TextView
                 android:id="@+id/tvEditorialAmpliado"
                 android:layout_width="350dp"
                 android:layout_height="32dp"
-                android:paddingLeft="15sp"
+                android:paddingLeft="20dp"
                 android:text="Hola"
                 android:textColor="#000000"
                 android:textSize="15dp"
@@ -112,17 +112,17 @@
                 android:layout_width="350dp"
                 android:layout_height="29dp"
                 android:layout_marginTop="25dp"
-                android:paddingLeft="15sp"
+                android:paddingLeft="20dp"
                 android:text="Año"
                 android:textColor="#000000"
-                android:textSize="15dp"
+                android:textSize="15sp"
                 android:textStyle="italic|bold" />
 
             <TextView
                 android:id="@+id/tvAnioAmpliado"
                 android:layout_width="350dp"
                 android:layout_height="32dp"
-                android:paddingLeft="15sp"
+                android:paddingLeft="20dp"
                 android:text="Hola"
                 android:textColor="#000000"
                 android:textSize="15dp"
@@ -132,17 +132,17 @@
                 android:layout_width="350dp"
                 android:layout_height="29dp"
                 android:layout_marginTop="25dp"
-                android:paddingLeft="15sp"
+                android:paddingLeft="20dp"
                 android:text="Idioma"
                 android:textColor="#000000"
-                android:textSize="15dp"
+                android:textSize="15sp"
                 android:textStyle="italic|bold" />
 
             <TextView
                 android:id="@+id/tvIdiomaAmpliado"
                 android:layout_width="350dp"
                 android:layout_height="29dp"
-                android:paddingLeft="15sp"
+                android:paddingLeft="20dp"
                 android:text="Hola"
                 android:textColor="#000000"
                 android:textSize="15dp"
@@ -152,20 +152,20 @@
                 android:layout_width="350dp"
                 android:layout_height="29dp"
                 android:layout_marginTop="25dp"
-                android:paddingLeft="15sp"
+                android:paddingLeft="20dp"
                 android:text="Genero"
                 android:textColor="#000000"
-                android:textSize="15dp"
+                android:textSize="15sp"
                 android:textStyle="italic|bold" />
 
             <TextView
                 android:id="@+id/tvGeneroAmpliado"
                 android:layout_width="350dp"
                 android:layout_height="29dp"
-                android:paddingLeft="15sp"
+                android:paddingLeft="20dp"
                 android:text="Hola"
                 android:textColor="#000000"
-                android:textSize="15dp"
+                android:textSize="15sp"
                 android:textStyle="italic" />
 
 
@@ -174,10 +174,10 @@
                 android:layout_height="29dp"
                 android:layout_marginTop="25dp"
                 android:background="#A9DDDDDD"
-                android:paddingLeft="15sp"
+                android:paddingLeft="20dp"
                 android:text="Sinópsis"
                 android:textColor="#000000"
-                android:textSize="15dp"
+                android:textSize="15sp"
                 android:textStyle="italic|bold" />
 
             <TextView
@@ -187,7 +187,7 @@
                 android:background="#A9DDDDDD"
                 android:text="Hola"
                 android:textColor="#000000"
-                android:textSize="15dp"
+                android:textSize="15sp"
                 android:textStyle="italic" />
 
             <Button
@@ -227,7 +227,7 @@
             app:fab_icon="@drawable/movil"
             app:fab_labelStyle="@color/common_google_signin_btn_text_light_pressed"
             app:fab_size="normal"
-            app:fab_title="Añadir QR"
+            app:fab_title="Leer QR"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent" />
 

@@ -31,6 +31,7 @@
                 android:layout_width="367dp"
                 android:layout_height="39dp"
                 android:hint="Usuario"
+                android:textStyle="italic"
                 android:textColor="#000"
                 android:textColorHint="#000"/>
 
@@ -40,6 +41,7 @@
                 android:layout_width="367dp"
                 android:layout_height="39dp"
                 android:hint="Nombre"
+                android:textStyle="italic"
                 android:textColor="#000"
                 android:textColorHint="#000"/>
 
@@ -50,6 +52,7 @@
                 android:layout_width="367dp"
                 android:layout_height="39dp"
                 android:hint="Apellido 1"
+                android:textStyle="italic"
                 android:textColor="#000"
                 android:textColorHint="#000"/>
 
@@ -60,6 +63,7 @@
                 android:layout_width="367dp"
                 android:layout_height="39dp"
                 android:hint="Apellido 2"
+                android:textStyle="italic"
                 android:textColor="#000"
                 android:textColorHint="#000"/>
 

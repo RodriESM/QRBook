@@ -38,15 +38,6 @@ public class InicioActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_inicio);
 
-        com.getbase.floatingactionbutton.FloatingActionButton btnCamera = findViewById(R.id.btnCamera);
-        btnCamera.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent i= new Intent(InicioActivity.this, Escaner.class);
-                startActivity(i);
-            }
-        });
-
         com.getbase.floatingactionbutton.FloatingActionButton btnUser = findViewById(R.id.btnUser);
 
         btnUser.setOnClickListener(new View.OnClickListener() {

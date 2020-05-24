@@ -12,7 +12,7 @@ import com.example.qrbookapp.Class.QR;
 
 public class QrCaracteristicasAmpliado extends AppCompatActivity {
 
-    TextView tvNombreQrAmpliado,tvDescripcionQrAmpliado,tvTipoQrAmpliado;
+    TextView tvNombreQrAmpliado,tvDescripcionQrAmpliado,tvTipoQrAmpliado,tvPagina;
     WebView wvQrContenido;
 
     @Override
@@ -24,6 +24,7 @@ public class QrCaracteristicasAmpliado extends AppCompatActivity {
         tvDescripcionQrAmpliado = findViewById(R.id.tvDescripcionQrAmpliado);
         tvTipoQrAmpliado = findViewById(R.id.tvTipoQrAmpliado);
         wvQrContenido = findViewById(R.id.wvQrContenido);
+        tvPagina=findViewById(R.id.tvPagina);
 
         final WebSettings ajustesVisorWeb = wvQrContenido.getSettings();
 
@@ -39,9 +40,12 @@ public class QrCaracteristicasAmpliado extends AppCompatActivity {
         String descripcion=info.getString("descripcion");
         String tipo=info.getString("tipo");
         String url=info.getString("url");
+        String pag=info.getString("pag");
         tvNombreQrAmpliado.setText(nombre);
         tvDescripcionQrAmpliado.setText(descripcion);
         tvTipoQrAmpliado.setText(tipo);
+        tvPagina.setText(pag);
+
         wvQrContenido.loadUrl(url);
 
     }

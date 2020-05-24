@@ -25,6 +25,7 @@ public class QR implements Serializable {
         this.url = url;
         this.isbn = isbn;
         this.nombre = nombre;
+        this.tipo=tipo;
         this.pagina=pagina;
         Descripcion = descripcion;
     }
@@ -64,6 +65,10 @@ public class QR implements Serializable {
 
     public String getDescripcion() {
         return Descripcion;
+    }
+
+    public String getPagina() {
+        return pagina;
     }
 
     public void setDescripcion(String descripcion) {

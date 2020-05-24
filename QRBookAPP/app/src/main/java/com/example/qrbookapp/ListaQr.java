@@ -44,7 +44,7 @@ public class ListaQr extends AppCompatActivity {
 
             //A partir de un resulset obtenemos los datos de la consulta lanzada a la base de datos
             while(rs.next()){
-                QR qr=new QR(rs.getString(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getString(5));
+                QR qr=new QR(rs.getString(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getString(5),rs.getString(6));
                 arrayQr.add(qr);
             }
         }catch (SQLException e) {

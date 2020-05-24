@@ -32,16 +32,17 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="29dp"
-                android:text="Nombre:"
+                android:text="Nombre: "
                 android:textColor="#000000"
                 android:textSize="15dp"
-                android:textStyle="italic|bold"/>
+                android:textStyle="bold"/>
 
             <TextView
                 android:id="@+id/tvNombreQrAmpliado"
                 android:layout_width="wrap_content"
                 android:layout_height="29dp"
                 android:text="Hola"
+                android:textStyle="italic"
                 android:textColor="#000000"
                 android:textSize="15dp" />
         </LinearLayout>
@@ -56,10 +57,10 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="29sp"
-            android:text="Tipo:"
+            android:text="Tipo: "
             android:textColor="#000000"
             android:textSize="15sp"
-            android:textStyle="italic|bold"/>
+            android:textStyle="bold"/>
 
             <TextView
                 android:id="@+id/tvTipoQrAmpliado"
@@ -67,6 +68,33 @@
                 android:layout_height="32dp"
                 android:textColor="#000000"
                 android:text="Hola"
+                android:textStyle="italic"
+                android:textSize="15sp"
+                />
+        </LinearLayout>
+
+        <LinearLayout
+            android:background="#75DDDDDD"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.03"
+            android:orientation="horizontal"
+            android:layout_marginTop="15dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="29sp"
+                android:text="Página: "
+                android:textColor="#000000"
+                android:textSize="15sp"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:id="@+id/tvPagina"
+                android:layout_width="match_parent"
+                android:layout_height="32dp"
+                android:textColor="#000000"
+                android:text="Hola"
+                android:textStyle="italic"
                 android:textSize="15sp"
                 />
         </LinearLayout>
@@ -80,7 +108,7 @@
             android:textColor="#000000"
             android:textSize="15sp"
             android:layout_marginTop="15dp"
-            android:textStyle="italic|bold"/>
+            android:textStyle="bold"/>
 
             <TextView
                 android:id="@+id/tvDescripcionQrAmpliado"
@@ -90,6 +118,7 @@
                 android:background="#75DDDDDD"
                 android:textColor="#000000"
                 android:text="Hola"
+                android:textStyle="italic"
                 android:textSize="15dp" />
         </LinearLayout>
 
