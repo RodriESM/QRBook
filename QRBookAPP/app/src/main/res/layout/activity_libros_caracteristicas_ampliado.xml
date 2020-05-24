@@ -191,7 +191,7 @@
                 android:textStyle="italic" />
 
             <Button
-                android:id="@+id/btnAñadir"
+                android:id="@+id/btnAnadir"
                 android:layout_width="150dp"
                 android:layout_height="40dp"
                 android:layout_gravity="center"
@@ -219,7 +219,7 @@
 
 
         <com.getbase.floatingactionbutton.FloatingActionButton
-            android:id="@+id/btnAñadirQr"
+            android:id="@+id/btnAnadirQr"
             android:layout_width="15dp"
             android:layout_height="15dp"
             app:fab_colorNormal="@color/design_default_color_background"

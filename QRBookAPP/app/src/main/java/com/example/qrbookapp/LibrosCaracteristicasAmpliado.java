@@ -32,8 +32,8 @@ public class LibrosCaracteristicasAmpliado extends AppCompatActivity {
     TextView tvTituloAmpliado,tvAutorAmpliado,tvEditorialAmpliado,tvAnioAmpliado,tvSinopsisAmpliado,tvIdiomaAmpliado,tvGeneroAmpliado,tvIsbnAmpliado;
     ImageView imgLibroAmpliado;
     com.getbase.floatingactionbutton.FloatingActionsMenu fab;
-    FloatingActionButton btnVer;
-    Button btnAñadir;
+    FloatingActionButton btnVer,btnAnadirQr;
+    Button btnAnadir;
     ArrayList<String> contenidoFicheroRecordado= new ArrayList<>();
     AccesoFichero accesoFichero = new AccesoFichero();
     String correo;
@@ -55,8 +55,9 @@ public class LibrosCaracteristicasAmpliado extends AppCompatActivity {
 
         imgLibroAmpliado=findViewById(R.id.imgLibroAmpliado);
         btnVer=findViewById(R.id.btnVer);
+        btnAnadirQr=findViewById(R.id.btnAnadirQr);
         fab = findViewById(R.id.fab);
-        btnAñadir=findViewById(R.id.btnAñadir);
+        btnAnadir=findViewById(R.id.btnAnadir);
 
 
 
@@ -114,15 +115,17 @@ public class LibrosCaracteristicasAmpliado extends AppCompatActivity {
             //Hacemos visibles o invisibles los botones.
             if(rs.next()){
                 fab.setVisibility(View.VISIBLE);
-                btnAñadir.setVisibility(View.INVISIBLE);
+                btnAnadir.setVisibility(View.INVISIBLE);
             }else{
-                btnAñadir.setVisibility(View.VISIBLE);
+                btnAnadir.setVisibility(View.VISIBLE);
                 fab.setVisibility(View.INVISIBLE);
             }
 
         } catch (SQLException e) {
             e.printStackTrace();
         }
+
+
 
         btnVer.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -133,7 +136,7 @@ public class LibrosCaracteristicasAmpliado extends AppCompatActivity {
             }
         });
 
-        btnAñadir.setOnClickListener(new View.OnClickListener() {
+        btnAnadir.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Connection connection = ConnectionClass.con;
@@ -148,6 +151,16 @@ public class LibrosCaracteristicasAmpliado extends AppCompatActivity {
                 } catch (SQLException e) {
                     e.printStackTrace();
                 }
+
+            }
+        });
+
+        btnAnadirQr.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent nuevaActividad = new Intent(getApplicationContext(), Escaner.class);
+                nuevaActividad.putExtra("escanerisbn",tvIsbnAmpliado.getText().toString());
+                startActivity(nuevaActividad);
             }
         });
     }
