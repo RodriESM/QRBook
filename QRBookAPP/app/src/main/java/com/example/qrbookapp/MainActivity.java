@@ -94,6 +94,7 @@ public class MainActivity extends AppCompatActivity {
                                 EscribirEnFichero(rs.getString(2), etPassword.getText().toString());
                                 Intent i = new Intent(MainActivity.this, InicioActivity.class);
                                 startActivity(i);
+                                finish();
                             }else{
                                 Toast.makeText(MainActivity.this, "Usuario o contraseña incorrectos", Toast.LENGTH_LONG).show();
                             }

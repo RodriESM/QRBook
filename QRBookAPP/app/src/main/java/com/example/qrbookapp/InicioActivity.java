@@ -64,7 +64,8 @@ public class InicioActivity extends AppCompatActivity {
                 } catch (SQLException e) {
                     e.printStackTrace();
                 }
-
+                Intent i=new Intent(InicioActivity.this,MainActivity.class);
+                startActivity(i);
                 System.exit(0);
             }
         });
