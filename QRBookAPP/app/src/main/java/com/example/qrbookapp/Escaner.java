@@ -145,7 +145,7 @@ public class Escaner extends AppCompatActivity {
         public void receiveDetections(Detector.Detections<Barcode> detections) {
 
             Bundle bundle = getIntent().getExtras();
-            String isbn = bundle.getString("info");
+            String isbn = bundle.getString("escanerisbn");
 
             Connection connection = ConnectionClass.con;
 
@@ -185,38 +185,46 @@ public class Escaner extends AppCompatActivity {
 
                     try {
                         //Revisamos todos los qr de la base de datos.
-                        rsgeneral = connection.createStatement().executeQuery("select * from QR where URL like'" + code.displayValue + "'");
+                        rsgeneral = connection.createStatement().executeQuery("select * from QR where URL like'" + code.displayValue + "' and ISBN like '"+isbn+"'");
 
-                        //
+                        //Si encuentra el QR, lo muestra.
                         if (rsgeneral.next()) {
+
+                            Intent i = new Intent(Escaner.this, EscanerVista.class);
+                            i.putExtra("url", code.displayValue);
+                            startActivity(i);
+
+                        }else{
 
                             try {
                                 //Miramos que el qr no esté registrado para no crear duplicados en nuestro contenedor de qr
-                                rs = connection.createStatement().executeQuery("SELECT * FROM USUARIOQR where URL like '" + code.displayValue + "' and CORREO like '" + correo + "'");
+                                rs = connection.createStatement().executeQuery("SELECT * FROM USUARIOQR where URL like '" + code.displayValue + "' and CORREO like '" + correo + "' and ISBN like '"+isbn+"'");
 
                                 //Recorremos todos lo libros que tenemos en la base de datos y los introducimos en el array
                                 if (rs.next()) {
-
                                     Intent i = new Intent(Escaner.this, EscanerVista.class);
                                     i.putExtra("url", code.displayValue);
                                     startActivity(i);
 
                                 } else {
+//
+//                                   /*
+//                                    Si queremos abrirla en el navegador por defecto usariamos este código o Script
+//                                    Uri uri=Uri.parse(code.displayValue);
+//                                    Intent i=new Intent(Intent.ACTION_VIEW,uri);*/
+//                                    //Al querer abrirlo en otra actividad, pasamos los datos a la otra actividad de esta forma
+//
+//
+//                                    PreparedStatement ps = connection.prepareStatement("INSERT INTO USUARIOQR(CORREO,URL,ISBN) values(?,?,?)");
+//                                    ps.setString(1, correo);
+//                                    ps.setString(2, code.displayValue);
+//                                    ps.setString(3,isbn);
+//                                    ps.executeUpdate();
 
-                                   /*
-                                    Si queremos abrirla en el navegador por defecto usariamos este código o Script
-                                    Uri uri=Uri.parse(code.displayValue);
-                                    Intent i=new Intent(Intent.ACTION_VIEW,uri);*/
-                                    //Al querer abrirlo en otra actividad, pasamos los datos a la otra actividad de esta forma
-
-
-                                    PreparedStatement ps = connection.prepareStatement("INSERT INTO USUARIOQR(CORREO,URL) values(?,?)");
-                                    ps.setString(1, correo);
-                                    ps.setString(2, code.displayValue);
-                                    ps.executeUpdate();
-
-                                    Intent i = new Intent(Escaner.this, EscanerVista.class);
+                                    Intent i = new Intent(Escaner.this, AnadirQrUsuario.class);
                                     i.putExtra("url", code.displayValue);
+                                    i.putExtra("correo",correo);
+                                    i.putExtra("isbn",isbn);
                                     startActivity(i);
 
                                 }
@@ -224,7 +232,6 @@ public class Escaner extends AppCompatActivity {
                             } catch (SQLException e) {
                                 e.printStackTrace();
                             }
-
                         }
                     } catch (SQLException e) {
                         e.printStackTrace();
