@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.GridView;
+import android.widget.SearchView;
 import android.widget.Toast;
 
 import androidx.annotation.Nullable;
@@ -33,19 +34,21 @@ public class Fragment_ListaLibros_Usuario extends Fragment {
 
     GridView gvListaLibros;
     AdaptadorLibros adaptadorLibros;
+    SearchView svBuscarUsuarioLibro;
     ArrayList<String> contenidoFicheroRecordado= new ArrayList<>();
     AccesoFichero accesoFichero = new AccesoFichero();
     String correo;
+    ArrayList<Libro> arrayLibros;
     //Método para crear el fragment
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         super.onCreateView(inflater, container, savedInstanceState);
         View rootView = inflater.inflate(R.layout.activity_gridview_libros_usuario, container, false);
-        ArrayList<Libro> arrayLibros= new ArrayList<>();
+         arrayLibros= new ArrayList<>();
         //La vista donde pondremos los libros
         gvListaLibros=rootView.findViewById(R.id.gvListaLibros);
-
+        svBuscarUsuarioLibro=rootView.findViewById(R.id.svBuscarUsuarioLibro);
 
         final String datos []=getActivity().getApplicationContext().fileList();
         final String nombreFicheroRecordatorio="user.txt";
@@ -102,6 +105,55 @@ public class Fragment_ListaLibros_Usuario extends Fragment {
                 getActivity().finish();
             }
         });
+
+        svBuscarUsuarioLibro.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+
+                try {
+                    Connection connection = ConnectionClass.con;
+
+                    //A partir de un resulset obtenemos los datos de la consulta lanzada a la base de datos
+                    ResultSet rs = connection.createStatement().executeQuery("SELECT * FROM LIBRO where (genero like '%"+newText+"%' or autor like '%"+newText+"%' or titulo like '%"+newText+"%') and ISBN in (SELECT ISBN from  USUARIOLIBRO where CORREO like '"+correo+"')");
+                   arrayLibros.clear();
+                    //Recorremos todos lo libros que tenemos en la ase de datos y los introducimos en el array
+                    while(rs.next()){
+                        Libro libro = new Libro(rs.getString(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getString(5),rs.getString(6),rs.getString(7),rs.getString(8),rs.getString(9));
+                        arrayLibros.add(libro);
+                    }
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+
+
+                //El adaptador...
+                adaptadorLibros =new AdaptadorLibros(getActivity().getApplicationContext(),arrayLibros);
+
+                //Añadir al gridview los libros
+                gvListaLibros.setAdapter(adaptadorLibros);
+
+                gvListaLibros.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                    @Override
+                    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                        Libro LibroSeleccionado=(Libro)adaptadorLibros.getItem(position);
+                        Intent i = new Intent(getContext().getApplicationContext(), LibrosCaracteristicasAmpliado.class);
+                        i.putExtra("libros",LibroSeleccionado);
+                        startActivity(i);
+                        getActivity().finish();
+                    }
+                });
+
+                return true;
+            }
+        });
+
+
+
         return rootView;
     }
 

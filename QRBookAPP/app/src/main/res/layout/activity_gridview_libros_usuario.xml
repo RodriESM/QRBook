@@ -7,6 +7,11 @@
     tools:context=".Fragment.Fragment_ListaLibros"
     android:orientation="vertical">
 
+    <SearchView
+        android:id="@+id/svBuscarUsuarioLibro"
+        android:layout_width="match_parent"
+        android:layout_height="35dp"/>
+
     <GridView
         android:id="@+id/gvListaLibros"
         android:layout_width="match_parent"
