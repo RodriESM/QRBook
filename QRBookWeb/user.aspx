@@ -45,6 +45,7 @@
                         <img alt="logo" src="img/Logo.png" width="100px"/>
                     </div>
                     <div class="enlaces" id="enlaces">
+                        <a href="buscarUsu.aspx" id="busqUsu" class="btn-header" runat="server">Buscar Usuarios</a>
                         <a href="index.aspx#Inicio" id="enlace-inicio" class="btn-header">Inicio</a>
                         <a href="index.aspx#Informacion" id="enlace-info" class="btn-header">Información</a>
                         <a href="index.aspx#Desarrollo" id="enlace-app" class="btn-header">Desarrollo</a>
@@ -53,13 +54,9 @@
                             <input type="image"  src="img/user-img.png" height="60px"  width="50px" id="user"  onclick="location.href = 'user.aspx';" /> 
                             <div class="dropdown-content">
                                 <a href="user.aspx">Perfil</a>
-                                <!--<a href="#" onclick="salir()">Salir</a>-->
                                 <asp:LinkButton id="btnSalir" class="btn-salir" runat="server" Text="Salir" OnClick="btnSalir_Click" />
                             </div>
                         </div>
-                        <!-- <input id="registro" class="btn-registro" type="button" onclick="location.href='registro.aspx';" value="Registro" />
-                        <input id="inicio" class="btn-inicio" type="button" onclick="location.href='login.aspx';" value="Inicio de sesion" style="margin-right: 15px" /> -->
-                       <!--<a href="#" id="enlace-contacto" class="btn-header">Inicio</a>--> 
                     </div>
                     <div class="icono" id="open">
                         <span>&#9776;</span>

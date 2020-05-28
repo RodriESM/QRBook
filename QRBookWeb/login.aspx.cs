@@ -87,6 +87,7 @@ namespace QRBookWeb
                     //Session["user"] = o;
                     Session["usuario"] = o["usuario"].ToString();
                     Session["correo"] = o["correo"].ToString();
+                    Session["admin"] = o["admin"].ToString();
 
                     Response.Redirect("/index.aspx?Desde=Login");
                 } else {
@@ -107,6 +108,7 @@ namespace QRBookWeb
             o.Add(new JProperty("apellido1", Convert.ToString(result["APELLIDO1"])));
             o.Add(new JProperty("apellido2", Convert.ToString(result["APELLIDO2"])));
             o.Add(new JProperty("foto", Convert.ToString(result["FOTO"])));
+            o.Add(new JProperty("admin", Convert.ToString(result["ADMIN"])));
 
             //System.Diagnostics.Debug.WriteLine(o.ToString());
 
@@ -120,7 +122,7 @@ namespace QRBookWeb
 
 
 
-        protected void Login_Click2(object sender, EventArgs e) {
+        /*protected void Login_Click2(object sender, EventArgs e) {
             if (String.IsNullOrEmpty(user.Value) || String.IsNullOrEmpty(pass.Value)) {
                 hr.MsgBox("Faltan campos por rellenar", this.Page, this);
             } else {
@@ -156,7 +158,7 @@ namespace QRBookWeb
 
                 cs.CERRAR();
             }
-        }
+        }*/
 
 
 

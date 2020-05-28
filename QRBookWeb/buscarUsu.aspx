@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="login.aspx.cs" Inherits="QRBookWeb.login" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="buscarUsu.aspx.cs" Inherits="QRBookWeb.buscarUsu" EnableEventValidation="false"%>
 
 <!DOCTYPE html>
 
@@ -9,28 +9,7 @@
 <meta name="viewport" content="width=device-width, user-scalable=yes, initial-scale=1.0, maximum-scale=3.0, minimum-scale=1.0">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" >
 <link rel="stylesheet" href="assets/css/estilos.css">
-    <script type="text/javascript">
-        /*function iniciado(datos) {
-            //console.log("xD");
-            //console.log(datos);
-            var JSONobj = JSON.parse(datos);
-            //console.log(JSONobj);
-            window.localStorage.setItem('correo', JSONobj.correo);
-            window.localStorage.setItem('usuario', JSONobj.usuario);
-            window.localStorage.setItem('password', JSONobj.password);
-            window.localStorage.setItem('nombre', JSONobj.nombre);
-            window.localStorage.setItem('apellido1', JSONobj.apellido1);
-            window.localStorage.setItem('apellido2', JSONobj.apellido2);
-            window.localStorage.setItem('foto', JSONobj.foto);
-            location.replace("index.aspx");
-        }*/
-
-        /*function iniciado() {
-            window.localStorage.setItem('user', '1');
-            location.replace("index.aspx");
-        }*/
-
-    </script>
+<link rel="stylesheet" href="assets/css/objsearch.css">
 </head>
 
 <body class="hidden">
@@ -60,20 +39,18 @@
                         <img alt="logo" src="img/Logo.png" width="100px"/>
                     </div>
                     <div class="enlaces" id="enlaces">
+                        <a href="buscarUsu.aspx" id="busqUsu" class="btn-header" runat="server">Buscar Usuarios</a>
                         <a href="index.aspx#Inicio" id="enlace-inicio" class="btn-header">Inicio</a>
                         <a href="index.aspx#Informacion" id="enlace-info" class="btn-header">Información</a>
                         <a href="index.aspx#Desarrollo" id="enlace-app" class="btn-header">Desarrollo</a>
                         <a href="index.aspx#Equipo" id="enlace-equipo" class="btn-header">Conocenos</a>
-                         <!--<div class="dropdown" id="dropdown">
-                        <input type="image"  src="img/user-img.png" height="60px"  width="50px" id="user"  onclick="location.href = 'user.aspx';" /> 
-                          <div class="dropdown-content">
-                            <a href="user.aspx">Perfil</a>
-                            <a onclick="salir()">Salir</a>
-                          </div>
-                        </div> -->
-                        <input id="registro" class="btn-registro" type="button" onclick="location.href='registro.aspx';" value="Registro" />
-                        <input id="inicio" class="btn-inicio" type="button" onclick="location.href = 'login.aspx';" value="Inicio de sesion" style="margin-right: 15px" />
-                       <!--<a href="#" id="enlace-contacto" class="btn-header">Inicio</a>--> 
+                        <div runat="server" class="dropdown" id="dropdown">
+                            <input type="image"  src="img/user-img.png" height="60px"  width="50px" id="user"  onclick="location.href = 'user.aspx';" /> 
+                            <div class="dropdown-content">
+                                <a href="user.aspx">Perfil</a>
+                                <a href="index.aspx?Desde=Salir">Salir</a>
+                            </div>
+                        </div>
                     </div>
                     <div class="icono" id="open">
                         <span>&#9776;</span>
@@ -82,29 +59,65 @@
             </nav>
         </header>
 
-<div class="separacion">
-    <form id="form1" runat="server" class="formulario">
-    <h1>Login</h1>
+<div class="separacionBus">
+    <form id="form1" runat="server" class="formularioBus">
+    <h1 class="tituloBus">Buscar Usuarios</h1>
      <div class="contenedor">
-     
+         
+         <asp:ScriptManager runat="server" />
+         <asp:UpdatePanel runat="server">
+             <ContentTemplate>
+
+         <asp:HiddenField runat="server" id="qstr"/>
+
+         <table style="width: 100%; table-layout: fixed">
+             <tr>
+                 <th style="width: 100%">
+
          <div class="input-contenedor">
-         <i class="fas fa-envelope icon"></i>
-         <input runat="server" type="text" id="user" placeholder="Usuario o Correo Electronico" maxlength="50" class="txtbox">
-         
+             <!-- <i class="fas fa-search icon"></i> -->
+             <input runat="server" type="text" id="txtBus" class="txtBus" placeholder="Buscar..." maxlength="50">
          </div>
-         
+                 </th>
+                 <th style="width: 230px">
          <div class="input-contenedor">
-        <i class="fas fa-key icon"></i>
-         <input runat="server" type="password" id="pass" placeholder="Contraseña" maxlength="30" class="txtbox">
-         
+             <asp:DropDownList runat="server" ID="ddnBus" CssClass="txtBus" style="min-width: 220px">
+                 <asp:ListItem Value="apenom" Selected="True">Nombre y apellidos</asp:ListItem>
+                 <asp:ListItem Value="USUARIO">Nombre de usuario</asp:ListItem>
+                 <asp:ListItem Value="CORREO">Correo electrónico</asp:ListItem>
+             </asp:DropDownList>
          </div>
-         <asp:Button id="btnLogin" class="button" runat="server" Text="Iniciar sesión" OnClick="Login_Click"/>
-         <p>¿No tienes una cuenta? <a class="link" href="registro.aspx">Registrate </a></p>
+                 </th>
+                 <th style="width: 80px">
+                    <button type="submit" id="btnbus" class="btnbus" runat="server"><i class="fas fa-search blanco"></i></button>
+                 </th>
+             </tr>
+             <tr>
+                 <td colspan="3">
+                     <div class="resultados" runat="server" id="locodiv">
+
+                     </div>
+                 </td>
+             </tr>
+         </table>
+             
+             </ContentTemplate>
+         </asp:UpdatePanel>
+
      </div>
         <script src="assets/js/main.js"></script>
         <script src="assets/js/jquery.js"></script>
         <script src="assets/js/filtro.js"></script>
         <script src="assets/js/user.js"></script>
+        <script type="text/javascript">
+            function irUsu(em) {
+                var qstr = document.getElementById("<%=qstr.ClientID%>");
+                qstr.value = em;
+                //console.log(qstr.value);
+                __doPostBack();
+            }
+
+        </script>
 
     </form>
     </div>

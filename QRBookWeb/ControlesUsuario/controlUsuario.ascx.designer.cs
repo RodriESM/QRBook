@@ -7,63 +7,90 @@
 // </generado automáticamente>
 //------------------------------------------------------------------------------
 
-namespace QRBookWeb {
+namespace QRBookWeb.ControlesUsuario {
 
 
-    public partial class index {
+    public partial class controlUsuario {
 
         /// <summary>
-        /// Control form1.
+        /// Control imgusu.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm form1;
+        protected global::System.Web.UI.WebControls.Image imgusu;
 
         /// <summary>
-        /// Control busqUsu.
+        /// Control nomusu.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlAnchor busqUsu;
+        protected global::System.Web.UI.WebControls.Label nomusu;
 
         /// <summary>
-        /// Control dropdown.
+        /// Control usu.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl dropdown;
+        protected global::System.Web.UI.WebControls.Label usu;
 
         /// <summary>
-        /// Control btnSalir.
+        /// Control email.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton btnSalir;
+        protected global::System.Web.UI.WebControls.Label email;
 
         /// <summary>
-        /// Control registro.
+        /// Control btnmodif.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputButton registro;
+        protected global::System.Web.UI.HtmlControls.HtmlButton btnmodif;
 
         /// <summary>
-        /// Control inicio.
+        /// Control lbldel.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputButton inicio;
+        protected global::System.Web.UI.WebControls.Label lbldel;
+
+        /// <summary>
+        /// Control btnpredel.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlButton btnpredel;
+
+        /// <summary>
+        /// Control btndel.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlButton btndel;
+
+        /// <summary>
+        /// Control btncancel.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlButton btncancel;
     }
 }

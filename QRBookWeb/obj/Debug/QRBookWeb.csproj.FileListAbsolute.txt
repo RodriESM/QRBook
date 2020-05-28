@@ -388,7 +388,6 @@ D:\GitHub\ProyectoDAM2\QRBookWeb\QRBookWeb\bin\Microsoft.Owin.Security.Google.xm
 D:\GitHub\ProyectoDAM2\QRBookWeb\QRBookWeb\bin\Microsoft.Owin.Security.Twitter.xml
 D:\GitHub\ProyectoDAM2\QRBookWeb\QRBookWeb\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
 D:\GitHub\ProyectoDAM2\QRBookWeb\QRBookWeb\bin\System.Web.Http.Owin.xml
-D:\GitHub\ProyectoDAM2\QRBookWeb\QRBookWeb\obj\Debug\QRBookWeb.csprojAssemblyReference.cache
 D:\GitHub\ProyectoDAM2\QRBookWeb\QRBookWeb\obj\Debug\QRBookWeb.csproj.CoreCompileInputs.cache
 D:\GitHub\ProyectoDAM2\QRBookWeb\QRBookWeb\obj\Debug\QRBookWeb.csproj.CopyComplete
 D:\GitHub\ProyectoDAM2\QRBookWeb\QRBookWeb\obj\Debug\QRBookWeb.dll
@@ -579,3 +578,4 @@ D:\GitHub\ProyectoDAM2\QRBookWeb\QRBookWeb\bin\Grpc.Auth.pdb
 D:\GitHub\ProyectoDAM2\QRBookWeb\QRBookWeb\bin\Grpc.Core.pdb
 D:\GitHub\ProyectoDAM2\QRBookWeb\QRBookWeb\bin\Grpc.Core.Api.pdb
 D:\GitHub\ProyectoDAM2\QRBookWeb\QRBookWeb\bin\Grpc.Core.Api.xml
+D:\GitHub\ProyectoDAM2\QRBookWeb\QRBookWeb\obj\Debug\QRBookWeb.csprojAssemblyReference.cache

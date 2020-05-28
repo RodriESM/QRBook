@@ -16,18 +16,24 @@ namespace QRBookWeb
 
         protected void Page_Load(object sender, EventArgs e) {
 
-            if (Request.QueryString["Desde"] == "Login") {
+            string qstr = Request.QueryString["Desde"];
+            if (qstr == "Login") {
                 hr.MsgBox("Sesión iniciada.", this.Page, this);
+            } else if (qstr == "Salir") {
+                Session.Clear();
+                Response.Redirect("/index.aspx");
             }
 
             //JObject o = (JObject)Session["user"];
 
             bool logged = false;
+            bool admin = false;
             if (Session["correo"] != null) {
                 if (!String.IsNullOrEmpty(Session["correo"].ToString())) {
                     logged = true;
+                    admin = Convert.ToBoolean(Session["admin"]);
                     //System.Diagnostics.Debug.WriteLine(o["usuario"].ToString());
-                    //System.Diagnostics.Debug.WriteLine("en el if");
+                    //System.Diagnostics.Debug.WriteLine(admin.ToString());
                 }
             }
 
@@ -35,10 +41,14 @@ namespace QRBookWeb
                 registro.Visible = false;
                 inicio.Visible = false;
                 dropdown.Visible = true;
+                if (!admin) {
+                    busqUsu.Visible = false;
+                }
             } else {
                 registro.Visible = true;
                 inicio.Visible = true;
                 dropdown.Visible = false;
+                busqUsu.Visible = false;
             }
 
 
@@ -49,5 +59,7 @@ namespace QRBookWeb
             Session.Clear();
             Response.Redirect(Request.RawUrl.Split('?')[0], true);
         }
+
+        //<input runat = "server" id="busqUsu" class="btn-header" type="button" onclick="location.href = 'buscarUsu.aspx';" value="Buscar Usuarios" style="color: #ffd800"/>
     }
 }

@@ -25,9 +25,11 @@ namespace QRBookWeb
             //hr.MsgBox("Hola\nHola\nHola", this.Page, this);
 
             bool logged = false;
+            bool admin = false;
             if (Session["correo"] != null) {
                 if (!String.IsNullOrEmpty(Session["correo"].ToString())) {
                     logged = true;
+                    admin = Convert.ToBoolean(Session["admin"]);
                 }
             }
 
@@ -35,10 +37,14 @@ namespace QRBookWeb
                 Response.Redirect("/index.aspx");
             } else {
 
+                if (!admin) {
+                    busqUsu.Visible = false;
+                }
 
                 if (!IsPostBack) {
-                    string correo = Session["correo"].ToString();
-
+                    //string correo = Session["correo"].ToString();
+                    string correo = getEmail();
+                    
                     MySqlConnection DBCon = cs.CONECTAR();
                     string sel = "SELECT U.CORREO, U.USUARIO, U.NOMBRE, U.APELLIDO1, U.APELLIDO2, U.FOTO, " +
                                     "D.BIRTH, D.PHONE, D.PROVINCIA, D.CIUDAD, D.DIRECCION, D.CODPOS " +
@@ -63,6 +69,26 @@ namespace QRBookWeb
                 }
             }
 
+        }
+
+        private string getEmail() {
+            bool current = true;
+            string modif = "";
+            string correo = "";
+            bool admin = Convert.ToBoolean(Session["admin"]);
+            if (admin && Session["modificar"] != null) {
+                modif = Session["modificar"].ToString();
+                if (Request.QueryString["Email"] == modif) {
+                    current = false;
+                }
+            }
+            if (current) {
+                correo = Session["correo"].ToString();
+            } else {
+                correo = modif;
+            }
+
+            return correo;
         }
 
         private void rellenarDatos(MySqlDataReader result) {
@@ -97,7 +123,8 @@ namespace QRBookWeb
                 if (Session["correo"] == null) {
                     throw new Exception();
                 }
-                string correo = Session["correo"].ToString();
+                //string correo = Session["correo"].ToString();
+                string correo = getEmail();
                 
                 //System.Diagnostics.Debug.WriteLine(nom.Text);
 
@@ -139,7 +166,12 @@ namespace QRBookWeb
             } finally {
                 cs.CERRAR();
                 if (msg) {
-                    Response.Redirect("/user.aspx");
+                    bool admin = Convert.ToBoolean(Session["admin"]);
+                    if (admin) {
+                        Response.Redirect(Request.Url.AbsoluteUri);
+                    } else {
+                        Response.Redirect("/user.aspx");
+                    }
                 }
             }
 
@@ -151,8 +183,8 @@ namespace QRBookWeb
                 if (Session["correo"] == null) {
                     throw new Exception();
                 }
-                string correo = Session["correo"].ToString();
-                
+                //string correo = Session["correo"].ToString();
+                string correo = getEmail();
 
                 string regexpass = @"^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$";
                 string mensaje = "";
@@ -201,7 +233,12 @@ namespace QRBookWeb
             } finally {
                 cs.CERRAR();
                 if (msg) {
-                    Response.Redirect("/user.aspx");
+                    bool admin = Convert.ToBoolean(Session["admin"]);
+                    if (admin) {
+                        Response.Redirect(Request.Url.AbsoluteUri);
+                    } else {
+                        Response.Redirect("/user.aspx");
+                    }
                 }
             }
 

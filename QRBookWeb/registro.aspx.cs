@@ -10,6 +10,7 @@ using System.Web.UI.WebControls;
 using Microsoft.Owin.Security.Google;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
+using QRBookWeb.ControlesUsuario;
 
 namespace QRBookWeb {
     public partial class registro : System.Web.UI.Page {
