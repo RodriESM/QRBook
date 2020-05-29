@@ -81,7 +81,7 @@ public class Fragment_ListaLibros_Usuario extends Fragment {
             ResultSet rs = connection.createStatement().executeQuery("SELECT * FROM LIBRO where ISBN in (SELECT ISBN from  USUARIOLIBRO where CORREO like '"+correo+"')");
             //Recorremos todos lo libros que tenemos en la ase de datos y los introducimos en el array
             while(rs.next()){
-                Libro libro = new Libro(rs.getString(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getString(5),rs.getString(6),rs.getString(7),rs.getString(8),rs.getString(9),rs.getString(10));
+                Libro libro = new Libro(rs.getString(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getString(5),rs.getString(6),rs.getString(7),rs.getString(8),rs.getString(9),rs.getString(11));
                 arrayLibros.add(libro);
             }
         } catch (SQLException e) {
@@ -123,7 +123,7 @@ public class Fragment_ListaLibros_Usuario extends Fragment {
                    arrayLibros.clear();
                     //Recorremos todos lo libros que tenemos en la ase de datos y los introducimos en el array
                     while(rs.next()){
-                        Libro libro = new Libro(rs.getString(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getString(5),rs.getString(6),rs.getString(7),rs.getString(8),rs.getString(9),rs.getString(10));
+                        Libro libro = new Libro(rs.getString(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getString(5),rs.getString(6),rs.getString(7),rs.getString(8),rs.getString(9),rs.getString(11));
                         arrayLibros.add(libro);
                     }
                 } catch (SQLException e) {
