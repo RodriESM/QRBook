@@ -1,6 +1,7 @@
 package com.example.qrbookapp;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
 import android.Manifest;
@@ -29,6 +30,7 @@ import com.squareup.picasso.Picasso;
 
 import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -43,12 +45,14 @@ public class LibrosCaracteristicasAmpliado extends AppCompatActivity {
     TextView tvTituloAmpliado,tvAutorAmpliado,tvEditorialAmpliado,tvAnioAmpliado,tvSinopsisAmpliado,tvIdiomaAmpliado,tvGeneroAmpliado,tvIsbnAmpliado;
     ImageView imgLibroAmpliado;
     com.getbase.floatingactionbutton.FloatingActionsMenu fab;
-    FloatingActionButton btnVer,btnAnadirQr,btnLeer;
+    FloatingActionButton btnVer,btnAnadirQr,btnLeer,btnElminar;
     Button btnAnadir;
     ArrayList<String> contenidoFicheroRecordado= new ArrayList<>();
     AccesoFichero accesoFichero = new AccesoFichero();
     String correo;
     Descarga d=new Descarga();
+    //Conexión
+    Connection connection = ConnectionClass.con;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -69,6 +73,7 @@ public class LibrosCaracteristicasAmpliado extends AppCompatActivity {
         btnVer=findViewById(R.id.btnVer);
         btnLeer=findViewById(R.id.btnLeer);
         btnAnadirQr=findViewById(R.id.btnAnadirQr);
+        btnElminar=findViewById(R.id.btnElminar);
         fab = findViewById(R.id.fab);
         btnAnadir=findViewById(R.id.btnAnadir);
 
@@ -119,8 +124,7 @@ public class LibrosCaracteristicasAmpliado extends AppCompatActivity {
         }
         try {
 
-            //Conexión
-            Connection connection = ConnectionClass.con;
+
 
             //A partir de un resulset obtenemos los datos de la consulta lanzada a la base de datos
             ResultSet rs = connection.createStatement().executeQuery("SELECT * FROM LIBRO where ISBN in (SELECT ISBN from  USUARIOLIBRO where CORREO like '"+correo+"' AND ISBN like '"+tvIsbnAmpliado.getText().toString()+"')");
@@ -183,6 +187,43 @@ public class LibrosCaracteristicasAmpliado extends AppCompatActivity {
                 }
             }
         });
+
+        //Eliminar libro y qr
+        btnElminar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                try {
+                    int rslibro = connection.createStatement().executeUpdate("delete from USUARIOLIBRO where correo like '"+correo+"' and isbn like'"+tvIsbnAmpliado.getText().toString()+"'");
+                    //TO_DO No sabemos si habría que borrar de la base de datos los qr correspondientes al libro que se va a eliminar
+                    //ResultSet rsqr =connection.createStatement().executeQuery("delete from USUARIOQR where correo like '"+correo+"' and isbn like'"+tvIsbnAmpliado.getText().toString()+"'");
+
+                    if (ContextCompat.checkSelfPermission(LibrosCaracteristicasAmpliado.this,
+                            Manifest.permission.WRITE_EXTERNAL_STORAGE)
+                            != PackageManager.PERMISSION_GRANTED) {
+                        ActivityCompat.requestPermissions(LibrosCaracteristicasAmpliado.this,
+                                new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE},PackageManager.PERMISSION_GRANTED);
+                    }else{
+
+                        File file = new File("/sdcard/Download/9788431673963.pdf");
+                        FileInputStream fis = new FileInputStream(file);
+                        fis.close();
+                        file.delete();
+                        Intent i = new Intent(LibrosCaracteristicasAmpliado.this, InicioActivity.class);
+                        startActivity(i);
+                        finish();
+                    }
+
+                } catch (SQLException | FileNotFoundException e) {
+                    e.printStackTrace();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        });
+
+
+
+
 
         btnAnadirQr.setOnClickListener(new View.OnClickListener() {
             @Override
