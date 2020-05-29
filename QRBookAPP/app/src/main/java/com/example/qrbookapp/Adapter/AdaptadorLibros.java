@@ -56,8 +56,6 @@ public class AdaptadorLibros extends BaseAdapter {
                 .load(miArrayList.get(position).getPortada()) //URL/FILE
                 .into(imgLibro);
 
-
-
         return convertView;
     }
 }

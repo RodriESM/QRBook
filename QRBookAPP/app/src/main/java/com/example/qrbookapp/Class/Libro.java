@@ -13,8 +13,9 @@ public class Libro implements Serializable {
     private String idioma;
     private String genero;
     private String portada;
+    private String PDF;
 
-    public Libro(String isbn, String autor, String titulo, String editorial, String sinopsis, String year, String idioma, String genero, String portada) {
+    public Libro(String isbn, String autor, String titulo, String editorial, String sinopsis, String year, String idioma, String genero, String portada,String PDF) {
         this.isbn = isbn;
         this.autor = autor;
         this.titulo = titulo;
@@ -24,6 +25,7 @@ public class Libro implements Serializable {
         this.idioma = idioma;
         this.genero = genero;
         this.portada = portada;
+        this.PDF=PDF;
     }
 
 
@@ -100,9 +102,11 @@ public class Libro implements Serializable {
         this.portada = portada;
     }
 
+    public String getPDF() {
+        return PDF;
+    }
 
-
-
-
-
+    public void setPDF(String PDF) {
+        this.PDF = PDF;
+    }
 }

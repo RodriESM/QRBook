@@ -1,14 +1,24 @@
 package com.example.qrbookapp;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 
+import android.Manifest;
+import android.app.DownloadManager;
+import android.content.Context;
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.net.Uri;
+import android.os.AsyncTask;
 import android.os.Bundle;
+import android.os.Environment;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.qrbookapp.Class.AccesoFichero;
 import com.example.qrbookapp.Class.Libro;
@@ -18,6 +28,7 @@ import com.getbase.floatingactionbutton.FloatingActionsMenu;
 import com.squareup.picasso.Picasso;
 
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -32,11 +43,12 @@ public class LibrosCaracteristicasAmpliado extends AppCompatActivity {
     TextView tvTituloAmpliado,tvAutorAmpliado,tvEditorialAmpliado,tvAnioAmpliado,tvSinopsisAmpliado,tvIdiomaAmpliado,tvGeneroAmpliado,tvIsbnAmpliado;
     ImageView imgLibroAmpliado;
     com.getbase.floatingactionbutton.FloatingActionsMenu fab;
-    FloatingActionButton btnVer,btnAnadirQr;
+    FloatingActionButton btnVer,btnAnadirQr,btnLeer;
     Button btnAnadir;
     ArrayList<String> contenidoFicheroRecordado= new ArrayList<>();
     AccesoFichero accesoFichero = new AccesoFichero();
     String correo;
+    Descarga d=new Descarga();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,6 +67,7 @@ public class LibrosCaracteristicasAmpliado extends AppCompatActivity {
 
         imgLibroAmpliado=findViewById(R.id.imgLibroAmpliado);
         btnVer=findViewById(R.id.btnVer);
+        btnLeer=findViewById(R.id.btnLeer);
         btnAnadirQr=findViewById(R.id.btnAnadirQr);
         fab = findViewById(R.id.fab);
         btnAnadir=findViewById(R.id.btnAnadir);
@@ -62,7 +75,7 @@ public class LibrosCaracteristicasAmpliado extends AppCompatActivity {
 
 
         //Introducir los datos
-        Libro libroSeleccionadoAnteriormente=(Libro) getIntent().getSerializableExtra("libros");
+        final Libro libroSeleccionadoAnteriormente=(Libro) getIntent().getSerializableExtra("libros");
 
         tvTituloAmpliado.setText(libroSeleccionadoAnteriormente.getTitulo());
         tvAutorAmpliado.setText(libroSeleccionadoAnteriormente.getAutor());
@@ -73,6 +86,7 @@ public class LibrosCaracteristicasAmpliado extends AppCompatActivity {
         tvGeneroAmpliado.setText(libroSeleccionadoAnteriormente.getGenero());
         tvIsbnAmpliado.setText(libroSeleccionadoAnteriormente.getIsbn());
         tvSinopsisAmpliado.setText(libroSeleccionadoAnteriormente.getSinopsis());
+        final String PDFDescarga=libroSeleccionadoAnteriormente.getPDF();
 
         Picasso.get()//Context
                 .load(libroSeleccionadoAnteriormente.getPortada()) //URL/FILE
@@ -139,8 +153,24 @@ public class LibrosCaracteristicasAmpliado extends AppCompatActivity {
         btnAnadir.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                //Conexión a la BBDD
                 Connection connection = ConnectionClass.con;
-                try {
+
+                if (libroSeleccionadoAnteriormente.getPDF()==null){
+
+                }else{
+                    //Descarga del libro
+                    DownloadManager manager = (DownloadManager) getSystemService(Context.DOWNLOAD_SERVICE);
+                    DownloadManager.Request request = new DownloadManager.Request(Uri.parse(PDFDescarga));
+                    request.setDescription("Downloading file " + tvIsbnAmpliado.getText().toString()+".pdf");
+                    request.setTitle("Downloading");
+                    request.setDestinationInExternalPublicDir(Environment.DIRECTORY_DOWNLOADS, "/"+tvIsbnAmpliado.getText().toString()+".pdf");
+                    manager.enqueue(request);
+                }
+
+
+                //Añadimos el libro al usuario.
+                try{
                     PreparedStatement ps = connection.prepareStatement("INSERT INTO USUARIOLIBRO(correo,ISBN) values(?,?)");
                     ps.setString(1,correo);
                     ps.setString(2,tvIsbnAmpliado.getText().toString());
@@ -148,10 +178,9 @@ public class LibrosCaracteristicasAmpliado extends AppCompatActivity {
                     Intent i=new Intent(LibrosCaracteristicasAmpliado.this,InicioActivity.class);
                     startActivity(i);
                     finish();
-                } catch (SQLException e) {
-                    e.printStackTrace();
+                }catch (Exception e){
+                    e.getMessage();
                 }
-
             }
         });
 
@@ -163,7 +192,22 @@ public class LibrosCaracteristicasAmpliado extends AppCompatActivity {
                 startActivity(nuevaActividad);
             }
         });
-    }
+
+        //Dependiendo si tiene PDF para leer o no, mostraremos el botón.
+        if (libroSeleccionadoAnteriormente.getPDF()==null){
+            btnLeer.setVisibility(View.INVISIBLE);
+        }else{
+            btnLeer.setVisibility(View.VISIBLE);
+            btnLeer.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent abrirPDF=new Intent(LibrosCaracteristicasAmpliado.this,PDF.class);
+                    abrirPDF.putExtra("isbn",tvIsbnAmpliado.getText().toString());
+                    startActivity(abrirPDF);
+                }
+            });
+        }
+        }
 
     //Al presionar el botón de retroceso vamos a inicio activity de nuevo y finalizamos esta actividad.
     @Override
@@ -175,4 +219,8 @@ public class LibrosCaracteristicasAmpliado extends AppCompatActivity {
         }
         return super.onKeyDown(keyCode, event);
     }
+
+
+
+
 }

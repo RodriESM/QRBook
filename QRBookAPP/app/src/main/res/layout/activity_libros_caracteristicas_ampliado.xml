@@ -217,17 +217,16 @@
         app:layout_constraintBottom_toBottomOf="@+id/scrollView2"
         app:layout_constraintEnd_toEndOf="@+id/scrollView2">
 
-
         <com.getbase.floatingactionbutton.FloatingActionButton
-            android:id="@+id/btnAnadirQr"
+            android:id="@+id/btnLeer"
             android:layout_width="15dp"
             android:layout_height="15dp"
-            app:fab_colorNormal="@color/design_default_color_background"
+            app:fab_colorNormal="@color/common_google_signin_btn_text_light_pressed"
             app:fab_colorPressed="@color/design_default_color_secondary_variant"
-            app:fab_icon="@drawable/movil"
+            app:fab_icon="@android:drawable/ic_menu_gallery"
             app:fab_labelStyle="@color/common_google_signin_btn_text_light_pressed"
             app:fab_size="normal"
-            app:fab_title="Leer QR"
+            app:fab_title="Leer"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent" />
 
@@ -243,6 +242,21 @@
             app:fab_title="Ver QR"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent" />
+
+        <com.getbase.floatingactionbutton.FloatingActionButton
+            android:id="@+id/btnAnadirQr"
+            android:layout_width="15dp"
+            android:layout_height="15dp"
+            app:fab_colorNormal="@color/design_default_color_background"
+            app:fab_colorPressed="@color/design_default_color_secondary_variant"
+            app:fab_icon="@drawable/movil"
+            app:fab_labelStyle="@color/common_google_signin_btn_text_light_pressed"
+            app:fab_size="normal"
+            app:fab_title="Leer QR"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+
 
         </com.getbase.floatingactionbutton.FloatingActionsMenu>
 
