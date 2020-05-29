@@ -193,9 +193,6 @@ public class LibrosCaracteristicasAmpliado extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 try {
-                    int rslibro = connection.createStatement().executeUpdate("delete from USUARIOLIBRO where correo like '"+correo+"' and isbn like'"+tvIsbnAmpliado.getText().toString()+"'");
-                    //TO_DO No sabemos si habría que borrar de la base de datos los qr correspondientes al libro que se va a eliminar
-                    //ResultSet rsqr =connection.createStatement().executeQuery("delete from USUARIOQR where correo like '"+correo+"' and isbn like'"+tvIsbnAmpliado.getText().toString()+"'");
 
                     if (ContextCompat.checkSelfPermission(LibrosCaracteristicasAmpliado.this,
                             Manifest.permission.WRITE_EXTERNAL_STORAGE)
@@ -203,6 +200,9 @@ public class LibrosCaracteristicasAmpliado extends AppCompatActivity {
                         ActivityCompat.requestPermissions(LibrosCaracteristicasAmpliado.this,
                                 new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE},PackageManager.PERMISSION_GRANTED);
                     }else{
+                        int rslibro = connection.createStatement().executeUpdate("delete from USUARIOLIBRO where correo like '"+correo+"' and isbn like'"+tvIsbnAmpliado.getText().toString()+"'");
+                        //TO_DO No sabemos si habría que borrar de la base de datos los qr correspondientes al libro que se va a eliminar
+                        //ResultSet rsqr =connection.createStatement().executeQuery("delete from USUARIOQR where correo like '"+correo+"' and isbn like'"+tvIsbnAmpliado.getText().toString()+"'");
 
                         File file = new File("/sdcard/Download/9788431673963.pdf");
                         FileInputStream fis = new FileInputStream(file);
@@ -220,10 +220,6 @@ public class LibrosCaracteristicasAmpliado extends AppCompatActivity {
                 }
             }
         });
-
-
-
-
 
         btnAnadirQr.setOnClickListener(new View.OnClickListener() {
             @Override
