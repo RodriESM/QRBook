@@ -195,7 +195,7 @@ public class LibrosCaracteristicasAmpliado extends AppCompatActivity {
 
         //Dependiendo si tiene PDF para leer o no, mostraremos el botón.
         if (libroSeleccionadoAnteriormente.getPDF()==null){
-            btnLeer.setVisibility(View.INVISIBLE);
+            btnLeer.setVisibility(View.GONE);
         }else{
             btnLeer.setVisibility(View.VISIBLE);
             btnLeer.setOnClickListener(new View.OnClickListener() {
@@ -207,7 +207,7 @@ public class LibrosCaracteristicasAmpliado extends AppCompatActivity {
                 }
             });
         }
-        }
+    }
 
     //Al presionar el botón de retroceso vamos a inicio activity de nuevo y finalizamos esta actividad.
     @Override
@@ -219,8 +219,5 @@ public class LibrosCaracteristicasAmpliado extends AppCompatActivity {
         }
         return super.onKeyDown(keyCode, event);
     }
-
-
-
 
 }
