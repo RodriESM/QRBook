@@ -14,7 +14,8 @@ public class ViewPagerAdapter extends FragmentPagerAdapter {
 
     List<Fragment> fragmentList = new ArrayList<>();
     CharSequence Titles[];
-
+    Fragment_ListaLibros FL=new Fragment_ListaLibros();
+    Fragment_ListaLibros_Usuario FLU=new Fragment_ListaLibros_Usuario();
     //Pasamos el array de los títulos.
     public ViewPagerAdapter(FragmentManager fm,CharSequence mTitles[]) {
         super(fm);
@@ -27,11 +28,11 @@ public class ViewPagerAdapter extends FragmentPagerAdapter {
         //Dependiendo del de la tabulación abrirá uno u otro y por defecto la lista de libros.
         switch (position){
             case 0:
-                return new Fragment_ListaLibros();
+                return FL;
             case 1:
-                return new Fragment_ListaLibros_Usuario();
+                return FLU;
             default:
-                return new Fragment_ListaLibros();
+                return FL;
         }
     }
 
