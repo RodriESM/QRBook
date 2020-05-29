@@ -16,10 +16,9 @@
         tools:layout_editor_absoluteY="9dp">
 
         <LinearLayout
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:padding="25dp">
+            android:orientation="vertical">
 
             <ImageView
                 android:id="@+id/imgLibroAmpliado"
@@ -29,10 +28,10 @@
                 android:src="@drawable/logo" />
 
             <TextView
-                android:layout_width="350dp"
+                android:layout_width="360dp"
                 android:layout_height="29dp"
                 android:layout_marginTop="25dp"
-                android:paddingLeft="20dp"
+                android:layout_marginStart="30dp"
                 android:text="ISBN"
                 android:textColor="#000000"
                 android:textSize="15sp"
@@ -40,19 +39,19 @@
 
             <TextView
                 android:id="@+id/tvIsbnAmpliado"
-                android:layout_width="350dp"
+                android:layout_width="360dp"
                 android:layout_height="29dp"
-                android:paddingLeft="20dp"
+                android:layout_marginStart="30dp"
                 android:text="Hola"
                 android:textColor="#000000"
                 android:textSize="15sp"
                 android:textStyle="italic" />
 
             <TextView
-                android:layout_width="350dp"
+                android:layout_width="360dp"
                 android:layout_height="29dp"
                 android:layout_marginTop="25dp"
-                android:paddingLeft="20dp"
+                android:layout_marginStart="30dp"
                 android:text="Título"
                 android:textColor="#000000"
                 android:textSize="15sp"
@@ -60,19 +59,19 @@
 
             <TextView
                 android:id="@+id/tvTituloAmpliado"
-                android:layout_width="350dp"
+                android:layout_width="360dp"
                 android:layout_height="33dp"
-                android:paddingLeft="20dp"
+                android:layout_marginStart="30dp"
                 android:text="Hola"
                 android:textColor="#000000"
                 android:textSize="15sp"
                 android:textStyle="italic" />
 
             <TextView
-                android:layout_width="350dp"
+                android:layout_width="360dp"
                 android:layout_height="29dp"
                 android:layout_marginTop="25dp"
-                android:paddingLeft="20dp"
+                android:layout_marginStart="30dp"
                 android:text="Autor"
                 android:textColor="#000000"
                 android:textSize="15sp"
@@ -80,19 +79,19 @@
 
             <TextView
                 android:id="@+id/tvAutorAmpliado"
-                android:layout_width="350dp"
+                android:layout_width="360dp"
                 android:layout_height="33dp"
-                android:paddingLeft="20dp"
+                android:layout_marginStart="30dp"
                 android:text="Hola"
                 android:textColor="#000000"
-                android:textSize="15dp"
+                android:textSize="15sp"
                 android:textStyle="italic" />
 
             <TextView
-                android:layout_width="350dp"
+                android:layout_width="360dp"
                 android:layout_height="29dp"
                 android:layout_marginTop="25dp"
-                android:paddingLeft="20dp"
+                android:layout_marginStart="30dp"
                 android:text="Editorial"
                 android:textColor="#000000"
                 android:textSize="15sp"
@@ -100,19 +99,19 @@
 
             <TextView
                 android:id="@+id/tvEditorialAmpliado"
-                android:layout_width="350dp"
+                android:layout_width="360dp"
                 android:layout_height="32dp"
-                android:paddingLeft="20dp"
+                android:layout_marginStart="30dp"
                 android:text="Hola"
                 android:textColor="#000000"
-                android:textSize="15dp"
+                android:textSize="15sp"
                 android:textStyle="italic" />
 
             <TextView
-                android:layout_width="350dp"
+                android:layout_width="360dp"
                 android:layout_height="29dp"
                 android:layout_marginTop="25dp"
-                android:paddingLeft="20dp"
+                android:layout_marginStart="30dp"
                 android:text="Año"
                 android:textColor="#000000"
                 android:textSize="15sp"
@@ -120,19 +119,19 @@
 
             <TextView
                 android:id="@+id/tvAnioAmpliado"
-                android:layout_width="350dp"
+                android:layout_width="360dp"
                 android:layout_height="32dp"
-                android:paddingLeft="20dp"
+                android:layout_marginStart="30dp"
                 android:text="Hola"
                 android:textColor="#000000"
-                android:textSize="15dp"
+                android:textSize="15sp"
                 android:textStyle="italic" />
 
             <TextView
-                android:layout_width="350dp"
+                android:layout_width="360dp"
                 android:layout_height="29dp"
                 android:layout_marginTop="25dp"
-                android:paddingLeft="20dp"
+                android:layout_marginStart="30dp"
                 android:text="Idioma"
                 android:textColor="#000000"
                 android:textSize="15sp"
@@ -140,19 +139,19 @@
 
             <TextView
                 android:id="@+id/tvIdiomaAmpliado"
-                android:layout_width="350dp"
+                android:layout_width="360dp"
                 android:layout_height="29dp"
-                android:paddingLeft="20dp"
+                android:layout_marginStart="30dp"
                 android:text="Hola"
                 android:textColor="#000000"
-                android:textSize="15dp"
+                android:textSize="15sp"
                 android:textStyle="italic" />
 
             <TextView
-                android:layout_width="350dp"
+                android:layout_width="360dp"
                 android:layout_height="29dp"
                 android:layout_marginTop="25dp"
-                android:paddingLeft="20dp"
+                android:layout_marginStart="30dp"
                 android:text="Genero"
                 android:textColor="#000000"
                 android:textSize="15sp"
@@ -160,9 +159,9 @@
 
             <TextView
                 android:id="@+id/tvGeneroAmpliado"
-                android:layout_width="350dp"
+                android:layout_width="360dp"
                 android:layout_height="29dp"
-                android:paddingLeft="20dp"
+                android:layout_marginStart="30dp"
                 android:text="Hola"
                 android:textColor="#000000"
                 android:textSize="15sp"
@@ -170,19 +169,20 @@
 
 
             <TextView
-                android:layout_width="352dp"
+                android:layout_width="360dp"
                 android:layout_height="29dp"
                 android:layout_marginTop="25dp"
                 android:background="#A9DDDDDD"
-                android:paddingLeft="20dp"
+                android:layout_marginStart="30dp"
                 android:text="Sinópsis"
                 android:textColor="#000000"
                 android:textSize="15sp"
                 android:textStyle="italic|bold" />
 
             <TextView
+                android:layout_marginStart="30dp"
                 android:id="@+id/tvSinopsisAmpliado"
-                android:layout_width="352dp"
+                android:layout_width="360dp"
                 android:layout_height="190dp"
                 android:background="#A9DDDDDD"
                 android:text="Hola"
@@ -222,12 +222,12 @@
             android:id="@+id/btnElminar"
             android:layout_width="15dp"
             android:layout_height="15dp"
-            app:fab_colorNormal="@color/common_google_signin_btn_text_light_pressed"
+            app:fab_colorNormal="@color/design_default_color_error"
             app:fab_colorPressed="@color/design_default_color_secondary_variant"
-            app:fab_icon="@android:drawable/ic_delete"
+            app:fab_icon="@android:drawable/ic_menu_delete"
             app:fab_labelStyle="@color/common_google_signin_btn_text_light_pressed"
             app:fab_size="normal"
-            app:fab_title="Eliminar Libro"
+            app:fab_title="Eliminar libro"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent" />
 
