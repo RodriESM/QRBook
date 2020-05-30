@@ -56,7 +56,7 @@ public class RegistroActivity extends AppCompatActivity {
                 else{
                     try {
                         Connection connection = ConnectionClass.con;
-                        PreparedStatement ps = connection.prepareStatement("INSERT INTO USUARIO(correo,password,usuario) values(?,?,?)");
+                        PreparedStatement ps = connection.prepareStatement("INSERT INTO USUARIO(correo,password,usuario) values(?,MD5(?),?)");
                         ps.setString(1,email);
                         ps.setString(2,ps1);
                         ps.setString(3,usuario);

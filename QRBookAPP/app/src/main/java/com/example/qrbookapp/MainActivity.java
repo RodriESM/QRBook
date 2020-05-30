@@ -87,7 +87,7 @@ public class MainActivity extends AppCompatActivity {
                         Toast.makeText(getApplicationContext(), "Error de conexión", Toast.LENGTH_LONG).show();
                     } else {
                         Connection connection = ConnectionClass.con;
-                        PreparedStatement pstUserPass = connection.prepareStatement("SELECT USUARIO,CORREO from USUARIO  WHERE (CORREO like'" + etEmail.getText().toString() + "' OR USUARIO like '" + etEmail.getText().toString() + "') AND PASSWORD like '" + etPassword.getText().toString() + "'");
+                        PreparedStatement pstUserPass = connection.prepareStatement("SELECT USUARIO,CORREO from USUARIO  WHERE (CORREO like'" + etEmail.getText().toString() + "' OR USUARIO like '" + etEmail.getText().toString() + "') AND PASSWORD like MD5('" + etPassword.getText().toString() + "')");
                         ResultSet rs = pstUserPass.executeQuery();
                             if (rs.next()) {
                                 Toast.makeText(MainActivity.this, "Bienvenido " + rs.getString(1), Toast.LENGTH_SHORT).show();
