@@ -26,13 +26,14 @@ public class PDF extends AppCompatActivity {
 
         Bundle b=getIntent().getExtras();
         String isbn=b.getString("isbn");
+        String correo=b.getString("correo");
 
 // Here, thisActivity is the current activity
         if (ContextCompat.checkSelfPermission(PDF.this,
                 Manifest.permission.READ_EXTERNAL_STORAGE)
                 != PackageManager.PERMISSION_GRANTED) {
 
-            Toast.makeText(this,"Los permisos no han sido aceptados",Toast.LENGTH_LONG).show();
+            Toast.makeText(this,"Para poder leer el libro hay que aceptar los permisos",Toast.LENGTH_LONG).show();
 
             if (ActivityCompat.shouldShowRequestPermissionRationale(PDF.this,
                     Manifest.permission.READ_EXTERNAL_STORAGE)) {
@@ -51,7 +52,7 @@ public class PDF extends AppCompatActivity {
         } else {
             //PDF View
             PDFView pdfView=findViewById(R.id.pdfView);
-            pdfView.fromFile(new File("/sdcard/Download/"+isbn+".pdf"))
+            pdfView.fromFile(new File("/sdcard/Download/"+isbn+correo+".pdf"))
                     .enableSwipe(true) // allows to block changing pages using swipe
                     .swipeHorizontal(false)
                     .enableDoubletap(true)

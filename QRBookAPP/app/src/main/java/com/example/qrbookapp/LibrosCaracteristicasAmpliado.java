@@ -168,10 +168,9 @@ public class LibrosCaracteristicasAmpliado extends AppCompatActivity {
                     DownloadManager.Request request = new DownloadManager.Request(Uri.parse(PDFDescarga));
                     request.setDescription("Downloading file " + tvIsbnAmpliado.getText().toString()+".pdf");
                     request.setTitle("Downloading");
-                    request.setDestinationInExternalPublicDir(Environment.DIRECTORY_DOWNLOADS, "/"+tvIsbnAmpliado.getText().toString()+".pdf");
+                    request.setDestinationInExternalPublicDir(Environment.DIRECTORY_DOWNLOADS, "/"+tvIsbnAmpliado.getText().toString()+correo+".pdf");
                     manager.enqueue(request);
                 }
-
 
                 //Añadimos el libro al usuario.
                 try{
@@ -204,7 +203,7 @@ public class LibrosCaracteristicasAmpliado extends AppCompatActivity {
                         //TO_DO No sabemos si habría que borrar de la base de datos los qr correspondientes al libro que se va a eliminar
                         //ResultSet rsqr =connection.createStatement().executeQuery("delete from USUARIOQR where correo like '"+correo+"' and isbn like'"+tvIsbnAmpliado.getText().toString()+"'");
 
-                        File file = new File("/sdcard/Download/9788431673963.pdf");
+                        File file = new File("/sdcard/Download/"+tvIsbnAmpliado.getText().toString()+correo+".pdf");
                         FileInputStream fis = new FileInputStream(file);
                         fis.close();
                         file.delete();
@@ -240,6 +239,7 @@ public class LibrosCaracteristicasAmpliado extends AppCompatActivity {
                 public void onClick(View v) {
                     Intent abrirPDF=new Intent(LibrosCaracteristicasAmpliado.this,PDF.class);
                     abrirPDF.putExtra("isbn",tvIsbnAmpliado.getText().toString());
+                    abrirPDF.putExtra("correo",correo);
                     startActivity(abrirPDF);
                 }
             });
