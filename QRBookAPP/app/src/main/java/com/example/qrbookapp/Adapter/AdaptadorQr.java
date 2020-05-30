@@ -16,6 +16,8 @@ import com.example.qrbookapp.InicioActivity;
 import com.example.qrbookapp.QrCaracteristicasAmpliado;
 import com.example.qrbookapp.R;
 
+import org.w3c.dom.Text;
+
 import java.util.ArrayList;
 
 public class AdaptadorQr extends BaseAdapter {
@@ -52,6 +54,7 @@ public class AdaptadorQr extends BaseAdapter {
 
         Button tvTituloQr= convertView.findViewById(R.id.tvTituloQr);
         WebView wvqrseleccionador =convertView.findViewById(R.id.wvqrseleccionador);
+        TextView tvQRPagn=convertView.findViewById(R.id.tvQRPagn);
 
         final WebSettings ajustesVisorWeb = wvqrseleccionador.getSettings();
 
@@ -60,7 +63,7 @@ public class AdaptadorQr extends BaseAdapter {
         ajustesVisorWeb.setLoadWithOverviewMode(true);
         tvTituloQr.setText(miArrayList.get(position).getNombre());
         wvqrseleccionador.loadUrl(miArrayList.get(position).getUrl());
-
+        tvQRPagn.setText("Página: "+miArrayList.get(position).getPagina());
         tvTituloQr.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

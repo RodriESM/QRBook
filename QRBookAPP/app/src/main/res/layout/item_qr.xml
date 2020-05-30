@@ -30,5 +30,13 @@
         android:textSize="15sp"
         android:textStyle="bold"/>
 
+    <TextView
+        android:id="@+id/tvQRPagn"
+        android:textColor="#000"
+        android:layout_width="200dp"
+        android:layout_height="20dp"
+        android:background="#3FFFFDFD"
+        />
+
 
 </LinearLayout>
