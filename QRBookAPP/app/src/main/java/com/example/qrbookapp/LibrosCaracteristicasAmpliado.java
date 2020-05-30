@@ -164,12 +164,29 @@ public class LibrosCaracteristicasAmpliado extends AppCompatActivity {
 
                 }else{
                     //Descarga del libro
-                    DownloadManager manager = (DownloadManager) getSystemService(Context.DOWNLOAD_SERVICE);
+
+                    DownloadManager.Request request = new DownloadManager.Request(Uri.parse(PDFDescarga));
+
+                    request.setAllowedNetworkTypes(DownloadManager.Request.NETWORK_WIFI | DownloadManager.Request.NETWORK_MOBILE);
+
+                    request.setTitle("Descargando");
+                    request.setDescription("Descargando libro");
+
+                    request.allowScanningByMediaScanner();
+                    request.setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE_NOTIFY_ONLY_COMPLETION);
+                    request.setDestinationInExternalPublicDir(Environment.DIRECTORY_DOWNLOADS,"/"+tvIsbnAmpliado.getText().toString()+correo+".pdf");
+
+                    DownloadManager manager= (DownloadManager)getSystemService(Context.DOWNLOAD_SERVICE);
+                    manager.enqueue(request);
+
+
+
+                   /* DownloadManager manager = (DownloadManager) getSystemService(Context.DOWNLOAD_SERVICE);
                     DownloadManager.Request request = new DownloadManager.Request(Uri.parse(PDFDescarga));
                     request.setDescription("Downloading file " + tvIsbnAmpliado.getText().toString()+".pdf");
                     request.setTitle("Downloading");
                     request.setDestinationInExternalPublicDir(Environment.DIRECTORY_DOWNLOADS, "/"+tvIsbnAmpliado.getText().toString()+correo+".pdf");
-                    manager.enqueue(request);
+                    manager.enqueue(request);*/
                 }
 
                 //Añadimos el libro al usuario.
