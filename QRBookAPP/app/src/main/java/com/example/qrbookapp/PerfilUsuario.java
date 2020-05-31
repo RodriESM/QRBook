@@ -38,13 +38,13 @@ import java.util.ArrayList;
 
 public class PerfilUsuario extends AppCompatActivity {
 
-    EditText etUsuarioCam,etNombre,etApellido1,etApellido2,etContrasena,etRepiteContrasena;
+    EditText etUsuarioCam,etNombre,etApellido1,etApellido2,etContrasena,etRepiteContrasena,etAntiguaContrasena;
     ImageButton ibUsuario;
     Button btnRealizarCambios;
     ArrayList<String> contenidoFicheroRecordado= new ArrayList<>();
     AccesoFichero accesoFichero = new AccesoFichero();
     String correo;
-    String contrasena;
+    String contrasenaRecordada;
     Usuario usuario;
     private final int imagen_request = 0;
     private int puerto;
@@ -62,6 +62,7 @@ public class PerfilUsuario extends AppCompatActivity {
         etApellido2 = findViewById(R.id.etApellido2);
         etContrasena = findViewById(R.id.etContrasena);
         etRepiteContrasena = findViewById(R.id.etRepiteContrasena);
+        etAntiguaContrasena=findViewById(R.id.etAntiguaContrasena);
         ibUsuario=findViewById(R.id.ibUsuario);
         btnRealizarCambios = findViewById(R.id.btnRealizarCambios);
 
@@ -90,7 +91,7 @@ public class PerfilUsuario extends AppCompatActivity {
                 e.printStackTrace();
             }finally {
                 correo = contenidoFicheroRecordado.get(0);
-                contrasena=contenidoFicheroRecordado.get(1);
+                contrasenaRecordada=contenidoFicheroRecordado.get(1);
             }
         }
 
@@ -104,7 +105,7 @@ public class PerfilUsuario extends AppCompatActivity {
 
             //recorremos todos lo libros que tenemos en la ase de datos y los introducimos en el array
             while(rs.next()){
-                usuario = new Usuario(correo,rs.getString(2),contrasena,rs.getString(4),rs.getString(5),rs.getString(6),rs.getBytes(7));
+                usuario = new Usuario(correo,rs.getString(2),contrasenaRecordada,rs.getString(4),rs.getString(5),rs.getString(6),rs.getBytes(7));
             }
 
         } catch (Exception e) {
@@ -115,9 +116,10 @@ public class PerfilUsuario extends AppCompatActivity {
         etNombre.setText(usuario.getNombre());
         etApellido1.setText(usuario.getApellido1());
         etApellido2.setText(usuario.getApellido2());
-        etContrasena.setText(usuario.getPassword());
-        etRepiteContrasena.setText(usuario.getPassword());
+        //etContrasena.setText(usuario.getPassword());
+        //etRepiteContrasena.setText(usuario.getPassword());
 
+        //TO_DO Mirar que la imagen no sea null porque si no salta error
         Bitmap bmp = BitmapFactory.decodeByteArray(usuario.getUrl(), 0, usuario.getUrl().length);
         ibUsuario.setImageBitmap(Bitmap.createScaledBitmap(bmp,400,390, false));
 
@@ -149,12 +151,15 @@ public class PerfilUsuario extends AppCompatActivity {
                 }else if(!contrasena.equals(repContrasena)) { //Pass: ^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$
                     Toast.makeText(getApplicationContext(), "Las contraseñas introducidas no son iguales. Intentelo de nuevo.", Toast.LENGTH_LONG).show();
                 }
+                else if(!etAntiguaContrasena.getText().toString().equals(contrasenaRecordada)){
+                    Toast.makeText(getApplicationContext(), "La contraseña introducida no coincide con su antigua contraseña", Toast.LENGTH_LONG).show();
+                }
                 else {
 
                     try {
                         Connection connection = ConnectionClass.con;
                         PreparedStatement ps = null;
-                            ps = connection.prepareStatement("update USUARIO set usuario=?,password=?,nombre=?,apellido1=?,apellido2=?, foto=? where correo=?");
+                            ps = connection.prepareStatement("update USUARIO set usuario=?,password=MD5(?),nombre=?,apellido1=?,apellido2=?, foto=? where correo=?");
 
                             ps.setString(1, usuario);
                             ps.setString(2, contrasena);

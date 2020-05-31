@@ -79,6 +79,17 @@
                 android:layout_height="39dp"
                 android:textColor="#000"/>
 
+            <EditText
+                android:id="@+id/etAntiguaContrasena"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="textPassword"
+                android:hint="Antigua contraseña"
+                android:textColorHint="#000"
+                android:textColor="#000"
+                android:layout_marginTop="25dp"/>
+
 
             <EditText
                 android:id="@+id/etContrasena"
@@ -86,6 +97,8 @@
                 android:layout_height="wrap_content"
                 android:ems="10"
                 android:inputType="textPassword"
+                android:hint="Nueva contraseña"
+                android:textColorHint="#000"
                 android:textColor="#000"
                 android:layout_marginTop="25dp"/>
 
@@ -95,6 +108,8 @@
                 android:layout_height="wrap_content"
                 android:ems="10"
                 android:inputType="textPassword"
+                android:hint="Repetir contraseña"
+                android:textColorHint="#000"
                 android:textColor="#000"
                 android:layout_marginTop="25dp"/>
 
