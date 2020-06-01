@@ -84,7 +84,7 @@ public class ListaQr extends AppCompatActivity {
             rs.close();
 
             //Obtenemos los datos de cada objeto para introducirlos en el adaptador
-            ResultSet rsUser = con.createStatement().executeQuery("select URL,ISBN,NOMBRE,TIPO,PAGINA,DESCRIPCION from USUARIOQR where ISBN like '"+isbn+"' and CORREO like '"+correo+"' order by PAGINA");
+            ResultSet rsUser = con.createStatement().executeQuery("select URL,ISBN,TIPO,NOMBRE,DESCRIPCION,PAGINA from USUARIOQR where ISBN like '"+isbn+"' and CORREO like '"+correo+"' order by PAGINA");
 
             //A partir de un resulset obtenemos los datos de la consulta lanzada a la base de datos
             while(rsUser.next()){

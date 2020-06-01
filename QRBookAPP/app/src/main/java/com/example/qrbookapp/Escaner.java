@@ -237,8 +237,6 @@ public class Escaner extends AppCompatActivity {
                         e.printStackTrace();
                     }
 //Revisar si nos hiciera falta...
-                } else {
-                    textScanResult.setText("Este QR no está disponible.");
                 }
             } else {
                 lastUrl = "";

@@ -41,6 +41,7 @@ public class QrCaracteristicasAmpliado extends AppCompatActivity {
         String tipo=info.getString("tipo");
         String url=info.getString("url");
         String pag=info.getString("pag");
+
         tvNombreQrAmpliado.setText(nombre);
         tvDescripcionQrAmpliado.setText(descripcion);
         tvTipoQrAmpliado.setText(tipo);
