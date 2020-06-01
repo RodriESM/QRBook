@@ -35,7 +35,9 @@
                 android:id="@+id/ivFotoPerfil"
                 android:layout_width="188dp"
                 android:layout_height="175dp"
-                app:srcCompat="@drawable/logo"
+                android:scaleType="centerCrop"
+                android:background="#35FFFFFF"
+                app:srcCompat="@drawable/perfil_user"
                 android:layout_gravity="center"/>
 
         <EditText

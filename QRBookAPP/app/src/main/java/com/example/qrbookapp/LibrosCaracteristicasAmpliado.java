@@ -223,11 +223,9 @@ public class LibrosCaracteristicasAmpliado extends AppCompatActivity {
                         file.delete();
                     }
 
-                } catch (SQLException | FileNotFoundException e) {
+                } catch (SQLException | IOException e) {
                     e.printStackTrace();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }finally {
+                } finally {
                     Intent i = new Intent(LibrosCaracteristicasAmpliado.this, InicioActivity.class);
                     startActivity(i);
                     finish();
