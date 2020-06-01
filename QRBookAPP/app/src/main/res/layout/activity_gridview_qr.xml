@@ -4,14 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ListaQr"
+    android:background="@drawable/recortebackgroundblanco"
     android:orientation="vertical"
-    android:background="@drawable/recortebackgroundblanco">
+    tools:context=".ListaQr">
 
     <GridView
         android:id="@+id/gvListaQr"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:numColumns="2"/>
+        android:numColumns="2" />
 
 </LinearLayout>

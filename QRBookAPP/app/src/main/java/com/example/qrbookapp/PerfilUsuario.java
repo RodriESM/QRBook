@@ -161,7 +161,7 @@ public class PerfilUsuario extends AppCompatActivity {
                         Connection connection = ConnectionClass.con;
                         PreparedStatement ps = null;
 
-                        if (antiguoUsuario.equals( usuario)) {
+                        if (antiguoUsuario.equals(usuario)) {
                             ps = connection.prepareStatement("update USUARIO set nombre=?,apellido1=?,apellido2=?, foto=? where correo=?");
 
                             ps.setString(1, nombre);
@@ -212,7 +212,7 @@ public class PerfilUsuario extends AppCompatActivity {
                             ps = connection.prepareStatement("update USUARIO set nombre=?,password=MD5(?),apellido1=?,apellido2=?, foto=? where correo=?");
 
                             ps.setString(1, nombre);
-                            ps.setString(2,contrasena);
+                            ps.setString(2, contrasena);
                             ps.setString(3, apellido1);
                             ps.setString(4, apellido2);
                             ps.setBytes(5, imagenByte);

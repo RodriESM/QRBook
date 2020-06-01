@@ -50,11 +50,11 @@ public class AdaptadorQr extends BaseAdapter {
     public View getView(final int position, View convertView, ViewGroup parent) {
 
         LayoutInflater layoutInflater = LayoutInflater.from(miContexto);
-        convertView=layoutInflater.inflate(R.layout.item_qr, null);
+        convertView = layoutInflater.inflate(R.layout.item_qr, null);
 
-        Button tvTituloQr= convertView.findViewById(R.id.tvTituloQr);
-        WebView wvqrseleccionador =convertView.findViewById(R.id.wvqrseleccionador);
-        TextView tvQRPagn=convertView.findViewById(R.id.tvQRPagn);
+        Button tvTituloQr = convertView.findViewById(R.id.tvTituloQr);
+        WebView wvqrseleccionador = convertView.findViewById(R.id.wvqrseleccionador);
+        TextView tvQRPagn = convertView.findViewById(R.id.tvQRPagn);
 
         final WebSettings ajustesVisorWeb = wvqrseleccionador.getSettings();
 
@@ -63,17 +63,17 @@ public class AdaptadorQr extends BaseAdapter {
         ajustesVisorWeb.setLoadWithOverviewMode(true);
         tvTituloQr.setText(miArrayList.get(position).getNombre());
         wvqrseleccionador.loadUrl(miArrayList.get(position).getUrl());
-        tvQRPagn.setText("Página: "+miArrayList.get(position).getPagina());
+        tvQRPagn.setText("Página: " + miArrayList.get(position).getPagina());
         tvTituloQr.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i=new Intent(miContexto.getApplicationContext(), QrCaracteristicasAmpliado.class);
-                i.putExtra("descripcion",miArrayList.get(position).getDescripcion());
-                i.putExtra("isbn",miArrayList.get(position).getIsbn());
-                i.putExtra("nombre",miArrayList.get(position).getNombre());
-                i.putExtra("tipo",miArrayList.get(position).getTipo());
-                i.putExtra("url",miArrayList.get(position).getUrl());
-                i.putExtra("pag",miArrayList.get(position).getPagina());
+                Intent i = new Intent(miContexto.getApplicationContext(), QrCaracteristicasAmpliado.class);
+                i.putExtra("descripcion", miArrayList.get(position).getDescripcion());
+                i.putExtra("isbn", miArrayList.get(position).getIsbn());
+                i.putExtra("nombre", miArrayList.get(position).getNombre());
+                i.putExtra("tipo", miArrayList.get(position).getTipo());
+                i.putExtra("url", miArrayList.get(position).getUrl());
+                i.putExtra("pag", miArrayList.get(position).getPagina());
                 miContexto.startActivity(i);
             }
         });

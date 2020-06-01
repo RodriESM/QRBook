@@ -23,7 +23,7 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLConnection;
 
-public class Descarga extends AppCompatActivity{
+public class Descarga extends AppCompatActivity {
 
     public Descarga() {
     }
@@ -54,7 +54,6 @@ public class Descarga extends AppCompatActivity{
         }
 
     }
-
 
 
 }

@@ -61,7 +61,7 @@ public class RegistroActivity extends AppCompatActivity {
                 Intent intent = new Intent();
                 intent.setType("image/*");
                 intent.setAction(Intent.ACTION_GET_CONTENT);
-                startActivityForResult(intent,imagen_request);
+                startActivityForResult(intent, imagen_request);
             }
         });
 
@@ -85,10 +85,10 @@ public class RegistroActivity extends AppCompatActivity {
                 } else {
                     try {
 
-                        bitmap= ((BitmapDrawable) ivFotoPerfil.getDrawable()).getBitmap();
+                        bitmap = ((BitmapDrawable) ivFotoPerfil.getDrawable()).getBitmap();
                         ByteArrayOutputStream baos = new ByteArrayOutputStream();
                         bitmap.compress(Bitmap.CompressFormat.JPEG, 100, baos);
-                        imagenByte= baos.toByteArray();
+                        imagenByte = baos.toByteArray();
 
                         Connection connection = ConnectionClass.con;
                         PreparedStatement ps = connection.prepareStatement("INSERT INTO USUARIO(correo,password,usuario,foto) values(?,MD5(?),?,?)");
@@ -113,14 +113,14 @@ public class RegistroActivity extends AppCompatActivity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if(requestCode==imagen_request && resultCode==RESULT_OK && data !=null){
-            Uri ruta= data.getData() ;
+        if (requestCode == imagen_request && resultCode == RESULT_OK && data != null) {
+            Uri ruta = data.getData();
             try {
-                bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(),ruta);
+                bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), ruta);
                 ivFotoPerfil.setImageBitmap(bitmap);
                 ByteArrayOutputStream baos = new ByteArrayOutputStream();
-                bitmap.compress(Bitmap.CompressFormat.JPEG,50,baos);
-                imagenByte=baos.toByteArray();
+                bitmap.compress(Bitmap.CompressFormat.JPEG, 50, baos);
+                imagenByte = baos.toByteArray();
 
             } catch (IOException e) {
                 e.printStackTrace();

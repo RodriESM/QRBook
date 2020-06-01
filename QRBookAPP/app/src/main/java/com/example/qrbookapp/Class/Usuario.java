@@ -11,19 +11,19 @@ public class Usuario implements Serializable {
     private String nombre;
     private String apellido1;
     private String apellido2;
-    private byte [] url;
+    private byte[] url;
 
     public Usuario() {
-        correo="";
-        usuario="";
-        password="";
-        nombre="";
-        apellido1="";
-        apellido2="";
-        url=null;
+        correo = "";
+        usuario = "";
+        password = "";
+        nombre = "";
+        apellido1 = "";
+        apellido2 = "";
+        url = null;
     }
 
-    public Usuario(String correo, String usuario, String password, String nombre, String apellido1, String apellido2, byte [] url) {
+    public Usuario(String correo, String usuario, String password, String nombre, String apellido1, String apellido2, byte[] url) {
         this.correo = correo;
         this.usuario = usuario;
         this.password = password;
@@ -81,11 +81,11 @@ public class Usuario implements Serializable {
         this.apellido2 = apellido2;
     }
 
-    public byte [] getUrl() {
+    public byte[] getUrl() {
         return url;
     }
 
-    public void setUrl(byte [] url) {
+    public void setUrl(byte[] url) {
         this.url = url;
     }
 }

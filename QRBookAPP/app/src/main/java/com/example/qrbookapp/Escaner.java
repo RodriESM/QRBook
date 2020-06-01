@@ -185,7 +185,7 @@ public class Escaner extends AppCompatActivity {
 
                     try {
                         //Revisamos todos los qr de la base de datos.
-                        rsgeneral = connection.createStatement().executeQuery("select * from QR where URL like'" + code.displayValue + "' and ISBN like '"+isbn+"'");
+                        rsgeneral = connection.createStatement().executeQuery("select * from QR where URL like'" + code.displayValue + "' and ISBN like '" + isbn + "'");
 
                         //Si encuentra el QR, lo muestra.
                         if (rsgeneral.next()) {
@@ -194,11 +194,11 @@ public class Escaner extends AppCompatActivity {
                             i.putExtra("url", code.displayValue);
                             startActivity(i);
 
-                        }else{
+                        } else {
 
                             try {
                                 //Miramos que el qr no esté registrado para no crear duplicados en nuestro contenedor de qr
-                                rs = connection.createStatement().executeQuery("SELECT * FROM USUARIOQR where URL like '" + code.displayValue + "' and CORREO like '" + correo + "' and ISBN like '"+isbn+"'");
+                                rs = connection.createStatement().executeQuery("SELECT * FROM USUARIOQR where URL like '" + code.displayValue + "' and CORREO like '" + correo + "' and ISBN like '" + isbn + "'");
 
                                 //Recorremos todos lo libros que tenemos en la base de datos y los introducimos en el array
                                 if (rs.next()) {
@@ -223,8 +223,8 @@ public class Escaner extends AppCompatActivity {
 
                                     Intent i = new Intent(Escaner.this, AnadirQrUsuario.class);
                                     i.putExtra("url", code.displayValue);
-                                    i.putExtra("correo",correo);
-                                    i.putExtra("isbn",isbn);
+                                    i.putExtra("correo", correo);
+                                    i.putExtra("isbn", isbn);
                                     startActivity(i);
 
                                 }

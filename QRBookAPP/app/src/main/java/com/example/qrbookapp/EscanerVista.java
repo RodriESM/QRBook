@@ -15,7 +15,7 @@ public class EscanerVista extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_escaner_vista);
 
-        WVVista=findViewById(R.id.WVvista);
+        WVVista = findViewById(R.id.WVvista);
         //De esta forma ajustamos el WebView a los marcos
         final WebSettings ajustesVisorWeb = WVVista.getSettings();
         ajustesVisorWeb.setJavaScriptEnabled(true);
@@ -23,8 +23,8 @@ public class EscanerVista extends AppCompatActivity {
         ajustesVisorWeb.setLoadWithOverviewMode(true);
 
         //Obtenemos los datos de la otra actividad mediante el ID de url
-        Bundle bundle=getIntent().getExtras();
-        String url=bundle.getString("url");
+        Bundle bundle = getIntent().getExtras();
+        String url = bundle.getString("url");
         //Mostramos en el WebView la página indicada.
         WVVista.loadUrl(url);
     }

@@ -4,9 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".LibrosCaracteristicasAmpliado"
+    android:background="@drawable/librorecorteblanco"
     android:orientation="vertical"
-    android:background="@drawable/librorecorteblanco">
+    tools:context=".LibrosCaracteristicasAmpliado">
 
 
     <ScrollView
@@ -16,10 +16,10 @@
         tools:layout_editor_absoluteY="9dp">
 
         <LinearLayout
-            android:paddingTop="20dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:paddingTop="20dp">
 
             <ImageView
                 android:id="@+id/imgLibroAmpliado"
@@ -31,8 +31,8 @@
             <TextView
                 android:layout_width="360dp"
                 android:layout_height="29dp"
-                android:layout_marginTop="25dp"
                 android:layout_marginStart="30dp"
+                android:layout_marginTop="25dp"
                 android:text="ISBN"
                 android:textColor="#000000"
                 android:textSize="15sp"
@@ -51,8 +51,8 @@
             <TextView
                 android:layout_width="360dp"
                 android:layout_height="29dp"
-                android:layout_marginTop="25dp"
                 android:layout_marginStart="30dp"
+                android:layout_marginTop="25dp"
                 android:text="Título"
                 android:textColor="#000000"
                 android:textSize="15sp"
@@ -71,8 +71,8 @@
             <TextView
                 android:layout_width="360dp"
                 android:layout_height="29dp"
-                android:layout_marginTop="25dp"
                 android:layout_marginStart="30dp"
+                android:layout_marginTop="25dp"
                 android:text="Autor"
                 android:textColor="#000000"
                 android:textSize="15sp"
@@ -91,8 +91,8 @@
             <TextView
                 android:layout_width="360dp"
                 android:layout_height="29dp"
-                android:layout_marginTop="25dp"
                 android:layout_marginStart="30dp"
+                android:layout_marginTop="25dp"
                 android:text="Editorial"
                 android:textColor="#000000"
                 android:textSize="15sp"
@@ -111,8 +111,8 @@
             <TextView
                 android:layout_width="360dp"
                 android:layout_height="29dp"
-                android:layout_marginTop="25dp"
                 android:layout_marginStart="30dp"
+                android:layout_marginTop="25dp"
                 android:text="Año"
                 android:textColor="#000000"
                 android:textSize="15sp"
@@ -131,8 +131,8 @@
             <TextView
                 android:layout_width="360dp"
                 android:layout_height="29dp"
-                android:layout_marginTop="25dp"
                 android:layout_marginStart="30dp"
+                android:layout_marginTop="25dp"
                 android:text="Idioma"
                 android:textColor="#000000"
                 android:textSize="15sp"
@@ -151,8 +151,8 @@
             <TextView
                 android:layout_width="360dp"
                 android:layout_height="29dp"
-                android:layout_marginTop="25dp"
                 android:layout_marginStart="30dp"
+                android:layout_marginTop="25dp"
                 android:text="Genero"
                 android:textColor="#000000"
                 android:textSize="15sp"
@@ -172,19 +172,19 @@
             <TextView
                 android:layout_width="360dp"
                 android:layout_height="29dp"
+                android:layout_marginStart="30dp"
                 android:layout_marginTop="25dp"
                 android:background="#A9DDDDDD"
-                android:layout_marginStart="30dp"
                 android:text="Sinópsis"
                 android:textColor="#000000"
                 android:textSize="15sp"
                 android:textStyle="italic|bold" />
 
             <TextView
-                android:layout_marginStart="30dp"
                 android:id="@+id/tvSinopsisAmpliado"
                 android:layout_width="360dp"
                 android:layout_height="190dp"
+                android:layout_marginStart="30dp"
                 android:background="#A9DDDDDD"
                 android:text="Hola"
                 android:textColor="#000000"
@@ -246,7 +246,6 @@
             app:layout_constraintEnd_toEndOf="parent" />
 
 
-
         <com.getbase.floatingactionbutton.FloatingActionButton
             android:id="@+id/btnVer"
             android:layout_width="15dp"
@@ -273,6 +272,6 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent" />
 
-        </com.getbase.floatingactionbutton.FloatingActionsMenu>
+    </com.getbase.floatingactionbutton.FloatingActionsMenu>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

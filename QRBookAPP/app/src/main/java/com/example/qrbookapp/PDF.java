@@ -24,16 +24,16 @@ public class PDF extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_p_d_f);
 
-        Bundle b=getIntent().getExtras();
-        String isbn=b.getString("isbn");
-        String correo=b.getString("correo");
+        Bundle b = getIntent().getExtras();
+        String isbn = b.getString("isbn");
+        String correo = b.getString("correo");
 
 // Here, thisActivity is the current activity
         if (ContextCompat.checkSelfPermission(PDF.this,
                 Manifest.permission.READ_EXTERNAL_STORAGE)
                 != PackageManager.PERMISSION_GRANTED) {
 
-            Toast.makeText(this,"Para poder leer el libro hay que aceptar los permisos",Toast.LENGTH_LONG).show();
+            Toast.makeText(this, "Para poder leer el libro hay que aceptar los permisos", Toast.LENGTH_LONG).show();
 
             if (ActivityCompat.shouldShowRequestPermissionRationale(PDF.this,
                     Manifest.permission.READ_EXTERNAL_STORAGE)) {
@@ -43,7 +43,7 @@ public class PDF extends AppCompatActivity {
             } else {
                 // No explanation needed; request the permission
                 ActivityCompat.requestPermissions(PDF.this,
-                        new String[]{Manifest.permission.READ_EXTERNAL_STORAGE},PackageManager.PERMISSION_GRANTED);
+                        new String[]{Manifest.permission.READ_EXTERNAL_STORAGE}, PackageManager.PERMISSION_GRANTED);
 
                 // MY_PERMISSIONS_REQUEST_READ_CONTACTS is an
                 // app-defined int constant. The callback method gets the
@@ -51,8 +51,8 @@ public class PDF extends AppCompatActivity {
             }
         } else {
             //PDF View
-            PDFView pdfView=findViewById(R.id.pdfView);
-            pdfView.fromFile(getDatabasePath("/sdcard/Download/"+isbn+correo+".pdf"))
+            PDFView pdfView = findViewById(R.id.pdfView);
+            pdfView.fromFile(getDatabasePath("/sdcard/Download/" + isbn + correo + ".pdf"))
                     .enableSwipe(true) // allows to block changing pages using swipe
                     .swipeHorizontal(false)
                     .enableDoubletap(true)
@@ -83,8 +83,8 @@ public class PDF extends AppCompatActivity {
 
 
 /*
-* Añadir librearia de PDF
-* Añadir el Layout a la actividad
-* Crear carpeta de archivos PDF y añadir los PDF allí
-* Cargar el PDF.
-* */
+ * Añadir librearia de PDF
+ * Añadir el Layout a la actividad
+ * Crear carpeta de archivos PDF y añadir los PDF allí
+ * Cargar el PDF.
+ * */

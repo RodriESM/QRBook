@@ -43,11 +43,11 @@ public class AdaptadorLibros extends BaseAdapter {
     public View getView(int position, View convertView, ViewGroup parent) {
 
         LayoutInflater layoutInflater = LayoutInflater.from(miContexto);
-        convertView=layoutInflater.inflate(R.layout.item_libro, null);
+        convertView = layoutInflater.inflate(R.layout.item_libro, null);
 
-        TextView tvTitulo= convertView.findViewById(R.id.tvTitulo);
-        TextView  tvAutor=convertView.findViewById(R.id.tvAutor);
-        ImageView imgLibro=convertView.findViewById(R.id.imgLibro);
+        TextView tvTitulo = convertView.findViewById(R.id.tvTitulo);
+        TextView tvAutor = convertView.findViewById(R.id.tvAutor);
+        ImageView imgLibro = convertView.findViewById(R.id.imgLibro);
 
         tvTitulo.setText(miArrayList.get(position).getTitulo());
         tvAutor.setText(miArrayList.get(position).getAutor());

@@ -18,7 +18,7 @@ import java.util.TimerTask;
 
 public class SplashScreen extends AppCompatActivity {
 
-    ArrayList<String> contenidoFicheroRecordado= new ArrayList<>();
+    ArrayList<String> contenidoFicheroRecordado = new ArrayList<>();
     AccesoFichero accesoFichero = new AccesoFichero();
 
     @Override
@@ -33,26 +33,26 @@ public class SplashScreen extends AppCompatActivity {
 
                 //Intent intentPri = new Intent().setClass(SPlashScreeeen.this, MainActivity.class);
 
-                final String datos []=fileList();
-                final String nombreFicheroRecordatorio="user.txt";
+                final String datos[] = fileList();
+                final String nombreFicheroRecordatorio = "user.txt";
 
-                if (accesoFichero.archivoExisteEntreFicheros(datos,nombreFicheroRecordatorio)){
+                if (accesoFichero.archivoExisteEntreFicheros(datos, nombreFicheroRecordatorio)) {
 
                     try {
-                        InputStreamReader isr= new InputStreamReader(openFileInput(nombreFicheroRecordatorio));
-                        BufferedReader br= new BufferedReader(isr);
-                        String linea=br.readLine();
+                        InputStreamReader isr = new InputStreamReader(openFileInput(nombreFicheroRecordatorio));
+                        BufferedReader br = new BufferedReader(isr);
+                        String linea = br.readLine();
 
                         //Introducimos los datos en un array recorriendo cada linea del fichero, en la primera linea tendrá el usuario y en la segunda la contraseña
 
-                            if(linea.equals("") || linea==null){
-                                Intent nuevaActividad = new Intent(getApplicationContext(), MainActivity.class);
-                                startActivity(nuevaActividad);
-                            }else{
-                                Intent nuevaActividad = new Intent(getApplicationContext(), InicioActivity.class);
-                                startActivity(nuevaActividad);
+                        if (linea.equals("") || linea == null) {
+                            Intent nuevaActividad = new Intent(getApplicationContext(), MainActivity.class);
+                            startActivity(nuevaActividad);
+                        } else {
+                            Intent nuevaActividad = new Intent(getApplicationContext(), InicioActivity.class);
+                            startActivity(nuevaActividad);
 
-                            }
+                        }
 
                     } catch (FileNotFoundException e) {
                         e.printStackTrace();
@@ -60,16 +60,16 @@ public class SplashScreen extends AppCompatActivity {
                         e.printStackTrace();
                     }
 
-                }else{
+                } else {
                     Intent nuevaActividad = new Intent(getApplicationContext(), MainActivity.class);
                     startActivity(nuevaActividad);
                 }
-                    finish();
+                finish();
             }
         };
 
-        Timer timer= new Timer();
-        timer.schedule(task,500);
+        Timer timer = new Timer();
+        timer.schedule(task, 500);
     }
 
 }

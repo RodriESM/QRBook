@@ -14,19 +14,20 @@ public class ViewPagerAdapter extends FragmentPagerAdapter {
 
     List<Fragment> fragmentList = new ArrayList<>();
     CharSequence Titles[];
-    Fragment_ListaLibros FL=new Fragment_ListaLibros();
-    Fragment_ListaLibros_Usuario FLU=new Fragment_ListaLibros_Usuario();
+    Fragment_ListaLibros FL = new Fragment_ListaLibros();
+    Fragment_ListaLibros_Usuario FLU = new Fragment_ListaLibros_Usuario();
+
     //Pasamos el array de los títulos.
-    public ViewPagerAdapter(FragmentManager fm,CharSequence mTitles[]) {
+    public ViewPagerAdapter(FragmentManager fm, CharSequence mTitles[]) {
         super(fm);
-        this.Titles=mTitles;
+        this.Titles = mTitles;
     }
 
     //Modificar para que dependiendo de la posición del tab muestre un fragment u otro
     @Override
     public Fragment getItem(int position) {
         //Dependiendo del de la tabulación abrirá uno u otro y por defecto la lista de libros.
-        switch (position){
+        switch (position) {
             case 0:
                 return FL;
             case 1:
@@ -41,7 +42,7 @@ public class ViewPagerAdapter extends FragmentPagerAdapter {
         return fragmentList.size();
     }
 
-    public void addFragment(Fragment fragment){
+    public void addFragment(Fragment fragment) {
         fragmentList.add(fragment);
     }
 

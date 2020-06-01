@@ -31,7 +31,7 @@ public class InicioActivity extends AppCompatActivity {
     //Array de los iconos
     private int[] tabIcons = {R.drawable.library, R.drawable.user_library};
     //Array de los títulos
-    private CharSequence Titles[]={"Novedades","Mi biblioteca"};
+    private CharSequence Titles[] = {"Novedades", "Mi biblioteca"};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,7 +43,7 @@ public class InicioActivity extends AppCompatActivity {
         btnUser.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i= new Intent(InicioActivity.this, PerfilUsuario.class);
+                Intent i = new Intent(InicioActivity.this, PerfilUsuario.class);
                 startActivity(i);
             }
         });
@@ -54,7 +54,7 @@ public class InicioActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 try {
-                    EscribirEnFichero("","");
+                    EscribirEnFichero("", "");
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
@@ -64,15 +64,15 @@ public class InicioActivity extends AppCompatActivity {
                 } catch (SQLException e) {
                     e.printStackTrace();
                 }
-                Intent i=new Intent(InicioActivity.this,MainActivity.class);
+                Intent i = new Intent(InicioActivity.this, MainActivity.class);
                 startActivity(i);
                 System.exit(0);
             }
         });
 
-        ViewPager viewPager = (ViewPager)findViewById(R.id.viewpager);
+        ViewPager viewPager = (ViewPager) findViewById(R.id.viewpager);
         loadViewPager(viewPager);
-        tabLayout = (TabLayout)findViewById(R.id.tabs);
+        tabLayout = (TabLayout) findViewById(R.id.tabs);
         tabLayout.setupWithViewPager(viewPager);
         tabIcons();
         //iconColor(tabLayout.getTabAt(tabLayout.getSelectedTabPosition()),"#3b5998");
@@ -94,18 +94,18 @@ public class InicioActivity extends AppCompatActivity {
         });
     }
 
-    private void iconColor(TabLayout.Tab tab, String color){
+    private void iconColor(TabLayout.Tab tab, String color) {
         tab.getIcon().setColorFilter(Color.parseColor(color), PorterDuff.Mode.SRC_IN);
     }
 
-    private void tabIcons(){
-        for (int i = 0; i < 2; i++){
+    private void tabIcons() {
+        for (int i = 0; i < 2; i++) {
             tabLayout.getTabAt(i).setIcon(tabIcons[i]);
         }
     }
 
-    private void loadViewPager(ViewPager viewPager){
-        ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager(),Titles);
+    private void loadViewPager(ViewPager viewPager) {
+        ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager(), Titles);
         //adapter.addFragment((newInstance(R.layout.activity_gridview_libros)));
         //Cargamos los fragment deseados al inicio, además los hemos separado en fragment distintos para dar más independencia a la app.
         adapter.addFragment((newInstance(R.layout.activity_gridview_libros)));
@@ -114,7 +114,7 @@ public class InicioActivity extends AppCompatActivity {
         viewPager.setAdapter(adapter);
     }
 
-    private OneFragment newInstance(Class clase){
+    private OneFragment newInstance(Class clase) {
         Bundle bundle = new Bundle();
         OneFragment fragment = new OneFragment(clase);
         fragment.setArguments(bundle);
@@ -122,7 +122,7 @@ public class InicioActivity extends AppCompatActivity {
         return fragment;
     }
 
-    private OneFragment newInstance(int referencia){
+    private OneFragment newInstance(int referencia) {
         Bundle bundle = new Bundle();
         OneFragment fragment = new OneFragment(referencia);
         fragment.setArguments(bundle);
@@ -132,12 +132,11 @@ public class InicioActivity extends AppCompatActivity {
 
     public void EscribirEnFichero(String correo, String contrasena) throws IOException {
         File fichero = new File("user.txt");
-        OutputStreamWriter osw= new OutputStreamWriter(openFileOutput("user.txt", Activity.MODE_PRIVATE));
-        osw.write(correo +"\n" + contrasena);
+        OutputStreamWriter osw = new OutputStreamWriter(openFileOutput("user.txt", Activity.MODE_PRIVATE));
+        osw.write(correo + "\n" + contrasena);
         osw.flush();
         osw.close();
     }
-
 
 
 }

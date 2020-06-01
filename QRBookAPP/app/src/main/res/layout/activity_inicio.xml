@@ -4,11 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context=".InicioActivity"
     android:background="@drawable/recortebackgroundblanco"
     android:backgroundTintMode="screen"
-    >
+    android:orientation="vertical"
+    tools:context=".InicioActivity">
 
     <LinearLayout
         android:id="@+id/linearLayout"
@@ -21,11 +20,11 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="#899592"
+            app:tabGravity="fill"
             app:tabIndicatorColor="#1A8A6F"
             app:tabIndicatorHeight="7dp"
-            app:tabGravity="fill"
-            app:tabTextColor="#000"
             app:tabMode="fixed"
+            app:tabTextColor="#000"
             tools:ignore="DuplicateIds" />
 
         <View
@@ -46,39 +45,37 @@
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
-        android:foregroundGravity="bottom"
         android:layout_marginEnd="10sp"
         android:layout_marginBottom="20sp"
-        app:fab_addButtonColorPressed="@color/design_default_color_secondary_variant"
+        android:foregroundGravity="bottom"
         app:fab_addButtonColorNormal="@color/common_google_signin_btn_text_dark_focused"
-        app:layout_constraintBottom_toBottomOf="@+id/linearLayout"
-        app:layout_constraintEnd_toEndOf="@+id/linearLayout"
-        app:fab_labelsPosition="left"
+        app:fab_addButtonColorPressed="@color/design_default_color_secondary_variant"
         app:fab_labelStyle="@style/Etiquetas"
-        >
+        app:fab_labelsPosition="left"
+        app:layout_constraintBottom_toBottomOf="@+id/linearLayout"
+        app:layout_constraintEnd_toEndOf="@+id/linearLayout">
 
         <com.getbase.floatingactionbutton.FloatingActionButton
             android:id="@+id/btnCerrarSesion"
             android:layout_width="15dp"
             android:layout_height="15dp"
-            app:fab_icon="@drawable/salir"
-            app:fab_size="normal"
-            app:fab_colorPressed="@color/design_default_color_secondary_variant"
             app:fab_colorNormal="@color/design_default_color_background"
-            app:fab_title="Salir"
-            app:fab_labelStyle="@color/common_google_signin_btn_text_dark_focused"/>
+            app:fab_colorPressed="@color/design_default_color_secondary_variant"
+            app:fab_icon="@drawable/salir"
+            app:fab_labelStyle="@color/common_google_signin_btn_text_dark_focused"
+            app:fab_size="normal"
+            app:fab_title="Salir" />
 
         <com.getbase.floatingactionbutton.FloatingActionButton
             android:id="@+id/btnUser"
             android:layout_width="15dp"
             android:layout_height="15dp"
-            app:fab_icon="@drawable/account"
-            app:fab_size="normal"
-            app:fab_colorPressed="@color/design_default_color_secondary_variant"
             app:fab_colorNormal="@color/design_default_color_background"
-            app:fab_title="Usuario"
+            app:fab_colorPressed="@color/design_default_color_secondary_variant"
+            app:fab_icon="@drawable/account"
             app:fab_labelStyle="@color/common_google_signin_btn_text_light_pressed"
-            />
+            app:fab_size="normal"
+            app:fab_title="Usuario" />
 
     </com.getbase.floatingactionbutton.FloatingActionsMenu>
 
