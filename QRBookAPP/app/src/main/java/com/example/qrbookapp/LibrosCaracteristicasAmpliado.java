@@ -169,8 +169,7 @@ public class LibrosCaracteristicasAmpliado extends AppCompatActivity {
 
                     request.setAllowedNetworkTypes(DownloadManager.Request.NETWORK_WIFI | DownloadManager.Request.NETWORK_MOBILE);
 
-                    request.setTitle("Descargando");
-                    request.setDescription("Descargando libro");
+                    request.setTitle(tvTituloAmpliado.getText().toString());
 
                     request.allowScanningByMediaScanner();
                     request.setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE_NOTIFY_ONLY_COMPLETION);
@@ -178,7 +177,6 @@ public class LibrosCaracteristicasAmpliado extends AppCompatActivity {
 
                     DownloadManager manager= (DownloadManager)getSystemService(Context.DOWNLOAD_SERVICE);
                     manager.enqueue(request);
-
 
 
                    /* DownloadManager manager = (DownloadManager) getSystemService(Context.DOWNLOAD_SERVICE);
@@ -213,8 +211,7 @@ public class LibrosCaracteristicasAmpliado extends AppCompatActivity {
                     if (ContextCompat.checkSelfPermission(LibrosCaracteristicasAmpliado.this,
                             Manifest.permission.WRITE_EXTERNAL_STORAGE)
                             != PackageManager.PERMISSION_GRANTED) {
-                        ActivityCompat.requestPermissions(LibrosCaracteristicasAmpliado.this,
-                                new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE},PackageManager.PERMISSION_GRANTED);
+                        ActivityCompat.requestPermissions(LibrosCaracteristicasAmpliado.this, new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE},PackageManager.PERMISSION_GRANTED);
                     }else{
                         int rslibro = connection.createStatement().executeUpdate("delete from USUARIOLIBRO where correo like '"+correo+"' and isbn like'"+tvIsbnAmpliado.getText().toString()+"'");
                         //TO_DO No sabemos si habría que borrar de la base de datos los qr correspondientes al libro que se va a eliminar
@@ -224,15 +221,16 @@ public class LibrosCaracteristicasAmpliado extends AppCompatActivity {
                         FileInputStream fis = new FileInputStream(file);
                         fis.close();
                         file.delete();
-                        Intent i = new Intent(LibrosCaracteristicasAmpliado.this, InicioActivity.class);
-                        startActivity(i);
-                        finish();
                     }
 
                 } catch (SQLException | FileNotFoundException e) {
                     e.printStackTrace();
                 } catch (IOException e) {
                     e.printStackTrace();
+                }finally {
+                    Intent i = new Intent(LibrosCaracteristicasAmpliado.this, InicioActivity.class);
+                    startActivity(i);
+                    finish();
                 }
             }
         });

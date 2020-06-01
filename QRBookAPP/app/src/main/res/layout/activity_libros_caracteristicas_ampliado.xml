@@ -16,6 +16,7 @@
         tools:layout_editor_absoluteY="9dp">
 
         <LinearLayout
+            android:paddingTop="20dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
