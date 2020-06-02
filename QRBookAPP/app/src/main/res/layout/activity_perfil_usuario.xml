@@ -126,6 +126,13 @@
                     android:textColorHint="#000" />
             </com.google.android.material.textfield.TextInputLayout>
 
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:passwordToggleEnabled="true"
+                android:textColorHint="@color/black"
+                >
+
             <EditText
                 android:id="@+id/etRepiteContrasena"
                 android:layout_width="match_parent"
@@ -138,6 +145,7 @@
                 android:textColor="#000"
                 android:textColorHint="#000" />
 
+            </com.google.android.material.textfield.TextInputLayout>
 
             <Button
                 android:id="@+id/btnRealizarCambios"

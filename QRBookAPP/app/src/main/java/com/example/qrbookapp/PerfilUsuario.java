@@ -96,7 +96,6 @@ public class PerfilUsuario extends AppCompatActivity {
             //recorremos todos los usuarios que tenemos en la ase de datos y los introducimos en el array
             while (rs.next()) {
                 usuario = new Usuario(correo, rs.getString(2), contrasenaRecordada, rs.getString(4), rs.getString(5), rs.getString(6), rs.getBytes(7));
-
             }
 
         } catch (Exception e) {
@@ -188,7 +187,7 @@ public class PerfilUsuario extends AppCompatActivity {
                     } catch (SQLException e) {
                         e.printStackTrace();
                     }
-                }else if (!etAntiguaContrasena.getText().toString().equals(contrasenaRecordada) && !etAntiguaContrasena.getText().toString().equals("")) {
+                } else if (!etAntiguaContrasena.getText().toString().equals(contrasenaRecordada) && !etAntiguaContrasena.getText().toString().equals("")) {
                     etContrasena.setError("La contraseña introducida no coincide con su antigua contraseña.");
                 } else if (contrasena.length() < 8) {
                     etContrasena.setError("La contraseña debe tener mínimo 8 carácteres.");
@@ -196,7 +195,7 @@ public class PerfilUsuario extends AppCompatActivity {
                     etContrasena.setError("La contraseña debe contener una letra mayúscula, minúscula y un número.");
                 } else if (!contrasena.equals(repContrasena)) { //Pass: ^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$
                     etRepiteContrasena.setError("Las nuevas contraseñas no coinciden. Intentelo de nuevo.");
-                }  else {
+                } else {
                     try {
                         Connection connection = ConnectionClass.con;
                         PreparedStatement ps;

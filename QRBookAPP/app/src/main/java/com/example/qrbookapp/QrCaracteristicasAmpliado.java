@@ -11,8 +11,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class QrCaracteristicasAmpliado extends AppCompatActivity {
 
-    TextView tvNombreQrAmpliado, tvDescripcionQrAmpliado, tvTipoQrAmpliado, tvPagina;
-    WebView wvQrContenido;
+    private TextView tvNombreQrAmpliado, tvDescripcionQrAmpliado, tvTipoQrAmpliado, tvPagina;
+    private WebView wvQrContenido;
 
     @SuppressLint("SetJavaScriptEnabled")
     @Override

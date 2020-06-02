@@ -204,12 +204,13 @@ public class LibrosCaracteristicasAmpliado extends AppCompatActivity {
                             != PackageManager.PERMISSION_GRANTED) {
                         ActivityCompat.requestPermissions(LibrosCaracteristicasAmpliado.this, new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, PackageManager.PERMISSION_GRANTED);
                     }
+
                     int rslibro = connection.createStatement().executeUpdate("delete from USUARIOLIBRO where correo like '" + correo + "' and isbn like'" + tvIsbnAmpliado.getText().toString() + "'");
                     //TO_DO No sabemos si habría que borrar de la base de datos los qr correspondientes al libro que se va a eliminar
                     //ResultSet rsqr =connection.createStatement().executeQuery("delete from USUARIOQR where correo like '"+correo+"' and isbn like'"+tvIsbnAmpliado.getText().toString()+"'");
 
                     @SuppressLint("SdCardPath") File file = new File("/sdcard/Download/" + tvIsbnAmpliado.getText().toString() + correo + ".pdf");
-                    if (file.exists()){
+                    if (file.exists()) {
                         FileInputStream fis = new FileInputStream(file);
                         fis.close();
                         file.delete();

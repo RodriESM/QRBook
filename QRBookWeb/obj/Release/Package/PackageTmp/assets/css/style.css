@@ -535,11 +535,12 @@ footer p {
 }
 
 .dropdown-content {
-  display: none;
-  position: absolute;
-  background-color: #f1f1f1;
-  min-height:  20px;
-  max-width: 40px;
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+    min-height: 20px;
+    max-width: 40px;
+    border-radius: 5px 5px;
 }
 
 .dropdown-content a {
