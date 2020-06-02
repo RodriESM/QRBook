@@ -23,11 +23,11 @@ import java.util.ArrayList;
 
 public class ListaQr extends AppCompatActivity {
 
-    private GridView gvListaQr;
-    private AdaptadorQr adaptadorQr;
-    private ArrayList<String> contenidoFicheroRecordado = new ArrayList<>();
-    private AccesoFichero accesoFichero = new AccesoFichero();
-    private String correo;
+     GridView gvListaQr;
+     AdaptadorQr adaptadorQr;
+     ArrayList<String> contenidoFicheroRecordado = new ArrayList<>();
+     AccesoFichero accesoFichero = new AccesoFichero();
+     String correo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

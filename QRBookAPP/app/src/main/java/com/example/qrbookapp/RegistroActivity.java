@@ -10,7 +10,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
-import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -25,14 +24,14 @@ import java.sql.SQLException;
 
 public class RegistroActivity extends AppCompatActivity {
 
-    private ConnectionClass conexionMySQL = new ConnectionClass();
-    private Button btnRegistrarse;
-    private EditText etEmail, etUsuario, etPassword, etPassword2;
-    private ImageButton ivFotoPerfil;
-    private final int imagen_request = 0;
-    private int puerto;
-    private Bitmap bitmap;
-    private byte[] imagenByte;
+     ConnectionClass conexionMySQL = new ConnectionClass();
+     Button btnRegistrarse;
+     EditText etEmail, etUsuario, etPassword, etPassword2;
+     ImageButton ivFotoPerfil;
+     final int imagen_request = 0;
+     int puerto;
+     Bitmap bitmap;
+     byte[] imagenByte;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

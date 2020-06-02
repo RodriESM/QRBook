@@ -24,11 +24,11 @@ import java.util.Objects;
 
 public class InicioActivity extends AppCompatActivity {
 
-    private TabLayout tabLayout;
+     TabLayout tabLayout;
     //Array de los iconos
-    private int[] tabIcons = {R.drawable.library, R.drawable.user_library};
+     int[] tabIcons = {R.drawable.library, R.drawable.user_library};
     //Array de los títulos
-    private CharSequence[] Titles = {"Novedades", "Mi biblioteca"};
+     CharSequence[] Titles = {"Novedades", "Mi biblioteca"};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

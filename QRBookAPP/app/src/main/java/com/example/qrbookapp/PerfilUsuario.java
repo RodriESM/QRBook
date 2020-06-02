@@ -1,5 +1,6 @@
 package com.example.qrbookapp;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Bitmap;
@@ -33,19 +34,20 @@ import java.util.ArrayList;
 
 public class PerfilUsuario extends AppCompatActivity {
 
-    private EditText etUsuarioCam, etNombre, etApellido1, etApellido2, etContrasena, etRepiteContrasena, etAntiguaContrasena;
-    private ImageButton ibUsuario;
-    private Button btnRealizarCambios;
-    private ArrayList<String> contenidoFicheroRecordado = new ArrayList<>();
-    private AccesoFichero accesoFichero = new AccesoFichero();
-    private String correo;
-    private String contrasenaRecordada;
-    private String antiguoUsuario;
-    private Usuario usuario;
-    private final int imagen_request = 0;
-    private Bitmap bitmap;
-    private byte[] imagenByte;
+     EditText etUsuarioCam, etNombre, etApellido1, etApellido2, etContrasena, etRepiteContrasena, etAntiguaContrasena;
+     ImageButton ibUsuario;
+     Button btnRealizarCambios;
+     ArrayList<String> contenidoFicheroRecordado = new ArrayList<>();
+     AccesoFichero accesoFichero = new AccesoFichero();
+     String correo;
+     String contrasenaRecordada;
+     String antiguoUsuario;
+     Usuario usuario;
+     final int imagen_request = 0;
+     Bitmap bitmap;
+     byte[] imagenByte;
 
+    @SuppressLint("WrongThread")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

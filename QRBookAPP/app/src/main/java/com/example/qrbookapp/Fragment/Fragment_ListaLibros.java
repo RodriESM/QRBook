@@ -9,7 +9,6 @@ import android.widget.AdapterView;
 import android.widget.GridView;
 import android.widget.SearchView;
 
-import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
@@ -28,16 +27,15 @@ import java.util.Objects;
 //Tiene que ser un fragment, no una actividad...
 public class Fragment_ListaLibros extends Fragment {
 
-    private GridView gvListaLibros;
-    private AdaptadorLibros adaptadorLibros;
-    private SearchView svBuscarGeneral;
-    private ArrayList<Libro> arrayLibros;
+     GridView gvListaLibros;
+     AdaptadorLibros adaptadorLibros;
+     SearchView svBuscarGeneral;
+     ArrayList<Libro> arrayLibros;
 
 
     //Método para crear el fragment
-    @Nullable
     @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+    public View onCreateView( LayoutInflater inflater,  ViewGroup container, @Nullable Bundle savedInstanceState) {
         super.onCreateView(inflater, container, savedInstanceState);
         final View rootView = inflater.inflate(R.layout.activity_gridview_libros, container, false);
         arrayLibros = new ArrayList<>();
@@ -66,7 +64,7 @@ public class Fragment_ListaLibros extends Fragment {
 
 
         //El adaptador...
-        adaptadorLibros = new AdaptadorLibros(Objects.requireNonNull(getActivity()).getApplicationContext(), arrayLibros);
+        adaptadorLibros = new AdaptadorLibros(getActivity().getApplicationContext(), arrayLibros);
 
         //Añadir al gridview los libros
         gvListaLibros.setAdapter(adaptadorLibros);
@@ -114,7 +112,7 @@ public class Fragment_ListaLibros extends Fragment {
                 }
 
                 //El adaptador...
-                adaptadorLibros = new AdaptadorLibros(Objects.requireNonNull(getActivity()).getApplicationContext(), arrayLibros);
+                adaptadorLibros = new AdaptadorLibros(getActivity().getApplicationContext(), arrayLibros);
 
                 //Añadir al gridview los libros
                 gvListaLibros.setAdapter(adaptadorLibros);

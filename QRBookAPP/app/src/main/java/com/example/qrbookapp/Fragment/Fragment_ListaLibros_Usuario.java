@@ -9,7 +9,6 @@ import android.widget.AdapterView;
 import android.widget.GridView;
 import android.widget.SearchView;
 
-import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
@@ -27,23 +26,22 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.Objects;
 
 //Tiene que ser un fragment, no una actividad...
 public class Fragment_ListaLibros_Usuario extends Fragment {
 
-    private GridView gvListaLibros;
-    private AdaptadorLibros adaptadorLibros;
-    private SearchView svBuscarUsuarioLibro;
-    private ArrayList<String> contenidoFicheroRecordado= new ArrayList<>();
-    private AccesoFichero accesoFichero = new AccesoFichero();
-    private String correo;
-    private ArrayList<Libro> arrayLibros;
+     GridView gvListaLibros;
+     AdaptadorLibros adaptadorLibros;
+     SearchView svBuscarUsuarioLibro;
+     ArrayList<String> contenidoFicheroRecordado= new ArrayList<>();
+     AccesoFichero accesoFichero = new AccesoFichero();
+     String correo;
+     ArrayList<Libro> arrayLibros;
 
     //Método para crear el fragment
-    @Nullable
+
     @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+    public View onCreateView( LayoutInflater inflater,  ViewGroup container, @Nullable Bundle savedInstanceState) {
         super.onCreateView(inflater, container, savedInstanceState);
         View rootView = inflater.inflate(R.layout.activity_gridview_libros_usuario, container, false);
          arrayLibros= new ArrayList<>();
@@ -51,7 +49,7 @@ public class Fragment_ListaLibros_Usuario extends Fragment {
         gvListaLibros=rootView.findViewById(R.id.gvListaLibros);
         svBuscarUsuarioLibro=rootView.findViewById(R.id.svBuscarUsuarioLibro);
 
-        final String[] datos = Objects.requireNonNull(getActivity()).getApplicationContext().fileList();
+        final String[] datos = getActivity().getApplicationContext().fileList();
         final String nombreFicheroRecordatorio="user.txt";
 
 
@@ -98,10 +96,10 @@ public class Fragment_ListaLibros_Usuario extends Fragment {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Libro LibroSeleccionado=(Libro)adaptadorLibros.getItem(position);
-                Intent i = new Intent(Objects.requireNonNull(getContext()).getApplicationContext(), LibrosCaracteristicasAmpliado.class);
+                Intent i = new Intent(getContext().getApplicationContext(), LibrosCaracteristicasAmpliado.class);
                 i.putExtra("libros",LibroSeleccionado);
                 startActivity(i);
-                Objects.requireNonNull(getActivity()).finish();
+               getActivity().finish();
             }
         });
 
@@ -131,7 +129,7 @@ public class Fragment_ListaLibros_Usuario extends Fragment {
 
 
                 //El adaptador...
-                adaptadorLibros =new AdaptadorLibros(Objects.requireNonNull(getActivity()).getApplicationContext(),arrayLibros);
+                adaptadorLibros =new AdaptadorLibros(getActivity().getApplicationContext(),arrayLibros);
 
                 //Añadir al gridview los libros
                 gvListaLibros.setAdapter(adaptadorLibros);
@@ -140,7 +138,7 @@ public class Fragment_ListaLibros_Usuario extends Fragment {
                     @Override
                     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                         Libro LibroSeleccionado=(Libro)adaptadorLibros.getItem(position);
-                        Intent i = new Intent(Objects.requireNonNull(getContext()).getApplicationContext(), LibrosCaracteristicasAmpliado.class);
+                        Intent i = new Intent(getContext().getApplicationContext(), LibrosCaracteristicasAmpliado.class);
                         i.putExtra("libros",LibroSeleccionado);
                         startActivity(i);
                         getActivity().finish();

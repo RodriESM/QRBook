@@ -38,17 +38,17 @@ import java.util.ArrayList;
 
 public class LibrosCaracteristicasAmpliado extends AppCompatActivity {
 
-    private TextView tvTituloAmpliado, tvAutorAmpliado, tvEditorialAmpliado, tvAnioAmpliado, tvSinopsisAmpliado, tvIdiomaAmpliado, tvGeneroAmpliado, tvIsbnAmpliado;
-    private ImageView imgLibroAmpliado;
-    private com.getbase.floatingactionbutton.FloatingActionsMenu fab;
-    private FloatingActionButton btnVer, btnAnadirQr, btnLeer, btnElminar;
-    private Button btnAnadir;
-    private ArrayList<String> contenidoFicheroRecordado = new ArrayList<>();
-    private AccesoFichero accesoFichero = new AccesoFichero();
-    private String correo;
-    private Descarga d = new Descarga();
+     TextView tvTituloAmpliado, tvAutorAmpliado, tvEditorialAmpliado, tvAnioAmpliado, tvSinopsisAmpliado, tvIdiomaAmpliado, tvGeneroAmpliado, tvIsbnAmpliado;
+     ImageView imgLibroAmpliado;
+     com.getbase.floatingactionbutton.FloatingActionsMenu fab;
+     FloatingActionButton btnVer, btnAnadirQr, btnLeer, btnElminar;
+     Button btnAnadir;
+     ArrayList<String> contenidoFicheroRecordado = new ArrayList<>();
+     AccesoFichero accesoFichero = new AccesoFichero();
+     String correo;
+     Descarga d = new Descarga();
     //Conexión
-    private Connection connection = ConnectionClass.con;
+     Connection connection = ConnectionClass.con;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -77,7 +77,6 @@ public class LibrosCaracteristicasAmpliado extends AppCompatActivity {
         //Introducir los datos
         final Libro libroSeleccionadoAnteriormente = (Libro) getIntent().getSerializableExtra("libros");
 
-        assert libroSeleccionadoAnteriormente != null;
         tvTituloAmpliado.setText(libroSeleccionadoAnteriormente.getTitulo());
         tvAutorAmpliado.setText(libroSeleccionadoAnteriormente.getAutor());
         tvEditorialAmpliado.setText(libroSeleccionadoAnteriormente.getEditorial());
@@ -152,7 +151,7 @@ public class LibrosCaracteristicasAmpliado extends AppCompatActivity {
                 //Conexión a la BBDD
                 Connection connection = ConnectionClass.con;
 
-                if (libroSeleccionadoAnteriormente.getPDF() != null) {
+                if (!libroSeleccionadoAnteriormente.getPDF().equals("")) {
                     //Descarga del libro
 
                     DownloadManager.Request request = new DownloadManager.Request(Uri.parse(PDFDescarga));
@@ -236,7 +235,7 @@ public class LibrosCaracteristicasAmpliado extends AppCompatActivity {
         });
 
         //Dependiendo si tiene PDF para leer o no, mostraremos el botón.
-        if (libroSeleccionadoAnteriormente.getPDF() == null) {
+        if (libroSeleccionadoAnteriormente.getPDF().equals("") || libroSeleccionadoAnteriormente.getPDF()==null) {
             btnLeer.setVisibility(View.GONE);
         } else {
             btnLeer.setVisibility(View.VISIBLE);
