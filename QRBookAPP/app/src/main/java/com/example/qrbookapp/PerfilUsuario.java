@@ -12,7 +12,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
-import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -44,7 +43,6 @@ public class PerfilUsuario extends AppCompatActivity {
     private String antiguoUsuario;
     private Usuario usuario;
     private final int imagen_request = 0;
-    private int puerto;
     private Bitmap bitmap;
     private byte[] imagenByte;
 
@@ -170,7 +168,8 @@ public class PerfilUsuario extends AppCompatActivity {
                         } else {
                             ResultSet rs = connection.createStatement().executeQuery("SELECT USUARIO FROM USUARIO WHERE USUARIO like '" + usuario + "'");
                             if (rs.next()) {
-                                Toast.makeText(PerfilUsuario.this, "Nombre de usuario no disponible", Toast.LENGTH_LONG).show();
+                                etUsuarioCam.setError("Nombre de usuario no disponible");
+
                             } else {
                                 ps = connection.prepareStatement("update USUARIO set usuario=?,nombre=?,apellido1=?,apellido2=?, foto=? where correo=?");
 
@@ -189,16 +188,15 @@ public class PerfilUsuario extends AppCompatActivity {
                     } catch (SQLException e) {
                         e.printStackTrace();
                     }
+                }else if (!etAntiguaContrasena.getText().toString().equals(contrasenaRecordada) && !etAntiguaContrasena.getText().toString().equals("")) {
+                    etContrasena.setError("La contraseña introducida no coincide con su antigua contraseña.");
                 } else if (contrasena.length() < 8) {
-                    Toast.makeText(getApplicationContext(), "La contraseña debe tener mínimo 8 carácteres.", Toast.LENGTH_LONG).show();
+                    etContrasena.setError("La contraseña debe tener mínimo 8 carácteres.");
                 } else if (!contrasena.matches("^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)[a-zA-Z\\d]{8,}$")) {
-                    Toast.makeText(getApplicationContext(), "La contraseña debe contener una letra mayúscula, minúscula y un número.", Toast.LENGTH_LONG).show();
+                    etContrasena.setError("La contraseña debe contener una letra mayúscula, minúscula y un número.");
                 } else if (!contrasena.equals(repContrasena)) { //Pass: ^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$
-                    Toast.makeText(getApplicationContext(), "Las contraseñas introducidas no son iguales. Intentelo de nuevo.", Toast.LENGTH_LONG).show();
-                } else if (!etAntiguaContrasena.getText().toString().equals(contrasenaRecordada) && !etAntiguaContrasena.getText().toString().equals("")) {
-                    Toast.makeText(getApplicationContext(), "La contraseña introducida no coincide con su antigua contraseña", Toast.LENGTH_LONG).show();
-
-                } else {
+                    etRepiteContrasena.setError("Las nuevas contraseñas no coinciden. Intentelo de nuevo.");
+                }  else {
                     try {
                         Connection connection = ConnectionClass.con;
                         PreparedStatement ps;
@@ -220,7 +218,7 @@ public class PerfilUsuario extends AppCompatActivity {
                         } else {
                             ResultSet rs = connection.createStatement().executeQuery("SELECT USUARIO FROM USUARIO WHERE USUARIO like '" + usuario + "'");
                             if (rs.next()) {
-                                Toast.makeText(PerfilUsuario.this, "Nombre de usuario no disponible", Toast.LENGTH_LONG).show();
+                                etUsuarioCam.setError("Nombre de usuario no disponible");
                             } else {
                                 ps = connection.prepareStatement("update USUARIO set usuario=?,password=MD5(?),nombre=?,apellido1=?,apellido2=?, foto=? where correo=?");
 

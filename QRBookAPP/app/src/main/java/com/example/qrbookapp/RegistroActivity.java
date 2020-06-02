@@ -68,22 +68,22 @@ public class RegistroActivity extends AppCompatActivity {
                 String usuario = etUsuario.getText().toString();
 
                 if (!email.matches("^\\w+@[a-zA-Z_]+?.[a-zA-Z]{2,3}$")) {
-                    Toast.makeText(getApplicationContext(), "El correo no es válido. Intentelo de nuevo.", Toast.LENGTH_LONG).show();
                     etEmail.setBackgroundColor(getColor(R.color.alerta));
+                    etEmail.setError("Correo inválido o ya en uso.");
                 } else if (ps1.length() < 8) {
-                    Toast.makeText(getApplicationContext(), "La contraseña debe tener mínimo 8 carácteres.", Toast.LENGTH_LONG).show();
                     etEmail.setBackgroundColor(getColor(R.color.transparente));
                     etPassword.setBackgroundColor(getColor(R.color.alerta));
                     etPassword2.setBackgroundColor(getColor(R.color.alerta));
+                    etPassword.setError("La contraseña debe tener mínimo 8 carácteres.");
                 } else if (!ps1.matches("^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)[a-zA-Z\\d]{8,}$")) {
-                    Toast.makeText(getApplicationContext(), "La contraseña debe contener una letra mayúscula, minúscula y un número.", Toast.LENGTH_LONG).show();
                     etEmail.setBackgroundColor(getColor(R.color.transparente));
                     etPassword.setBackgroundColor(getColor(R.color.alerta));
                     etPassword2.setBackgroundColor(getColor(R.color.alerta));
+                    etPassword.setError("La contraseña debe contener una letra mayúscula, minúscula y un número.");
                 } else if (!ps1.equals(ps2)) { //Pass: ^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$
-                    Toast.makeText(getApplicationContext(), "Las contraseñas introducidas no son iguales. Intentelo de nuevo.", Toast.LENGTH_LONG).show();
                     etEmail.setBackgroundColor(getColor(R.color.transparente));
                     etPassword2.setBackgroundColor(getColor(R.color.alerta));
+                    etPassword2.setError("Las contraseñas introducidas no son iguales. Intentelo de nuevo.");
                 } else {
                     try {
 
@@ -103,7 +103,8 @@ public class RegistroActivity extends AppCompatActivity {
                         startActivity(i);
 
                     } catch (com.mysql.jdbc.exceptions.jdbc4.MySQLIntegrityConstraintViolationException e) {
-                        Toast.makeText(getApplicationContext(), "Nombre de usuario ya registrado.", Toast.LENGTH_LONG).show();
+                        etUsuario.setError("Nombre de usuario ya registrado.");
+                        etUsuario.requestFocus(R.id.etUsuario);
                         etUsuario.setBackgroundColor(getColor(R.color.alerta));
                         etEmail.setBackgroundColor(getColor(R.color.transparente));
                         etPassword.setBackgroundColor(getColor(R.color.transparente));

@@ -1,9 +1,18 @@
 package com.example.qrbookapp;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.media.midi.MidiManager;
+import android.net.MailTo;
+import android.net.Uri;
 import android.os.Bundle;
+import android.os.Message;
+import android.os.StrictMode;
+import android.service.carrier.CarrierMessagingService;
+import android.telephony.SmsManager;
 import android.view.KeyEvent;
 import android.view.View;
 import android.widget.Button;
@@ -14,6 +23,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.qrbookapp.Class.AccesoFichero;
 import com.example.qrbookapp.Database.ConnectionClass;
+import com.google.android.gms.vision.barcode.Barcode;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -24,6 +34,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
+import java.util.Properties;
 
 public class MainActivity extends AppCompatActivity {
     Button btnLogin, btnSignin;
@@ -79,7 +90,9 @@ public class MainActivity extends AppCompatActivity {
                 try {
                     if (ConnectionClass.con == null) {
                         new ConnectionClass().setConnection();
-                        Toast.makeText(getApplicationContext(), "Error de conexión", Toast.LENGTH_LONG).show();
+                        Toast.makeText(getApplicationContext(), "Error de conexión. Estamos trabajando en ello.", Toast.LENGTH_LONG).show();
+
+                      
                     } else {
                         Connection connection = ConnectionClass.con;
                         PreparedStatement pstUserPass = connection.prepareStatement("SELECT USUARIO,CORREO from USUARIO  WHERE (CORREO like'" + etEmail.getText().toString() + "' OR USUARIO like '" + etEmail.getText().toString() + "') AND PASSWORD like MD5('" + etPassword.getText().toString() + "')");
@@ -120,6 +133,7 @@ public class MainActivity extends AppCompatActivity {
         osw.flush();
         osw.close();
     }
+
 
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
