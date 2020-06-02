@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -9,7 +8,8 @@
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        tools:ignore="UselessParent">
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -19,11 +19,11 @@
 
             <ImageButton
                 android:id="@+id/ibUsuario"
-                android:layout_width="400.00px"
-                android:layout_height="390px"
+                android:layout_width="190dp"
+                android:layout_height="180dp"
                 android:layout_gravity="center"
                 android:background="#00000000"
-                android:contentDescription="Foto de perfil"
+                android:contentDescription="@string/imgButtonPerfil"
                 android:scaleType="centerCrop"
                 android:src="@drawable/logo" />
 
@@ -32,7 +32,9 @@
                 android:layout_width="367dp"
                 android:layout_height="39dp"
                 android:layout_marginTop="15dp"
-                android:hint="Usuario"
+                android:autofillHints="Nombre de usuario"
+                android:hint="@string/etHintUsuario"
+                android:inputType="text"
                 android:textColor="#000"
                 android:textColorHint="#000"
                 android:textStyle="italic" />
@@ -42,21 +44,24 @@
                 android:layout_width="367dp"
                 android:layout_height="39dp"
                 android:layout_marginTop="25dp"
-                android:hint="Nombre"
+                android:autofillHints="Nombre de usuario"
+                android:hint="@string/etHintNombreUsuario"
+                android:inputType="text"
                 android:textColor="#000"
                 android:textColorHint="#000"
                 android:textStyle="italic" />
-
 
             <EditText
                 android:id="@+id/etApellido1"
                 android:layout_width="367dp"
                 android:layout_height="39dp"
                 android:layout_marginTop="25dp"
-                android:hint="Apellido 1"
+                android:hint="@string/etHintApellido1"
                 android:textColor="#000"
                 android:textColorHint="#000"
-                android:textStyle="italic" />
+                android:textStyle="italic"
+                android:autofillHints="Primer apellido"
+                android:inputType="text" />
 
 
             <EditText
@@ -64,10 +69,12 @@
                 android:layout_width="367dp"
                 android:layout_height="39dp"
                 android:layout_marginTop="25dp"
-                android:hint="Apellido 2"
+                android:hint="@string/etHintApellido2"
                 android:textColor="#000"
                 android:textColorHint="#000"
-                android:textStyle="italic" />
+                android:textStyle="italic"
+                android:autofillHints="Segundo apellido"
+                android:inputType="text" />
 
 
             <TextView
@@ -75,7 +82,7 @@
                 android:layout_width="367dp"
                 android:layout_height="39dp"
                 android:layout_marginTop="25dp"
-                android:text="Cambiar contraseña"
+                android:text="@string/tvTextCambiarContraseña"
                 android:textColor="#000"
                 android:textSize="18sp"
                 android:textStyle="italic|bold" />
@@ -86,10 +93,11 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="25dp"
                 android:ems="10"
-                android:hint="Antigua contraseña"
+                android:hint="@string/etHintAntiguaContra"
                 android:inputType="textPassword"
                 android:textColor="#000"
-                android:textColorHint="#000" />
+                android:textColorHint="#000"
+                android:autofillHints="Antigua contraseña" />
 
 
             <EditText
@@ -98,10 +106,11 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="25dp"
                 android:ems="10"
-                android:hint="Nueva contraseña"
+                android:hint="@string/etHintNuevaContra"
                 android:inputType="textPassword"
                 android:textColor="#000"
-                android:textColorHint="#000" />
+                android:textColorHint="#000"
+                android:autofillHints="Nueva contraseña" />
 
             <EditText
                 android:id="@+id/etRepiteContrasena"
@@ -109,10 +118,11 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="25dp"
                 android:ems="10"
-                android:hint="Repetir contraseña"
+                android:hint="@string/etHintNuevaContraseña"
                 android:inputType="textPassword"
                 android:textColor="#000"
-                android:textColorHint="#000" />
+                android:textColorHint="#000"
+                android:autofillHints="Repetir nueva contraseña" />
 
 
             <Button
@@ -123,7 +133,7 @@
                 android:layout_marginTop="50dp"
                 android:background="#4F817070"
                 android:gravity="center"
-                android:text="REALIZAR CAMBIOS"
+                android:text="@string/btnRealizarCambiosUsuario"
                 android:textColor="#000" />
 
 

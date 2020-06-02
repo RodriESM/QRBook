@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -30,20 +29,22 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:text="Nombre: "
+                android:text="@string/nombre"
                 android:textColor="#000000"
-                android:textSize="15dp"
+                android:textSize="15sp"
                 android:textStyle="bold" />
 
             <EditText
                 android:id="@+id/etNombreQrAmpliado"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
+                android:autofillHints="Ejemplo del nombre del QR"
                 android:background="@null"
-                android:hint="Ej: Alonso Quijano, Castilla La Mancha..."
+                android:hint="@string/EjNombre"
+                android:inputType="text"
                 android:textColor="@color/black"
                 android:textColorHint="@color/black"
-                android:textSize="15dp"
+                android:textSize="15sp"
                 android:textStyle="italic" />
         </LinearLayout>
 
@@ -58,7 +59,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:text="Tipo: "
+                android:text="@string/EjTipo"
                 android:textColor="#000000"
                 android:textSize="15sp"
                 android:textStyle="bold" />
@@ -67,8 +68,10 @@
                 android:id="@+id/etTipoQrAmpliado"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:autofillHints="Tipo de imagen adjuntada."
                 android:background="@null"
-                android:hint="Ej: Fotografía, dibujo, música, vídeo, texto..."
+                android:hint="@string/EjTipoQR"
+                android:inputType="text"
                 android:textColor="@color/black"
                 android:textColorHint="@color/black"
                 android:textSize="15sp"
@@ -86,7 +89,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:text="Página: "
+                android:text="@string/EjPagina"
                 android:textColor="#000000"
                 android:textSize="15sp"
                 android:textStyle="bold" />
@@ -95,12 +98,15 @@
                 android:id="@+id/etPagina"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:autofillHints="Página donde se ubica el QR"
                 android:background="@null"
-                android:hint="Ej: 1,2,3,4..."
+                android:hint="@string/EjPaginaQR"
+                android:inputType="number"
                 android:textColor="@color/black"
                 android:textColorHint="@color/black"
                 android:textSize="15sp"
                 android:textStyle="italic" />
+
         </LinearLayout>
 
         <LinearLayout
@@ -114,7 +120,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Descripción"
+                android:text="@string/EjDescripcion"
                 android:textColor="#000000"
                 android:textSize="15sp"
                 android:textStyle="bold" />
@@ -126,11 +132,13 @@
                 android:layout_height="match_parent"
                 android:background="@null"
                 android:gravity="top"
-                android:hint="Ej: En un lugar de la mancha de cullo nombre no quiero acordarme..."
+                android:hint="@string/EjDescripcionQR"
                 android:textColor="@color/black"
                 android:textColorHint="@color/black"
                 android:textSize="15sp"
-                android:textStyle="italic" />
+                android:textStyle="italic"
+                android:autofillHints="Descipción del QR itroducido"
+                android:inputType="textImeMultiLine" />
 
         </LinearLayout>
 
@@ -138,11 +146,11 @@
             android:id="@+id/btnGuardar"
             android:layout_width="wrap_content"
             android:layout_height="0dp"
-            android:layout_marginLeft="150dp"
+            android:layout_marginStart="150dp"
             android:layout_marginTop="10dp"
             android:layout_weight="0.06"
             android:background="#9EDDDDDD"
-            android:text="Guardar"
+            android:text="@string/GuardarQR"
             android:textColor="@color/black" />
     </LinearLayout>
 

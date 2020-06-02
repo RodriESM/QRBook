@@ -15,7 +15,8 @@
         android:scaleType="matrix"
         android:src="@drawable/backgroundposible"
         tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="0dp" />
+        tools:layout_editor_absoluteY="0dp"
+        android:contentDescription="@string/bgnFondoRegistro" />
 
     <ScrollView
         android:layout_width="match_parent"
@@ -24,10 +25,9 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:orientation="vertical"
             android:padding="25dp">
-
 
             <ImageButton
                 android:id="@+id/ivFotoPerfil"
@@ -37,50 +37,55 @@
                 android:layout_marginTop="25dp"
                 android:background="#35FFFFFF"
                 android:scaleType="centerCrop"
-                app:srcCompat="@drawable/perfil_user" />
+                app:srcCompat="@drawable/perfil_user"
+                android:contentDescription="@string/imgFotoRegistro" />
 
             <EditText
                 android:id="@+id/etEmail"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="25dp"
-                android:hint="Email"
+                android:hint="@string/etHintEmailRegistro"
                 android:inputType="textEmailAddress"
-                android:textColorHint="#1498a4" />
+                android:textColorHint="#FFFFFF"
+                android:autofillHints="Email de registro" />
 
             <EditText
                 android:id="@+id/etUsuario"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="25dp"
-                android:hint="Usuario"
+                android:hint="@string/etUsuarioRegistro"
                 android:inputType="textEmailAddress"
-                android:textColorHint="#1498a4" />
+                android:textColorHint="#FFFFFF"
+                android:autofillHints="Nombre de usuario" />
 
             <EditText
                 android:id="@+id/etPassword"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="25dp"
-                android:hint="Contraseña"
+                android:hint="@string/etContraseñaRegistro"
                 android:inputType="textPassword"
-                android:textColorHint="#1498a4" />
+                android:textColorHint="#FFFFFF"
+                android:autofillHints="Contraseña de usuario" />
 
             <EditText
                 android:id="@+id/etPassword2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="25dp"
-                android:hint="Repetir contraseña"
+                android:hint="@string/etRepetirContraseñaRegistro"
                 android:inputType="textPassword"
-                android:textColorHint="#1498a4" />
+                android:textColorHint="#FFFFFF"
+                android:autofillHints="Comprobación de ontraseña de registro" />
 
             <Button
                 android:id="@+id/btnRegistrarse"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="25dp"
-                android:text="Registrarse" />
+                android:text="@string/btnRegistro_Registro" />
 
         </LinearLayout>
     </ScrollView>

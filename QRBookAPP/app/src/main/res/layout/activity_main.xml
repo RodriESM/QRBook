@@ -12,7 +12,8 @@
         android:scaleType="centerCrop"
         android:src="@drawable/backgroundposible"
         tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="0dp" />
+        tools:layout_editor_absoluteY="0dp"
+        android:contentDescription="@string/bgnMainActivity" />
 
     <ImageView
         android:id="@+id/ivLogo"
@@ -23,7 +24,8 @@
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/logo" />
+        app:srcCompat="@drawable/logo"
+        android:contentDescription="@string/imgLogoMainActi" />
 
     <EditText
         android:id="@+id/etEmail"
@@ -33,13 +35,14 @@
         android:layout_marginTop="32dp"
         android:layout_marginEnd="32dp"
         android:ems="10"
-        android:hint="Email"
+        android:hint="@string/etEmailMain"
         android:inputType="textEmailAddress"
         android:textColorHint="#1498a4"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ivLogo" />
+        app:layout_constraintTop_toBottomOf="@+id/ivLogo"
+        android:autofillHints="Correo electrónico del usuario" />
 
     <EditText
         android:id="@+id/etPassword"
@@ -49,13 +52,14 @@
         android:layout_marginTop="8dp"
         android:layout_marginEnd="32dp"
         android:ems="10"
-        android:hint="Contraseña"
+        android:hint="@string/etPasswordMain"
         android:inputType="textPassword"
         android:textColorHint="#1498a4"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etEmail" />
+        app:layout_constraintTop_toBottomOf="@+id/etEmail"
+        android:autofillHints="Contraseña del usuario" />
 
     <Button
         android:id="@+id/btnLogin"
@@ -64,7 +68,7 @@
         android:layout_marginStart="48dp"
         android:layout_marginTop="36dp"
         android:layout_marginEnd="48dp"
-        android:text="Iniciar Sesión"
+        android:text="@string/btnInicioSesion"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -77,7 +81,7 @@
         android:layout_marginStart="48dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="48dp"
-        android:text="Registrarse"
+        android:text="@string/btnRegistrarseMain"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"

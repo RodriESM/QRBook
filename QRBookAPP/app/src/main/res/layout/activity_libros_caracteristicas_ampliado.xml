@@ -26,14 +26,15 @@
                 android:layout_width="150dp"
                 android:layout_height="155dp"
                 android:layout_gravity="center"
-                android:src="@drawable/logo" />
+                android:src="@drawable/logo"
+                android:contentDescription="@string/txtdPortadaLibro" />
 
             <TextView
                 android:layout_width="360dp"
                 android:layout_height="29dp"
                 android:layout_marginStart="30dp"
                 android:layout_marginTop="25dp"
-                android:text="ISBN"
+                android:text="@string/txtISBN"
                 android:textColor="#000000"
                 android:textSize="15sp"
                 android:textStyle="italic|bold" />
@@ -43,7 +44,7 @@
                 android:layout_width="360dp"
                 android:layout_height="29dp"
                 android:layout_marginStart="30dp"
-                android:text="Hola"
+                android:text="@string/txtdISBN"
                 android:textColor="#000000"
                 android:textSize="15sp"
                 android:textStyle="italic" />
@@ -53,7 +54,7 @@
                 android:layout_height="29dp"
                 android:layout_marginStart="30dp"
                 android:layout_marginTop="25dp"
-                android:text="Título"
+                android:text="@string/txtTitulo"
                 android:textColor="#000000"
                 android:textSize="15sp"
                 android:textStyle="italic|bold" />
@@ -63,7 +64,7 @@
                 android:layout_width="360dp"
                 android:layout_height="33dp"
                 android:layout_marginStart="30dp"
-                android:text="Hola"
+                android:text="@string/txtdTitulo"
                 android:textColor="#000000"
                 android:textSize="15sp"
                 android:textStyle="italic" />
@@ -73,7 +74,7 @@
                 android:layout_height="29dp"
                 android:layout_marginStart="30dp"
                 android:layout_marginTop="25dp"
-                android:text="Autor"
+                android:text="@string/txtAutor"
                 android:textColor="#000000"
                 android:textSize="15sp"
                 android:textStyle="italic|bold" />
@@ -83,7 +84,7 @@
                 android:layout_width="360dp"
                 android:layout_height="33dp"
                 android:layout_marginStart="30dp"
-                android:text="Hola"
+                android:text="@string/txtdAutor"
                 android:textColor="#000000"
                 android:textSize="15sp"
                 android:textStyle="italic" />
@@ -93,7 +94,7 @@
                 android:layout_height="29dp"
                 android:layout_marginStart="30dp"
                 android:layout_marginTop="25dp"
-                android:text="Editorial"
+                android:text="@string/txtEditorial"
                 android:textColor="#000000"
                 android:textSize="15sp"
                 android:textStyle="italic|bold" />
@@ -103,7 +104,7 @@
                 android:layout_width="360dp"
                 android:layout_height="32dp"
                 android:layout_marginStart="30dp"
-                android:text="Hola"
+                android:text="@string/txtdEditorial"
                 android:textColor="#000000"
                 android:textSize="15sp"
                 android:textStyle="italic" />
@@ -113,7 +114,7 @@
                 android:layout_height="29dp"
                 android:layout_marginStart="30dp"
                 android:layout_marginTop="25dp"
-                android:text="Año"
+                android:text="@string/txtAño"
                 android:textColor="#000000"
                 android:textSize="15sp"
                 android:textStyle="italic|bold" />
@@ -123,7 +124,7 @@
                 android:layout_width="360dp"
                 android:layout_height="32dp"
                 android:layout_marginStart="30dp"
-                android:text="Hola"
+                android:text="@string/txtdAño"
                 android:textColor="#000000"
                 android:textSize="15sp"
                 android:textStyle="italic" />
@@ -133,7 +134,7 @@
                 android:layout_height="29dp"
                 android:layout_marginStart="30dp"
                 android:layout_marginTop="25dp"
-                android:text="Idioma"
+                android:text="@string/txtIdioma"
                 android:textColor="#000000"
                 android:textSize="15sp"
                 android:textStyle="italic|bold" />
@@ -143,7 +144,7 @@
                 android:layout_width="360dp"
                 android:layout_height="29dp"
                 android:layout_marginStart="30dp"
-                android:text="Hola"
+                android:text="@string/txtdIdioma"
                 android:textColor="#000000"
                 android:textSize="15sp"
                 android:textStyle="italic" />
@@ -153,7 +154,7 @@
                 android:layout_height="29dp"
                 android:layout_marginStart="30dp"
                 android:layout_marginTop="25dp"
-                android:text="Genero"
+                android:text="@string/txtGenero"
                 android:textColor="#000000"
                 android:textSize="15sp"
                 android:textStyle="italic|bold" />
@@ -163,7 +164,7 @@
                 android:layout_width="360dp"
                 android:layout_height="29dp"
                 android:layout_marginStart="30dp"
-                android:text="Hola"
+                android:text="@string/txtdGenero"
                 android:textColor="#000000"
                 android:textSize="15sp"
                 android:textStyle="italic" />
@@ -175,7 +176,7 @@
                 android:layout_marginStart="30dp"
                 android:layout_marginTop="25dp"
                 android:background="#A9DDDDDD"
-                android:text="Sinópsis"
+                android:text="@string/txtSinopsis"
                 android:textColor="#000000"
                 android:textSize="15sp"
                 android:textStyle="italic|bold" />
@@ -186,19 +187,20 @@
                 android:layout_height="190dp"
                 android:layout_marginStart="30dp"
                 android:background="#A9DDDDDD"
-                android:text="Hola"
+                android:text="@string/txtdSinopsis"
                 android:textColor="#000000"
                 android:textSize="15sp"
                 android:textStyle="italic" />
 
             <Button
                 android:id="@+id/btnAnadir"
+                android:layout_marginBottom="10dp"
                 android:layout_width="150dp"
                 android:layout_height="40dp"
                 android:layout_gravity="center"
                 android:layout_marginTop="25dp"
                 android:background="#9EDDDDDD"
-                android:text="Añadir"
+                android:text="@string/btnAnadir"
                 android:textColor="#000000" />
         </LinearLayout>
 

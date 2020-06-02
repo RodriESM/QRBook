@@ -10,14 +10,16 @@
         android:layout_width="195dp"
         android:layout_height="355dp"
         android:orientation="vertical"
-        android:padding="5dp">
+        android:padding="5dp"
+        tools:ignore="UselessParent">
 
         <ImageView
             android:id="@+id/imgLibro"
             android:layout_width="195dp"
             android:layout_height="250dp"
             android:scaleType="centerCrop"
-            android:src="@drawable/logo" />
+            android:src="@drawable/logo"
+            android:contentDescription="@string/imgPortadaLibroItemLibro" />
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/llItemLibro"
@@ -30,7 +32,7 @@
                 android:id="@+id/tvTitulo"
                 android:layout_width="185dp"
                 android:layout_height="wrap_content"
-                android:text="Titulo"
+                android:text="@string/tvTituloLibro"
                 android:textColor="#000"
                 android:textSize="15sp"
                 android:textStyle="bold"
@@ -43,7 +45,7 @@
                 android:id="@+id/tvAutor"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Autor"
+                android:text="@string/tvAutorItemLibro"
                 android:textColor="#000"
                 android:textSize="15sp"
                 android:textStyle="italic"
