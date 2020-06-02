@@ -1,14 +1,12 @@
 package com.example.qrbookapp;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.webkit.WebSettings;
 import android.widget.AdapterView;
 import android.widget.GridView;
-import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.qrbookapp.Adapter.AdaptadorQr;
 import com.example.qrbookapp.Class.AccesoFichero;
@@ -16,11 +14,9 @@ import com.example.qrbookapp.Class.QR;
 import com.example.qrbookapp.Database.ConnectionClass;
 
 import java.io.BufferedReader;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.sql.Connection;
-import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -42,12 +38,12 @@ public class ListaQr extends AppCompatActivity {
         gvListaQr = findViewById(R.id.gvListaQr);
 
         Bundle bundle = getIntent().getExtras();
+        assert bundle != null;
         String isbn = bundle.getString("info");
 
         //Comprobar si tiene el libro.
-        final String datos[] = fileList();
+        final String[] datos = fileList();
         final String nombreFicheroRecordatorio = "user.txt";
-
 
         if (accesoFichero.archivoExisteEntreFicheros(datos, nombreFicheroRecordatorio)) {
 
@@ -61,8 +57,6 @@ public class ListaQr extends AppCompatActivity {
                     contenidoFicheroRecordado.add(linea);
                     linea = br.readLine();
                 }
-            } catch (FileNotFoundException e) {
-                e.printStackTrace();
             } catch (IOException e) {
                 e.printStackTrace();
             } finally {

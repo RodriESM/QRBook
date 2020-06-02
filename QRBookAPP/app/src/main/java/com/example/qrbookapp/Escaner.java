@@ -1,10 +1,5 @@
 package com.example.qrbookapp;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.app.ActivityCompat;
-import androidx.core.content.ContextCompat;
-
 import android.Manifest;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -13,9 +8,13 @@ import android.util.SparseArray;
 import android.view.KeyEvent;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
-import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 
 import com.example.qrbookapp.Class.AccesoFichero;
 import com.example.qrbookapp.Database.ConnectionClass;
@@ -29,7 +28,6 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.sql.Connection;
-import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -145,11 +143,12 @@ public class Escaner extends AppCompatActivity {
         public void receiveDetections(Detector.Detections<Barcode> detections) {
 
             Bundle bundle = getIntent().getExtras();
+            assert bundle != null;
             String isbn = bundle.getString("escanerisbn");
 
             Connection connection = ConnectionClass.con;
 
-            final String datos[] = fileList();
+            final String[]  datos= fileList();
             final String nombreFicheroRecordatorio = "user.txt";
 
 
@@ -165,8 +164,6 @@ public class Escaner extends AppCompatActivity {
                         contenidoFicheroRecordado.add(linea);
                         linea = br.readLine();
                     }
-                } catch (FileNotFoundException e) {
-                    e.printStackTrace();
                 } catch (IOException e) {
                     e.printStackTrace();
                 } finally {
@@ -180,8 +177,8 @@ public class Escaner extends AppCompatActivity {
                 Barcode code = qrCodes.valueAt(0);
                 if ((code.displayValue.contains("http") || code.displayValue.contains("https")) && !code.displayValue.contentEquals(lastUrl)) {
                     lastUrl = code.displayValue;
-                    ResultSet rs = null;
-                    ResultSet rsgeneral = null;
+                    ResultSet rs;
+                    ResultSet rsgeneral;
 
                     try {
                         //Revisamos todos los qr de la base de datos.

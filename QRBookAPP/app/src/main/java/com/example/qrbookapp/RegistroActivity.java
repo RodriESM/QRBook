@@ -1,13 +1,6 @@
 package com.example.qrbookapp;
 
-import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.app.ActivityCompat;
-import androidx.core.content.ContextCompat;
-
-import android.Manifest;
 import android.content.Intent;
-import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
 import android.net.Uri;
@@ -17,29 +10,29 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
-import android.widget.ImageView;
 import android.widget.Toast;
+
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.qrbookapp.Database.ConnectionClass;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
-import java.sql.Statement;
 
 public class RegistroActivity extends AppCompatActivity {
 
-    ConnectionClass conexionMySQL = new ConnectionClass();
-    Button btnRegistrarse;
-    EditText etEmail, etUsuario, etPassword, etPassword2;
-    ImageButton ivFotoPerfil;
+    private ConnectionClass conexionMySQL = new ConnectionClass();
+    private Button btnRegistrarse;
+    private EditText etEmail, etUsuario, etPassword, etPassword2;
+    private ImageButton ivFotoPerfil;
     private final int imagen_request = 0;
     private int puerto;
-    Bitmap bitmap;
-    byte[] imagenByte;
+    private Bitmap bitmap;
+    private byte[] imagenByte;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

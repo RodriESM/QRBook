@@ -1,7 +1,6 @@
 package com.example.qrbookapp.Class;
 
 import java.io.Serializable;
-import java.net.URL;
 
 public class Usuario implements Serializable {
 

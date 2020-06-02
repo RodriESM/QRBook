@@ -1,37 +1,33 @@
 package com.example.qrbookapp;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.app.ActivityCompat;
-import androidx.core.content.ContextCompat;
-
 import android.Manifest;
+import android.annotation.SuppressLint;
 import android.app.DownloadManager;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.net.Uri;
-import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Environment;
-import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 
 import com.example.qrbookapp.Class.AccesoFichero;
 import com.example.qrbookapp.Class.Libro;
 import com.example.qrbookapp.Database.ConnectionClass;
 import com.getbase.floatingactionbutton.FloatingActionButton;
-import com.getbase.floatingactionbutton.FloatingActionsMenu;
 import com.squareup.picasso.Picasso;
 
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.sql.Connection;
@@ -42,17 +38,17 @@ import java.util.ArrayList;
 
 public class LibrosCaracteristicasAmpliado extends AppCompatActivity {
 
-    TextView tvTituloAmpliado, tvAutorAmpliado, tvEditorialAmpliado, tvAnioAmpliado, tvSinopsisAmpliado, tvIdiomaAmpliado, tvGeneroAmpliado, tvIsbnAmpliado;
-    ImageView imgLibroAmpliado;
-    com.getbase.floatingactionbutton.FloatingActionsMenu fab;
-    FloatingActionButton btnVer, btnAnadirQr, btnLeer, btnElminar;
-    Button btnAnadir;
-    ArrayList<String> contenidoFicheroRecordado = new ArrayList<>();
-    AccesoFichero accesoFichero = new AccesoFichero();
-    String correo;
-    Descarga d = new Descarga();
+    private TextView tvTituloAmpliado, tvAutorAmpliado, tvEditorialAmpliado, tvAnioAmpliado, tvSinopsisAmpliado, tvIdiomaAmpliado, tvGeneroAmpliado, tvIsbnAmpliado;
+    private ImageView imgLibroAmpliado;
+    private com.getbase.floatingactionbutton.FloatingActionsMenu fab;
+    private FloatingActionButton btnVer, btnAnadirQr, btnLeer, btnElminar;
+    private Button btnAnadir;
+    private ArrayList<String> contenidoFicheroRecordado = new ArrayList<>();
+    private AccesoFichero accesoFichero = new AccesoFichero();
+    private String correo;
+    private Descarga d = new Descarga();
     //Conexión
-    Connection connection = ConnectionClass.con;
+    private Connection connection = ConnectionClass.con;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -81,6 +77,7 @@ public class LibrosCaracteristicasAmpliado extends AppCompatActivity {
         //Introducir los datos
         final Libro libroSeleccionadoAnteriormente = (Libro) getIntent().getSerializableExtra("libros");
 
+        assert libroSeleccionadoAnteriormente != null;
         tvTituloAmpliado.setText(libroSeleccionadoAnteriormente.getTitulo());
         tvAutorAmpliado.setText(libroSeleccionadoAnteriormente.getAutor());
         tvEditorialAmpliado.setText(libroSeleccionadoAnteriormente.getEditorial());
@@ -97,7 +94,7 @@ public class LibrosCaracteristicasAmpliado extends AppCompatActivity {
                 .into(imgLibroAmpliado);
 
 //Comprobar si tiene el libro.
-        final String datos[] = fileList();
+        final String[] datos = fileList();
         final String nombreFicheroRecordatorio = "user.txt";
 
 
@@ -113,8 +110,6 @@ public class LibrosCaracteristicasAmpliado extends AppCompatActivity {
                     contenidoFicheroRecordado.add(linea);
                     linea = br.readLine();
                 }
-            } catch (FileNotFoundException e) {
-                e.printStackTrace();
             } catch (IOException e) {
                 e.printStackTrace();
             } finally {
@@ -157,9 +152,7 @@ public class LibrosCaracteristicasAmpliado extends AppCompatActivity {
                 //Conexión a la BBDD
                 Connection connection = ConnectionClass.con;
 
-                if (libroSeleccionadoAnteriormente.getPDF() == null) {
-
-                } else {
+                if (libroSeleccionadoAnteriormente.getPDF() != null) {
                     //Descarga del libro
 
                     DownloadManager.Request request = new DownloadManager.Request(Uri.parse(PDFDescarga));
@@ -173,6 +166,7 @@ public class LibrosCaracteristicasAmpliado extends AppCompatActivity {
                     request.setDestinationInExternalPublicDir(Environment.DIRECTORY_DOWNLOADS, "/" + tvIsbnAmpliado.getText().toString() + correo + ".pdf");
 
                     DownloadManager manager = (DownloadManager) getSystemService(Context.DOWNLOAD_SERVICE);
+                    assert manager != null;
                     manager.enqueue(request);
 
 
@@ -183,18 +177,19 @@ public class LibrosCaracteristicasAmpliado extends AppCompatActivity {
                     request.setDestinationInExternalPublicDir(Environment.DIRECTORY_DOWNLOADS, "/"+tvIsbnAmpliado.getText().toString()+correo+".pdf");
                     manager.enqueue(request);*/
                 }
-
                 //Añadimos el libro al usuario.
                 try {
                     PreparedStatement ps = connection.prepareStatement("INSERT INTO USUARIOLIBRO(correo,ISBN) values(?,?)");
                     ps.setString(1, correo);
                     ps.setString(2, tvIsbnAmpliado.getText().toString());
                     ps.executeUpdate();
+
+                } catch (Exception e) {
+                    e.getStackTrace();
+                } finally {
                     Intent i = new Intent(LibrosCaracteristicasAmpliado.this, InicioActivity.class);
                     startActivity(i);
                     finish();
-                } catch (Exception e) {
-                    e.getMessage();
                 }
             }
         });
@@ -204,17 +199,17 @@ public class LibrosCaracteristicasAmpliado extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 try {
-
                     if (ContextCompat.checkSelfPermission(LibrosCaracteristicasAmpliado.this,
                             Manifest.permission.WRITE_EXTERNAL_STORAGE)
                             != PackageManager.PERMISSION_GRANTED) {
                         ActivityCompat.requestPermissions(LibrosCaracteristicasAmpliado.this, new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, PackageManager.PERMISSION_GRANTED);
-                    } else {
-                        int rslibro = connection.createStatement().executeUpdate("delete from USUARIOLIBRO where correo like '" + correo + "' and isbn like'" + tvIsbnAmpliado.getText().toString() + "'");
-                        //TO_DO No sabemos si habría que borrar de la base de datos los qr correspondientes al libro que se va a eliminar
-                        //ResultSet rsqr =connection.createStatement().executeQuery("delete from USUARIOQR where correo like '"+correo+"' and isbn like'"+tvIsbnAmpliado.getText().toString()+"'");
+                    }
+                    int rslibro = connection.createStatement().executeUpdate("delete from USUARIOLIBRO where correo like '" + correo + "' and isbn like'" + tvIsbnAmpliado.getText().toString() + "'");
+                    //TO_DO No sabemos si habría que borrar de la base de datos los qr correspondientes al libro que se va a eliminar
+                    //ResultSet rsqr =connection.createStatement().executeQuery("delete from USUARIOQR where correo like '"+correo+"' and isbn like'"+tvIsbnAmpliado.getText().toString()+"'");
 
-                        File file = new File("/sdcard/Download/" + tvIsbnAmpliado.getText().toString() + correo + ".pdf");
+                    @SuppressLint("SdCardPath") File file = new File("/sdcard/Download/" + tvIsbnAmpliado.getText().toString() + correo + ".pdf");
+                    if (file.exists()){
                         FileInputStream fis = new FileInputStream(file);
                         fis.close();
                         file.delete();

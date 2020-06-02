@@ -8,8 +8,8 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.GridView;
 import android.widget.SearchView;
-import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
@@ -21,28 +21,29 @@ import com.example.qrbookapp.LibrosCaracteristicasAmpliado;
 import com.example.qrbookapp.R;
 
 import java.io.BufferedReader;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Objects;
 
 //Tiene que ser un fragment, no una actividad...
 public class Fragment_ListaLibros_Usuario extends Fragment {
 
-    GridView gvListaLibros;
-    AdaptadorLibros adaptadorLibros;
-    SearchView svBuscarUsuarioLibro;
-    ArrayList<String> contenidoFicheroRecordado= new ArrayList<>();
-    AccesoFichero accesoFichero = new AccesoFichero();
-    String correo;
-    ArrayList<Libro> arrayLibros;
+    private GridView gvListaLibros;
+    private AdaptadorLibros adaptadorLibros;
+    private SearchView svBuscarUsuarioLibro;
+    private ArrayList<String> contenidoFicheroRecordado= new ArrayList<>();
+    private AccesoFichero accesoFichero = new AccesoFichero();
+    private String correo;
+    private ArrayList<Libro> arrayLibros;
+
     //Método para crear el fragment
     @Nullable
     @Override
-    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         super.onCreateView(inflater, container, savedInstanceState);
         View rootView = inflater.inflate(R.layout.activity_gridview_libros_usuario, container, false);
          arrayLibros= new ArrayList<>();
@@ -50,7 +51,7 @@ public class Fragment_ListaLibros_Usuario extends Fragment {
         gvListaLibros=rootView.findViewById(R.id.gvListaLibros);
         svBuscarUsuarioLibro=rootView.findViewById(R.id.svBuscarUsuarioLibro);
 
-        final String datos []=getActivity().getApplicationContext().fileList();
+        final String[] datos = Objects.requireNonNull(getActivity()).getApplicationContext().fileList();
         final String nombreFicheroRecordatorio="user.txt";
 
 
@@ -66,11 +67,9 @@ public class Fragment_ListaLibros_Usuario extends Fragment {
                     contenidoFicheroRecordado.add(linea);
                     linea = br.readLine();
                 }
-            } catch (FileNotFoundException e) {
-                e.printStackTrace();
             } catch (IOException e) {
                 e.printStackTrace();
-            }finally {
+            } finally {
                 correo = contenidoFicheroRecordado.get(0);
             }
         }
@@ -99,10 +98,10 @@ public class Fragment_ListaLibros_Usuario extends Fragment {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Libro LibroSeleccionado=(Libro)adaptadorLibros.getItem(position);
-                Intent i = new Intent(getContext().getApplicationContext(), LibrosCaracteristicasAmpliado.class);
+                Intent i = new Intent(Objects.requireNonNull(getContext()).getApplicationContext(), LibrosCaracteristicasAmpliado.class);
                 i.putExtra("libros",LibroSeleccionado);
                 startActivity(i);
-                getActivity().finish();
+                Objects.requireNonNull(getActivity()).finish();
             }
         });
 
@@ -132,7 +131,7 @@ public class Fragment_ListaLibros_Usuario extends Fragment {
 
 
                 //El adaptador...
-                adaptadorLibros =new AdaptadorLibros(getActivity().getApplicationContext(),arrayLibros);
+                adaptadorLibros =new AdaptadorLibros(Objects.requireNonNull(getActivity()).getApplicationContext(),arrayLibros);
 
                 //Añadir al gridview los libros
                 gvListaLibros.setAdapter(adaptadorLibros);
@@ -141,7 +140,7 @@ public class Fragment_ListaLibros_Usuario extends Fragment {
                     @Override
                     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                         Libro LibroSeleccionado=(Libro)adaptadorLibros.getItem(position);
-                        Intent i = new Intent(getContext().getApplicationContext(), LibrosCaracteristicasAmpliado.class);
+                        Intent i = new Intent(Objects.requireNonNull(getContext()).getApplicationContext(), LibrosCaracteristicasAmpliado.class);
                         i.putExtra("libros",LibroSeleccionado);
                         startActivity(i);
                         getActivity().finish();
@@ -151,8 +150,6 @@ public class Fragment_ListaLibros_Usuario extends Fragment {
                 return true;
             }
         });
-
-
 
         return rootView;
     }

@@ -1,5 +1,6 @@
 package com.example.qrbookapp.Adapter;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.view.LayoutInflater;
@@ -12,11 +13,8 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.example.qrbookapp.Class.QR;
-import com.example.qrbookapp.InicioActivity;
 import com.example.qrbookapp.QrCaracteristicasAmpliado;
 import com.example.qrbookapp.R;
-
-import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 
@@ -46,6 +44,7 @@ public class AdaptadorQr extends BaseAdapter {
     }
 
 
+    @SuppressLint({"SetJavaScriptEnabled", "SetTextI18n", "ViewHolder", "InflateParams"})
     @Override
     public View getView(final int position, View convertView, ViewGroup parent) {
 

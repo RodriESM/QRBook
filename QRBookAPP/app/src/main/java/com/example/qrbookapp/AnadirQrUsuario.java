@@ -2,6 +2,7 @@ package com.example.qrbookapp;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.view.KeyEvent;
 import android.view.View;
@@ -22,6 +23,7 @@ public class AnadirQrUsuario extends AppCompatActivity {
     Button btnGuardar;
     EditText etDescripcionQrAmpliado, etPagina, etTipoQrAmpliado, etNombreQrAmpliado;
 
+    @SuppressLint("SetJavaScriptEnabled")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,6 +42,7 @@ public class AnadirQrUsuario extends AppCompatActivity {
         ajustesVisorWeb.setLoadWithOverviewMode(true);
 
         final Bundle bundle = getIntent().getExtras();
+        assert bundle != null;
         final String url = bundle.getString("url");
         final String ISBN = bundle.getString("isbn");
         final String correo = bundle.getString("correo");
@@ -58,7 +61,7 @@ public class AnadirQrUsuario extends AppCompatActivity {
 
                 Connection connection = ConnectionClass.con;
 
-                PreparedStatement ps = null;
+                PreparedStatement ps;
 
                 try {
                     ps = connection.prepareStatement("INSERT INTO USUARIOQR(CORREO,URL,ISBN,TIPO,NOMBRE,DESCRIPCION,PAGINA) values(?,?,?,?,?,?,?)");

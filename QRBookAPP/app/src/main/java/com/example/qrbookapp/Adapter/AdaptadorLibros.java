@@ -1,5 +1,6 @@
 package com.example.qrbookapp.Adapter;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -39,6 +40,7 @@ public class AdaptadorLibros extends BaseAdapter {
         return Long.parseLong(miArrayList.get(position).getIsbn());
     }
 
+    @SuppressLint({"ViewHolder", "InflateParams"})
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
 

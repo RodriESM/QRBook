@@ -1,29 +1,26 @@
 package com.example.qrbookapp;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.viewpager.widget.ViewPager;
-
 import android.app.Activity;
 import android.content.Intent;
-import android.content.res.ColorStateList;
 import android.graphics.Color;
 import android.graphics.PorterDuff;
 import android.os.Bundle;
 import android.view.View;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.viewpager.widget.ViewPager;
+
 import com.example.qrbookapp.Adapter.ViewPagerAdapter;
-import com.example.qrbookapp.Class.AccesoFichero;
 import com.example.qrbookapp.Database.ConnectionClass;
 import com.example.qrbookapp.Fragment.OneFragment;
-import com.getbase.floatingactionbutton.FloatingActionsMenu;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.tabs.TabLayout;
 
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.OutputStreamWriter;
 import java.sql.SQLException;
+import java.util.Objects;
 
 public class InicioActivity extends AppCompatActivity {
 
@@ -31,7 +28,7 @@ public class InicioActivity extends AppCompatActivity {
     //Array de los iconos
     private int[] tabIcons = {R.drawable.library, R.drawable.user_library};
     //Array de los títulos
-    private CharSequence Titles[] = {"Novedades", "Mi biblioteca"};
+    private CharSequence[] Titles = {"Novedades", "Mi biblioteca"};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -94,17 +91,17 @@ public class InicioActivity extends AppCompatActivity {
         });
     }
 
-    private void iconColor(TabLayout.Tab tab, String color) {
-        tab.getIcon().setColorFilter(Color.parseColor(color), PorterDuff.Mode.SRC_IN);
+    private void iconColor(@NonNull TabLayout.Tab tab, String color) {
+        Objects.requireNonNull(tab.getIcon()).setColorFilter(Color.parseColor(color), PorterDuff.Mode.SRC_IN);
     }
 
     private void tabIcons() {
         for (int i = 0; i < 2; i++) {
-            tabLayout.getTabAt(i).setIcon(tabIcons[i]);
+            Objects.requireNonNull(tabLayout.getTabAt(i)).setIcon(tabIcons[i]);
         }
     }
 
-    private void loadViewPager(ViewPager viewPager) {
+    private void loadViewPager(@NonNull ViewPager viewPager) {
         ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager(), Titles);
         //adapter.addFragment((newInstance(R.layout.activity_gridview_libros)));
         //Cargamos los fragment deseados al inicio, además los hemos separado en fragment distintos para dar más independencia a la app.
@@ -114,6 +111,7 @@ public class InicioActivity extends AppCompatActivity {
         viewPager.setAdapter(adapter);
     }
 
+    @NonNull
     private OneFragment newInstance(Class clase) {
         Bundle bundle = new Bundle();
         OneFragment fragment = new OneFragment(clase);
@@ -122,6 +120,7 @@ public class InicioActivity extends AppCompatActivity {
         return fragment;
     }
 
+    @NonNull
     private OneFragment newInstance(int referencia) {
         Bundle bundle = new Bundle();
         OneFragment fragment = new OneFragment(referencia);

@@ -1,24 +1,21 @@
 package com.example.qrbookapp;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.qrbookapp.Class.AccesoFichero;
 import com.example.qrbookapp.Database.ConnectionClass;
 
 import java.io.BufferedReader;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.ArrayList;
 import java.util.Timer;
 import java.util.TimerTask;
 
 public class SplashScreen extends AppCompatActivity {
 
-    ArrayList<String> contenidoFicheroRecordado = new ArrayList<>();
     AccesoFichero accesoFichero = new AccesoFichero();
 
     @Override
@@ -33,7 +30,7 @@ public class SplashScreen extends AppCompatActivity {
 
                 //Intent intentPri = new Intent().setClass(SPlashScreeeen.this, MainActivity.class);
 
-                final String datos[] = fileList();
+                final String[] datos = fileList();
                 final String nombreFicheroRecordatorio = "user.txt";
 
                 if (accesoFichero.archivoExisteEntreFicheros(datos, nombreFicheroRecordatorio)) {
@@ -54,8 +51,6 @@ public class SplashScreen extends AppCompatActivity {
 
                         }
 
-                    } catch (FileNotFoundException e) {
-                        e.printStackTrace();
                     } catch (IOException e) {
                         e.printStackTrace();
                     }

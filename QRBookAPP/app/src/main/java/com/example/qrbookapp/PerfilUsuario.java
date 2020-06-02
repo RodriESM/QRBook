@@ -1,13 +1,9 @@
 package com.example.qrbookapp;
 
-import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.graphics.drawable.BitmapDrawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
@@ -16,18 +12,17 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
-import android.widget.ImageView;
 import android.widget.Toast;
 
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.example.qrbookapp.Class.AccesoFichero;
-import com.example.qrbookapp.Class.Libro;
 import com.example.qrbookapp.Class.Usuario;
 import com.example.qrbookapp.Database.ConnectionClass;
 
 import java.io.BufferedReader;
 import java.io.ByteArrayOutputStream;
-import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
@@ -39,19 +34,19 @@ import java.util.ArrayList;
 
 public class PerfilUsuario extends AppCompatActivity {
 
-    EditText etUsuarioCam, etNombre, etApellido1, etApellido2, etContrasena, etRepiteContrasena, etAntiguaContrasena;
-    ImageButton ibUsuario;
-    Button btnRealizarCambios;
-    ArrayList<String> contenidoFicheroRecordado = new ArrayList<>();
-    AccesoFichero accesoFichero = new AccesoFichero();
-    String correo;
-    String contrasenaRecordada;
-    String antiguoUsuario;
-    Usuario usuario;
+    private EditText etUsuarioCam, etNombre, etApellido1, etApellido2, etContrasena, etRepiteContrasena, etAntiguaContrasena;
+    private ImageButton ibUsuario;
+    private Button btnRealizarCambios;
+    private ArrayList<String> contenidoFicheroRecordado = new ArrayList<>();
+    private AccesoFichero accesoFichero = new AccesoFichero();
+    private String correo;
+    private String contrasenaRecordada;
+    private String antiguoUsuario;
+    private Usuario usuario;
     private final int imagen_request = 0;
     private int puerto;
-    Bitmap bitmap;
-    byte[] imagenByte;
+    private Bitmap bitmap;
+    private byte[] imagenByte;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -68,7 +63,7 @@ public class PerfilUsuario extends AppCompatActivity {
         ibUsuario = findViewById(R.id.ibUsuario);
         btnRealizarCambios = findViewById(R.id.btnRealizarCambios);
 
-        final String datos[] = fileList();
+        final String[] datos = fileList();
         final String nombreFicheroRecordatorio = "user.txt";
 
 
@@ -107,7 +102,7 @@ public class PerfilUsuario extends AppCompatActivity {
             }
 
         } catch (Exception e) {
-            e.getMessage();
+            e.getStackTrace();
         } finally {
             antiguoUsuario = usuario.getUsuario();
         }
@@ -118,7 +113,6 @@ public class PerfilUsuario extends AppCompatActivity {
         etApellido2.setText(usuario.getApellido2());
         //etContrasena.setText(usuario.getPassword());
         //etRepiteContrasena.setText(usuario.getPassword());
-
 
         if (usuario.getUrl() == null) {
             ibUsuario.setImageResource(R.drawable.perfil_user);
@@ -159,7 +153,7 @@ public class PerfilUsuario extends AppCompatActivity {
                 if (etAntiguaContrasena.getText().toString().equals("") && contrasena.equals("") && repContrasena.equals("")) {
                     try {
                         Connection connection = ConnectionClass.con;
-                        PreparedStatement ps = null;
+                        PreparedStatement ps;
 
                         if (antiguoUsuario.equals(usuario)) {
                             ps = connection.prepareStatement("update USUARIO set nombre=?,apellido1=?,apellido2=?, foto=? where correo=?");
@@ -201,13 +195,13 @@ public class PerfilUsuario extends AppCompatActivity {
                     Toast.makeText(getApplicationContext(), "La contraseña debe contener una letra mayúscula, minúscula y un número.", Toast.LENGTH_LONG).show();
                 } else if (!contrasena.equals(repContrasena)) { //Pass: ^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$
                     Toast.makeText(getApplicationContext(), "Las contraseñas introducidas no son iguales. Intentelo de nuevo.", Toast.LENGTH_LONG).show();
-                } else if (!etAntiguaContrasena.getText().toString().equals(contrasenaRecordada) && !etAntiguaContrasena.equals("")) {
+                } else if (!etAntiguaContrasena.getText().toString().equals(contrasenaRecordada) && !etAntiguaContrasena.getText().toString().equals("")) {
                     Toast.makeText(getApplicationContext(), "La contraseña introducida no coincide con su antigua contraseña", Toast.LENGTH_LONG).show();
 
                 } else {
                     try {
                         Connection connection = ConnectionClass.con;
-                        PreparedStatement ps = null;
+                        PreparedStatement ps;
                         if (antiguoUsuario.equals(usuario)) {
                             ps = connection.prepareStatement("update USUARIO set nombre=?,password=MD5(?),apellido1=?,apellido2=?, foto=? where correo=?");
 

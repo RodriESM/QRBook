@@ -1,20 +1,20 @@
 package com.example.qrbookapp;
 
-import androidx.appcompat.app.AppCompatActivity;
-
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.view.KeyEvent;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.widget.TextView;
 
-import com.example.qrbookapp.Class.QR;
+import androidx.appcompat.app.AppCompatActivity;
 
 public class QrCaracteristicasAmpliado extends AppCompatActivity {
 
     TextView tvNombreQrAmpliado, tvDescripcionQrAmpliado, tvTipoQrAmpliado, tvPagina;
     WebView wvQrContenido;
 
+    @SuppressLint("SetJavaScriptEnabled")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,11 +32,12 @@ public class QrCaracteristicasAmpliado extends AppCompatActivity {
         ajustesVisorWeb.setUseWideViewPort(true);
         ajustesVisorWeb.setLoadWithOverviewMode(true);
 
-        QR qrSeleccionado = (QR) getIntent().getSerializableExtra("qr");
+        getIntent().getSerializableExtra("qr");
         Bundle info = getIntent().getExtras();
 
+        assert info != null;
         String nombre = info.getString("nombre");
-        String isbn = info.getString("isbn");
+        //String isbn = info.getString("isbn");
         String descripcion = info.getString("descripcion");
         String tipo = info.getString("tipo");
         String url = info.getString("url");

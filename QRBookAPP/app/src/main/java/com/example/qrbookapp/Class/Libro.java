@@ -1,7 +1,6 @@
 package com.example.qrbookapp.Class;
 
 import java.io.Serializable;
-import java.net.URL;
 
 public class Libro implements Serializable {
     private String isbn;

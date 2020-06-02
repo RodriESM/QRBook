@@ -2,6 +2,7 @@ package com.example.qrbookapp;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.view.KeyEvent;
 import android.webkit.WebSettings;
@@ -10,6 +11,7 @@ import android.webkit.WebView;
 public class EscanerVista extends AppCompatActivity {
     WebView WVVista;
 
+    @SuppressLint("SetJavaScriptEnabled")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -24,6 +26,7 @@ public class EscanerVista extends AppCompatActivity {
 
         //Obtenemos los datos de la otra actividad mediante el ID de url
         Bundle bundle = getIntent().getExtras();
+        assert bundle != null;
         String url = bundle.getString("url");
         //Mostramos en el WebView la página indicada.
         WVVista.loadUrl(url);

@@ -1,7 +1,5 @@
 package com.example.qrbookapp;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -11,15 +9,13 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.blikoon.qrcodescanner.QrCodeActivity;
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.example.qrbookapp.Class.AccesoFichero;
 import com.example.qrbookapp.Database.ConnectionClass;
 
 import java.io.BufferedReader;
-import java.io.BufferedWriter;
 import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
@@ -47,7 +43,7 @@ public class MainActivity extends AppCompatActivity {
         btnSignin = findViewById(R.id.btnSignin);
 
         //Mira en todos los fichero que contiene la aplicacion
-        final String datos[] = fileList();
+        final String[] datos = fileList();
         final String nombreFicheroRecordatorio = "user.txt";
 
         if (accesoFichero.archivoExisteEntreFicheros(datos, nombreFicheroRecordatorio)) {
@@ -62,8 +58,6 @@ public class MainActivity extends AppCompatActivity {
                     contenidoFicheroRecordado.add(linea);
                     linea = br.readLine();
                 }
-            } catch (FileNotFoundException e) {
-                e.printStackTrace();
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -101,8 +95,8 @@ public class MainActivity extends AppCompatActivity {
 
                     }
 
-                } catch (Exception e) {
-
+                } catch (Exception ex) {
+                    ex.getStackTrace();
                 }
             }
         });
@@ -119,7 +113,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void EscribirEnFichero(String correo, String contrasena) throws IOException {
-        File fichero = new File("user.txt");
+        new File("user.txt");
         OutputStreamWriter osw = new OutputStreamWriter(openFileOutput("user.txt", Activity.MODE_PRIVATE));
         osw.write(correo + "\n" + contrasena);
         osw.flush();
