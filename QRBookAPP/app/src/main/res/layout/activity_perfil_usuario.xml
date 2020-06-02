@@ -157,8 +157,6 @@
                 android:gravity="center"
                 android:text="@string/btnRealizarCambiosUsuario"
                 android:textColor="#000" />
-
-
         </LinearLayout>
     </ScrollView>
 </LinearLayout>

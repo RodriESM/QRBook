@@ -14,8 +14,8 @@ public class Descarga extends AppCompatActivity {
 
     public Descarga() {
     }
-
     private static final int MEGABYTE = 1024 * 1024;
+
 
     public static void downloadFile(String fileUrl, File directory) throws IOException {
 
