@@ -12,11 +12,11 @@
         android:id="@+id/background"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:contentDescription="@string/bgnFondoRegistro"
         android:scaleType="matrix"
         android:src="@drawable/backgroundposible"
         tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="0dp"
-        android:contentDescription="@string/bgnFondoRegistro" />
+        tools:layout_editor_absoluteY="0dp" />
 
     <ScrollView
         android:layout_width="match_parent"
@@ -36,49 +36,62 @@
                 android:layout_gravity="center"
                 android:layout_marginTop="25dp"
                 android:background="#35FFFFFF"
+                android:contentDescription="@string/imgFotoRegistro"
                 android:scaleType="centerCrop"
-                app:srcCompat="@drawable/perfil_user"
-                android:contentDescription="@string/imgFotoRegistro" />
+                app:srcCompat="@drawable/perfil_user" />
 
             <EditText
                 android:id="@+id/etEmail"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="25dp"
+                android:autofillHints="Email de registro"
                 android:hint="@string/etHintEmailRegistro"
                 android:inputType="textEmailAddress"
-                android:textColorHint="#FFFFFF"
-                android:autofillHints="Email de registro" />
+                android:textColorHint="#FFFFFF" />
 
             <EditText
                 android:id="@+id/etUsuario"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="25dp"
+                android:autofillHints="Nombre de usuario"
                 android:hint="@string/etUsuarioRegistro"
                 android:inputType="textEmailAddress"
-                android:textColorHint="#FFFFFF"
-                android:autofillHints="Nombre de usuario" />
+                android:textColorHint="#FFFFFF" />
 
-            <EditText
-                android:id="@+id/etPassword"
+            <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="25dp"
-                android:hint="@string/etContraseñaRegistro"
-                android:inputType="textPassword"
-                android:textColorHint="#FFFFFF"
-                android:autofillHints="Contraseña de usuario" />
+                app:passwordToggleEnabled="true">
 
-            <EditText
-                android:id="@+id/etPassword2"
+                <EditText
+                    android:id="@+id/etPassword"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="25dp"
+                    android:autofillHints="Contraseña de usuario"
+                    android:hint="@string/etContraseñaRegistro"
+                    android:inputType="textPassword"
+                    android:textColorHint="#FFFFFF" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="25dp"
-                android:hint="@string/etRepetirContraseñaRegistro"
-                android:inputType="textPassword"
-                android:textColorHint="#FFFFFF"
-                android:autofillHints="Comprobación de ontraseña de registro" />
+                app:passwordToggleEnabled="true">
+
+                <EditText
+                    android:id="@+id/etPassword2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="25dp"
+                    android:autofillHints="Comprobación de ontraseña de registro"
+                    android:hint="@string/etRepetirContraseñaRegistro"
+                    android:inputType="textPassword"
+                    android:textColorHint="#FFFFFF" />
+            </com.google.android.material.textfield.TextInputLayout>
 
             <Button
                 android:id="@+id/btnRegistrarse"

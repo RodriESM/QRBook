@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -56,12 +57,12 @@
                 android:layout_width="367dp"
                 android:layout_height="39dp"
                 android:layout_marginTop="25dp"
+                android:autofillHints="Primer apellido"
                 android:hint="@string/etHintApellido1"
+                android:inputType="text"
                 android:textColor="#000"
                 android:textColorHint="#000"
-                android:textStyle="italic"
-                android:autofillHints="Primer apellido"
-                android:inputType="text" />
+                android:textStyle="italic" />
 
 
             <EditText
@@ -69,12 +70,12 @@
                 android:layout_width="367dp"
                 android:layout_height="39dp"
                 android:layout_marginTop="25dp"
+                android:autofillHints="Segundo apellido"
                 android:hint="@string/etHintApellido2"
+                android:inputType="text"
                 android:textColor="#000"
                 android:textColorHint="#000"
-                android:textStyle="italic"
-                android:autofillHints="Segundo apellido"
-                android:inputType="text" />
+                android:textStyle="italic" />
 
 
             <TextView
@@ -87,42 +88,55 @@
                 android:textSize="18sp"
                 android:textStyle="italic|bold" />
 
-            <EditText
-                android:id="@+id/etAntiguaContrasena"
+            <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="25dp"
-                android:ems="10"
-                android:hint="@string/etHintAntiguaContra"
-                android:inputType="textPassword"
-                android:textColor="#000"
-                android:textColorHint="#000"
-                android:autofillHints="Antigua contraseña" />
+                app:passwordToggleEnabled="true"
+                android:textColorHint="@color/black">
 
+                <EditText
+                    android:id="@+id/etAntiguaContrasena"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="25dp"
+                    android:autofillHints="Antigua contraseña"
+                    android:ems="10"
+                    android:hint="@string/etHintAntiguaContra"
+                    android:inputType="textPassword"
+                    android:textColor="#000"
+                    android:textColorHint="#000" />
+            </com.google.android.material.textfield.TextInputLayout>
 
-            <EditText
-                android:id="@+id/etContrasena"
+            <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="25dp"
-                android:ems="10"
-                android:hint="@string/etHintNuevaContra"
-                android:inputType="textPassword"
-                android:textColor="#000"
-                android:textColorHint="#000"
-                android:autofillHints="Nueva contraseña" />
+                app:passwordToggleEnabled="true"
+                android:textColorHint="@color/black">
+
+                <EditText
+                    android:id="@+id/etContrasena"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="25dp"
+                    android:autofillHints="Nueva contraseña"
+                    android:ems="10"
+                    android:hint="@string/etHintNuevaContra"
+                    android:inputType="textPassword"
+                    android:textColor="#000"
+                    android:textColorHint="#000" />
+            </com.google.android.material.textfield.TextInputLayout>
 
             <EditText
                 android:id="@+id/etRepiteContrasena"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="25dp"
+                android:autofillHints="Repetir nueva contraseña"
                 android:ems="10"
                 android:hint="@string/etHintNuevaContraseña"
                 android:inputType="textPassword"
                 android:textColor="#000"
-                android:textColorHint="#000"
-                android:autofillHints="Repetir nueva contraseña" />
+                android:textColorHint="#000" />
 
 
             <Button

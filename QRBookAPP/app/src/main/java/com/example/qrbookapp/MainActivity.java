@@ -1,6 +1,7 @@
 package com.example.qrbookapp;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.KeyEvent;
@@ -91,8 +92,8 @@ public class MainActivity extends AppCompatActivity {
                             finish();
                         } else {
                             Toast.makeText(MainActivity.this, "Usuario o contraseña incorrectos", Toast.LENGTH_LONG).show();
-                        }
 
+                        }
                     }
 
                 } catch (Exception ex) {
