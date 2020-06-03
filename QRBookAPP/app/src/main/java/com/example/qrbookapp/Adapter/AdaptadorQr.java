@@ -1,5 +1,6 @@
 package com.example.qrbookapp.Adapter;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.view.LayoutInflater;
@@ -12,7 +13,6 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.example.qrbookapp.Class.QR;
-import com.example.qrbookapp.InicioActivity;
 import com.example.qrbookapp.QrCaracteristicasAmpliado;
 import com.example.qrbookapp.R;
 
@@ -44,14 +44,16 @@ public class AdaptadorQr extends BaseAdapter {
     }
 
 
+    @SuppressLint({"SetJavaScriptEnabled", "SetTextI18n", "ViewHolder", "InflateParams"})
     @Override
     public View getView(final int position, View convertView, ViewGroup parent) {
 
         LayoutInflater layoutInflater = LayoutInflater.from(miContexto);
-        convertView=layoutInflater.inflate(R.layout.item_qr, null);
+        convertView = layoutInflater.inflate(R.layout.item_qr, null);
 
-        Button tvTituloQr= convertView.findViewById(R.id.tvTituloQr);
-        WebView wvqrseleccionador =convertView.findViewById(R.id.wvqrseleccionador);
+        Button tvTituloQr = convertView.findViewById(R.id.tvTituloQr);
+        WebView wvqrseleccionador = convertView.findViewById(R.id.wvqrseleccionador);
+        TextView tvQRPagn = convertView.findViewById(R.id.tvQRPagn);
 
         final WebSettings ajustesVisorWeb = wvqrseleccionador.getSettings();
 
@@ -60,17 +62,17 @@ public class AdaptadorQr extends BaseAdapter {
         ajustesVisorWeb.setLoadWithOverviewMode(true);
         tvTituloQr.setText(miArrayList.get(position).getNombre());
         wvqrseleccionador.loadUrl(miArrayList.get(position).getUrl());
-
+        tvQRPagn.setText("Página: " + miArrayList.get(position).getPagina());
         tvTituloQr.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i=new Intent(miContexto.getApplicationContext(), QrCaracteristicasAmpliado.class);
-                i.putExtra("descripcion",miArrayList.get(position).getDescripcion());
-                i.putExtra("isbn",miArrayList.get(position).getIsbn());
-                i.putExtra("nombre",miArrayList.get(position).getNombre());
-                i.putExtra("tipo",miArrayList.get(position).getTipo());
-                i.putExtra("url",miArrayList.get(position).getUrl());
-                i.putExtra("pag",miArrayList.get(position).getPagina());
+                Intent i = new Intent(miContexto.getApplicationContext(), QrCaracteristicasAmpliado.class);
+                i.putExtra("descripcion", miArrayList.get(position).getDescripcion());
+                i.putExtra("isbn", miArrayList.get(position).getIsbn());
+                i.putExtra("nombre", miArrayList.get(position).getNombre());
+                i.putExtra("tipo", miArrayList.get(position).getTipo());
+                i.putExtra("url", miArrayList.get(position).getUrl());
+                i.putExtra("pag", miArrayList.get(position).getPagina());
                 miContexto.startActivity(i);
             }
         });

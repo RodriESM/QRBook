@@ -1,7 +1,6 @@
 package com.example.qrbookapp.Class;
 
 import java.io.Serializable;
-import java.net.URL;
 
 public class QR implements Serializable {
 
@@ -21,12 +20,12 @@ public class QR implements Serializable {
     }
 
     //He añadido la página para así poder ponerla en un texto y que el usuario pueda ver a qué hace referencia.
-    public QR(String url, String isbn, String tipo, String nombre, String descripcion,String pagina) {
+    public QR(String url, String isbn, String tipo, String nombre, String descripcion, String pagina) {
         this.url = url;
         this.isbn = isbn;
         this.nombre = nombre;
-        this.tipo=tipo;
-        this.pagina=pagina;
+        this.tipo = tipo;
+        this.pagina = pagina;
         Descripcion = descripcion;
     }
 

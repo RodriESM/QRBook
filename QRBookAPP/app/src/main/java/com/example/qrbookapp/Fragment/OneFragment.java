@@ -1,21 +1,18 @@
 package com.example.qrbookapp.Fragment;
 
-import android.content.Intent;
 import android.os.Bundle;
-
-import androidx.annotation.Nullable;
-import androidx.fragment.app.Fragment;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
+
+import androidx.annotation.NonNull;
+import androidx.fragment.app.Fragment;
 
 
 public class OneFragment extends Fragment {
-    View view;
-    Class clase;
-    int referencia = 0;
+    private View view;
+    private Class clase;
+    private int referencia = 0;
 
     public OneFragment(Class clase) {
         this.clase=clase;
@@ -26,7 +23,7 @@ public class OneFragment extends Fragment {
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
         if(clase!=null) {
             view = inflater.inflate(referencia, container, false);

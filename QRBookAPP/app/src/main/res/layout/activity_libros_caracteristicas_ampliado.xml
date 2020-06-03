@@ -4,9 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".LibrosCaracteristicasAmpliado"
+    android:background="@drawable/librorecorteblanco"
     android:orientation="vertical"
-    android:background="@drawable/librorecorteblanco">
+    tools:context=".LibrosCaracteristicasAmpliado">
 
 
     <ScrollView
@@ -16,188 +16,191 @@
         tools:layout_editor_absoluteY="9dp">
 
         <LinearLayout
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:padding="25dp">
+            android:paddingTop="20dp">
 
             <ImageView
                 android:id="@+id/imgLibroAmpliado"
                 android:layout_width="150dp"
                 android:layout_height="155dp"
                 android:layout_gravity="center"
-                android:src="@drawable/logo" />
+                android:src="@drawable/logo"
+                android:contentDescription="@string/txtdPortadaLibro" />
 
             <TextView
-                android:layout_width="350dp"
+                android:layout_width="360dp"
                 android:layout_height="29dp"
+                android:layout_marginStart="30dp"
                 android:layout_marginTop="25dp"
-                android:paddingLeft="20dp"
-                android:text="ISBN"
+                android:text="@string/txtISBN"
                 android:textColor="#000000"
                 android:textSize="15sp"
                 android:textStyle="italic|bold" />
 
             <TextView
                 android:id="@+id/tvIsbnAmpliado"
-                android:layout_width="350dp"
+                android:layout_width="360dp"
                 android:layout_height="29dp"
-                android:paddingLeft="20dp"
-                android:text="Hola"
+                android:layout_marginStart="30dp"
+                android:text="@string/txtdISBN"
                 android:textColor="#000000"
                 android:textSize="15sp"
                 android:textStyle="italic" />
 
             <TextView
-                android:layout_width="350dp"
+                android:layout_width="360dp"
                 android:layout_height="29dp"
+                android:layout_marginStart="30dp"
                 android:layout_marginTop="25dp"
-                android:paddingLeft="20dp"
-                android:text="Título"
+                android:text="@string/txtTitulo"
                 android:textColor="#000000"
                 android:textSize="15sp"
                 android:textStyle="italic|bold" />
 
             <TextView
                 android:id="@+id/tvTituloAmpliado"
-                android:layout_width="350dp"
+                android:layout_width="360dp"
                 android:layout_height="33dp"
-                android:paddingLeft="20dp"
-                android:text="Hola"
+                android:layout_marginStart="30dp"
+                android:text="@string/txtdTitulo"
                 android:textColor="#000000"
                 android:textSize="15sp"
                 android:textStyle="italic" />
 
             <TextView
-                android:layout_width="350dp"
+                android:layout_width="360dp"
                 android:layout_height="29dp"
+                android:layout_marginStart="30dp"
                 android:layout_marginTop="25dp"
-                android:paddingLeft="20dp"
-                android:text="Autor"
+                android:text="@string/txtAutor"
                 android:textColor="#000000"
                 android:textSize="15sp"
                 android:textStyle="italic|bold" />
 
             <TextView
                 android:id="@+id/tvAutorAmpliado"
-                android:layout_width="350dp"
+                android:layout_width="360dp"
                 android:layout_height="33dp"
-                android:paddingLeft="20dp"
-                android:text="Hola"
+                android:layout_marginStart="30dp"
+                android:text="@string/txtdAutor"
                 android:textColor="#000000"
-                android:textSize="15dp"
+                android:textSize="15sp"
                 android:textStyle="italic" />
 
             <TextView
-                android:layout_width="350dp"
+                android:layout_width="360dp"
                 android:layout_height="29dp"
+                android:layout_marginStart="30dp"
                 android:layout_marginTop="25dp"
-                android:paddingLeft="20dp"
-                android:text="Editorial"
+                android:text="@string/txtEditorial"
                 android:textColor="#000000"
                 android:textSize="15sp"
                 android:textStyle="italic|bold" />
 
             <TextView
                 android:id="@+id/tvEditorialAmpliado"
-                android:layout_width="350dp"
+                android:layout_width="360dp"
                 android:layout_height="32dp"
-                android:paddingLeft="20dp"
-                android:text="Hola"
+                android:layout_marginStart="30dp"
+                android:text="@string/txtdEditorial"
                 android:textColor="#000000"
-                android:textSize="15dp"
+                android:textSize="15sp"
                 android:textStyle="italic" />
 
             <TextView
-                android:layout_width="350dp"
+                android:layout_width="360dp"
                 android:layout_height="29dp"
+                android:layout_marginStart="30dp"
                 android:layout_marginTop="25dp"
-                android:paddingLeft="20dp"
-                android:text="Año"
+                android:text="@string/txtAño"
                 android:textColor="#000000"
                 android:textSize="15sp"
                 android:textStyle="italic|bold" />
 
             <TextView
                 android:id="@+id/tvAnioAmpliado"
-                android:layout_width="350dp"
+                android:layout_width="360dp"
                 android:layout_height="32dp"
-                android:paddingLeft="20dp"
-                android:text="Hola"
+                android:layout_marginStart="30dp"
+                android:text="@string/txtdAño"
                 android:textColor="#000000"
-                android:textSize="15dp"
+                android:textSize="15sp"
                 android:textStyle="italic" />
 
             <TextView
-                android:layout_width="350dp"
+                android:layout_width="360dp"
                 android:layout_height="29dp"
+                android:layout_marginStart="30dp"
                 android:layout_marginTop="25dp"
-                android:paddingLeft="20dp"
-                android:text="Idioma"
+                android:text="@string/txtIdioma"
                 android:textColor="#000000"
                 android:textSize="15sp"
                 android:textStyle="italic|bold" />
 
             <TextView
                 android:id="@+id/tvIdiomaAmpliado"
-                android:layout_width="350dp"
+                android:layout_width="360dp"
                 android:layout_height="29dp"
-                android:paddingLeft="20dp"
-                android:text="Hola"
+                android:layout_marginStart="30dp"
+                android:text="@string/txtdIdioma"
                 android:textColor="#000000"
-                android:textSize="15dp"
+                android:textSize="15sp"
                 android:textStyle="italic" />
 
             <TextView
-                android:layout_width="350dp"
+                android:layout_width="360dp"
                 android:layout_height="29dp"
+                android:layout_marginStart="30dp"
                 android:layout_marginTop="25dp"
-                android:paddingLeft="20dp"
-                android:text="Genero"
+                android:text="@string/txtGenero"
                 android:textColor="#000000"
                 android:textSize="15sp"
                 android:textStyle="italic|bold" />
 
             <TextView
                 android:id="@+id/tvGeneroAmpliado"
-                android:layout_width="350dp"
+                android:layout_width="360dp"
                 android:layout_height="29dp"
-                android:paddingLeft="20dp"
-                android:text="Hola"
+                android:layout_marginStart="30dp"
+                android:text="@string/txtdGenero"
                 android:textColor="#000000"
                 android:textSize="15sp"
                 android:textStyle="italic" />
 
 
             <TextView
-                android:layout_width="352dp"
+                android:layout_width="360dp"
                 android:layout_height="29dp"
+                android:layout_marginStart="30dp"
                 android:layout_marginTop="25dp"
                 android:background="#A9DDDDDD"
-                android:paddingLeft="20dp"
-                android:text="Sinópsis"
+                android:text="@string/txtSinopsis"
                 android:textColor="#000000"
                 android:textSize="15sp"
                 android:textStyle="italic|bold" />
 
             <TextView
                 android:id="@+id/tvSinopsisAmpliado"
-                android:layout_width="352dp"
+                android:layout_width="360dp"
                 android:layout_height="190dp"
+                android:layout_marginStart="30dp"
                 android:background="#A9DDDDDD"
-                android:text="Hola"
+                android:text="@string/txtdSinopsis"
                 android:textColor="#000000"
                 android:textSize="15sp"
                 android:textStyle="italic" />
 
             <Button
                 android:id="@+id/btnAnadir"
+                android:layout_marginBottom="10dp"
                 android:layout_width="150dp"
                 android:layout_height="40dp"
                 android:layout_gravity="center"
                 android:layout_marginTop="25dp"
                 android:background="#9EDDDDDD"
-                android:text="Añadir"
+                android:text="@string/btnAnadir"
                 android:textColor="#000000" />
         </LinearLayout>
 
@@ -219,6 +222,19 @@
 
 
         <com.getbase.floatingactionbutton.FloatingActionButton
+            android:id="@+id/btnElminar"
+            android:layout_width="15dp"
+            android:layout_height="15dp"
+            app:fab_colorNormal="@color/design_default_color_error"
+            app:fab_colorPressed="@color/design_default_color_secondary_variant"
+            app:fab_icon="@android:drawable/ic_menu_delete"
+            app:fab_labelStyle="@color/common_google_signin_btn_text_light_pressed"
+            app:fab_size="normal"
+            app:fab_title="Eliminar libro"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <com.getbase.floatingactionbutton.FloatingActionButton
             android:id="@+id/btnAnadirQr"
             android:layout_width="15dp"
             android:layout_height="15dp"
@@ -230,6 +246,7 @@
             app:fab_title="Leer QR"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent" />
+
 
         <com.getbase.floatingactionbutton.FloatingActionButton
             android:id="@+id/btnVer"
@@ -244,6 +261,19 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent" />
 
-        </com.getbase.floatingactionbutton.FloatingActionsMenu>
+        <com.getbase.floatingactionbutton.FloatingActionButton
+            android:id="@+id/btnLeer"
+            android:layout_width="15dp"
+            android:layout_height="15dp"
+            app:fab_colorNormal="@color/common_google_signin_btn_text_light_pressed"
+            app:fab_colorPressed="@color/design_default_color_secondary_variant"
+            app:fab_icon="@android:drawable/ic_menu_gallery"
+            app:fab_labelStyle="@color/common_google_signin_btn_text_light_pressed"
+            app:fab_size="normal"
+            app:fab_title="Leer"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+    </com.getbase.floatingactionbutton.FloatingActionsMenu>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

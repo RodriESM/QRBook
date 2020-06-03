@@ -1,10 +1,5 @@
 package com.example.qrbookapp;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.app.ActivityCompat;
-import androidx.core.content.ContextCompat;
-
 import android.Manifest;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -13,9 +8,13 @@ import android.util.SparseArray;
 import android.view.KeyEvent;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
-import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 
 import com.example.qrbookapp.Class.AccesoFichero;
 import com.example.qrbookapp.Database.ConnectionClass;
@@ -25,11 +24,9 @@ import com.google.android.gms.vision.barcode.Barcode;
 import com.google.android.gms.vision.barcode.BarcodeDetector;
 
 import java.io.BufferedReader;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.sql.Connection;
-import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -113,6 +110,16 @@ public class Escaner extends AppCompatActivity {
         @Override
         public void surfaceCreated(SurfaceHolder holder) {
             try {
+                if (ActivityCompat.checkSelfPermission(getApplicationContext(), Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
+                    // TODO: Consider calling
+                    //    ActivityCompat#requestPermissions
+                    // here to request the missing permissions, and then overriding
+                    //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
+                    //                                          int[] grantResults)
+                    // to handle the case where the user grants the permission. See the documentation
+                    // for ActivityCompat#requestPermissions for more details.
+                    return;
+                }
                 cameraSource.start(holder);
             } catch (Exception e) {
                 Toast.makeText(getApplicationContext(), "Algo ha ido mal", Toast.LENGTH_SHORT).show();
@@ -145,11 +152,12 @@ public class Escaner extends AppCompatActivity {
         public void receiveDetections(Detector.Detections<Barcode> detections) {
 
             Bundle bundle = getIntent().getExtras();
+            assert bundle != null;
             String isbn = bundle.getString("escanerisbn");
 
             Connection connection = ConnectionClass.con;
 
-            final String datos[] = fileList();
+            final String[]  datos= fileList();
             final String nombreFicheroRecordatorio = "user.txt";
 
 
@@ -165,8 +173,6 @@ public class Escaner extends AppCompatActivity {
                         contenidoFicheroRecordado.add(linea);
                         linea = br.readLine();
                     }
-                } catch (FileNotFoundException e) {
-                    e.printStackTrace();
                 } catch (IOException e) {
                     e.printStackTrace();
                 } finally {
@@ -178,32 +184,38 @@ public class Escaner extends AppCompatActivity {
             if (detections != null && detections.getDetectedItems().size() != 0) {
                 SparseArray<Barcode> qrCodes = detections.getDetectedItems();
                 Barcode code = qrCodes.valueAt(0);
+
                 if ((code.displayValue.contains("http") || code.displayValue.contains("https")) && !code.displayValue.contentEquals(lastUrl)) {
                     lastUrl = code.displayValue;
-                    ResultSet rs = null;
-                    ResultSet rsgeneral = null;
+                    ResultSet rs;
+                    ResultSet rsgeneral;
 
                     try {
                         //Revisamos todos los qr de la base de datos.
-                        rsgeneral = connection.createStatement().executeQuery("select * from QR where URL like'" + code.displayValue + "' and ISBN like '"+isbn+"'");
+                        rsgeneral = connection.createStatement().executeQuery("select * from QR where URL like'" + code.displayValue + "' and ISBN like '" + isbn + "'");
 
                         //Si encuentra el QR, lo muestra.
                         if (rsgeneral.next()) {
 
                             Intent i = new Intent(Escaner.this, EscanerVista.class);
                             i.putExtra("url", code.displayValue);
+                            i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                            i.setFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
                             startActivity(i);
 
-                        }else{
+
+                        } else {
 
                             try {
                                 //Miramos que el qr no esté registrado para no crear duplicados en nuestro contenedor de qr
-                                rs = connection.createStatement().executeQuery("SELECT * FROM USUARIOQR where URL like '" + code.displayValue + "' and CORREO like '" + correo + "' and ISBN like '"+isbn+"'");
+                                rs = connection.createStatement().executeQuery("SELECT * FROM USUARIOQR where URL like '" + code.displayValue + "' and CORREO like '" + correo + "' and ISBN like '" + isbn + "'");
 
                                 //Recorremos todos lo libros que tenemos en la base de datos y los introducimos en el array
                                 if (rs.next()) {
                                     Intent i = new Intent(Escaner.this, EscanerVista.class);
                                     i.putExtra("url", code.displayValue);
+                                    i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                                    i.setFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
                                     startActivity(i);
 
                                 } else {
@@ -223,8 +235,10 @@ public class Escaner extends AppCompatActivity {
 
                                     Intent i = new Intent(Escaner.this, AnadirQrUsuario.class);
                                     i.putExtra("url", code.displayValue);
-                                    i.putExtra("correo",correo);
-                                    i.putExtra("isbn",isbn);
+                                    i.putExtra("correo", correo);
+                                    i.putExtra("isbn", isbn);
+                                    i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                                    i.setFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
                                     startActivity(i);
 
                                 }
@@ -237,8 +251,6 @@ public class Escaner extends AppCompatActivity {
                         e.printStackTrace();
                     }
 //Revisar si nos hiciera falta...
-                } else {
-                    textScanResult.setText("Este QR no está disponible.");
                 }
             } else {
                 lastUrl = "";

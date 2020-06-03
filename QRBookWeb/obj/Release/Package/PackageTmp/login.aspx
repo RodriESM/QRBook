@@ -89,17 +89,16 @@
      
          <div class="input-contenedor">
          <i class="fas fa-envelope icon"></i>
-         <input runat="server" type="text" id="user" placeholder="Usuario o Correo Electronico" maxlength="50">
+         <input runat="server" type="text" id="user" placeholder="Usuario o Correo Electronico" maxlength="50" class="txtbox">
          
          </div>
          
          <div class="input-contenedor">
         <i class="fas fa-key icon"></i>
-         <input runat="server" type="password" id="pass" placeholder="Contraseña" maxlength="30">
+         <input runat="server" type="password" id="pass" placeholder="Contraseña" maxlength="30" class="txtbox">
          
          </div>
          <asp:Button id="btnLogin" class="button" runat="server" Text="Iniciar sesión" OnClick="Login_Click"/>
-         <p>Al registrarte, aceptas nuestras Condiciones de uso y Política de privacidad.</p>
          <p>¿No tienes una cuenta? <a class="link" href="registro.aspx">Registrate </a></p>
      </div>
         <script src="assets/js/main.js"></script>

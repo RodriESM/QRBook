@@ -1,5 +1,6 @@
 package com.example.qrbookapp.Adapter;
 
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
@@ -12,27 +13,26 @@ import java.util.List;
 
 public class ViewPagerAdapter extends FragmentPagerAdapter {
 
-    List<Fragment> fragmentList = new ArrayList<>();
-    CharSequence Titles[];
+    private List<Fragment> fragmentList = new ArrayList<>();
+    private CharSequence[] Titles;
+    private Fragment_ListaLibros FL = new Fragment_ListaLibros();
+    private Fragment_ListaLibros_Usuario FLU = new Fragment_ListaLibros_Usuario();
 
     //Pasamos el array de los títulos.
-    public ViewPagerAdapter(FragmentManager fm,CharSequence mTitles[]) {
+    public ViewPagerAdapter(FragmentManager fm, CharSequence[] mTitles) {
         super(fm);
-        this.Titles=mTitles;
+        this.Titles = mTitles;
     }
 
     //Modificar para que dependiendo de la posición del tab muestre un fragment u otro
+    @NonNull
     @Override
     public Fragment getItem(int position) {
         //Dependiendo del de la tabulación abrirá uno u otro y por defecto la lista de libros.
-        switch (position){
-            case 0:
-                return new Fragment_ListaLibros();
-            case 1:
-                return new Fragment_ListaLibros_Usuario();
-            default:
-                return new Fragment_ListaLibros();
+        if (position == 1) {
+            return FLU;
         }
+        return FL;
     }
 
     @Override
@@ -40,7 +40,7 @@ public class ViewPagerAdapter extends FragmentPagerAdapter {
         return fragmentList.size();
     }
 
-    public void addFragment(Fragment fragment){
+    public void addFragment(Fragment fragment) {
         fragmentList.add(fragment);
     }
 

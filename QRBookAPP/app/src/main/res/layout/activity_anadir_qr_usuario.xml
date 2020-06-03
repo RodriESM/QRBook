@@ -1,139 +1,144 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".AnadirQrUsuario"
     android:background="@drawable/recortebackgroundblanco"
-    >
+    tools:context=".AnadirQrUsuario">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:padding="10dp"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:padding="10dp">
 
         <WebView
             android:id="@+id/wvQrContenido"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="0.55"
-            android:layout_marginBottom="15dp"/>
+            android:layout_marginBottom="15dp"
+            android:layout_weight="0.55" />
 
         <LinearLayout
-            android:background="#75DDDDDD"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="0.05"
+            android:background="#75DDDDDD"
             android:orientation="horizontal">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:text="Nombre: "
+                android:text="@string/nombre"
                 android:textColor="#000000"
-                android:textSize="15dp"
-                android:textStyle="bold"/>
+                android:textSize="15sp"
+                android:textStyle="bold" />
 
             <EditText
                 android:id="@+id/etNombreQrAmpliado"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:hint="Ej: Alonso Quijano, Castilla La Mancha..."
-                android:textColorHint="@color/black"
-                android:textStyle="italic"
-                android:textColor="@color/black"
-                android:textSize="15dp"
+                android:autofillHints="Ejemplo del nombre del QR"
                 android:background="@null"
-                />
+                android:hint="@string/EjNombre"
+                android:inputType="text"
+                android:textColor="@color/black"
+                android:textColorHint="@color/black"
+                android:textSize="15sp"
+                android:textStyle="italic" />
         </LinearLayout>
 
         <LinearLayout
-            android:background="#75DDDDDD"
             android:layout_width="match_parent"
             android:layout_height="0dp"
+            android:layout_marginTop="15dp"
             android:layout_weight="0.05"
-            android:orientation="horizontal"
-            android:layout_marginTop="15dp">
+            android:background="#75DDDDDD"
+            android:orientation="horizontal">
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:text="Tipo: "
+                android:text="@string/EjTipo"
                 android:textColor="#000000"
                 android:textSize="15sp"
-                android:textStyle="bold"/>
+                android:textStyle="bold" />
 
             <EditText
                 android:id="@+id/etTipoQrAmpliado"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:hint="Ej: Fotografía, dibujo, música, vídeo, texto..."
-                android:textColorHint="@color/black"
-                android:textColor="@color/black"
-                android:textStyle="italic"
-                android:textSize="15sp"
+                android:autofillHints="Tipo de imagen adjuntada."
                 android:background="@null"
-                />
+                android:hint="@string/EjTipoQR"
+                android:inputType="text"
+                android:textColor="@color/black"
+                android:textColorHint="@color/black"
+                android:textSize="15sp"
+                android:textStyle="italic" />
         </LinearLayout>
 
         <LinearLayout
-            android:background="#75DDDDDD"
             android:layout_width="match_parent"
             android:layout_height="0dp"
+            android:layout_marginTop="15dp"
             android:layout_weight="0.04"
-            android:orientation="horizontal"
-            android:layout_marginTop="15dp">
+            android:background="#75DDDDDD"
+            android:orientation="horizontal">
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:text="Página: "
+                android:text="@string/EjPagina"
                 android:textColor="#000000"
                 android:textSize="15sp"
-                android:textStyle="bold"/>
+                android:textStyle="bold" />
 
             <EditText
                 android:id="@+id/etPagina"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:textColor="@color/black"
-                android:hint="Ej: 1,2,3,4..."
-                android:textColorHint="@color/black"
-                android:textStyle="italic"
-                android:textSize="15sp"
+                android:autofillHints="Página donde se ubica el QR"
                 android:background="@null"
-                />
+                android:hint="@string/EjPaginaQR"
+                android:inputType="number"
+                android:textColor="@color/black"
+                android:textColorHint="@color/black"
+                android:textSize="15sp"
+                android:textStyle="italic" />
+
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
+            android:layout_marginTop="15dp"
             android:layout_weight="0.20"
             android:background="#75DDDDDD"
-            android:layout_marginTop="15dp"
             android:orientation="vertical">
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Descripción"
+                android:text="@string/EjDescripcion"
                 android:textColor="#000000"
                 android:textSize="15sp"
-                android:textStyle="bold"/>
+                android:textStyle="bold" />
 
 
             <EditText
                 android:id="@+id/etDescripcionQrAmpliado"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:textColor="@color/black"
-                android:hint="Ej: En un lugar de la mancha de cullo nombre no quiero acordarme..."
-                android:textColorHint="@color/black"
-                android:textStyle="italic"
-                android:textSize="15dp"
                 android:background="@null"
                 android:gravity="top"
-                />
+                android:hint="@string/EjDescripcionQR"
+                android:textColor="@color/black"
+                android:textColorHint="@color/black"
+                android:textSize="15sp"
+                android:textStyle="italic"
+                android:autofillHints="Descipción del QR itroducido"
+                android:inputType="textImeMultiLine" />
 
         </LinearLayout>
 
@@ -141,12 +146,12 @@
             android:id="@+id/btnGuardar"
             android:layout_width="wrap_content"
             android:layout_height="0dp"
-            android:text="Guardar"
-            android:layout_marginLeft="150dp"
-            android:background="#9EDDDDDD"
+            android:layout_marginStart="150dp"
             android:layout_marginTop="10dp"
-            android:textColor="@color/black"
-            android:layout_weight="0.06"/>
+            android:layout_weight="0.06"
+            android:background="#9EDDDDDD"
+            android:text="@string/GuardarQR"
+            android:textColor="@color/black" />
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

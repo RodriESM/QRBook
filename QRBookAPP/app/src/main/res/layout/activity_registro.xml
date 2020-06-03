@@ -4,84 +4,103 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".RegistroActivity"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    tools:context=".RegistroActivity">
 
 
-        <ImageView
-            android:id="@+id/background"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:scaleType="matrix"
-            android:src="@drawable/backgroundposible"
-            tools:layout_editor_absoluteX="0dp"
-            tools:layout_editor_absoluteY="0dp" />
-
-    <ScrollView
-        android:layout_marginTop="25dp"
+    <ImageView
+        android:id="@+id/background"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        >
+        android:contentDescription="@string/bgnFondoRegistro"
+        android:scaleType="matrix"
+        android:src="@drawable/backgroundposible"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="0dp" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="25dp">
 
         <LinearLayout
-            android:padding="25dp"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="25dp">
 
-
-            <ImageView
-                android:layout_marginTop="25dp"
-                android:id="@+id/ivLogo"
+            <ImageButton
+                android:id="@+id/ivFotoPerfil"
                 android:layout_width="188dp"
                 android:layout_height="175dp"
-                app:srcCompat="@drawable/logo"
-                android:layout_gravity="center"/>
+                android:layout_gravity="center"
+                android:layout_marginTop="25dp"
+                android:background="#35FFFFFF"
+                android:contentDescription="@string/imgFotoRegistro"
+                android:scaleType="centerCrop"
+                app:srcCompat="@drawable/perfil_user" />
 
-        <EditText
-            android:layout_marginTop="25dp"
-            android:id="@+id/etEmail"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Email"
-            android:inputType="textEmailAddress"
-            android:textColorHint="#1498a4" />
+            <EditText
+                android:id="@+id/etEmail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="25dp"
+                android:autofillHints="Email de registro"
+                android:hint="@string/etHintEmailRegistro"
+                android:inputType="textEmailAddress"
+                android:textColorHint="#FFFFFF" />
 
-        <EditText
-            android:layout_marginTop="25dp"
-            android:id="@+id/etUsuario"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Usuario"
-            android:inputType="textEmailAddress"
-            android:textColorHint="#1498a4" />
+            <EditText
+                android:id="@+id/etUsuario"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="25dp"
+                android:autofillHints="Nombre de usuario"
+                android:hint="@string/etUsuarioRegistro"
+                android:inputType="textEmailAddress"
+                android:textColorHint="#FFFFFF" />
 
-        <EditText
-            android:layout_marginTop="25dp"
-            android:id="@+id/etPassword"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Contraseña"
-            android:inputType="textPassword"
-            android:textColorHint="#1498a4"/>
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:passwordToggleEnabled="true">
 
-        <EditText
-            android:layout_marginTop="25dp"
-            android:id="@+id/etPassword2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Repetir contraseña"
-            android:inputType="textPassword"
-            android:textColorHint="#1498a4" />
+                <EditText
+                    android:id="@+id/etPassword"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="25dp"
+                    android:autofillHints="Contraseña de usuario"
+                    android:hint="@string/etContraseñaRegistro"
+                    android:inputType="textPassword"
+                    android:textColorHint="#FFFFFF" />
 
-        <Button
-            android:layout_marginTop="25dp"
-            android:id="@+id/btnRegistrarse"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Registrarse"/>
+            </com.google.android.material.textfield.TextInputLayout>
 
-            </LinearLayout>
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:passwordToggleEnabled="true">
+
+                <EditText
+                    android:id="@+id/etPassword2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="25dp"
+                    android:autofillHints="Comprobación de ontraseña de registro"
+                    android:hint="@string/etRepetirContraseñaRegistro"
+                    android:inputType="textPassword"
+                    android:textColorHint="#FFFFFF" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <Button
+                android:id="@+id/btnRegistrarse"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="25dp"
+                android:text="@string/btnRegistro_Registro" />
+
+        </LinearLayout>
     </ScrollView>
 
     <!--ImageButton
