@@ -1,63 +1,68 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:padding="6dp"
     android:orientation="vertical">
 
-    <LinearLayout
+    <ImageView
+        android:id="@+id/imgLibro"
         android:layout_width="195dp"
-        android:layout_height="355dp"
+        android:layout_height="250dp"
+        android:contentDescription="@string/imgPortadaLibroItemLibro"
+        android:scaleType="centerCrop"
+        android:src="@drawable/logo"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/llItemLibro"
+        android:layout_width="195dp"
+        android:layout_height="101dp"
+        android:background="#89FFFFFF"
         android:orientation="vertical"
-        android:padding="5dp"
-        tools:ignore="UselessParent">
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imgLibro"
+        app:layout_constraintVertical_bias="0.0">
 
-        <ImageView
-            android:id="@+id/imgLibro"
-            android:layout_width="195dp"
-            android:layout_height="250dp"
-            android:scaleType="centerCrop"
-            android:src="@drawable/logo"
-            android:contentDescription="@string/imgPortadaLibroItemLibro" />
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/llItemLibro"
-            android:layout_width="192dp"
-            android:layout_height="100dp"
-            android:background="#89FFFFFF"
-            android:orientation="vertical">
+        <TextView
+            android:id="@+id/tvTitulo"
+            android:layout_width="185dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:text="@string/tvTituloLibro"
+            android:textColor="#000"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintLeft_toRightOf="parent"
+            app:layout_constraintRight_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-            <TextView
-                android:id="@+id/tvTitulo"
-                android:layout_width="185dp"
-                android:layout_height="wrap_content"
-                android:text="@string/tvTituloLibro"
-                android:textColor="#000"
-                android:textSize="15sp"
-                android:textStyle="bold"
-                app:layout_constraintHorizontal_bias="0.51"
-                app:layout_constraintLeft_toRightOf="parent"
-                app:layout_constraintRight_toLeftOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+        <TextView
+            android:id="@+id/tvAutor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/tvAutorItemLibro"
+            android:textColor="#000"
+            android:textSize="15sp"
+            android:textStyle="italic"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/tvTitulo"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintLeft_toRightOf="parent"
+            app:layout_constraintRight_toLeftOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/tvTitulo"
+            app:layout_constraintTop_toBottomOf="@+id/tvTitulo"
+            app:layout_constraintVertical_bias="0.709" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
-            <TextView
-                android:id="@+id/tvAutor"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/tvAutorItemLibro"
-                android:textColor="#000"
-                android:textSize="15sp"
-                android:textStyle="italic"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="@+id/tvTitulo"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintLeft_toRightOf="parent"
-                app:layout_constraintRight_toLeftOf="parent"
-                app:layout_constraintStart_toStartOf="@+id/tvTitulo"
-                app:layout_constraintTop_toBottomOf="@+id/tvTitulo"
-                app:layout_constraintVertical_bias="0.733" />
-        </androidx.constraintlayout.widget.ConstraintLayout>
 
-    </LinearLayout>
-</LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

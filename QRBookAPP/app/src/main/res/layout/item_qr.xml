@@ -1,14 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_margin="10dp"
+    android:padding="6dp"
     android:orientation="vertical">
 
     <RelativeLayout
+        android:id="@+id/relativeLayout"
         android:layout_width="200dp"
-        android:layout_height="190dp">
+        android:layout_height="190dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <WebView
             android:id="@+id/wvqrseleccionador"
@@ -23,21 +27,31 @@
         android:layout_width="200dp"
         android:layout_height="50dp"
         android:background="#3FFFFDFD"
+        android:gravity="start"
         android:paddingStart="10dp"
         android:text="@string/btnTituloItemQR"
         android:textAlignment="viewStart"
-        android:gravity="start"
         android:textColor="#000"
         android:textSize="15sp"
         android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/relativeLayout"
+        app:layout_constraintTop_toBottomOf="@+id/relativeLayout"
+        app:layout_constraintVertical_bias="0.0"
         tools:ignore="RtlSymmetry" />
 
     <TextView
         android:id="@+id/tvQRPagn"
         android:layout_width="200dp"
         android:layout_height="20dp"
-        android:textSize="18sp"
         android:background="#3FFFFDFD"
-        android:textColor="#000" />
+        android:textColor="#000"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/tvTituloQr"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/tvTituloQr"
+        app:layout_constraintTop_toBottomOf="@+id/tvTituloQr"
+        app:layout_constraintVertical_bias="0.0" />
 
-</LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
