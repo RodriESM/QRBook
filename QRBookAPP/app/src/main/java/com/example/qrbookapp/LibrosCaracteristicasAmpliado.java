@@ -151,7 +151,7 @@ public class LibrosCaracteristicasAmpliado extends AppCompatActivity {
                 //Conexión a la BBDD
                 Connection connection = ConnectionClass.con;
 
-                if (!libroSeleccionadoAnteriormente.getPDF().equals("")) {
+                if (libroSeleccionadoAnteriormente.getPDF()!=null) {
                     //Descarga del libro
 
                     DownloadManager.Request request = new DownloadManager.Request(Uri.parse(PDFDescarga));
@@ -235,7 +235,7 @@ public class LibrosCaracteristicasAmpliado extends AppCompatActivity {
         });
 
         //Dependiendo si tiene PDF para leer o no, mostraremos el botón.
-        if (libroSeleccionadoAnteriormente.getPDF().equals("") || libroSeleccionadoAnteriormente.getPDF()==null) {
+        if (libroSeleccionadoAnteriormente.getPDF()==null) {
             btnLeer.setVisibility(View.GONE);
         } else {
             btnLeer.setVisibility(View.VISIBLE);
