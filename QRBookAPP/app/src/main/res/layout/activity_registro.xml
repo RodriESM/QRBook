@@ -4,104 +4,108 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/recortenegro"
     android:orientation="vertical"
     tools:context=".RegistroActivity">
 
 
-    <ImageView
-        android:id="@+id/background"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:contentDescription="@string/bgnFondoRegistro"
-        android:scaleType="matrix"
-        android:src="@drawable/backgroundposible"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="0dp" />
+    <ImageButton
+        android:id="@+id/ivFotoPerfil"
+        android:layout_width="188dp"
+        android:layout_height="175dp"
+        android:layout_gravity="center"
+        android:background="#35FFFFFF"
+        android:contentDescription="@string/imgFotoRegistro"
+        android:scaleType="centerCrop"
+        app:layout_constraintBottom_toTopOf="@+id/etEmail"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/perfil_user" />
 
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginTop="25dp">
+    <EditText
+        android:id="@+id/etEmail"
+        android:layout_width="349dp"
+        android:layout_height="49dp"
+        android:layout_marginBottom="284dp"
+        android:autofillHints="Email de registro"
+        android:hint="@string/etHintEmailRegistro"
+        android:inputType="textEmailAddress"
+        android:textColorHint="#FFFFFF"
+        app:layout_constraintBottom_toTopOf="@+id/btnRegistrarse"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
-        <LinearLayout
+    <EditText
+        android:id="@+id/etUsuario"
+        android:layout_width="349dp"
+        android:layout_height="49dp"
+        android:layout_marginTop="28dp"
+        android:autofillHints="Nombre de usuario"
+        android:hint="@string/etUsuarioRegistro"
+        android:inputType="textEmailAddress"
+        android:textColorHint="#FFFFFF"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etEmail" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textInputLayout5"
+        android:layout_width="349dp"
+        android:layout_height="49dp"
+        android:layout_marginTop="24dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etUsuario"
+        app:passwordToggleEnabled="true">
+
+        <EditText
+            android:id="@+id/etPassword"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:padding="25dp">
+            android:autofillHints="Contraseña de usuario"
+            android:hint="@string/etContraseñaRegistro"
+            android:inputType="textPassword"
+            android:textColorHint="#FFFFFF"
+            tools:layout_editor_absoluteX="0dp"
+            tools:layout_editor_absoluteY="458dp" />
 
-            <ImageButton
-                android:id="@+id/ivFotoPerfil"
-                android:layout_width="188dp"
-                android:layout_height="175dp"
-                android:layout_gravity="center"
-                android:layout_marginTop="25dp"
-                android:background="#35FFFFFF"
-                android:contentDescription="@string/imgFotoRegistro"
-                android:scaleType="centerCrop"
-                app:srcCompat="@drawable/perfil_user" />
+    </com.google.android.material.textfield.TextInputLayout>
 
-            <EditText
-                android:id="@+id/etEmail"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="25dp"
-                android:autofillHints="Email de registro"
-                android:hint="@string/etHintEmailRegistro"
-                android:inputType="textEmailAddress"
-                android:textColorHint="#FFFFFF" />
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="349dp"
+        android:layout_height="49dp"
+        app:layout_constraintBottom_toTopOf="@+id/btnRegistrarse"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textInputLayout5"
+        app:layout_constraintVertical_bias="0.253"
+        app:passwordToggleEnabled="true">
 
-            <EditText
-                android:id="@+id/etUsuario"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="25dp"
-                android:autofillHints="Nombre de usuario"
-                android:hint="@string/etUsuarioRegistro"
-                android:inputType="textEmailAddress"
-                android:textColorHint="#FFFFFF" />
+        <EditText
+            android:id="@+id/etPassword2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:autofillHints="Comprobación de ontraseña de registro"
+            android:hint="@string/etRepetirContraseñaRegistro"
+            android:inputType="textPassword"
+            android:textColorHint="#FFFFFF"
+            tools:layout_editor_absoluteX="0dp"
+            tools:layout_editor_absoluteY="532dp" />
 
-            <com.google.android.material.textfield.TextInputLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:passwordToggleEnabled="true">
+    </com.google.android.material.textfield.TextInputLayout>
 
-                <EditText
-                    android:id="@+id/etPassword"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="25dp"
-                    android:autofillHints="Contraseña de usuario"
-                    android:hint="@string/etContraseñaRegistro"
-                    android:inputType="textPassword"
-                    android:textColorHint="#FFFFFF" />
+    <Button
+        android:id="@+id/btnRegistrarse"
+        android:layout_width="349dp"
+        android:layout_height="49dp"
+        android:layout_marginBottom="28dp"
+        android:padding="6dp"
+        android:text="@string/btnRegistro_Registro"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
-            </com.google.android.material.textfield.TextInputLayout>
-
-            <com.google.android.material.textfield.TextInputLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:passwordToggleEnabled="true">
-
-                <EditText
-                    android:id="@+id/etPassword2"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="25dp"
-                    android:autofillHints="Comprobación de ontraseña de registro"
-                    android:hint="@string/etRepetirContraseñaRegistro"
-                    android:inputType="textPassword"
-                    android:textColorHint="#FFFFFF" />
-            </com.google.android.material.textfield.TextInputLayout>
-
-            <Button
-                android:id="@+id/btnRegistrarse"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="25dp"
-                android:text="@string/btnRegistro_Registro" />
-
-        </LinearLayout>
-    </ScrollView>
 
     <!--ImageButton
         android:id="@+id/imageButton"
