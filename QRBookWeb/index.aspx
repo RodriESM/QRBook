@@ -49,6 +49,7 @@
                         <img alt="logo" src="img/Logo.png" width="100px"/>
                     </div>
                     <div class="enlaces" id="enlaces">
+                        <a href="buscarLib.aspx" id="busqLib" class="btn-header" runat="server">Buscar Libros</a>
                         <a href="buscarUsu.aspx" id="busqUsu" class="btn-header" runat="server">Buscar Usuarios</a>
                         <a href="#Inicio" id="enlace-inicio" class="btn-header">Inicio</a>
                         <a href="#Informacion" id="enlace-info" class="btn-header">Información</a>

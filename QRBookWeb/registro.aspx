@@ -41,6 +41,7 @@
                         <img alt="logo" src="img/Logo.png" width="100px"/>
                     </div>
                     <div class="enlaces" id="enlaces">
+                        <a href="buscarLib.aspx" id="busqLib" class="btn-header" runat="server">Buscar Libros</a>
                         <a href="index.aspx#Inicio" id="enlace-inicio" class="btn-header">Inicio</a>
                         <a href="index.aspx#Informacion" id="enlace-info" class="btn-header">Información</a>
                         <a href="index.aspx#Desarrollo" id="enlace-app" class="btn-header">Desarrollo</a>
@@ -63,7 +64,7 @@
             </nav>
         </header>
 
-<div class="separacion">
+<div style="margin-top: 5%">
     <form id="form1" runat="server" class="formulario">
     
     <h1>Registrate</h1>

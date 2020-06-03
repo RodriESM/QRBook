@@ -157,7 +157,7 @@ public class Escaner extends AppCompatActivity {
 
             Connection connection = ConnectionClass.con;
 
-            final String[] datos = fileList();
+            final String[]  datos= fileList();
             final String nombreFicheroRecordatorio = "user.txt";
 
 
@@ -251,8 +251,6 @@ public class Escaner extends AppCompatActivity {
                         e.printStackTrace();
                     }
 //Revisar si nos hiciera falta...
-                }else{
-                    textScanResult.setText(code.displayValue);
                 }
             } else {
                 lastUrl = "";

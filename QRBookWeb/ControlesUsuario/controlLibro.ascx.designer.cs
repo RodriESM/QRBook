@@ -7,72 +7,81 @@
 // </generado automáticamente>
 //------------------------------------------------------------------------------
 
-namespace QRBookWeb {
+namespace QRBookWeb.ControlesUsuario {
 
 
-    public partial class index {
+    public partial class controlLibro {
 
         /// <summary>
-        /// Control form1.
+        /// Control imglib.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm form1;
+        protected global::System.Web.UI.WebControls.Image imglib;
 
         /// <summary>
-        /// Control busqLib.
+        /// Control titulo.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlAnchor busqLib;
+        protected global::System.Web.UI.WebControls.TextBox titulo;
 
         /// <summary>
-        /// Control busqUsu.
+        /// Control autor.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlAnchor busqUsu;
+        protected global::System.Web.UI.WebControls.TextBox autor;
 
         /// <summary>
-        /// Control dropdown.
+        /// Control editorial.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl dropdown;
+        protected global::System.Web.UI.WebControls.Label editorial;
 
         /// <summary>
-        /// Control btnSalir.
+        /// Control isbn.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton btnSalir;
+        protected global::System.Web.UI.WebControls.Label isbn;
 
         /// <summary>
-        /// Control registro.
+        /// Control genero.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputButton registro;
+        protected global::System.Web.UI.WebControls.Label genero;
 
         /// <summary>
-        /// Control inicio.
+        /// Control tdModif.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputButton inicio;
+        protected global::System.Web.UI.HtmlControls.HtmlTableCell tdModif;
+
+        /// <summary>
+        /// Control btnmodif.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlButton btnmodif;
     }
 }

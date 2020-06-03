@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="buscarUsu.aspx.cs" Inherits="QRBookWeb.buscarUsu" EnableEventValidation="false"%>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="buscarLib.aspx.cs" Inherits="QRBookWeb.buscarLib" EnableEventValidation="false" %>
 
 <!DOCTYPE html>
 
@@ -13,6 +13,7 @@
 </head>
 
 <body class="hidden">
+    <form id="form1" runat="server">
     <!--PRECARGA-->
     <div class="centrado" id="onload">
             <div class="loadingio-spinner-blocks-a73ijrg8fkr">
@@ -31,7 +32,7 @@
 
 
 <!--CABECERA-->
-        <header>
+        <header style="padding-bottom: 40px">
             <a name="Inicio"/>
             <nav id="nav">
                 <div class="contenedor-nav ">
@@ -49,9 +50,13 @@
                             <input type="image"  src="img/user-img.png" height="60px"  width="50px" id="user"  onclick="location.href = 'user.aspx';" /> 
                             <div class="dropdown-content">
                                 <a href="user.aspx">Perfil</a>
-                                <a href="index.aspx?Desde=Salir">Salir</a>
+                                <!--<a href="#" onclick="salir()">Salir</a>-->
+                                <asp:LinkButton id="btnSalir" class="btn-salir" runat="server" Text="Salir" OnClick="btnSalir_Click" />
                             </div>
                         </div>
+                        <input runat="server" id="registro" class="btn-registro" type="button" onclick="location.href = 'registro.aspx';" value="Registro" />
+                        <input runat="server" id="inicio" class="btn-inicio" type="button" onclick="location.href = 'login.aspx';" value="Inicio de sesión" style="margin-right: 15px" />
+                       <!--<a href="#" id="enlace-contacto" class="btn-header">Inicio</a>--> 
                     </div>
                     <div class="icono" id="open">
                         <span>&#9776;</span>
@@ -60,9 +65,8 @@
             </nav>
         </header>
 
-<div class="separacionBus">
-    <form id="form1" runat="server" class="formularioBus">
-    <h1 class="tituloBus">Buscar Usuarios</h1>
+<div class="formularioBus">
+    <h1 class="tituloBus">Buscar Libros</h1>
      <div class="contenedor">
          
          <asp:ScriptManager runat="server" />
@@ -83,9 +87,11 @@
                  <th style="width: 230px">
          <div class="input-contenedor">
              <asp:DropDownList runat="server" ID="ddnBus" CssClass="txtBus" style="min-width: 220px">
-                 <asp:ListItem Value="apenom" Selected="True">Nombre y apellidos</asp:ListItem>
-                 <asp:ListItem Value="USUARIO">Nombre de usuario</asp:ListItem>
-                 <asp:ListItem Value="CORREO">Correo electrónico</asp:ListItem>
+                 <asp:ListItem Value="TITULO" Selected="True">Título</asp:ListItem>
+                 <asp:ListItem Value="AUTOR">Autor</asp:ListItem>
+                 <asp:ListItem Value="EDITORIAL">Editorial</asp:ListItem>
+                 <asp:ListItem Value="GENERO">Género</asp:ListItem>
+                 <asp:ListItem Value="ISBN">ISBN</asp:ListItem>
              </asp:DropDownList>
          </div>
                  </th>
@@ -111,17 +117,11 @@
         <script src="assets/js/filtro.js"></script>
         <script src="assets/js/user.js"></script>
         <script type="text/javascript">
-            function irUsu(em) {
-                var qstr = document.getElementById("<%=qstr.ClientID%>");
-                qstr.value = em;
-                //console.log(qstr.value);
-                __doPostBack();
-            }
 
         </script>
 
-    </form>
     </div>
+    </form>
 </body>
 
 </html>

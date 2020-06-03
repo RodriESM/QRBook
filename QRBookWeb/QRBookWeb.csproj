@@ -293,12 +293,26 @@
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
     <Compile Include="assets\cs\Herramientas.cs" />
     <Compile Include="assets\sql\Conexion.cs" />
+    <Compile Include="buscarLib.aspx.cs">
+      <DependentUpon>buscarLib.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="buscarLib.aspx.designer.cs">
+      <DependentUpon>buscarLib.aspx</DependentUpon>
+    </Compile>
     <Compile Include="buscarUsu.aspx.cs">
       <DependentUpon>buscarUsu.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="buscarUsu.aspx.designer.cs">
       <DependentUpon>buscarUsu.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ControlesUsuario\controlLibro.ascx.cs">
+      <DependentUpon>controlLibro.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ControlesUsuario\controlLibro.ascx.designer.cs">
+      <DependentUpon>controlLibro.ascx</DependentUpon>
     </Compile>
     <Compile Include="ControlesUsuario\controlUsuario.ascx.cs">
       <DependentUpon>controlUsuario.ascx</DependentUpon>
@@ -358,11 +372,13 @@
     <Content Include="assets\js\user.js" />
     <Content Include="assets\sql\Conexion a SSL.txt" />
     <Content Include="assets\js\filtro.js" />
+    <Content Include="buscarLib.aspx" />
     <Content Include="buscarUsu.aspx" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="ControlesUsuario\controlLibro.ascx" />
     <Content Include="ControlesUsuario\controlUsuario.ascx" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="img\backgroundposible.jpg" />
@@ -375,6 +391,7 @@
     <Content Include="img\library.png" />
     <Content Include="img\Logo-removebg-preview.png" />
     <Content Include="img\Logo.png" />
+    <Content Include="img\Logo2.png" />
     <Content Include="img\LogoQRBook.png" />
     <Content Include="img\quique.jpg" />
     <Content Include="img\rodri.jpeg" />

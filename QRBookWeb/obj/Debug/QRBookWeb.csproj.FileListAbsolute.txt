@@ -579,3 +579,9 @@ D:\GitHub\ProyectoDAM2\QRBookWeb\QRBookWeb\bin\Grpc.Core.pdb
 D:\GitHub\ProyectoDAM2\QRBookWeb\QRBookWeb\bin\Grpc.Core.Api.pdb
 D:\GitHub\ProyectoDAM2\QRBookWeb\QRBookWeb\bin\Grpc.Core.Api.xml
 D:\GitHub\ProyectoDAM2\QRBookWeb\QRBookWeb\obj\Debug\QRBookWeb.csprojAssemblyReference.cache
+D:\GitHub\ProyectoDAM2\QRBookWeb\QRBookWeb\bin\MySql.Data.dll
+D:\GitHub\ProyectoDAM2\QRBookWeb\QRBookWeb\bin\BouncyCastle.Crypto.dll
+D:\GitHub\ProyectoDAM2\QRBookWeb\QRBookWeb\bin\Ubiety.Dns.Core.dll
+D:\GitHub\ProyectoDAM2\QRBookWeb\QRBookWeb\bin\Renci.SshNet.dll
+D:\GitHub\ProyectoDAM2\QRBookWeb\QRBookWeb\bin\MySql.Web.xml
+D:\GitHub\ProyectoDAM2\QRBookWeb\QRBookWeb\bin\MySql.Data.xml
