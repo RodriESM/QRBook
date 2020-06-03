@@ -199,7 +199,10 @@ public class Escaner extends AppCompatActivity {
 
                             Intent i = new Intent(Escaner.this, EscanerVista.class);
                             i.putExtra("url", code.displayValue);
+                            i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                            i.setFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
                             startActivity(i);
+
 
                         } else {
 
@@ -211,6 +214,8 @@ public class Escaner extends AppCompatActivity {
                                 if (rs.next()) {
                                     Intent i = new Intent(Escaner.this, EscanerVista.class);
                                     i.putExtra("url", code.displayValue);
+                                    i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                                    i.setFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
                                     startActivity(i);
 
                                 } else {
@@ -232,6 +237,8 @@ public class Escaner extends AppCompatActivity {
                                     i.putExtra("url", code.displayValue);
                                     i.putExtra("correo", correo);
                                     i.putExtra("isbn", isbn);
+                                    i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                                    i.setFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
                                     startActivity(i);
 
                                 }
