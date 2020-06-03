@@ -27,7 +27,7 @@
         android:id="@+id/etEmail"
         android:layout_width="349dp"
         android:layout_height="49dp"
-        android:layout_marginBottom="284dp"
+        android:layout_marginBottom="328dp"
         android:autofillHints="Email de registro"
         android:hint="@string/etHintEmailRegistro"
         android:inputType="textEmailAddress"

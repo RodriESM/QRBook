@@ -22,8 +22,10 @@ public class SplashScreen extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash_screen);
+
         //Iniciamos conexión a la BBDD.
         new ConnectionClass().setConnection();
+
         TimerTask task = new TimerTask() {
             @Override
             public void run() {
