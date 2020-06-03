@@ -101,13 +101,6 @@ public class RegistroActivity extends AppCompatActivity {
                         Intent i = new Intent(RegistroActivity.this, MainActivity.class);
                         startActivity(i);
 
-                    } catch (com.mysql.jdbc.exceptions.jdbc4.MySQLIntegrityConstraintViolationException e) {
-                        etUsuario.setError("Nombre de usuario ya registrado.");
-                        etUsuario.requestFocus(R.id.etUsuario);
-                        etUsuario.setBackgroundColor(getColor(R.color.alerta));
-                        etEmail.setBackgroundColor(getColor(R.color.transparente));
-                        etPassword.setBackgroundColor(getColor(R.color.transparente));
-                        etPassword2.setBackgroundColor(getColor(R.color.transparente));
                     } catch (SQLException e) {
                         e.printStackTrace();
                     }

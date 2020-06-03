@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.example.qrbookapp">
 
     <meta-data
@@ -21,14 +22,16 @@
         android:supportsRtl="true"
         android:requestLegacyExternalStorage="true"
         android:theme="@style/Theme.AppCompat.NoActionBar"
-        android:usesCleartextTraffic="true">
+        android:usesCleartextTraffic="true"
+        tools:targetApi="q">
         <activity android:name=".PDF"/>
         <activity android:name=".AnadirQrUsuario" />
         <activity android:name=".QrCaracteristicasAmpliado" />
         <activity android:name=".ListaQr" />
         <activity android:name=".PerfilUsuario" />
         <activity android:name=".LibrosCaracteristicasAmpliado" />
-        <activity android:name=".Fragment.Fragment_ListaLibros" />
+        <activity android:name=".Fragment.Fragment_ListaLibros"
+            tools:ignore="Instantiatable" />
         <activity android:name=".InicioActivity" />
         <activity android:name=".EscanerVista" />
         <activity android:name=".RegistroActivity" />
