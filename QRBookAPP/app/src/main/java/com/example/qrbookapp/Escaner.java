@@ -184,6 +184,7 @@ public class Escaner extends AppCompatActivity {
             if (detections != null && detections.getDetectedItems().size() != 0) {
                 SparseArray<Barcode> qrCodes = detections.getDetectedItems();
                 Barcode code = qrCodes.valueAt(0);
+
                 if ((code.displayValue.contains("http") || code.displayValue.contains("https")) && !code.displayValue.contentEquals(lastUrl)) {
                     lastUrl = code.displayValue;
                     ResultSet rs;
