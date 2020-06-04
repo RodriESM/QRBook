@@ -86,7 +86,7 @@ public class LibrosCaracteristicasAmpliado extends AppCompatActivity {
         tvGeneroAmpliado.setText(libroSeleccionadoAnteriormente.getGenero());
         tvIsbnAmpliado.setText(libroSeleccionadoAnteriormente.getIsbn());
         tvSinopsisAmpliado.setText(libroSeleccionadoAnteriormente.getSinopsis());
-        final String PDFDescarga = libroSeleccionadoAnteriormente.getPDF();
+        final String  PDFDescarga= libroSeleccionadoAnteriormente.getPDF();
 
         Picasso.get()//Context
                 .load(libroSeleccionadoAnteriormente.getPortada()) //URL/FILE
@@ -153,29 +153,34 @@ public class LibrosCaracteristicasAmpliado extends AppCompatActivity {
 
                 if (libroSeleccionadoAnteriormente.getPDF()!=null) {
                     //Descarga del libro
+                    if (!PDFDescarga.equals("")){
+                        try {
+                            DownloadManager.Request request = new DownloadManager.Request(Uri.parse(PDFDescarga));
 
-                    DownloadManager.Request request = new DownloadManager.Request(Uri.parse(PDFDescarga));
+                            request.setAllowedNetworkTypes(DownloadManager.Request.NETWORK_WIFI | DownloadManager.Request.NETWORK_MOBILE);
 
-                    request.setAllowedNetworkTypes(DownloadManager.Request.NETWORK_WIFI | DownloadManager.Request.NETWORK_MOBILE);
+                            request.setTitle(tvTituloAmpliado.getText().toString());
 
-                    request.setTitle(tvTituloAmpliado.getText().toString());
+                            request.allowScanningByMediaScanner();
+                            request.setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE_NOTIFY_ONLY_COMPLETION);
+                            request.setDestinationInExternalPublicDir(Environment.DIRECTORY_DOCUMENTS, "/" + tvIsbnAmpliado.getText().toString() + correo + ".pdf");
 
-                    request.allowScanningByMediaScanner();
-                    request.setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE_NOTIFY_ONLY_COMPLETION);
-                    request.setDestinationInExternalPublicDir(Environment.DIRECTORY_DOWNLOADS, "/" + tvIsbnAmpliado.getText().toString() + correo + ".pdf");
-
-                    DownloadManager manager = (DownloadManager) getSystemService(Context.DOWNLOAD_SERVICE);
-                    assert manager != null;
-                    manager.enqueue(request);
-
-
+                            DownloadManager manager = (DownloadManager) getSystemService(Context.DOWNLOAD_SERVICE);
+                            assert manager != null;
+                            manager.enqueue(request);
+                        }catch (Exception e) {
+                            e.printStackTrace();
+                        }
+                    }
                    /* DownloadManager manager = (DownloadManager) getSystemService(Context.DOWNLOAD_SERVICE);
                     DownloadManager.Request request = new DownloadManager.Request(Uri.parse(PDFDescarga));
                     request.setDescription("Downloading file " + tvIsbnAmpliado.getText().toString()+".pdf");
                     request.setTitle("Downloading");
                     request.setDestinationInExternalPublicDir(Environment.DIRECTORY_DOWNLOADS, "/"+tvIsbnAmpliado.getText().toString()+correo+".pdf");
                     manager.enqueue(request);*/
+
                 }
+
                 //Añadimos el libro al usuario.
                 try {
                     PreparedStatement ps = connection.prepareStatement("INSERT INTO USUARIOLIBRO(correo,ISBN) values(?,?)");
@@ -208,7 +213,7 @@ public class LibrosCaracteristicasAmpliado extends AppCompatActivity {
                     //TO_DO No sabemos si habría que borrar de la base de datos los qr correspondientes al libro que se va a eliminar
                     //ResultSet rsqr =connection.createStatement().executeQuery("delete from USUARIOQR where correo like '"+correo+"' and isbn like'"+tvIsbnAmpliado.getText().toString()+"'");
 
-                    @SuppressLint("SdCardPath") File file = new File("/sdcard/Download/" + tvIsbnAmpliado.getText().toString() + correo + ".pdf");
+                    @SuppressLint("SdCardPath") File file = new File("/sdcard/Documents/" + tvIsbnAmpliado.getText().toString() + correo + ".pdf");
                     if (file.exists()) {
                         FileInputStream fis = new FileInputStream(file);
                         fis.close();

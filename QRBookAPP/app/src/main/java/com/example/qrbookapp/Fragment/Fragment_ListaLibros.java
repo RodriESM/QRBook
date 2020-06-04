@@ -74,7 +74,7 @@ public class Fragment_ListaLibros extends Fragment {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Libro LibroSeleccionado = (Libro) adaptadorLibros.getItem(position);
-                Intent i = new Intent(getContext(), LibrosCaracteristicasAmpliado.class);
+                Intent i = new Intent(getActivity().getApplicationContext(), LibrosCaracteristicasAmpliado.class);
                 i.putExtra("libros", LibroSeleccionado);
                 Objects.requireNonNull(getActivity()).startActivity(i);
                 getActivity().finish();

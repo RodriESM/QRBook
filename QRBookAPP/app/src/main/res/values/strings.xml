@@ -32,7 +32,7 @@
     <string name="btnAnadir">Añadir</string>
     <string name="bgnMainActivity">Fondo de la actividad de inicio de sesión obtenida de la web</string>
     <string name="imgLogoMainActi">Logo de QRBook</string>
-    <string name="etEmailMain">Usuario o Emailo</string>
+    <string name="etEmailMain">Usuario o Email</string>
     <string name="etPasswordMain">Contraseña</string>
     <string name="btnInicioSesion">Iniciar Sesión</string>
     <string name="btnRegistrarseMain">Registrarse</string>
