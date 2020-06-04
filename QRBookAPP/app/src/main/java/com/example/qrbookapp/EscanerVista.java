@@ -1,12 +1,12 @@
 package com.example.qrbookapp;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.view.KeyEvent;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 public class EscanerVista extends AppCompatActivity {
     WebView WVVista;
@@ -23,7 +23,7 @@ public class EscanerVista extends AppCompatActivity {
         ajustesVisorWeb.setJavaScriptEnabled(true);
         ajustesVisorWeb.setUseWideViewPort(true);
         ajustesVisorWeb.setLoadWithOverviewMode(true);
-
+        ajustesVisorWeb.setBuiltInZoomControls(true);
         //Obtenemos los datos de la otra actividad mediante el ID de url
         Bundle bundle = getIntent().getExtras();
         assert bundle != null;

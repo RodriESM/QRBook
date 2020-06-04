@@ -1,7 +1,5 @@
 package com.example.qrbookapp;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.view.KeyEvent;
@@ -10,6 +8,8 @@ import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.widget.Button;
 import android.widget.EditText;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.qrbookapp.Database.ConnectionClass;
 
@@ -40,6 +40,7 @@ public class AnadirQrUsuario extends AppCompatActivity {
         ajustesVisorWeb.setJavaScriptEnabled(true);
         ajustesVisorWeb.setUseWideViewPort(true);
         ajustesVisorWeb.setLoadWithOverviewMode(true);
+        ajustesVisorWeb.setBuiltInZoomControls(true);
 
         final Bundle bundle = getIntent().getExtras();
         assert bundle != null;
