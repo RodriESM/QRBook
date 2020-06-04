@@ -96,7 +96,11 @@ public class MainActivity extends AppCompatActivity {
                             startActivity(i);
                             finish();
                         } else {
-                            Toast.makeText(MainActivity.this, "Usuario o contraseña incorrectos", Toast.LENGTH_LONG).show();
+                            //Toast.makeText(MainActivity.this, "Usuario o contraseña incorrectos", Toast.LENGTH_LONG).show();
+                            etEmail.setBackgroundColor(getColor(R.color.alerta));
+                            etEmail.setError("Correo inválido o ya en uso.");
+                            etPassword.setBackgroundColor(getColor(R.color.alerta));
+                            etPassword.setError("Correo inválido o ya en uso.");
 
                         }
                     }

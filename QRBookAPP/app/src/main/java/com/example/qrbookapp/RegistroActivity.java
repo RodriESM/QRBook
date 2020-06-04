@@ -20,18 +20,20 @@ import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class RegistroActivity extends AppCompatActivity {
 
-     ConnectionClass conexionMySQL = new ConnectionClass();
-     Button btnRegistrarse;
-     EditText etEmail, etUsuario, etPassword, etPassword2;
-     ImageButton ivFotoPerfil;
-     final int imagen_request = 0;
-     int puerto;
-     Bitmap bitmap;
-     byte[] imagenByte;
+    ConnectionClass conexionMySQL = new ConnectionClass();
+    Button btnRegistrarse;
+    EditText etEmail, etUsuario, etPassword, etPassword2;
+    ImageButton ivFotoPerfil;
+    final int imagen_request = 0;
+    int puerto;
+    Bitmap bitmap;
+    byte[] imagenByte;
+    Connection connection = ConnectionClass.con;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,37 +63,42 @@ public class RegistroActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
+
                 String email = etEmail.getText().toString();
                 String ps1 = etPassword.getText().toString();
                 String ps2 = etPassword2.getText().toString();
                 String usuario = etUsuario.getText().toString();
 
-                if (!email.matches("^\\w+@[a-zA-Z_]+?.[a-zA-Z]{2,3}$")) {
-                    etEmail.setBackgroundColor(getColor(R.color.alerta));
-                    etEmail.setError("Correo inválido o ya en uso.");
-                } else if (ps1.length() < 8) {
-                    etEmail.setBackgroundColor(getColor(R.color.transparente));
-                    etPassword.setBackgroundColor(getColor(R.color.alerta));
-                    etPassword2.setBackgroundColor(getColor(R.color.alerta));
-                    etPassword.setError("La contraseña debe tener mínimo 8 carácteres.");
-                } else if (!ps1.matches("^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)[a-zA-Z\\d]{8,}$")) {
-                    etEmail.setBackgroundColor(getColor(R.color.transparente));
-                    etPassword.setBackgroundColor(getColor(R.color.alerta));
-                    etPassword2.setBackgroundColor(getColor(R.color.alerta));
-                    etPassword.setError("La contraseña debe contener una letra mayúscula, minúscula y un número.");
-                } else if (!ps1.equals(ps2)) { //Pass: ^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$
-                    etEmail.setBackgroundColor(getColor(R.color.transparente));
-                    etPassword2.setBackgroundColor(getColor(R.color.alerta));
-                    etPassword2.setError("Las contraseñas introducidas no son iguales. Intentelo de nuevo.");
-                } else {
-                    try {
+                try {
+                    ResultSet rsusuario = connection.createStatement().executeQuery("SELECT USUARIO FROM USUARIO WHERE correo like '" + email + "'");
+                    if (!email.matches("^\\w+@[a-zA-Z_]+?.[a-zA-Z]{2,3}$")) {
+                        etEmail.setBackgroundColor(getColor(R.color.alerta));
+                        etEmail.setError("Correo inválido o ya en uso.");
+                    } else if (rsusuario.next()) {
+                        etEmail.setBackgroundColor(getColor(R.color.alerta));
+                        etEmail.setError("Nombre de usuario no disponible");
+                    } else if (ps1.length() < 8) {
+                        etEmail.setBackgroundColor(getColor(R.color.transparente));
+                        etPassword.setBackgroundColor(getColor(R.color.alerta));
+                        etPassword2.setBackgroundColor(getColor(R.color.alerta));
+                        etPassword.setError("La contraseña debe tener mínimo 8 carácteres.");
+                    } else if (!ps1.matches("^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)[a-zA-Z\\d]{8,}$")) {
+                        etEmail.setBackgroundColor(getColor(R.color.transparente));
+                        etPassword.setBackgroundColor(getColor(R.color.alerta));
+                        etPassword2.setBackgroundColor(getColor(R.color.alerta));
+                        etPassword.setError("La contraseña debe contener una letra mayúscula, minúscula y un número.");
+                    } else if (!ps1.equals(ps2)) { //Pass: ^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$
+                        etEmail.setBackgroundColor(getColor(R.color.transparente));
+                        etPassword2.setBackgroundColor(getColor(R.color.alerta));
+                        etPassword2.setError("Las contraseñas introducidas no son iguales. Intentelo de nuevo.");
+                    } else {
 
                         bitmap = ((BitmapDrawable) ivFotoPerfil.getDrawable()).getBitmap();
                         ByteArrayOutputStream baos = new ByteArrayOutputStream();
                         bitmap.compress(Bitmap.CompressFormat.JPEG, 100, baos);
                         imagenByte = baos.toByteArray();
 
-                        Connection connection = ConnectionClass.con;
+
                         PreparedStatement ps = connection.prepareStatement("INSERT INTO USUARIO(correo,password,usuario,foto) values(?,MD5(?),?,?)");
                         ps.setString(1, email);
                         ps.setString(2, ps1);
@@ -101,9 +108,10 @@ public class RegistroActivity extends AppCompatActivity {
                         Intent i = new Intent(RegistroActivity.this, MainActivity.class);
                         startActivity(i);
 
-                    } catch (SQLException e) {
-                        e.printStackTrace();
+
                     }
+                } catch (SQLException e) {
+                    e.printStackTrace();
                 }
             }
         });
