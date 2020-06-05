@@ -30,9 +30,9 @@ InicioActivity.java</font>
 <a name="l11"><span class="ln">11   </span></a><span class="s0">import </span><span class="s1">androidx.appcompat.app.AppCompatActivity</span><span class="s0">;</span>
 <a name="l12"><span class="ln">12   </span></a><span class="s0">import </span><span class="s1">androidx.viewpager.widget.ViewPager</span><span class="s0">;</span>
 <a name="l13"><span class="ln">13   </span></a>
-<a name="l14"><span class="ln">14   </span></a><span class="s0">import </span><span class="s1">com.example.qrbookapp.Adapter.ViewPagerAdapter</span><span class="s0">;</span>
-<a name="l15"><span class="ln">15   </span></a><span class="s0">import </span><span class="s1">com.example.qrbookapp.Database.ConnectionClass</span><span class="s0">;</span>
-<a name="l16"><span class="ln">16   </span></a><span class="s0">import </span><span class="s1">com.example.qrbookapp.Fragment.OneFragment</span><span class="s0">;</span>
+<a name="l14"><span class="ln">14   </span></a><span class="s0">import <a href="../../../com/example/qrbookapp/Adapter/ViewPagerAdapter.java.html">com.example.qrbookapp.Adapter.ViewPagerAdapter</a>;</span>
+<a name="l15"><span class="ln">15   </span></a><span class="s0">import <a href="../../../com/example/qrbookapp/Database/ConnectionClass.java.html">com.example.qrbookapp.Database.ConnectionClass</a>;</span>
+<a name="l16"><span class="ln">16   </span></a><span class="s0">import <a href="../../../com/example/qrbookapp/Fragment/OneFragment.java.html">com.example.qrbookapp.Fragment.OneFragment</a>;</span>
 <a name="l17"><span class="ln">17   </span></a><span class="s0">import </span><span class="s1">com.google.android.material.tabs.TabLayout</span><span class="s0">;</span>
 <a name="l18"><span class="ln">18   </span></a>
 <a name="l19"><span class="ln">19   </span></a><span class="s0">import </span><span class="s1">java.io.File</span><span class="s0">;</span>
@@ -76,7 +76,7 @@ InicioActivity.java</font>
 <a name="l57"><span class="ln">57   </span></a>                <span class="s1">}</span>
 <a name="l58"><span class="ln">58   </span></a>
 <a name="l59"><span class="ln">59   </span></a>                <span class="s0">try </span><span class="s1">{</span>
-<a name="l60"><span class="ln">60   </span></a>                    <span class="s1">ConnectionClass.con.close()</span><span class="s0">;</span>
+<a name="l60"><span class="ln">60   </span></a>                    <a href="../../../com/example/qrbookapp/Database/ConnectionClass.java.html">ConnectionClass</a><span class="s1">.con.close()</span><span class="s0">;</span>
 <a name="l61"><span class="ln">61   </span></a>                <span class="s1">} </span><span class="s0">catch </span><span class="s1">(SQLException e) {</span>
 <a name="l62"><span class="ln">62   </span></a>                    <span class="s1">e.printStackTrace()</span><span class="s0">;</span>
 <a name="l63"><span class="ln">63   </span></a>                <span class="s1">}</span>
@@ -121,7 +121,7 @@ InicioActivity.java</font>
 <a name="l102"><span class="ln">102  </span></a>    <span class="s1">}</span>
 <a name="l103"><span class="ln">103  </span></a>
 <a name="l104"><span class="ln">104  </span></a>    <span class="s0">private void </span><span class="s1">loadViewPager(@NonNull ViewPager viewPager) {</span>
-<a name="l105"><span class="ln">105  </span></a>        <span class="s1">ViewPagerAdapter adapter = </span><span class="s0">new </span><span class="s1">ViewPagerAdapter(getSupportFragmentManager()</span><span class="s0">, </span><span class="s1">Titles)</span><span class="s0">;</span>
+<a name="l105"><span class="ln">105  </span></a>        <a href="../../../com/example/qrbookapp/Adapter/ViewPagerAdapter.java.html">ViewPagerAdapter</a> <span class="s1">adapter = </span><span class="s0">new <a href="../../../com/example/qrbookapp/Adapter/ViewPagerAdapter.java.html">ViewPagerAdapter</a></span><span class="s1">(getSupportFragmentManager()</span><span class="s0">, </span><span class="s1">Titles)</span><span class="s0">;</span>
 <a name="l106"><span class="ln">106  </span></a>        <span class="s2">//adapter.addFragment((newInstance(R.layout.activity_gridview_libros)));</span>
 <a name="l107"><span class="ln">107  </span></a>        <span class="s2">//Cargamos los fragment deseados al inicio, además los hemos separado en fragment distintos para dar más independencia a la app.</span>
 <a name="l108"><span class="ln">108  </span></a>        <span class="s1">adapter.addFragment((newInstance(R.layout.activity_gridview_libros)))</span><span class="s0">;</span>
@@ -131,18 +131,18 @@ InicioActivity.java</font>
 <a name="l112"><span class="ln">112  </span></a>    <span class="s1">}</span>
 <a name="l113"><span class="ln">113  </span></a>
 <a name="l114"><span class="ln">114  </span></a>    <span class="s1">@NonNull</span>
-<a name="l115"><span class="ln">115  </span></a>    <span class="s0">private </span><span class="s1">OneFragment newInstance(Class clase) {</span>
+<a name="l115"><span class="ln">115  </span></a>    <span class="s0">private <a href="../../../com/example/qrbookapp/Fragment/OneFragment.java.html">OneFragment</a> </span><span class="s1">newInstance(Class clase) {</span>
 <a name="l116"><span class="ln">116  </span></a>        <span class="s1">Bundle bundle = </span><span class="s0">new </span><span class="s1">Bundle()</span><span class="s0">;</span>
-<a name="l117"><span class="ln">117  </span></a>        <span class="s1">OneFragment fragment = </span><span class="s0">new </span><span class="s1">OneFragment(clase)</span><span class="s0">;</span>
+<a name="l117"><span class="ln">117  </span></a>        <a href="../../../com/example/qrbookapp/Fragment/OneFragment.java.html">OneFragment</a> <span class="s1">fragment = </span><span class="s0">new <a href="../../../com/example/qrbookapp/Fragment/OneFragment.java.html">OneFragment</a></span><span class="s1">(clase)</span><span class="s0">;</span>
 <a name="l118"><span class="ln">118  </span></a>        <span class="s1">fragment.setArguments(bundle)</span><span class="s0">;</span>
 <a name="l119"><span class="ln">119  </span></a>
 <a name="l120"><span class="ln">120  </span></a>        <span class="s0">return </span><span class="s1">fragment</span><span class="s0">;</span>
 <a name="l121"><span class="ln">121  </span></a>    <span class="s1">}</span>
 <a name="l122"><span class="ln">122  </span></a>
 <a name="l123"><span class="ln">123  </span></a>    <span class="s1">@NonNull</span>
-<a name="l124"><span class="ln">124  </span></a>    <span class="s0">private </span><span class="s1">OneFragment newInstance(</span><span class="s0">int </span><span class="s1">referencia) {</span>
+<a name="l124"><span class="ln">124  </span></a>    <span class="s0">private <a href="../../../com/example/qrbookapp/Fragment/OneFragment.java.html">OneFragment</a> </span><span class="s1">newInstance(</span><span class="s0">int </span><span class="s1">referencia) {</span>
 <a name="l125"><span class="ln">125  </span></a>        <span class="s1">Bundle bundle = </span><span class="s0">new </span><span class="s1">Bundle()</span><span class="s0">;</span>
-<a name="l126"><span class="ln">126  </span></a>        <span class="s1">OneFragment fragment = </span><span class="s0">new </span><span class="s1">OneFragment(referencia)</span><span class="s0">;</span>
+<a name="l126"><span class="ln">126  </span></a>        <a href="../../../com/example/qrbookapp/Fragment/OneFragment.java.html">OneFragment</a> <span class="s1">fragment = </span><span class="s0">new <a href="../../../com/example/qrbookapp/Fragment/OneFragment.java.html">OneFragment</a></span><span class="s1">(referencia)</span><span class="s0">;</span>
 <a name="l127"><span class="ln">127  </span></a>        <span class="s1">fragment.setArguments(bundle)</span><span class="s0">;</span>
 <a name="l128"><span class="ln">128  </span></a>
 <a name="l129"><span class="ln">129  </span></a>        <span class="s0">return </span><span class="s1">fragment</span><span class="s0">;</span>

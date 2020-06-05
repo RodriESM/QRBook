@@ -38,9 +38,9 @@ LibrosCaracteristicasAmpliado.java</font>
 <a name="l19"><span class="ln">19   </span></a><span class="s0">import </span><span class="s1">androidx.core.app.ActivityCompat</span><span class="s0">;</span>
 <a name="l20"><span class="ln">20   </span></a><span class="s0">import </span><span class="s1">androidx.core.content.ContextCompat</span><span class="s0">;</span>
 <a name="l21"><span class="ln">21   </span></a>
-<a name="l22"><span class="ln">22   </span></a><span class="s0">import </span><span class="s1">com.example.qrbookapp.Class.AccesoFichero</span><span class="s0">;</span>
-<a name="l23"><span class="ln">23   </span></a><span class="s0">import </span><span class="s1">com.example.qrbookapp.Class.Libro</span><span class="s0">;</span>
-<a name="l24"><span class="ln">24   </span></a><span class="s0">import </span><span class="s1">com.example.qrbookapp.Database.ConnectionClass</span><span class="s0">;</span>
+<a name="l22"><span class="ln">22   </span></a><span class="s0">import <a href="../../../com/example/qrbookapp/Class/AccesoFichero.java.html">com.example.qrbookapp.Class.AccesoFichero</a>;</span>
+<a name="l23"><span class="ln">23   </span></a><span class="s0">import <a href="../../../com/example/qrbookapp/Class/Libro.java.html">com.example.qrbookapp.Class.Libro</a>;</span>
+<a name="l24"><span class="ln">24   </span></a><span class="s0">import <a href="../../../com/example/qrbookapp/Database/ConnectionClass.java.html">com.example.qrbookapp.Database.ConnectionClass</a>;</span>
 <a name="l25"><span class="ln">25   </span></a><span class="s0">import </span><span class="s1">com.getbase.floatingactionbutton.FloatingActionButton</span><span class="s0">;</span>
 <a name="l26"><span class="ln">26   </span></a><span class="s0">import </span><span class="s1">com.squareup.picasso.Picasso</span><span class="s0">;</span>
 <a name="l27"><span class="ln">27   </span></a>
@@ -63,11 +63,11 @@ LibrosCaracteristicasAmpliado.java</font>
 <a name="l44"><span class="ln">44   </span></a>     <span class="s1">FloatingActionButton btnVer</span><span class="s0">, </span><span class="s1">btnAnadirQr</span><span class="s0">, </span><span class="s1">btnLeer</span><span class="s0">, </span><span class="s1">btnElminar</span><span class="s0">;</span>
 <a name="l45"><span class="ln">45   </span></a>     <span class="s1">Button btnAnadir</span><span class="s0">;</span>
 <a name="l46"><span class="ln">46   </span></a>     <span class="s1">ArrayList&lt;String&gt; contenidoFicheroRecordado = </span><span class="s0">new </span><span class="s1">ArrayList&lt;&gt;()</span><span class="s0">;</span>
-<a name="l47"><span class="ln">47   </span></a>     <span class="s1">AccesoFichero accesoFichero = </span><span class="s0">new </span><span class="s1">AccesoFichero()</span><span class="s0">;</span>
+<a name="l47"><span class="ln">47   </span></a>     <a href="../../../com/example/qrbookapp/Class/AccesoFichero.java.html">AccesoFichero</a> <span class="s1">accesoFichero = </span><span class="s0">new <a href="../../../com/example/qrbookapp/Class/AccesoFichero.java.html">AccesoFichero</a></span><span class="s1">()</span><span class="s0">;</span>
 <a name="l48"><span class="ln">48   </span></a>     <span class="s1">String correo</span><span class="s0">;</span>
 <a name="l49"><span class="ln">49   </span></a>     <a href="Descarga.java.html">Descarga</a> <span class="s1">d = </span><span class="s0">new <a href="Descarga.java.html">Descarga</a></span><span class="s1">()</span><span class="s0">;</span>
 <a name="l50"><span class="ln">50   </span></a>    <span class="s2">//Conexión</span>
-<a name="l51"><span class="ln">51   </span></a>     <span class="s1">Connection connection = ConnectionClass.con</span><span class="s0">;</span>
+<a name="l51"><span class="ln">51   </span></a>     <span class="s1">Connection connection = <a href="../../../com/example/qrbookapp/Database/ConnectionClass.java.html">ConnectionClass</a>.con</span><span class="s0">;</span>
 <a name="l52"><span class="ln">52   </span></a>
 <a name="l53"><span class="ln">53   </span></a>    <span class="s1">@Override</span>
 <a name="l54"><span class="ln">54   </span></a>    <span class="s0">protected void </span><span class="s1">onCreate(Bundle savedInstanceState) {</span>
@@ -94,7 +94,7 @@ LibrosCaracteristicasAmpliado.java</font>
 <a name="l75"><span class="ln">75   </span></a>
 <a name="l76"><span class="ln">76   </span></a>
 <a name="l77"><span class="ln">77   </span></a>        <span class="s2">//Introducir los datos</span>
-<a name="l78"><span class="ln">78   </span></a>        <span class="s0">final </span><span class="s1">Libro libroSeleccionadoAnteriormente = (Libro) getIntent().getSerializableExtra(</span><span class="s3">&quot;libros&quot;</span><span class="s1">)</span><span class="s0">;</span>
+<a name="l78"><span class="ln">78   </span></a>        <span class="s0">final <a href="../../../com/example/qrbookapp/Class/Libro.java.html">Libro</a> </span><span class="s1">libroSeleccionadoAnteriormente = (<a href="../../../com/example/qrbookapp/Class/Libro.java.html">Libro</a>) getIntent().getSerializableExtra(</span><span class="s3">&quot;libros&quot;</span><span class="s1">)</span><span class="s0">;</span>
 <a name="l79"><span class="ln">79   </span></a>
 <a name="l80"><span class="ln">80   </span></a>        <span class="s1">tvTituloAmpliado.setText(libroSeleccionadoAnteriormente.getTitulo())</span><span class="s0">;</span>
 <a name="l81"><span class="ln">81   </span></a>        <span class="s1">tvAutorAmpliado.setText(libroSeleccionadoAnteriormente.getAutor())</span><span class="s0">;</span>
@@ -168,7 +168,7 @@ LibrosCaracteristicasAmpliado.java</font>
 <a name="l149"><span class="ln">149  </span></a>            <span class="s1">@Override</span>
 <a name="l150"><span class="ln">150  </span></a>            <span class="s0">public void </span><span class="s1">onClick(View v) {</span>
 <a name="l151"><span class="ln">151  </span></a>                <span class="s2">//Conexión a la BBDD</span>
-<a name="l152"><span class="ln">152  </span></a>                <span class="s1">Connection connection = ConnectionClass.con</span><span class="s0">;</span>
+<a name="l152"><span class="ln">152  </span></a>                <span class="s1">Connection connection = <a href="../../../com/example/qrbookapp/Database/ConnectionClass.java.html">ConnectionClass</a>.con</span><span class="s0">;</span>
 <a name="l153"><span class="ln">153  </span></a>
 <a name="l154"><span class="ln">154  </span></a>                <span class="s0">if </span><span class="s1">(libroSeleccionadoAnteriormente.getPDF()!=</span><span class="s0">null</span><span class="s1">) {</span>
 <a name="l155"><span class="ln">155  </span></a>                    <span class="s2">//Descarga del libro</span>

@@ -27,10 +27,10 @@ ListaQr.java</font>
 <a name="l8"><span class="ln">8    </span></a>
 <a name="l9"><span class="ln">9    </span></a><span class="s0">import </span><span class="s1">androidx.appcompat.app.AppCompatActivity</span><span class="s0">;</span>
 <a name="l10"><span class="ln">10   </span></a>
-<a name="l11"><span class="ln">11   </span></a><span class="s0">import </span><span class="s1">com.example.qrbookapp.Adapter.AdaptadorQr</span><span class="s0">;</span>
-<a name="l12"><span class="ln">12   </span></a><span class="s0">import </span><span class="s1">com.example.qrbookapp.Class.AccesoFichero</span><span class="s0">;</span>
-<a name="l13"><span class="ln">13   </span></a><span class="s0">import </span><span class="s1">com.example.qrbookapp.Class.QR</span><span class="s0">;</span>
-<a name="l14"><span class="ln">14   </span></a><span class="s0">import </span><span class="s1">com.example.qrbookapp.Database.ConnectionClass</span><span class="s0">;</span>
+<a name="l11"><span class="ln">11   </span></a><span class="s0">import <a href="../../../com/example/qrbookapp/Adapter/AdaptadorQr.java.html">com.example.qrbookapp.Adapter.AdaptadorQr</a>;</span>
+<a name="l12"><span class="ln">12   </span></a><span class="s0">import <a href="../../../com/example/qrbookapp/Class/AccesoFichero.java.html">com.example.qrbookapp.Class.AccesoFichero</a>;</span>
+<a name="l13"><span class="ln">13   </span></a><span class="s0">import <a href="../../../com/example/qrbookapp/Class/QR.java.html">com.example.qrbookapp.Class.QR</a>;</span>
+<a name="l14"><span class="ln">14   </span></a><span class="s0">import <a href="../../../com/example/qrbookapp/Database/ConnectionClass.java.html">com.example.qrbookapp.Database.ConnectionClass</a>;</span>
 <a name="l15"><span class="ln">15   </span></a>
 <a name="l16"><span class="ln">16   </span></a><span class="s0">import </span><span class="s1">java.io.BufferedReader</span><span class="s0">;</span>
 <a name="l17"><span class="ln">17   </span></a><span class="s0">import </span><span class="s1">java.io.IOException</span><span class="s0">;</span>
@@ -43,9 +43,9 @@ ListaQr.java</font>
 <a name="l24"><span class="ln">24   </span></a><span class="s0">public class </span><span class="s1">ListaQr </span><span class="s0">extends </span><span class="s1">AppCompatActivity {</span>
 <a name="l25"><span class="ln">25   </span></a>
 <a name="l26"><span class="ln">26   </span></a>     <span class="s1">GridView gvListaQr</span><span class="s0">;</span>
-<a name="l27"><span class="ln">27   </span></a>     <span class="s1">AdaptadorQr adaptadorQr</span><span class="s0">;</span>
+<a name="l27"><span class="ln">27   </span></a>     <a href="../../../com/example/qrbookapp/Adapter/AdaptadorQr.java.html">AdaptadorQr</a> <span class="s1">adaptadorQr</span><span class="s0">;</span>
 <a name="l28"><span class="ln">28   </span></a>     <span class="s1">ArrayList&lt;String&gt; contenidoFicheroRecordado = </span><span class="s0">new </span><span class="s1">ArrayList&lt;&gt;()</span><span class="s0">;</span>
-<a name="l29"><span class="ln">29   </span></a>     <span class="s1">AccesoFichero accesoFichero = </span><span class="s0">new </span><span class="s1">AccesoFichero()</span><span class="s0">;</span>
+<a name="l29"><span class="ln">29   </span></a>     <a href="../../../com/example/qrbookapp/Class/AccesoFichero.java.html">AccesoFichero</a> <span class="s1">accesoFichero = </span><span class="s0">new <a href="../../../com/example/qrbookapp/Class/AccesoFichero.java.html">AccesoFichero</a></span><span class="s1">()</span><span class="s0">;</span>
 <a name="l30"><span class="ln">30   </span></a>     <span class="s1">String correo</span><span class="s0">;</span>
 <a name="l31"><span class="ln">31   </span></a>
 <a name="l32"><span class="ln">32   </span></a>    <span class="s1">@Override</span>
@@ -84,14 +84,14 @@ ListaQr.java</font>
 <a name="l65"><span class="ln">65   </span></a>        <span class="s1">}</span>
 <a name="l66"><span class="ln">66   </span></a>
 <a name="l67"><span class="ln">67   </span></a>        <span class="s0">try </span><span class="s1">{</span>
-<a name="l68"><span class="ln">68   </span></a>            <span class="s1">Connection con = ConnectionClass.con</span><span class="s0">;</span>
+<a name="l68"><span class="ln">68   </span></a>            <span class="s1">Connection con = <a href="../../../com/example/qrbookapp/Database/ConnectionClass.java.html">ConnectionClass</a>.con</span><span class="s0">;</span>
 <a name="l69"><span class="ln">69   </span></a>
 <a name="l70"><span class="ln">70   </span></a>            <span class="s3">//Obtenemos los datos de cada objeto para introducirlos en el adaptador</span>
 <a name="l71"><span class="ln">71   </span></a>            <span class="s1">ResultSet rs = con.createStatement().executeQuery(</span><span class="s2">&quot;select * from QR where ISBN like '&quot; </span><span class="s1">+ isbn + </span><span class="s2">&quot;' order by PAGINA&quot;</span><span class="s1">)</span><span class="s0">;</span>
 <a name="l72"><span class="ln">72   </span></a>
 <a name="l73"><span class="ln">73   </span></a>            <span class="s3">//A partir de un resulset obtenemos los datos de la consulta lanzada a la base de datos</span>
 <a name="l74"><span class="ln">74   </span></a>            <span class="s0">while </span><span class="s1">(rs.next()) {</span>
-<a name="l75"><span class="ln">75   </span></a>                <span class="s1">QR qr = </span><span class="s0">new </span><span class="s1">QR(rs.getString(</span><span class="s4">1</span><span class="s1">)</span><span class="s0">, </span><span class="s1">rs.getString(</span><span class="s4">2</span><span class="s1">)</span><span class="s0">, </span><span class="s1">rs.getString(</span><span class="s4">3</span><span class="s1">)</span><span class="s0">, </span><span class="s1">rs.getString(</span><span class="s4">4</span><span class="s1">)</span><span class="s0">, </span><span class="s1">rs.getString(</span><span class="s4">5</span><span class="s1">)</span><span class="s0">, </span><span class="s1">rs.getString(</span><span class="s4">6</span><span class="s1">))</span><span class="s0">;</span>
+<a name="l75"><span class="ln">75   </span></a>                <a href="../../../com/example/qrbookapp/Class/QR.java.html">QR</a> <span class="s1">qr = </span><span class="s0">new <a href="../../../com/example/qrbookapp/Class/QR.java.html">QR</a></span><span class="s1">(rs.getString(</span><span class="s4">1</span><span class="s1">)</span><span class="s0">, </span><span class="s1">rs.getString(</span><span class="s4">2</span><span class="s1">)</span><span class="s0">, </span><span class="s1">rs.getString(</span><span class="s4">3</span><span class="s1">)</span><span class="s0">, </span><span class="s1">rs.getString(</span><span class="s4">4</span><span class="s1">)</span><span class="s0">, </span><span class="s1">rs.getString(</span><span class="s4">5</span><span class="s1">)</span><span class="s0">, </span><span class="s1">rs.getString(</span><span class="s4">6</span><span class="s1">))</span><span class="s0">;</span>
 <a name="l76"><span class="ln">76   </span></a>                <span class="s1">arrayQr.add(qr)</span><span class="s0">;</span>
 <a name="l77"><span class="ln">77   </span></a>            <span class="s1">}</span>
 <a name="l78"><span class="ln">78   </span></a>            <span class="s1">rs.close()</span><span class="s0">;</span>
@@ -101,14 +101,14 @@ ListaQr.java</font>
 <a name="l82"><span class="ln">82   </span></a>
 <a name="l83"><span class="ln">83   </span></a>            <span class="s3">//A partir de un resulset obtenemos los datos de la consulta lanzada a la base de datos</span>
 <a name="l84"><span class="ln">84   </span></a>            <span class="s0">while </span><span class="s1">(rsUser.next()) {</span>
-<a name="l85"><span class="ln">85   </span></a>                <span class="s1">QR qr = </span><span class="s0">new </span><span class="s1">QR(rsUser.getString(</span><span class="s4">1</span><span class="s1">)</span><span class="s0">, </span><span class="s1">rsUser.getString(</span><span class="s4">2</span><span class="s1">)</span><span class="s0">, </span><span class="s1">rsUser.getString(</span><span class="s4">3</span><span class="s1">)</span><span class="s0">, </span><span class="s1">rsUser.getString(</span><span class="s4">4</span><span class="s1">)</span><span class="s0">, </span><span class="s1">rsUser.getString(</span><span class="s4">5</span><span class="s1">)</span><span class="s0">, </span><span class="s1">rsUser.getString(</span><span class="s4">6</span><span class="s1">))</span><span class="s0">;</span>
+<a name="l85"><span class="ln">85   </span></a>                <a href="../../../com/example/qrbookapp/Class/QR.java.html">QR</a> <span class="s1">qr = </span><span class="s0">new <a href="../../../com/example/qrbookapp/Class/QR.java.html">QR</a></span><span class="s1">(rsUser.getString(</span><span class="s4">1</span><span class="s1">)</span><span class="s0">, </span><span class="s1">rsUser.getString(</span><span class="s4">2</span><span class="s1">)</span><span class="s0">, </span><span class="s1">rsUser.getString(</span><span class="s4">3</span><span class="s1">)</span><span class="s0">, </span><span class="s1">rsUser.getString(</span><span class="s4">4</span><span class="s1">)</span><span class="s0">, </span><span class="s1">rsUser.getString(</span><span class="s4">5</span><span class="s1">)</span><span class="s0">, </span><span class="s1">rsUser.getString(</span><span class="s4">6</span><span class="s1">))</span><span class="s0">;</span>
 <a name="l86"><span class="ln">86   </span></a>                <span class="s1">arrayQr.add(qr)</span><span class="s0">;</span>
 <a name="l87"><span class="ln">87   </span></a>            <span class="s1">}</span>
 <a name="l88"><span class="ln">88   </span></a>
 <a name="l89"><span class="ln">89   </span></a>        <span class="s1">} </span><span class="s0">catch </span><span class="s1">(SQLException e) {</span>
 <a name="l90"><span class="ln">90   </span></a>            <span class="s1">e.printStackTrace()</span><span class="s0">;</span>
 <a name="l91"><span class="ln">91   </span></a>        <span class="s1">} </span><span class="s0">finally </span><span class="s1">{</span>
-<a name="l92"><span class="ln">92   </span></a>            <span class="s1">adaptadorQr = </span><span class="s0">new </span><span class="s1">AdaptadorQr(</span><span class="s0">this, </span><span class="s1">arrayQr)</span><span class="s0">;</span>
+<a name="l92"><span class="ln">92   </span></a>            <span class="s1">adaptadorQr = </span><span class="s0">new <a href="../../../com/example/qrbookapp/Adapter/AdaptadorQr.java.html">AdaptadorQr</a></span><span class="s1">(</span><span class="s0">this, </span><span class="s1">arrayQr)</span><span class="s0">;</span>
 <a name="l93"><span class="ln">93   </span></a>        <span class="s1">}</span>
 <a name="l94"><span class="ln">94   </span></a>
 <a name="l95"><span class="ln">95   </span></a>        <span class="s1">gvListaQr.setAdapter(adaptadorQr)</span><span class="s0">;</span>
@@ -116,7 +116,7 @@ ListaQr.java</font>
 <a name="l97"><span class="ln">97   </span></a>        <span class="s1">gvListaQr.setOnItemClickListener(</span><span class="s0">new </span><span class="s1">AdapterView.OnItemClickListener() {</span>
 <a name="l98"><span class="ln">98   </span></a>            <span class="s1">@Override</span>
 <a name="l99"><span class="ln">99   </span></a>            <span class="s0">public void </span><span class="s1">onItemClick(AdapterView&lt;?&gt; parent</span><span class="s0">, </span><span class="s1">View view</span><span class="s0">, int </span><span class="s1">position</span><span class="s0">, long </span><span class="s1">id) {</span>
-<a name="l100"><span class="ln">100  </span></a>                <span class="s1">QR qrSeleccionado = (QR) adaptadorQr.getItem(position)</span><span class="s0">;</span>
+<a name="l100"><span class="ln">100  </span></a>                <a href="../../../com/example/qrbookapp/Class/QR.java.html">QR</a> <span class="s1">qrSeleccionado = (<a href="../../../com/example/qrbookapp/Class/QR.java.html">QR</a>) adaptadorQr.getItem(position)</span><span class="s0">;</span>
 <a name="l101"><span class="ln">101  </span></a>                <span class="s1">Intent i = </span><span class="s0">new </span><span class="s1">Intent(getApplicationContext()</span><span class="s0">, <a href="QrCaracteristicasAmpliado.java.html">QrCaracteristicasAmpliado</a></span><span class="s1">.</span><span class="s0">class</span><span class="s1">)</span><span class="s0">;</span>
 <a name="l102"><span class="ln">102  </span></a>                <span class="s1">i.putExtra(</span><span class="s2">&quot;qr&quot;</span><span class="s0">, </span><span class="s1">qrSeleccionado)</span><span class="s0">;</span>
 <a name="l103"><span class="ln">103  </span></a>                <span class="s1">startActivity(i)</span><span class="s0">;</span>

@@ -36,9 +36,9 @@ PerfilUsuario.java</font>
 <a name="l17"><span class="ln">17   </span></a><span class="s0">import </span><span class="s1">androidx.annotation.Nullable</span><span class="s0">;</span>
 <a name="l18"><span class="ln">18   </span></a><span class="s0">import </span><span class="s1">androidx.appcompat.app.AppCompatActivity</span><span class="s0">;</span>
 <a name="l19"><span class="ln">19   </span></a>
-<a name="l20"><span class="ln">20   </span></a><span class="s0">import </span><span class="s1">com.example.qrbookapp.Class.AccesoFichero</span><span class="s0">;</span>
-<a name="l21"><span class="ln">21   </span></a><span class="s0">import </span><span class="s1">com.example.qrbookapp.Class.Usuario</span><span class="s0">;</span>
-<a name="l22"><span class="ln">22   </span></a><span class="s0">import </span><span class="s1">com.example.qrbookapp.Database.ConnectionClass</span><span class="s0">;</span>
+<a name="l20"><span class="ln">20   </span></a><span class="s0">import <a href="../../../com/example/qrbookapp/Class/AccesoFichero.java.html">com.example.qrbookapp.Class.AccesoFichero</a>;</span>
+<a name="l21"><span class="ln">21   </span></a><span class="s0">import <a href="../../../com/example/qrbookapp/Class/Usuario.java.html">com.example.qrbookapp.Class.Usuario</a>;</span>
+<a name="l22"><span class="ln">22   </span></a><span class="s0">import <a href="../../../com/example/qrbookapp/Database/ConnectionClass.java.html">com.example.qrbookapp.Database.ConnectionClass</a>;</span>
 <a name="l23"><span class="ln">23   </span></a>
 <a name="l24"><span class="ln">24   </span></a><span class="s0">import </span><span class="s1">java.io.BufferedReader</span><span class="s0">;</span>
 <a name="l25"><span class="ln">25   </span></a><span class="s0">import </span><span class="s1">java.io.ByteArrayOutputStream</span><span class="s0">;</span>
@@ -57,11 +57,11 @@ PerfilUsuario.java</font>
 <a name="l38"><span class="ln">38   </span></a>     <span class="s1">ImageButton ibUsuario</span><span class="s0">;</span>
 <a name="l39"><span class="ln">39   </span></a>     <span class="s1">Button btnRealizarCambios</span><span class="s0">;</span>
 <a name="l40"><span class="ln">40   </span></a>     <span class="s1">ArrayList&lt;String&gt; contenidoFicheroRecordado = </span><span class="s0">new </span><span class="s1">ArrayList&lt;&gt;()</span><span class="s0">;</span>
-<a name="l41"><span class="ln">41   </span></a>     <span class="s1">AccesoFichero accesoFichero = </span><span class="s0">new </span><span class="s1">AccesoFichero()</span><span class="s0">;</span>
+<a name="l41"><span class="ln">41   </span></a>     <a href="../../../com/example/qrbookapp/Class/AccesoFichero.java.html">AccesoFichero</a> <span class="s1">accesoFichero = </span><span class="s0">new <a href="../../../com/example/qrbookapp/Class/AccesoFichero.java.html">AccesoFichero</a></span><span class="s1">()</span><span class="s0">;</span>
 <a name="l42"><span class="ln">42   </span></a>     <span class="s1">String correo</span><span class="s0">;</span>
 <a name="l43"><span class="ln">43   </span></a>     <span class="s1">String contrasenaRecordada</span><span class="s0">;</span>
 <a name="l44"><span class="ln">44   </span></a>     <span class="s1">String antiguoUsuario</span><span class="s0">;</span>
-<a name="l45"><span class="ln">45   </span></a>     <span class="s1">Usuario usuario</span><span class="s0">;</span>
+<a name="l45"><span class="ln">45   </span></a>     <a href="../../../com/example/qrbookapp/Class/Usuario.java.html">Usuario</a> <span class="s1">usuario</span><span class="s0">;</span>
 <a name="l46"><span class="ln">46   </span></a>     <span class="s0">final int </span><span class="s1">imagen_request = </span><span class="s2">0</span><span class="s0">;</span>
 <a name="l47"><span class="ln">47   </span></a>     <span class="s1">Bitmap bitmap</span><span class="s0">;</span>
 <a name="l48"><span class="ln">48   </span></a>     <span class="s0">byte</span><span class="s1">[] imagenByte</span><span class="s0">;</span>
@@ -108,7 +108,7 @@ PerfilUsuario.java</font>
 <a name="l89"><span class="ln">89   </span></a>
 <a name="l90"><span class="ln">90   </span></a>        <span class="s0">try </span><span class="s1">{</span>
 <a name="l91"><span class="ln">91   </span></a>
-<a name="l92"><span class="ln">92   </span></a>            <span class="s1">Connection connection = ConnectionClass.con</span><span class="s0">;</span>
+<a name="l92"><span class="ln">92   </span></a>            <span class="s1">Connection connection = <a href="../../../com/example/qrbookapp/Database/ConnectionClass.java.html">ConnectionClass</a>.con</span><span class="s0">;</span>
 <a name="l93"><span class="ln">93   </span></a>
 <a name="l94"><span class="ln">94   </span></a>
 <a name="l95"><span class="ln">95   </span></a>            <span class="s4">//A partir de un resulset obtenemos los datos de la consulta lanzada a la base de datos</span>
@@ -116,7 +116,7 @@ PerfilUsuario.java</font>
 <a name="l97"><span class="ln">97   </span></a>
 <a name="l98"><span class="ln">98   </span></a>            <span class="s4">//recorremos todos los usuarios que tenemos en la ase de datos y los introducimos en el array</span>
 <a name="l99"><span class="ln">99   </span></a>            <span class="s0">while </span><span class="s1">(rs.next()) {</span>
-<a name="l100"><span class="ln">100  </span></a>                <span class="s1">usuario = </span><span class="s0">new </span><span class="s1">Usuario(correo</span><span class="s0">, </span><span class="s1">rs.getString(</span><span class="s2">2</span><span class="s1">)</span><span class="s0">, </span><span class="s1">contrasenaRecordada</span><span class="s0">, </span><span class="s1">rs.getString(</span><span class="s2">4</span><span class="s1">)</span><span class="s0">, </span><span class="s1">rs.getString(</span><span class="s2">5</span><span class="s1">)</span><span class="s0">, </span><span class="s1">rs.getString(</span><span class="s2">6</span><span class="s1">)</span><span class="s0">, </span><span class="s1">rs.getBytes(</span><span class="s2">7</span><span class="s1">))</span><span class="s0">;</span>
+<a name="l100"><span class="ln">100  </span></a>                <span class="s1">usuario = </span><span class="s0">new <a href="../../../com/example/qrbookapp/Class/Usuario.java.html">Usuario</a></span><span class="s1">(correo</span><span class="s0">, </span><span class="s1">rs.getString(</span><span class="s2">2</span><span class="s1">)</span><span class="s0">, </span><span class="s1">contrasenaRecordada</span><span class="s0">, </span><span class="s1">rs.getString(</span><span class="s2">4</span><span class="s1">)</span><span class="s0">, </span><span class="s1">rs.getString(</span><span class="s2">5</span><span class="s1">)</span><span class="s0">, </span><span class="s1">rs.getString(</span><span class="s2">6</span><span class="s1">)</span><span class="s0">, </span><span class="s1">rs.getBytes(</span><span class="s2">7</span><span class="s1">))</span><span class="s0">;</span>
 <a name="l101"><span class="ln">101  </span></a>            <span class="s1">}</span>
 <a name="l102"><span class="ln">102  </span></a>
 <a name="l103"><span class="ln">103  </span></a>        <span class="s1">} </span><span class="s0">catch </span><span class="s1">(Exception e) {</span>
@@ -170,7 +170,7 @@ PerfilUsuario.java</font>
 <a name="l151"><span class="ln">151  </span></a>
 <a name="l152"><span class="ln">152  </span></a>                <span class="s0">if </span><span class="s1">(etAntiguaContrasena.getText().toString().equals(</span><span class="s3">&quot;&quot;</span><span class="s1">) &amp;&amp; contrasena.equals(</span><span class="s3">&quot;&quot;</span><span class="s1">) &amp;&amp; repContrasena.equals(</span><span class="s3">&quot;&quot;</span><span class="s1">)) {</span>
 <a name="l153"><span class="ln">153  </span></a>                    <span class="s0">try </span><span class="s1">{</span>
-<a name="l154"><span class="ln">154  </span></a>                        <span class="s1">Connection connection = ConnectionClass.con</span><span class="s0">;</span>
+<a name="l154"><span class="ln">154  </span></a>                        <span class="s1">Connection connection = <a href="../../../com/example/qrbookapp/Database/ConnectionClass.java.html">ConnectionClass</a>.con</span><span class="s0">;</span>
 <a name="l155"><span class="ln">155  </span></a>                        <span class="s1">PreparedStatement ps</span><span class="s0">;</span>
 <a name="l156"><span class="ln">156  </span></a>
 <a name="l157"><span class="ln">157  </span></a>                        <span class="s0">if </span><span class="s1">(antiguoUsuario.equals(usuario)) {</span>
@@ -218,7 +218,7 @@ PerfilUsuario.java</font>
 <a name="l199"><span class="ln">199  </span></a>                    <span class="s1">etRepiteContrasena.setError(</span><span class="s3">&quot;Las nuevas contraseñas no coinciden. Intentelo de nuevo.&quot;</span><span class="s1">)</span><span class="s0">;</span>
 <a name="l200"><span class="ln">200  </span></a>                <span class="s1">} </span><span class="s0">else </span><span class="s1">{</span>
 <a name="l201"><span class="ln">201  </span></a>                    <span class="s0">try </span><span class="s1">{</span>
-<a name="l202"><span class="ln">202  </span></a>                        <span class="s1">Connection connection = ConnectionClass.con</span><span class="s0">;</span>
+<a name="l202"><span class="ln">202  </span></a>                        <span class="s1">Connection connection = <a href="../../../com/example/qrbookapp/Database/ConnectionClass.java.html">ConnectionClass</a>.con</span><span class="s0">;</span>
 <a name="l203"><span class="ln">203  </span></a>                        <span class="s1">PreparedStatement ps</span><span class="s0">;</span>
 <a name="l204"><span class="ln">204  </span></a>                        <span class="s0">if </span><span class="s1">(antiguoUsuario.equals(usuario)) {</span>
 <a name="l205"><span class="ln">205  </span></a>                            <span class="s1">ps = connection.prepareStatement(</span><span class="s3">&quot;update USUARIO set nombre=?,password=MD5(?),apellido1=?,apellido2=?, foto=? where correo=?&quot;</span><span class="s1">)</span><span class="s0">;</span>

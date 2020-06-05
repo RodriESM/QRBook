@@ -35,8 +35,8 @@ Escaner.java</font>
 <a name="l16"><span class="ln">16   </span></a><span class="s0">import </span><span class="s1">androidx.core.app.ActivityCompat</span><span class="s0">;</span>
 <a name="l17"><span class="ln">17   </span></a><span class="s0">import </span><span class="s1">androidx.core.content.ContextCompat</span><span class="s0">;</span>
 <a name="l18"><span class="ln">18   </span></a>
-<a name="l19"><span class="ln">19   </span></a><span class="s0">import </span><span class="s1">com.example.qrbookapp.Class.AccesoFichero</span><span class="s0">;</span>
-<a name="l20"><span class="ln">20   </span></a><span class="s0">import </span><span class="s1">com.example.qrbookapp.Database.ConnectionClass</span><span class="s0">;</span>
+<a name="l19"><span class="ln">19   </span></a><span class="s0">import <a href="../../../com/example/qrbookapp/Class/AccesoFichero.java.html">com.example.qrbookapp.Class.AccesoFichero</a>;</span>
+<a name="l20"><span class="ln">20   </span></a><span class="s0">import <a href="../../../com/example/qrbookapp/Database/ConnectionClass.java.html">com.example.qrbookapp.Database.ConnectionClass</a>;</span>
 <a name="l21"><span class="ln">21   </span></a><span class="s0">import </span><span class="s1">com.google.android.gms.vision.CameraSource</span><span class="s0">;</span>
 <a name="l22"><span class="ln">22   </span></a><span class="s0">import </span><span class="s1">com.google.android.gms.vision.Detector</span><span class="s0">;</span>
 <a name="l23"><span class="ln">23   </span></a><span class="s0">import </span><span class="s1">com.google.android.gms.vision.barcode.Barcode</span><span class="s0">;</span>
@@ -67,7 +67,7 @@ Escaner.java</font>
 <a name="l48"><span class="ln">48   </span></a>    <span class="s0">private </span><span class="s1">String lastUrl = </span><span class="s4">&quot;&quot;</span><span class="s0">;</span>
 <a name="l49"><span class="ln">49   </span></a>
 <a name="l50"><span class="ln">50   </span></a>    <span class="s1">ArrayList&lt;String&gt; contenidoFicheroRecordado = </span><span class="s0">new </span><span class="s1">ArrayList&lt;&gt;()</span><span class="s0">;</span>
-<a name="l51"><span class="ln">51   </span></a>    <span class="s1">AccesoFichero accesoFichero = </span><span class="s0">new </span><span class="s1">AccesoFichero()</span><span class="s0">;</span>
+<a name="l51"><span class="ln">51   </span></a>    <a href="../../../com/example/qrbookapp/Class/AccesoFichero.java.html">AccesoFichero</a> <span class="s1">accesoFichero = </span><span class="s0">new <a href="../../../com/example/qrbookapp/Class/AccesoFichero.java.html">AccesoFichero</a></span><span class="s1">()</span><span class="s0">;</span>
 <a name="l52"><span class="ln">52   </span></a>    <span class="s1">String correo</span><span class="s0">;</span>
 <a name="l53"><span class="ln">53   </span></a>
 <a name="l54"><span class="ln">54   </span></a>    <span class="s1">@Override</span>
@@ -174,7 +174,7 @@ Escaner.java</font>
 <a name="l155"><span class="ln">155  </span></a>            <span class="s0">assert </span><span class="s1">bundle != </span><span class="s0">null;</span>
 <a name="l156"><span class="ln">156  </span></a>            <span class="s1">String isbn = bundle.getString(</span><span class="s4">&quot;escanerisbn&quot;</span><span class="s1">)</span><span class="s0">;</span>
 <a name="l157"><span class="ln">157  </span></a>
-<a name="l158"><span class="ln">158  </span></a>            <span class="s1">Connection connection = ConnectionClass.con</span><span class="s0">;</span>
+<a name="l158"><span class="ln">158  </span></a>            <span class="s1">Connection connection = <a href="../../../com/example/qrbookapp/Database/ConnectionClass.java.html">ConnectionClass</a>.con</span><span class="s0">;</span>
 <a name="l159"><span class="ln">159  </span></a>
 <a name="l160"><span class="ln">160  </span></a>            <span class="s0">final </span><span class="s1">String[]  datos= fileList()</span><span class="s0">;</span>
 <a name="l161"><span class="ln">161  </span></a>            <span class="s0">final </span><span class="s1">String nombreFicheroRecordatorio = </span><span class="s4">&quot;user.txt&quot;</span><span class="s0">;</span>

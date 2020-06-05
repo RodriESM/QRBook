@@ -30,9 +30,9 @@ MainActivity.java</font>
 <a name="l11"><span class="ln">11   </span></a>
 <a name="l12"><span class="ln">12   </span></a><span class="s0">import </span><span class="s1">androidx.appcompat.app.AppCompatActivity</span><span class="s0">;</span>
 <a name="l13"><span class="ln">13   </span></a>
-<a name="l14"><span class="ln">14   </span></a><span class="s0">import </span><span class="s1">com.example.qrbookapp.Class.AccesoFichero</span><span class="s0">;</span>
-<a name="l15"><span class="ln">15   </span></a><span class="s0">import </span><span class="s1">com.example.qrbookapp.Class.Email</span><span class="s0">;</span>
-<a name="l16"><span class="ln">16   </span></a><span class="s0">import </span><span class="s1">com.example.qrbookapp.Database.ConnectionClass</span><span class="s0">;</span>
+<a name="l14"><span class="ln">14   </span></a><span class="s0">import <a href="../../../com/example/qrbookapp/Class/AccesoFichero.java.html">com.example.qrbookapp.Class.AccesoFichero</a>;</span>
+<a name="l15"><span class="ln">15   </span></a><span class="s0">import <a href="../../../com/example/qrbookapp/Class/Email.java.html">com.example.qrbookapp.Class.Email</a>;</span>
+<a name="l16"><span class="ln">16   </span></a><span class="s0">import <a href="../../../com/example/qrbookapp/Database/ConnectionClass.java.html">com.example.qrbookapp.Database.ConnectionClass</a>;</span>
 <a name="l17"><span class="ln">17   </span></a>
 <a name="l18"><span class="ln">18   </span></a><span class="s0">import </span><span class="s1">java.io.BufferedReader</span><span class="s0">;</span>
 <a name="l19"><span class="ln">19   </span></a><span class="s0">import </span><span class="s1">java.io.File</span><span class="s0">;</span>
@@ -48,14 +48,14 @@ MainActivity.java</font>
 <a name="l29"><span class="ln">29   </span></a>    <span class="s1">Button btnLogin</span><span class="s0">, </span><span class="s1">btnSignin</span><span class="s0">;</span>
 <a name="l30"><span class="ln">30   </span></a>    <span class="s1">EditText etEmail</span><span class="s0">, </span><span class="s1">etPassword</span><span class="s0">;</span>
 <a name="l31"><span class="ln">31   </span></a>    <span class="s1">ArrayList&lt;String&gt; contenidoFicheroRecordado = </span><span class="s0">new </span><span class="s1">ArrayList&lt;&gt;()</span><span class="s0">;</span>
-<a name="l32"><span class="ln">32   </span></a>    <span class="s1">AccesoFichero accesoFichero = </span><span class="s0">new </span><span class="s1">AccesoFichero()</span><span class="s0">;</span>
+<a name="l32"><span class="ln">32   </span></a>    <a href="../../../com/example/qrbookapp/Class/AccesoFichero.java.html">AccesoFichero</a> <span class="s1">accesoFichero = </span><span class="s0">new <a href="../../../com/example/qrbookapp/Class/AccesoFichero.java.html">AccesoFichero</a></span><span class="s1">()</span><span class="s0">;</span>
 <a name="l33"><span class="ln">33   </span></a>
 <a name="l34"><span class="ln">34   </span></a>
 <a name="l35"><span class="ln">35   </span></a>    <span class="s1">@Override</span>
 <a name="l36"><span class="ln">36   </span></a>    <span class="s0">protected void </span><span class="s1">onCreate(Bundle savedInstanceState) {</span>
 <a name="l37"><span class="ln">37   </span></a>        <span class="s0">super</span><span class="s1">.onCreate(savedInstanceState)</span><span class="s0">;</span>
 <a name="l38"><span class="ln">38   </span></a>        <span class="s1">setContentView(R.layout.activity_main)</span><span class="s0">;</span>
-<a name="l39"><span class="ln">39   </span></a>        <span class="s0">new </span><span class="s1">ConnectionClass().setConnection()</span><span class="s0">;</span>
+<a name="l39"><span class="ln">39   </span></a>        <span class="s0">new <a href="../../../com/example/qrbookapp/Database/ConnectionClass.java.html">ConnectionClass</a></span><span class="s1">().setConnection()</span><span class="s0">;</span>
 <a name="l40"><span class="ln">40   </span></a>        <span class="s1">etEmail = findViewById(R.id.etEmail)</span><span class="s0">;</span>
 <a name="l41"><span class="ln">41   </span></a>        <span class="s1">etPassword = findViewById(R.id.etPassword)</span><span class="s0">;</span>
 <a name="l42"><span class="ln">42   </span></a>
@@ -96,16 +96,16 @@ MainActivity.java</font>
 <a name="l77"><span class="ln">77   </span></a>            <span class="s0">public void </span><span class="s1">onClick(View v) {</span>
 <a name="l78"><span class="ln">78   </span></a>
 <a name="l79"><span class="ln">79   </span></a>                <span class="s0">try </span><span class="s1">{</span>
-<a name="l80"><span class="ln">80   </span></a>                    <span class="s0">if </span><span class="s1">(ConnectionClass.con == </span><span class="s0">null</span><span class="s1">) {</span>
-<a name="l81"><span class="ln">81   </span></a>                        <span class="s0">new </span><span class="s1">ConnectionClass().setConnection()</span><span class="s0">;</span>
+<a name="l80"><span class="ln">80   </span></a>                    <span class="s0">if </span><span class="s1">(<a href="../../../com/example/qrbookapp/Database/ConnectionClass.java.html">ConnectionClass</a>.con == </span><span class="s0">null</span><span class="s1">) {</span>
+<a name="l81"><span class="ln">81   </span></a>                        <span class="s0">new <a href="../../../com/example/qrbookapp/Database/ConnectionClass.java.html">ConnectionClass</a></span><span class="s1">().setConnection()</span><span class="s0">;</span>
 <a name="l82"><span class="ln">82   </span></a>                        <span class="s1">Toast.makeText(getApplicationContext()</span><span class="s0">, </span><span class="s3">&quot;Error de conexión. Estamos trabajando en ello.&quot;</span><span class="s0">, </span><span class="s1">Toast.LENGTH_LONG).show()</span><span class="s0">;</span>
 <a name="l83"><span class="ln">83   </span></a>                        <span class="s2">// Reemplazamos el email por algun otro real</span>
 <a name="l84"><span class="ln">84   </span></a>                        <span class="s1">String[] cc = { etEmail.getText().toString() }</span><span class="s0">;</span>
-<a name="l85"><span class="ln">85   </span></a>                        <span class="s1">Email.enviar(MainActivity.</span><span class="s0">this,</span><span class="s1">cc</span><span class="s0">, </span><span class="s3">&quot;Fallo al conectar a la base de datos.&quot;</span><span class="s0">,</span>
+<a name="l85"><span class="ln">85   </span></a>                        <a href="../../../com/example/qrbookapp/Class/Email.java.html">Email</a><span class="s1">.enviar(MainActivity.</span><span class="s0">this,</span><span class="s1">cc</span><span class="s0">, </span><span class="s3">&quot;Fallo al conectar a la base de datos.&quot;</span><span class="s0">,</span>
 <a name="l86"><span class="ln">86   </span></a>                                <span class="s3">&quot;Error al acceder a la aplicación.&quot;</span><span class="s1">)</span><span class="s0">;</span>
 <a name="l87"><span class="ln">87   </span></a>
 <a name="l88"><span class="ln">88   </span></a>                    <span class="s1">} </span><span class="s0">else </span><span class="s1">{</span>
-<a name="l89"><span class="ln">89   </span></a>                        <span class="s1">Connection connection = ConnectionClass.con</span><span class="s0">;</span>
+<a name="l89"><span class="ln">89   </span></a>                        <span class="s1">Connection connection = <a href="../../../com/example/qrbookapp/Database/ConnectionClass.java.html">ConnectionClass</a>.con</span><span class="s0">;</span>
 <a name="l90"><span class="ln">90   </span></a>                        <span class="s1">PreparedStatement pstUserPass = connection.prepareStatement(</span><span class="s3">&quot;SELECT USUARIO,CORREO from USUARIO  WHERE (CORREO like'&quot; </span><span class="s1">+ etEmail.getText().toString() + </span><span class="s3">&quot;' OR USUARIO like '&quot; </span><span class="s1">+ etEmail.getText().toString() + </span><span class="s3">&quot;') AND PASSWORD like MD5('&quot; </span><span class="s1">+ etPassword.getText().toString() + </span><span class="s3">&quot;')&quot;</span><span class="s1">)</span><span class="s0">;</span>
 <a name="l91"><span class="ln">91   </span></a>                        <span class="s1">ResultSet rs = pstUserPass.executeQuery()</span><span class="s0">;</span>
 <a name="l92"><span class="ln">92   </span></a>                        <span class="s0">if </span><span class="s1">(rs.next()) {</span>
