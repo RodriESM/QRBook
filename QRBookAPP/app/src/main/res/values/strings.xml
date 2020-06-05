@@ -42,10 +42,10 @@
     <string name="etHintApellido1">Apellido 1</string>
     <string name="etHintApellido2">Apellido 2</string>
     <string name="tvTextCambiarContraseña">Cambiar contraseña</string>
-    <string name="etHintAntiguaContra">Antigua contraseña</string>
-    <string name="etHintNuevaContra">Nueva contraseña</string>
-    <string name="etHintNuevaContraseña">Repetir contraseña</string>
-    <string name="btnRealizarCambiosUsuario">REALIZAR CAMBIOS</string>
+    <string name="etHintAntiguaContra">Antigua</string>
+    <string name="etHintNuevaContra">Nueva</string>
+    <string name="etHintNuevaContraseña">Repetir nueva</string>
+    <string name="btnRealizarCambiosUsuario">GUARDAR</string>
     <string name="tvNombreQRAmp">Nombre:</string>
     <string name="tveNombreQRAmp">Nombre</string>
     <string name="tvTipoTituloQrAmp">Tipo:</string>

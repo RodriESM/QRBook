@@ -27,6 +27,7 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+    implementation 'com.squareup.picasso:picasso:2.71828'
 
     /*Librearías para escaner*/
     implementation 'com.github.blikoon:QRCodeScanner:0.1.2'
@@ -38,7 +39,6 @@ dependencies {
 
     /*Librearías para los botones flotantes*/
     implementation 'com.getbase:floatingactionbutton:1.10.1'
-    implementation 'com.squareup.picasso:picasso:2.71828'
     implementation 'com.getbase:floatingactionbutton:1.10.1'
 
     /*Librería para leer PDF*/

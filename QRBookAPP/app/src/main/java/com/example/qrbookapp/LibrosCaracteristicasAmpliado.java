@@ -210,8 +210,10 @@ public class LibrosCaracteristicasAmpliado extends AppCompatActivity {
                     }
 
                     int rslibro = connection.createStatement().executeUpdate("delete from USUARIOLIBRO where correo like '" + correo + "' and isbn like'" + tvIsbnAmpliado.getText().toString() + "'");
+
+                    //Eliminamos todos los qr del usuario.
                     //TO_DO No sabemos si habría que borrar de la base de datos los qr correspondientes al libro que se va a eliminar
-                    //ResultSet rsqr =connection.createStatement().executeQuery("delete from USUARIOQR where correo like '"+correo+"' and isbn like'"+tvIsbnAmpliado.getText().toString()+"'");
+                    ResultSet rsqr =connection.createStatement().executeQuery("delete from USUARIOQR where correo like '"+correo+"' and isbn like'"+tvIsbnAmpliado.getText().toString()+"'");
 
                     @SuppressLint("SdCardPath") File file = new File("/sdcard/Documents/" + tvIsbnAmpliado.getText().toString() + correo + ".pdf");
                     if (file.exists()) {

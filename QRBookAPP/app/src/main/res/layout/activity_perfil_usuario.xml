@@ -30,7 +30,7 @@
                 android:background="#00000000"
                 android:contentDescription="@string/imgButtonPerfil"
                 android:scaleType="centerCrop"
-                android:src="@drawable/logo" />
+                android:src="@drawable/perfil_user" />
 
             <EditText
                 android:id="@+id/etUsuarioCam"
