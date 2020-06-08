@@ -11,6 +11,7 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using QRBookWeb.assets.cs;
 using QRBookWeb.assets.sql;
+using QRBookWeb.ControlesUsuario;
 
 namespace QRBookWeb
 {
@@ -26,10 +27,12 @@ namespace QRBookWeb
 
             bool logged = false;
             bool admin = false;
+            string loggedcorreo = "";
             if (Session["correo"] != null) {
                 if (!String.IsNullOrEmpty(Session["correo"].ToString())) {
                     logged = true;
                     admin = Convert.ToBoolean(Session["admin"]);
+                    loggedcorreo = Session["correo"].ToString();
                 }
             }
 
@@ -37,16 +40,29 @@ namespace QRBookWeb
                 Response.Redirect("/index.aspx");
             } else {
 
+                string correo = getEmail();
+                bool itself = correo.Equals(loggedcorreo);
+                bool eliminado = false;
+
                 if (!admin) {
                     busqUsu.Visible = false;
+                    lblAdmin.Visible = false;
+                    chkAdmin.Visible = false;
+                    tdDel.Visible = false;
+                    tdSave.ColSpan = 5;
+                } else {
+                    if (!itself) {
+                        if (confirmar.Value.Equals("delete")) {
+                            borrarUsuario(correo);
+                        }
+                    }
                 }
 
+
                 if (!IsPostBack) {
-                    //string correo = Session["correo"].ToString();
-                    string correo = getEmail();
                     
                     MySqlConnection DBCon = cs.CONECTAR();
-                    string sel = "SELECT U.CORREO, U.USUARIO, U.NOMBRE, U.APELLIDO1, U.APELLIDO2, U.FOTO, " +
+                    string sel = "SELECT U.CORREO, U.USUARIO, U.NOMBRE, U.APELLIDO1, U.APELLIDO2, U.ADMIN, " +
                                     "D.BIRTH, D.PHONE, D.PROVINCIA, D.CIUDAD, D.DIRECCION, D.CODPOS " +
                                     "FROM QrBook.USUARIO U LEFT JOIN QrBook.DATOSUSUARIO D " +
                                     "ON U.CORREO = D.CORREO where U.CORREO = '" + correo + "'";
@@ -54,16 +70,24 @@ namespace QRBookWeb
                     MySqlDataReader result = cmd.ExecuteReader();
 
                     while (result.Read()) {
-                        rellenarDatos(result);
+                        rellenarDatos(result, itself);
                     }
 
                     result.Close();
                     cs.CERRAR();
 
+                    buscarLibros(correo, admin);
+
+                } else {
+                    if (String.IsNullOrEmpty(qstr.Value)) {
+                        buscarLibros(correo, admin);
+                    } else {
+                        Session["modificar"] = qstr.Value;
+                        Response.Redirect("/book.aspx?ISBN=" + qstr.Value);
+                    }
                 }
 
                 if (Session["mensaje"] != null) {
-                    System.Diagnostics.Debug.WriteLine(Session["mensaje"].ToString());
                     hr.MsgBox(Session["mensaje"].ToString(), this.Page, this);
                     Session["mensaje"] = null;
                 }
@@ -91,13 +115,23 @@ namespace QRBookWeb
             return correo;
         }
 
-        private void rellenarDatos(MySqlDataReader result) {
+        private void rellenarDatos(MySqlDataReader result, bool itself) {
             //Convert.ToString(result["CORREO"])
             nom.Text = Convert.ToString(result["NOMBRE"]);
             ape1.Text = Convert.ToString(result["APELLIDO1"]);
             ape2.Text = Convert.ToString(result["APELLIDO2"]);
-            usutitle.InnerText = Convert.ToString(result["USUARIO"]);
-            nomtitle.InnerText = Convert.ToString(result["NOMBRE"] + " " + result["APELLIDO1"] + " " + result["APELLIDO2"]);
+            //usutitle.InnerText = Convert.ToString(result["USUARIO"]);
+            //nomtitle.InnerText = Convert.ToString(result["NOMBRE"] + " " + result["APELLIDO1"] + " " + result["APELLIDO2"]);
+            usu.Text = Convert.ToString(result["USUARIO"]);
+            chkAdmin.Checked = Convert.ToBoolean(Convert.ToString(result["ADMIN"]));
+            if (itself) {
+                titulo.InnerText = "Mi Perfil";
+                chkAdmin.Enabled = false;
+                tdDel.Visible = false;
+                tdSave.ColSpan = 5;
+            } else {
+                titulo.InnerText = "Perfil de: " + Convert.ToString(result["CORREO"]);
+            }
             email.Text = Convert.ToString(result["CORREO"]);
             tlf.Text = Convert.ToString(result["PHONE"]);
             prov.Text = Convert.ToString(result["PROVINCIA"]);
@@ -129,7 +163,13 @@ namespace QRBookWeb
                 //System.Diagnostics.Debug.WriteLine(nom.Text);
 
                 MySqlConnection DBCon = cs.CONECTAR();
-                string sql = "update USUARIO set NOMBRE = '" + nom.Text + "', APELLIDO1 = '" + ape1.Text + "', APELLIDO2 = '" + ape2.Text + "' where CORREO = '" + correo + "'";
+                int isadmin;
+                string sqladmin = "";
+                if (chkAdmin.Visible == true) {
+                    isadmin = chkAdmin.Checked ? 1 : 0;
+                    sqladmin = ", ADMIN = " + isadmin;
+                }
+                string sql = "update USUARIO set NOMBRE = '" + nom.Text + "', APELLIDO1 = '" + ape1.Text + "', APELLIDO2 = '" + ape2.Text + "'" + sqladmin + " where CORREO = '" + correo + "'";
                 MySqlCommand cmd = new MySqlCommand(sql, DBCon);
                 cmd.ExecuteNonQuery();
 
@@ -191,11 +231,13 @@ namespace QRBookWeb
                 bool guardar = true;
 
                 MySqlConnection DBCon = cs.CONECTAR();
-                string sel = "SELECT PASSWORD FROM USUARIO where CORREO = '" + correo + "'";
+                //string sel = "SELECT PASSWORD FROM USUARIO where CORREO = '" + correo + "'";
+                string sel = "SELECT USUARIO FROM USUARIO where CORREO = '" + correo + "' AND PASSWORD = MD5('" + txtLastPassword.Text + "')";
                 MySqlCommand cmd = new MySqlCommand(sel, DBCon);
                 object result = cmd.ExecuteScalar();
 
-                if (result.ToString() != txtLastPassword.Text) {
+                //if (result.ToString() != txtLastPassword.Text) {
+                if (result == null) {
                     guardar = false;
                     mensaje += "Contraseña incorrecta.\n";
                 }
@@ -211,7 +253,7 @@ namespace QRBookWeb
                 //System.Diagnostics.Debug.WriteLine(mensaje);
 
                 if (guardar) {
-                    string sql = "update USUARIO set PASSWORD = '" + txtNewPassword.Text + "' where CORREO = '" + correo + "'";
+                    string sql = "update USUARIO set PASSWORD = MD5('" + txtNewPassword.Text + "') where CORREO = '" + correo + "'";
                     cmd = new MySqlCommand(sql, DBCon);
                     int i = cmd.ExecuteNonQuery();
 
@@ -244,6 +286,55 @@ namespace QRBookWeb
 
         }
 
+        private void buscarLibros(string correo, bool admin) {
 
+            string sql = "select ISBN, TITULO, PORTADA from LIBRO " +
+                         "where ISBN in (select ISBN from USUARIOLIBRO " +
+                         "where CORREO = '" + correo + "')";
+
+            locodiv.Controls.Clear();
+            MySqlConnection DBCon = cs.CONECTAR();
+            MySqlCommand cmd = new MySqlCommand(sql, DBCon);
+            MySqlDataReader result = cmd.ExecuteReader();
+
+            while (result.Read()) {
+                fillUserControl(result, admin);
+            }
+
+
+        }
+
+        private void fillUserControl(MySqlDataReader result, bool admin) {
+
+            controlUsuLib unLib = (controlUsuLib)Page.LoadControl("~/ControlesUsuario/controlUsuLib.ascx");
+            string isbn = result["ISBN"].ToString();
+            string titulo = result["TITULO"].ToString();
+            string portada = result["PORTADA"].ToString();
+            unLib.fillFields(titulo, isbn, portada, admin);
+
+            locodiv.Controls.Add(unLib);
+        }
+
+        protected void btneliminar_ServerClick(object sender, EventArgs e) {
+
+        }
+
+        private void borrarUsuario(string correo) {
+            confirmar.Value = "";
+
+            MySqlConnection DBCon = cs.CONECTAR();
+            string sel = "DELETE FROM USUARIO where CORREO = '" + correo + "'";
+            MySqlCommand cmd = new MySqlCommand(sel, DBCon);
+            int result = cmd.ExecuteNonQuery();
+            cs.CERRAR();
+
+            if (result > 0) {
+                //Session["mensaje"] = "Usuario eliminado. (CORREO: " + correo + ")";
+                Response.Redirect("/index.aspx?UserDel=" + "Usuario+eliminado.+(CORREO:+" + correo + ")");
+            } else {
+                Session["mensaje"] = "Fallo al eliminar el usuario.";
+                Response.Redirect(Request.RawUrl, true);
+            }
+        }
     }
 }

@@ -13,15 +13,6 @@ namespace QRBookWeb {
     public partial class buscarUsu {
 
         /// <summary>
-        /// Control busqLib.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlAnchor busqLib;
-
-        /// <summary>
         /// Control busqUsu.
         /// </summary>
         /// <remarks>
@@ -29,6 +20,15 @@ namespace QRBookWeb {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlAnchor busqUsu;
+
+        /// <summary>
+        /// Control busqLib.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlAnchor busqLib;
 
         /// <summary>
         /// Control dropdown.

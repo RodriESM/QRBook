@@ -24,15 +24,8 @@ namespace QRBookWeb.ControlesUsuario {
             btnmodif.Attributes.Add("onClick", "javascript: irUsu('" + em + "');");
             
 
-            lbldel.Visible = false;
-            btndel.Visible = false;
-            btncancel.Visible = false;
         }
 
-        protected void btnmodif_Click(object sender, EventArgs e) {
-            Session["modificar"] = email.Text;
-            Response.Redirect("/user.aspx?Email=" + email.Text);
-        }
         
         //<input id="btnmodif" type="button" class="btnitem" runat="server" value="Modificar" />
         //<asp:Button id="Button1" class="btnitemdel" runat="server" Text="Eliminar"/>

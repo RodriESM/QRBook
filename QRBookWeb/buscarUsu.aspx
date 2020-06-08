@@ -36,17 +36,18 @@
             <nav id="nav">
                 <div class="contenedor-nav ">
                     <div class="logo">
-                        <img alt="logo" src="img/Logo.png" width="100px"/>
+                        <button type="button" style="background: none; border: none; cursor: pointer" onclick="location.href = 'index.aspx';">
+                            <img alt="QrBook" src="img/Logo.png" style="width: 85px"/>
+                        </button>
                     </div>
                     <div class="enlaces" id="enlaces">
-                        <a href="buscarLib.aspx" id="busqLib" class="btn-header" runat="server">Buscar Libros</a>
                         <a href="buscarUsu.aspx" id="busqUsu" class="btn-header" runat="server">Buscar Usuarios</a>
-                        <a href="index.aspx#Inicio" id="enlace-inicio" class="btn-header">Inicio</a>
-                        <a href="index.aspx#Informacion" id="enlace-info" class="btn-header">Información</a>
-                        <a href="index.aspx#Desarrollo" id="enlace-app" class="btn-header">Desarrollo</a>
-                        <a href="index.aspx#Equipo" id="enlace-equipo" class="btn-header">Conocenos</a>
+                        <a href="buscarLib.aspx" id="busqLib" class="btn-header" runat="server">Buscar Libros</a>
+                        <a href="#Equipo" id="enlace-equipo" class="btn-header">Conócenos</a>
                         <div runat="server" class="dropdown" id="dropdown">
-                            <input type="image"  src="img/user-img.png" height="60px"  width="50px" id="user"  onclick="location.href = 'user.aspx';" /> 
+                            <a href="user.aspx" style="border: 2px solid rgba(255,255,255, 0.5); border-radius: 100%">
+                                <img id="user" alt="Perfil" src="img/user-img.png" style="width: 50px; height: 60px"/>
+                            </a>
                             <div class="dropdown-content">
                                 <a href="user.aspx">Perfil</a>
                                 <a href="index.aspx?Desde=Salir">Salir</a>

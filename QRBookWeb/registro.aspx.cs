@@ -88,7 +88,7 @@ namespace QRBookWeb {
 
 
                     if (String.IsNullOrEmpty(encontrado)) {
-                        string ins = "insert into USUARIO (CORREO, USUARIO, PASSWORD) VALUES ('" + correo.Text + "', '" + usuario.Text + "', '" + pass.Text + "')";
+                        string ins = "insert into USUARIO (CORREO, USUARIO, PASSWORD) VALUES ('" + correo.Text + "', '" + usuario.Text + "', MD5('" + pass.Text + "'))";
                         cmd = new MySqlCommand(ins, DBCon);
                         cmd.ExecuteNonQuery();
                         //hr.MsgBox("Te has registrado!!!!!!!", this.Page, this);

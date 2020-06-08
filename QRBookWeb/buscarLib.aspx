@@ -37,26 +37,26 @@
             <nav id="nav">
                 <div class="contenedor-nav ">
                     <div class="logo">
-                        <img alt="logo" src="img/Logo.png" width="100px"/>
+                        <button type="button" style="background: none; border: none; cursor: pointer" onclick="location.href = 'index.aspx';">
+                            <img alt="QrBook" src="img/Logo.png" style="width: 85px"/>
+                        </button>
                     </div>
                     <div class="enlaces" id="enlaces">
-                        <a href="buscarLib.aspx" id="busqLib" class="btn-header" runat="server">Buscar Libros</a>
                         <a href="buscarUsu.aspx" id="busqUsu" class="btn-header" runat="server">Buscar Usuarios</a>
-                        <a href="index.aspx#Inicio" id="enlace-inicio" class="btn-header">Inicio</a>
-                        <a href="index.aspx#Informacion" id="enlace-info" class="btn-header">Información</a>
-                        <a href="index.aspx#Desarrollo" id="enlace-app" class="btn-header">Desarrollo</a>
-                        <a href="index.aspx#Equipo" id="enlace-equipo" class="btn-header">Conocenos</a>
+                        <a href="buscarLib.aspx" id="busqLib" class="btn-header" runat="server">Buscar Libros</a>
+                        <a href="#Equipo" id="enlace-equipo" class="btn-header">Conócenos</a>
                         <div runat="server" class="dropdown" id="dropdown">
-                            <input type="image"  src="img/user-img.png" height="60px"  width="50px" id="user"  onclick="location.href = 'user.aspx';" /> 
+                            <a href="user.aspx" style="border: 2px solid rgba(255,255,255, 0.5); border-radius: 100%">
+                                <img id="user" alt="Perfil" src="img/user-img.png" style="width: 50px; height: 60px"/>
+                            </a>
                             <div class="dropdown-content">
                                 <a href="user.aspx">Perfil</a>
-                                <!--<a href="#" onclick="salir()">Salir</a>-->
                                 <asp:LinkButton id="btnSalir" class="btn-salir" runat="server" Text="Salir" OnClick="btnSalir_Click" />
                             </div>
                         </div>
                         <input runat="server" id="registro" class="btn-registro" type="button" onclick="location.href = 'registro.aspx';" value="Registro" />
                         <input runat="server" id="inicio" class="btn-inicio" type="button" onclick="location.href = 'login.aspx';" value="Inicio de sesión" style="margin-right: 15px" />
-                       <!--<a href="#" id="enlace-contacto" class="btn-header">Inicio</a>--> 
+                        
                     </div>
                     <div class="icono" id="open">
                         <span>&#9776;</span>
@@ -78,29 +78,36 @@
          <table style="width: 100%; table-layout: fixed">
              <tr>
                  <th style="width: 100%">
-
-         <div class="input-contenedor">
-             <!-- <i class="fas fa-search icon"></i> -->
-             <input runat="server" type="text" id="txtBus" class="txtBus" placeholder="Buscar..." maxlength="50">
-         </div>
+                     <div class="input-contenedor">
+                         <!-- <i class="fas fa-search icon"></i> -->
+                         <input runat="server" type="text" id="txtBus" class="txtBus" placeholder="Buscar..." maxlength="150">
+                     </div>
                  </th>
-                 <th style="width: 230px">
-         <div class="input-contenedor">
-             <asp:DropDownList runat="server" ID="ddnBus" CssClass="txtBus" style="min-width: 220px">
-                 <asp:ListItem Value="TITULO" Selected="True">Título</asp:ListItem>
-                 <asp:ListItem Value="AUTOR">Autor</asp:ListItem>
-                 <asp:ListItem Value="EDITORIAL">Editorial</asp:ListItem>
-                 <asp:ListItem Value="GENERO">Género</asp:ListItem>
-                 <asp:ListItem Value="ISBN">ISBN</asp:ListItem>
-             </asp:DropDownList>
-         </div>
+                 <th style="width: 120px">
+                     <div class="input-contenedor">
+                         <asp:DropDownList runat="server" ID="ddnBus" CssClass="txtBus" style="min-width: 110px">
+                             <asp:ListItem Value="TITULO" Selected="True">Título</asp:ListItem>
+                             <asp:ListItem Value="AUTOR">Autor</asp:ListItem>
+                             <asp:ListItem Value="EDITORIAL">Editorial</asp:ListItem>
+                             <asp:ListItem Value="GENERO">Género</asp:ListItem>
+                             <asp:ListItem Value="ISBN">ISBN</asp:ListItem>
+                         </asp:DropDownList>
+                     </div>
                  </th>
                  <th style="width: 80px">
-                    <button type="submit" id="btnbus" class="btnbus" runat="server"><i class="fas fa-search blanco"></i></button>
+                    <button type="submit" id="btnbus" class="btnbus" runat="server">
+                        <i class="fas fa-search blanco"></i>
+                    </button>
+                 </th>
+                 <th runat="server" id="tdAdd" style="width: 110px">
+                    <button type="button" id="btnAdd" class="btnadd" runat="server" onclick="location.href = 'book.aspx';">
+                        <i class="fas fa-plus blanco"></i>
+                        Añadir
+                    </button>
                  </th>
              </tr>
              <tr>
-                 <td colspan="3">
+                 <td colspan="4">
                      <div class="resultados" runat="server" id="locodiv">
 
                      </div>
@@ -117,7 +124,12 @@
         <script src="assets/js/filtro.js"></script>
         <script src="assets/js/user.js"></script>
         <script type="text/javascript">
-
+            function irLib(id) {
+                var qstr = document.getElementById("<%=qstr.ClientID%>");
+                qstr.value = id;
+                //console.log(qstr.value);
+                __doPostBack();
+            }
         </script>
 
     </div>

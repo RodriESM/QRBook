@@ -7,9 +7,9 @@
 <table class="tableBus">
     <tr>
         <td class="tditem" style="width: 76px; padding: 0">
-            <asp:Image ID="imglib" runat="server" ImageUrl="../img/user-img.png" Height="100" Width="70"/>
+            <asp:Image ID="imglib" runat="server" ImageUrl="../img/book-img.png" Height="100" Width="70" style="border-radius: 5px"/>
         </td>
-        <td class="tditem" style="width: 40%">
+        <td class="tditem" style="width: 100%">
             <table style="margin: auto; width: 100%">
                 <tr>
                     <td>
@@ -23,7 +23,7 @@
                 </tr>
             </table>
         </td>
-        <td class="tditem" style="width: 40%; border-style: none;">
+        <td class="tditem" style="width: 100%; border-style: none;">
             <table style="margin: auto; width: 100%; table-layout: fixed">
                 <tr>
                     <td style="width: 20%">

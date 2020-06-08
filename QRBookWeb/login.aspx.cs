@@ -48,7 +48,7 @@ namespace QRBookWeb
             } else {
                 //try {
                 MySqlConnection DBCon = cs.CONECTAR();
-                string sel = "select * from USUARIO where USUARIO = '" + user.Value + "' and PASSWORD = '" + pass.Value + "'";
+                string sel = "select * from USUARIO where USUARIO = '" + user.Value + "' and PASSWORD = MD5('" + pass.Value + "')";
                 MySqlCommand cmd = new MySqlCommand(sel, DBCon);
                 MySqlDataReader result = cmd.ExecuteReader();
                 bool encontrado = false;
@@ -62,7 +62,7 @@ namespace QRBookWeb
                 result.Close();
 
                 if (!encontrado) {
-                    sel = "select * from USUARIO where CORREO = '" + user.Value + "' and PASSWORD = '" + pass.Value + "'";
+                    sel = "select * from USUARIO where CORREO = '" + user.Value + "' and PASSWORD = MD5('" + pass.Value + "')";
                     cmd = new MySqlCommand(sel, DBCon);
                     result = cmd.ExecuteReader();
 

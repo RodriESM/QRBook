@@ -19,9 +19,16 @@ namespace QRBookWeb
             string qstr = Request.QueryString["Desde"];
             if (qstr == "Login") {
                 hr.MsgBox("Sesión iniciada.", this.Page, this);
+                //Response.Redirect("/index.aspx");
             } else if (qstr == "Salir") {
                 Session.Clear();
                 Response.Redirect("/index.aspx");
+            } else {
+                string userdel = Request.QueryString["UserDel"];
+                if (!String.IsNullOrEmpty(userdel)) {
+                    hr.MsgBox(userdel, this.Page, this);
+                    //Response.Redirect("/index.aspx");
+                }
             }
 
             //JObject o = (JObject)Session["user"];
@@ -51,7 +58,10 @@ namespace QRBookWeb
                 busqUsu.Visible = false;
             }
 
-
+            /*if (Session["mensaje"] != null) {
+                hr.MsgBox(Session["mensaje"].ToString(), this.Page, this);
+                Session["mensaje"] = null;
+            }*/
 
         }
 

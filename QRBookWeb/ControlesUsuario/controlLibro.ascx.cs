@@ -19,18 +19,13 @@ namespace QRBookWeb.ControlesUsuario {
             this.isbn.Text = isbn;
             this.genero.Text = genero;
             imglib.ImageUrl = portada;
-            if (admin) {
-                btnmodif.Attributes.Add("onClick", "javascript: irLib('" + isbn + "');");
-            } else {
-                tdModif.Visible = false;
-            }
+            if (!admin) {
+                btnmodif.InnerHtml = "<i class=\"fas fa-book-reader fa-lg blanco\" style=\"margin: 7px 0\"></i>";
+            } 
+            btnmodif.Attributes.Add("onClick", "javascript: irLib('" + isbn + "');");
 
         }
 
-        protected void btnmodif_Click(object sender, EventArgs e) {
-            Session["modificar"] = isbn.Text;
-            Response.Redirect("/book.aspx?ISBN=" + isbn.Text);
-        }
 
         /*
         <td class="tditem" style="width: 60px; border-style: none">

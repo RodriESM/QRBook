@@ -229,15 +229,17 @@ nav .enlaces a {
     box-shadow: 0 0 6px 0 rgba(0,0,0,.5);
     overflow: hidden;
     height: 600px;
+    display: flex;
+    justify-content: center;
 }
 
 .people {
-    height: 90%;
+    height: 100%;
 }
 
 .content-card img {
-    width: 100%;
-    height: auto;
+    width: auto;
+    height: 100%;
     object-fit: cover;
 }
 

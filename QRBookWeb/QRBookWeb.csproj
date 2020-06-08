@@ -293,6 +293,13 @@
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
     <Compile Include="assets\cs\Herramientas.cs" />
     <Compile Include="assets\sql\Conexion.cs" />
+    <Compile Include="book.aspx.cs">
+      <DependentUpon>book.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="book.aspx.designer.cs">
+      <DependentUpon>book.aspx</DependentUpon>
+    </Compile>
     <Compile Include="buscarLib.aspx.cs">
       <DependentUpon>buscarLib.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -320,6 +327,13 @@
     </Compile>
     <Compile Include="ControlesUsuario\controlUsuario.ascx.designer.cs">
       <DependentUpon>controlUsuario.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="ControlesUsuario\controlUsuLib.ascx.cs">
+      <DependentUpon>controlUsuLib.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ControlesUsuario\controlUsuLib.ascx.designer.cs">
+      <DependentUpon>controlUsuLib.ascx</DependentUpon>
     </Compile>
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -366,12 +380,14 @@
   <ItemGroup>
     <Content Include="Areas\HelpPage\HelpPage.css" />
     <Content Include="assets\css\estilos.css" />
+    <Content Include="assets\css\infoStyle.css" />
     <Content Include="assets\css\objsearch.css" />
     <Content Include="assets\css\style.css" />
     <Content Include="assets\css\user.css" />
     <Content Include="assets\js\user.js" />
     <Content Include="assets\sql\Conexion a SSL.txt" />
     <Content Include="assets\js\filtro.js" />
+    <Content Include="book.aspx" />
     <Content Include="buscarLib.aspx" />
     <Content Include="buscarUsu.aspx" />
     <Content Include="Content\bootstrap-theme.css" />
@@ -380,11 +396,14 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="ControlesUsuario\controlLibro.ascx" />
     <Content Include="ControlesUsuario\controlUsuario.ascx" />
+    <Content Include="ControlesUsuario\controlUsuLib.ascx" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="img\backgroundposible.jpg" />
+    <Content Include="img\book-img.png" />
     <Content Include="img\clarosencillo.png" />
     <Content Include="img\creativoasombroso.png" />
     <Content Include="img\divertidoeducativo.png" />
+    <Content Include="img\Escaneo_de_imagen.jpeg" />
     <Content Include="img\iconbook.png" />
     <Content Include="img\imagen-trabajo.jpg" />
     <Content Include="img\ivan.jpg" />
@@ -394,11 +413,13 @@
     <Content Include="img\Logo2.png" />
     <Content Include="img\LogoQRBook.png" />
     <Content Include="img\quique.jpg" />
+    <Content Include="img\ResultadoEscaner.jpeg" />
     <Content Include="img\rodri.jpeg" />
     <Content Include="assets\js\jquery.js" />
     <Content Include="assets\js\main.js" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
+    <Content Include="img\splashRecortada.jpg" />
     <Content Include="img\user-img.png" />
     <Content Include="index.aspx" />
     <Content Include="login.aspx" />

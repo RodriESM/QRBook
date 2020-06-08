@@ -7,63 +7,45 @@
 // </generado automáticamente>
 //------------------------------------------------------------------------------
 
-namespace QRBookWeb {
+namespace QRBookWeb.ControlesUsuario {
 
 
-    public partial class login {
+    public partial class controlUsuLib {
 
         /// <summary>
-        /// Control busqUsu.
+        /// Control imglib.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlAnchor busqUsu;
+        protected global::System.Web.UI.WebControls.Image imglib;
 
         /// <summary>
-        /// Control busqLib.
+        /// Control titulo.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlAnchor busqLib;
+        protected global::System.Web.UI.WebControls.TextBox titulo;
 
         /// <summary>
-        /// Control form1.
+        /// Control tdModif.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm form1;
+        protected global::System.Web.UI.HtmlControls.HtmlTableCell tdModif;
 
         /// <summary>
-        /// Control user.
+        /// Control btnmodif.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText user;
-
-        /// <summary>
-        /// Control pass.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputPassword pass;
-
-        /// <summary>
-        /// Control btnLogin.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnLogin;
+        protected global::System.Web.UI.HtmlControls.HtmlButton btnmodif;
     }
 }

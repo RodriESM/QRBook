@@ -1,4 +1,5 @@
 ﻿using MySql.Data.MySqlClient;
+using QRBookWeb.assets.cs;
 using QRBookWeb.assets.sql;
 using QRBookWeb.ControlesUsuario;
 using System;
@@ -12,17 +13,15 @@ namespace QRBookWeb {
     public partial class buscarLib : System.Web.UI.Page {
 
         Conexion cs = new Conexion();
+        Herramientas hr = new Herramientas();
 
         protected void Page_Load(object sender, EventArgs e) {
 
-            /*bool admin = false;
-            if (Session["admin"] != null) {
-                admin = Convert.ToBoolean(Session["admin"]);
+            string qs = Request.QueryString["Desde"];
+            if (qs == "Book") {
+                hr.MsgBox("El libro no está disponible.", this.Page, this);
             }
 
-            if (!admin) {
-                Response.Redirect("/index.aspx");
-            } else {*/
             bool logged = false;
             bool admin = false;
             if (Session["correo"] != null) {
@@ -40,12 +39,16 @@ namespace QRBookWeb {
                 dropdown.Visible = true;
                 if (!admin) {
                     busqUsu.Visible = false;
+
+                    tdAdd.Visible = false;
                 }
             } else {
                 registro.Visible = true;
                 inicio.Visible = true;
                 dropdown.Visible = false;
                 busqUsu.Visible = false;
+
+                tdAdd.Visible = false;
             }
 
 
@@ -53,8 +56,8 @@ namespace QRBookWeb {
                 if (String.IsNullOrEmpty(qstr.Value)) {
                     buscarLibros();
                 } else {
-                    //Session["modificar"] = qstr.Value;
-                    //Response.Redirect("/user.aspx?Email=" + qstr.Value);
+                    Session["modificar"] = qstr.Value;
+                    Response.Redirect("/book.aspx?ISBN=" + qstr.Value);
                 }
             } else {
                 buscarLibros();
@@ -113,5 +116,6 @@ namespace QRBookWeb {
             Session.Clear();
             Response.Redirect(Request.RawUrl.Split('?')[0], true);
         }
+
     }
 }
