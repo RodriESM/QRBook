@@ -214,7 +214,7 @@
             <TextView
                 android:id="@+id/tvSinopsisAmpliado"
                 android:layout_width="360dp"
-                android:layout_height="190dp"
+                android:layout_height="wrap_content"
                 android:layout_marginStart="30dp"
                 android:background="#A9DDDDDD"
                 android:text="@string/txtdSinopsis"
