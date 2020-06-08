@@ -129,8 +129,11 @@ public class LibrosCaracteristicasAmpliado extends AppCompatActivity {
                 if (rsMirarPdf.getString(11) == null || rsMirarPdf.getString(11).equals("")) {
 
                     chbExistePdf.setChecked(false);
+                    chbExistePdf.setBackgroundColor(getResources().getColor(R.color.rojo));
+
                 } else {
                     chbExistePdf.setChecked(true);
+                    chbExistePdf.setBackgroundColor(getResources().getColor(R.color.verde));
                 }
             }
 

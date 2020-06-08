@@ -172,7 +172,33 @@
                 android:textSize="15sp"
                 android:textStyle="italic" />
 
+            <LinearLayout
+                android:layout_marginTop="25dp"
+                android:layout_width="match_parent"
+                android:layout_height="29dp"
+                android:orientation="horizontal">
 
+
+                <TextView
+                    android:id="@+id/txtExistePdf"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="30dp"
+                    android:text="@string/txtPdf"
+                    android:textColor="#000000"
+                    android:textSize="15sp"
+                    android:textStyle="italic|bold"
+
+                    />
+
+                <CheckBox
+                    android:id="@+id/chbExistePdf"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="30dp"
+                    android:clickable="false" />
+
+            </LinearLayout>
             <TextView
                 android:layout_width="360dp"
                 android:layout_height="29dp"
@@ -197,27 +223,6 @@
                 android:textStyle="italic" />
 
 
-            <TextView
-                android:id="@+id/txtExistePdf"
-                android:layout_width="32dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="30dp"
-                android:layout_marginTop="25dp"
-                android:background="#A9DDDDDD"
-                android:text="@string/txtPdf"
-                android:textColor="#000000"
-                android:textSize="15sp"
-                android:textStyle="italic|bold"
-
-                />
-
-            <CheckBox
-                android:id="@+id/chbExistePdf"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="30dp"
-                android:background="#A9DDDDDD"
-                android:clickable="false" />
 
             <Button
                 android:id="@+id/btnAnadir"
@@ -294,7 +299,7 @@
             android:layout_height="15dp"
             app:fab_colorNormal="@color/common_google_signin_btn_text_light_pressed"
             app:fab_colorPressed="@color/design_default_color_secondary_variant"
-            app:fab_icon="@android:drawable/ic_menu_gallery"
+            app:fab_icon="@drawable/logoleer"
             app:fab_labelStyle="@color/common_google_signin_btn_text_light_pressed"
             app:fab_size="normal"
             app:fab_title="Leer"

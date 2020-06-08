@@ -6,4 +6,7 @@
     <color name="black">#000</color>
     <color name="alerta">#37ED0000</color>
     <color name="transparente">#00FFFFFF</color>
+    <color name="rojo">#9EFF0000</color>
+    <color name="verde">#A643FF00</color>
+
 </resources>
