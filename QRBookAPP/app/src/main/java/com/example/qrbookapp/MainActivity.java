@@ -92,6 +92,7 @@ public class MainActivity extends AppCompatActivity {
                         if (rs.next()) {
                             Toast.makeText(MainActivity.this, "Bienvenido " + rs.getString(1), Toast.LENGTH_SHORT).show();
                             EscribirEnFichero(rs.getString(2), etPassword.getText().toString());
+                            rs.close();
                             Intent i = new Intent(MainActivity.this, InicioActivity.class);
                             startActivity(i);
                             finish();

@@ -52,7 +52,7 @@ public class PDF extends AppCompatActivity {
             PDFView pdfView = findViewById(R.id.pdfView);
             pdfView.fromFile(getDatabasePath("/sdcard/Documents/" + isbn + correo + ".pdf"))
                     .enableSwipe(true) // allows to block changing pages using swipe
-                    .swipeHorizontal(false)
+                    .swipeHorizontal(true)
                     .enableDoubletap(true)
                     .defaultPage(0)
                     .enableAnnotationRendering(false) // render annotations (such as comments, colors or forms)

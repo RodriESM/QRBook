@@ -29,6 +29,7 @@
     <string name="txtdGenero">Genera</string>
     <string name="txtSinopsis">Sinópsis</string>
     <string name="txtdSinopsis">Sinopsis</string>
+    <string name="txtPdf">PDF</string>
     <string name="btnAnadir">Añadir</string>
     <string name="bgnMainActivity">Fondo de la actividad de inicio de sesión obtenida de la web</string>
     <string name="imgLogoMainActi">Logo de QRBook</string>

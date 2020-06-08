@@ -99,6 +99,7 @@ public class PerfilUsuario extends AppCompatActivity {
             while (rs.next()) {
                 usuario = new Usuario(correo, rs.getString(2), contrasenaRecordada, rs.getString(4), rs.getString(5), rs.getString(6), rs.getBytes(7));
             }
+            rs.close();
 
         } catch (Exception e) {
             e.getStackTrace();
@@ -164,6 +165,7 @@ public class PerfilUsuario extends AppCompatActivity {
                             ps.setString(5, correo);
 
                             ps.executeUpdate();
+                            ps.close();
                             finish();
 
                         } else {
@@ -182,9 +184,11 @@ public class PerfilUsuario extends AppCompatActivity {
                                 ps.setString(6, correo);
 
                                 ps.executeUpdate();
+                                ps.close();
                                 finish();
 
                             }
+                            rs.close();
                         }
                     } catch (SQLException e) {
                         e.printStackTrace();
@@ -212,6 +216,7 @@ public class PerfilUsuario extends AppCompatActivity {
                             ps.setString(6, correo);
 
                             ps.executeUpdate();
+                            ps.close();
 
                             EscribirEnFichero(correo, contrasena);
                             finish();
@@ -232,11 +237,13 @@ public class PerfilUsuario extends AppCompatActivity {
                                 ps.setString(7, correo);
 
                                 ps.executeUpdate();
-
+                                ps.close();
+                                rs.close();
                                 EscribirEnFichero(correo, contrasena);
                                 finish();
 
                             }
+                            rs.close();
                         }
 
                     } catch (SQLException | IOException e) {

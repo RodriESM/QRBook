@@ -85,6 +85,7 @@ public class ListaQr extends AppCompatActivity {
                 QR qr = new QR(rsUser.getString(1), rsUser.getString(2), rsUser.getString(3), rsUser.getString(4), rsUser.getString(5), rsUser.getString(6));
                 arrayQr.add(qr);
             }
+            rsUser.close();
 
         } catch (SQLException e) {
             e.printStackTrace();

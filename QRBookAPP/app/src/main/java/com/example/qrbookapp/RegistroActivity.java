@@ -6,6 +6,7 @@ import android.graphics.drawable.BitmapDrawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
+import android.view.KeyEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -70,13 +71,18 @@ public class RegistroActivity extends AppCompatActivity {
                 String usuario = etUsuario.getText().toString();
 
                 try {
-                    ResultSet rsusuario = connection.createStatement().executeQuery("SELECT USUARIO FROM USUARIO WHERE correo like '" + email + "'");
-                    if (!email.matches("^\\w+@[a-zA-Z_]+?.[a-zA-Z]{2,3}$")) {
+                    ResultSet rsUsuarioExiste = connection.createStatement().executeQuery("SELECT USUARIO FROM USUARIO WHERE USUARIO like '" + usuario + "'");
+                    ResultSet rsusuario = connection.createStatement().executeQuery("SELECT correo FROM USUARIO WHERE correo like '" + email + "'");
+                    if (rsUsuarioExiste.next()) {
+                        etUsuario.setBackgroundColor(getColor(R.color.alerta));
+                        etUsuario.setError("Nombre de usuario no disponible");
+                    }
+                    else if (!email.matches("^\\w+@[a-zA-Z_]+?.[a-zA-Z]{2,3}$")) {
                         etEmail.setBackgroundColor(getColor(R.color.alerta));
                         etEmail.setError("Correo inválido o ya en uso.");
                     } else if (rsusuario.next()) {
                         etEmail.setBackgroundColor(getColor(R.color.alerta));
-                        etEmail.setError("Nombre de usuario no disponible");
+                        etEmail.setError("Correo no disponible");
                     } else if (ps1.length() < 8) {
                         etEmail.setBackgroundColor(getColor(R.color.transparente));
                         etPassword.setBackgroundColor(getColor(R.color.alerta));
@@ -105,11 +111,17 @@ public class RegistroActivity extends AppCompatActivity {
                         ps.setString(3, usuario);
                         ps.setBytes(4, imagenByte);
                         ps.executeUpdate();
+                        ps.close();
+                        rsusuario.close();
+                        rsUsuarioExiste.close();
                         Intent i = new Intent(RegistroActivity.this, MainActivity.class);
                         startActivity(i);
+                        finish();
 
 
                     }
+                    rsusuario.close();
+                    rsUsuarioExiste.close();
                 } catch (SQLException e) {
                     e.printStackTrace();
                 }
@@ -133,6 +145,14 @@ public class RegistroActivity extends AppCompatActivity {
                 e.printStackTrace();
             }
         }
+
+    }
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if ((keyCode == KeyEvent.KEYCODE_BACK)) {
+            super.finish();
+        }
+        return super.onKeyDown(keyCode, event);
 
     }
 }

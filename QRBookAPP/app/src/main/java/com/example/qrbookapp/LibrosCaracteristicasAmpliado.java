@@ -12,6 +12,7 @@ import android.os.Environment;
 import android.view.KeyEvent;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -47,6 +48,8 @@ public class LibrosCaracteristicasAmpliado extends AppCompatActivity {
      AccesoFichero accesoFichero = new AccesoFichero();
      String correo;
      Descarga d = new Descarga();
+     CheckBox chbExistePdf;
+     TextView txtExistePdf;
     //Conexión
      Connection connection = ConnectionClass.con;
 
@@ -64,6 +67,9 @@ public class LibrosCaracteristicasAmpliado extends AppCompatActivity {
         tvIdiomaAmpliado = findViewById(R.id.tvIdiomaAmpliado);
         tvGeneroAmpliado = findViewById(R.id.tvGeneroAmpliado);
         tvIsbnAmpliado = findViewById(R.id.tvIsbnAmpliado);
+
+        txtExistePdf=findViewById(R.id.txtExistePdf);
+        chbExistePdf=findViewById(R.id.chbExistePdf);
 
         imgLibroAmpliado = findViewById(R.id.imgLibroAmpliado);
         btnVer = findViewById(R.id.btnVer);
@@ -116,24 +122,46 @@ public class LibrosCaracteristicasAmpliado extends AppCompatActivity {
             }
         }
         try {
+            //Miramos si el libro contiene un pdf de lectura o no
+            ResultSet rsMirarPdf = connection.createStatement().executeQuery("SELECT * FROM LIBRO where ISBN like '" + tvIsbnAmpliado.getText().toString() + "'");
 
+            if (rsMirarPdf.next()) {
+                if (rsMirarPdf.getString(11) == null || rsMirarPdf.getString(11).equals("")) {
+
+                    chbExistePdf.setChecked(false);
+                } else {
+                    chbExistePdf.setChecked(true);
+                }
+            }
+
+            rsMirarPdf.close();
 
             //A partir de un resulset obtenemos los datos de la consulta lanzada a la base de datos
             ResultSet rs = connection.createStatement().executeQuery("SELECT * FROM LIBRO where ISBN in (SELECT ISBN from  USUARIOLIBRO where CORREO like '" + correo + "' AND ISBN like '" + tvIsbnAmpliado.getText().toString() + "')");
             //Recorremos todos lo libros que tenemos en la ase de datos y los introducimos en el array
 
+
             //Hacemos visibles o invisibles los botones.
             if (rs.next()) {
                 fab.setVisibility(View.VISIBLE);
                 btnAnadir.setVisibility(View.INVISIBLE);
+                chbExistePdf.setVisibility(View.GONE);
+                txtExistePdf.setVisibility(View.GONE);
+
+
+
             } else {
                 btnAnadir.setVisibility(View.VISIBLE);
+                chbExistePdf.setVisibility(View.VISIBLE);
+                txtExistePdf.setVisibility(View.VISIBLE);
                 fab.setVisibility(View.INVISIBLE);
             }
+            rs.close();
 
         } catch (SQLException e) {
             e.printStackTrace();
         }
+
 
 
         btnVer.setOnClickListener(new View.OnClickListener() {
@@ -187,6 +215,7 @@ public class LibrosCaracteristicasAmpliado extends AppCompatActivity {
                     ps.setString(1, correo);
                     ps.setString(2, tvIsbnAmpliado.getText().toString());
                     ps.executeUpdate();
+                    ps.close();
 
                 } catch (Exception e) {
                     e.getStackTrace();
@@ -213,7 +242,7 @@ public class LibrosCaracteristicasAmpliado extends AppCompatActivity {
 
                     //Eliminamos todos los qr del usuario.
                     //TO_DO No sabemos si habría que borrar de la base de datos los qr correspondientes al libro que se va a eliminar
-                    ResultSet rsqr =connection.createStatement().executeQuery("delete from USUARIOQR where correo like '"+correo+"' and isbn like'"+tvIsbnAmpliado.getText().toString()+"'");
+                    int rsqr =connection.createStatement().executeUpdate("delete from USUARIOQR where correo like '"+correo+"' and isbn like'"+tvIsbnAmpliado.getText().toString()+"'");
 
                     @SuppressLint("SdCardPath") File file = new File("/sdcard/Documents/" + tvIsbnAmpliado.getText().toString() + correo + ".pdf");
                     if (file.exists()) {

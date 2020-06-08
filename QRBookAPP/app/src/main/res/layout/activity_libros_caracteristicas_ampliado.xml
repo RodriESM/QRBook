@@ -184,6 +184,7 @@
                 android:textSize="15sp"
                 android:textStyle="italic|bold" />
 
+
             <TextView
                 android:id="@+id/tvSinopsisAmpliado"
                 android:layout_width="360dp"
@@ -194,6 +195,29 @@
                 android:textColor="#000000"
                 android:textSize="15sp"
                 android:textStyle="italic" />
+
+
+            <TextView
+                android:id="@+id/txtExistePdf"
+                android:layout_width="32dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="25dp"
+                android:background="#A9DDDDDD"
+                android:text="@string/txtPdf"
+                android:textColor="#000000"
+                android:textSize="15sp"
+                android:textStyle="italic|bold"
+
+                />
+
+            <CheckBox
+                android:id="@+id/chbExistePdf"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="30dp"
+                android:background="#A9DDDDDD"
+                android:clickable="false" />
 
             <Button
                 android:id="@+id/btnAnadir"
