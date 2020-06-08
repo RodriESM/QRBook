@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="buscarUsu.aspx.cs" Inherits="QRBookWeb.buscarUsu" EnableEventValidation="false"%>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="buscarLib.aspx.cs" Inherits="QRBookWeb.buscarLib" EnableEventValidation="false" %>
 
 <!DOCTYPE html>
 
@@ -13,6 +13,7 @@
 </head>
 
 <body class="hidden">
+    <form id="form1" runat="server">
     <!--PRECARGA-->
     <div class="centrado" id="onload">
             <div class="loadingio-spinner-blocks-a73ijrg8fkr">
@@ -31,7 +32,7 @@
 
 
 <!--CABECERA-->
-        <header>
+        <header style="padding-bottom: 40px">
             <a name="Inicio"/>
             <nav id="nav">
                 <div class="contenedor-nav ">
@@ -50,9 +51,12 @@
                             </a>
                             <div class="dropdown-content">
                                 <a href="user.aspx">Perfil</a>
-                                <a href="index.aspx?Desde=Salir">Salir</a>
+                                <asp:LinkButton id="btnSalir" class="btn-salir" runat="server" Text="Salir" OnClick="btnSalir_Click" />
                             </div>
                         </div>
+                        <input runat="server" id="registro" class="btn-registro" type="button" onclick="location.href = 'registro.aspx';" value="Registro" />
+                        <input runat="server" id="inicio" class="btn-inicio" type="button" onclick="location.href = 'login.aspx';" value="Inicio de sesión" style="margin-right: 15px" />
+                        
                     </div>
                     <div class="icono" id="open">
                         <span>&#9776;</span>
@@ -61,9 +65,8 @@
             </nav>
         </header>
 
-<div class="separacionBus">
-    <form id="form1" runat="server" class="formularioBus">
-    <h1 class="tituloBus">Buscar Usuarios</h1>
+<div class="formularioBus">
+    <h1 class="tituloBus">Buscar Libros</h1>
      <div class="contenedor">
          
          <asp:ScriptManager runat="server" />
@@ -75,27 +78,36 @@
          <table style="width: 100%; table-layout: fixed">
              <tr>
                  <th style="width: 100%">
-
-         <div class="input-contenedor">
-             <!-- <i class="fas fa-search icon"></i> -->
-             <input runat="server" type="text" id="txtBus" class="txtBus" placeholder="Buscar..." maxlength="50">
-         </div>
+                     <div class="input-contenedor">
+                         <!-- <i class="fas fa-search icon"></i> -->
+                         <input runat="server" type="text" id="txtBus" class="txtBus" placeholder="Buscar..." maxlength="150">
+                     </div>
                  </th>
-                 <th style="width: 230px">
-         <div class="input-contenedor">
-             <asp:DropDownList runat="server" ID="ddnBus" CssClass="txtBus" style="min-width: 220px">
-                 <asp:ListItem Value="apenom" Selected="True">Nombre y apellidos</asp:ListItem>
-                 <asp:ListItem Value="USUARIO">Nombre de usuario</asp:ListItem>
-                 <asp:ListItem Value="CORREO">Correo electrónico</asp:ListItem>
-             </asp:DropDownList>
-         </div>
+                 <th style="width: 120px">
+                     <div class="input-contenedor">
+                         <asp:DropDownList runat="server" ID="ddnBus" CssClass="txtBus" style="min-width: 110px">
+                             <asp:ListItem Value="TITULO" Selected="True">Título</asp:ListItem>
+                             <asp:ListItem Value="AUTOR">Autor</asp:ListItem>
+                             <asp:ListItem Value="EDITORIAL">Editorial</asp:ListItem>
+                             <asp:ListItem Value="GENERO">Género</asp:ListItem>
+                             <asp:ListItem Value="ISBN">ISBN</asp:ListItem>
+                         </asp:DropDownList>
+                     </div>
                  </th>
                  <th style="width: 80px">
-                    <button type="submit" id="btnbus" class="btnbus" runat="server"><i class="fas fa-search blanco"></i></button>
+                    <button type="submit" id="btnbus" class="btnbus" runat="server">
+                        <i class="fas fa-search blanco"></i>
+                    </button>
+                 </th>
+                 <th runat="server" id="tdAdd" style="width: 110px">
+                    <button type="button" id="btnAdd" class="btnadd" runat="server" onclick="location.href = 'book.aspx';">
+                        <i class="fas fa-plus blanco"></i>
+                        Añadir
+                    </button>
                  </th>
              </tr>
              <tr>
-                 <td colspan="3">
+                 <td colspan="4">
                      <div class="resultados" runat="server" id="locodiv">
 
                      </div>
@@ -112,17 +124,16 @@
         <script src="assets/js/filtro.js"></script>
         <script src="assets/js/user.js"></script>
         <script type="text/javascript">
-            function irUsu(em) {
+            function irLib(id) {
                 var qstr = document.getElementById("<%=qstr.ClientID%>");
-                qstr.value = em;
+                qstr.value = id;
                 //console.log(qstr.value);
                 __doPostBack();
             }
-
         </script>
 
-    </form>
     </div>
+    </form>
 </body>
 
 </html>

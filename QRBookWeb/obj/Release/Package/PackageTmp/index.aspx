@@ -46,25 +46,26 @@
             <nav id="nav">
                 <div class="contenedor-nav ">
                     <div class="logo">
-                        <img alt="logo" src="img/Logo.png" width="100px"/>
+                        <button type="button" style="background: none; border: none; cursor: pointer" onclick="location.href = 'index.aspx';">
+                            <img alt="QrBook" src="img/Logo.png" style="width: 85px"/>
+                        </button>
                     </div>
                     <div class="enlaces" id="enlaces">
                         <a href="buscarUsu.aspx" id="busqUsu" class="btn-header" runat="server">Buscar Usuarios</a>
-                        <a href="#Inicio" id="enlace-inicio" class="btn-header">Inicio</a>
-                        <a href="#Informacion" id="enlace-info" class="btn-header">Información</a>
-                        <a href="#Desarrollo" id="enlace-app" class="btn-header">Desarrollo</a>
+                        <a href="buscarLib.aspx" id="busqLib" class="btn-header" runat="server">Libros</a>
                         <a href="#Equipo" id="enlace-equipo" class="btn-header">Conócenos</a>
                         <div runat="server" class="dropdown" id="dropdown">
-                            <input type="image"  src="img/user-img.png" height="60px"  width="50px" id="user"  onclick="location.href = 'user.aspx';" /> 
+                            <a href="user.aspx" style="border: 2px solid rgba(255,255,255, 0.5); border-radius: 100%">
+                                <img id="user" alt="Perfil" src="img/user-img.png" style="width: 50px; height: 60px"/>
+                            </a>
                             <div class="dropdown-content">
                                 <a href="user.aspx">Perfil</a>
-                                <!--<a href="#" onclick="salir()">Salir</a>-->
                                 <asp:LinkButton id="btnSalir" class="btn-salir" runat="server" Text="Salir" OnClick="btnSalir_Click" />
                             </div>
                         </div>
                         <input runat="server" id="registro" class="btn-registro" type="button" onclick="location.href = 'registro.aspx';" value="Registro" />
                         <input runat="server" id="inicio" class="btn-inicio" type="button" onclick="location.href = 'login.aspx';" value="Inicio de sesión" style="margin-right: 15px" />
-                       <!--<a href="#" id="enlace-contacto" class="btn-header">Inicio</a>--> 
+                       
                     </div>
                     <div class="icono" id="open">
                         <span>&#9776;</span>
@@ -123,26 +124,26 @@
                 
                 <div class="cont-work marketing">
                     <div class="img-work">
-                        <img src="img/marketing1.jpeg" alt="">
+                        <img src="img/splashRecortada.jpg" alt="">
                     </div>
                     <div class="textos-work">
-                        <h4>Prueba</h4>
+                        <h4>Inicia la aplicación.</h4>
                     </div>
                 </div>
                 <div class="cont-work marketing">
                     <div class="img-work">
-                        <img src="img/marketing2.jpeg" alt="">
+                        <img src="img/Escaneo_de_imagen.jpeg" alt="">
                     </div>
                     <div class="textos-work">
-                        <h4>Prueba</h4>
+                        <h4>Escanea el QR que desees.</h4>
                     </div>
                 </div>
                 <div class="cont-work marketing">
                     <div class="img-work">
-                        <img src="img/marketing3.jpeg" alt="">
+                        <img src="img/ResultadoEscaner.jpeg" alt="">
                     </div>
                     <div class="textos-work">
-                        <h4>Prueba</h4>
+                        <h4>Visualiza o añade tus contenidos <3</h4>
                     </div>
                 </div>
             </div>

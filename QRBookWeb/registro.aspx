@@ -44,7 +44,7 @@
                     </div>
                     <div class="enlaces" id="enlaces">
                         <a href="buscarUsu.aspx" id="busqUsu" class="btn-header" runat="server">Buscar Usuarios</a>
-                        <a href="buscarLib.aspx" id="busqLib" class="btn-header" runat="server">Buscar Libros</a>
+                        <a href="buscarLib.aspx" id="busqLib" class="btn-header" runat="server">Libros</a>
                         <a href="index.aspx#Equipo" id="enlace-equipo" class="btn-header">Conócenos</a>
                          
                         <input id="registro" class="btn-registro" type="button" onclick="location.href='registro.aspx';" value="Registro" />

@@ -45,7 +45,7 @@
                     </div>
                     <div class="enlaces" id="enlaces">
                         <a href="buscarUsu.aspx" id="busqUsu" class="btn-header" runat="server">Buscar Usuarios</a>
-                        <a href="buscarLib.aspx" id="busqLib" class="btn-header" runat="server">Buscar Libros</a>
+                        <a href="buscarLib.aspx" id="busqLib" class="btn-header" runat="server">Libros</a>
                         <a href="#Equipo" id="enlace-equipo" class="btn-header">Conócenos</a>
                         <div runat="server" class="dropdown" id="dropdown">
                             <a href="user.aspx" style="border: 2px solid rgba(255,255,255, 0.5); border-radius: 100%">
