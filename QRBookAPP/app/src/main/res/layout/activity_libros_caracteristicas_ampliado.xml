@@ -85,7 +85,7 @@
             <TextView
                 android:id="@+id/tvAutorAmpliado"
                 android:layout_width="360dp"
-                android:layout_height="33dp"
+                android:layout_height="wrap_content"
                 android:layout_marginStart="30dp"
                 android:text="@string/txtdAutor"
                 android:textColor="#000000"
