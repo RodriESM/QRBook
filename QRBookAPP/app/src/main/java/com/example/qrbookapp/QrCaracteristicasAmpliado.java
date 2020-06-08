@@ -31,7 +31,7 @@ public class QrCaracteristicasAmpliado extends AppCompatActivity {
         ajustesVisorWeb.setJavaScriptEnabled(true);
         ajustesVisorWeb.setUseWideViewPort(true);
         ajustesVisorWeb.setLoadWithOverviewMode(true);
-
+        ajustesVisorWeb.setBuiltInZoomControls(true);
         getIntent().getSerializableExtra("qr");
         Bundle info = getIntent().getExtras();
 
