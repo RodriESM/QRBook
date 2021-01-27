@@ -274,7 +274,7 @@ public class LibrosCaracteristicasAmpliado extends AppCompatActivity {
         });
 
         //Dependiendo si tiene PDF para leer o no, mostraremos el botón.
-        if (libroSeleccionadoAnteriormente.getPDF()==null) {
+        if (libroSeleccionadoAnteriormente.getPDF()==null||libroSeleccionadoAnteriormente.getPDF().equals("")) {
             btnLeer.setVisibility(View.GONE);
         } else {
             btnLeer.setVisibility(View.VISIBLE);
